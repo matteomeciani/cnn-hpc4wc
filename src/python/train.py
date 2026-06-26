@@ -24,14 +24,14 @@ dataset_test_part = MNIST(
 
 # Training parameters
 K_FOLDS = 5
-NUM_EPOCHS = 10
-BATCH_SIZE = 64
+NUM_EPOCHS = 5
+BATCH_SIZE = 10
 
 # Set number of threads for CPU to 1
 torch.set_num_threads(1)
 
 
-def train_model(network, trainloader, optimizer, scheduler, loss_function, num_epochs, device):
+def train_model(network, trainloader, optimizer, loss_function, num_epochs, device):
     for epoch in range(num_epochs):
         print(f'Starting epoch {epoch + 1}')
         current_loss = 0.0
@@ -50,8 +50,6 @@ def train_model(network, trainloader, optimizer, scheduler, loss_function, num_e
                 print('Loss after mini-batch %5d: %.3f' % (i + 1, current_loss / 500))
                 current_loss = 0.0
 
-        scheduler.step()                 # ← on scheduler, once per epoch
-        print(f'Epoch {epoch+1} LR: {scheduler.get_last_lr()[0]:.2e}')
 
 def test_model(network, testloader, device):
    # Function to test the model on the test set for a fold
@@ -94,9 +92,8 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function, batch_size, devi
         network = CNN(in_channels=1, num_classes=10).to(device)
         network.apply(reset_weights)
         optimizer = torch.optim.Adam(network.parameters(), lr=1e-4)
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6)
 
-        train_model(network, trainloader, optimizer, scheduler, loss_function, num_epochs, device)
+        train_model(network, trainloader, optimizer, loss_function, num_epochs, device)
 
         print('Training process has finished. Saving trained model.')
         print('Starting testing')
