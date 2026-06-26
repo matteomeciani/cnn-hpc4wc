@@ -1,6 +1,8 @@
 import os
+import json
 import torch
 import argparse
+import numpy as np
 from torch import nn
 from torchvision.datasets import MNIST
 from torch.utils.data import DataLoader, ConcatDataset, SubsetRandomSampler
@@ -8,6 +10,8 @@ from torchvision import transforms
 
 from sklearn.model_selection import KFold
 import matplotlib.pyplot as plt
+
+from model import CNN, reset_weights
 
 
 # Import dataset
@@ -17,6 +21,10 @@ dataset_train_part = MNIST(
 dataset_test_part = MNIST(
     _data_root, download=False, transform=transforms.ToTensor(), train=False)
 
+
+# Training parameters
+K_FOLDS = 5
+NUM_EPOCHS = 5
 
 # Set number of threads for CPU to 1
 torch.set_num_threads(1)
@@ -67,6 +75,8 @@ def test_model(network, testloader, device):
 def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
     # Function to perform k-fold cross-validation
     results = {}
+    best_accuracy = -1
+    best_network = None
     dataset = ConcatDataset([dataset_train_part, dataset_test_part])
     kfold = KFold(n_splits=k_folds, shuffle=True)
 
@@ -96,9 +106,32 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
 
         accuracy = test_model(network, testloader, device)
         results[fold] = accuracy
+
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            best_network = network
+
         print('--------------------------------')
 
+    print(f'Best fold accuracy: {best_accuracy:.2f}% — saving C++ weights.')
+    save_weights_for_cpp(best_network, './weights_cpp')
+
     return results
+
+def save_weights_for_cpp(network, save_dir):
+    """Save each layer's weights as raw float32 binary + a JSON manifest with shapes.
+    In C++: read manifest to get layer names/shapes, then fread() the .bin files."""
+    os.makedirs(save_dir, exist_ok=True)
+    manifest = {}
+    for name, tensor in network.state_dict().items():
+        arr = tensor.cpu().float().numpy()
+        filename = name.replace('.', '_') + '.bin'
+        arr.tofile(os.path.join(save_dir, filename))
+        manifest[name] = {'shape': list(arr.shape), 'file': filename}
+    with open(os.path.join(save_dir, 'manifest.json'), 'w') as f:
+        json.dump(manifest, f, indent=2)
+    print(f'Saved C++ weights to {save_dir}/')
+
 
 # Function to print k-fold cross-validation results
 def print_results(results):
@@ -119,8 +152,15 @@ def print_results(results):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', type=str, default='cpu', choices=['cpu', 'cuda'])
+    parser.add_argument('--k_folds', type=int, default=K_FOLDS)
+    parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
     args = parser.parse_args()
     device = torch.device(args.device)
+    loss_function = nn.CrossEntropyLoss()
 
-    # then pass device through to your functions
-    results = k_fold_cross_validation(k_folds, num_epochs, loss_function, device, ...)
+    results = k_fold_cross_validation(args.k_folds, args.num_epochs, loss_function, device)
+    print_results(results)
+
+
+if __name__ == '__main__':
+    main()
