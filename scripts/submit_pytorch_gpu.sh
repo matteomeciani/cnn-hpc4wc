@@ -10,23 +10,17 @@
 #SBATCH --output=logs/%j_mnist_gpu.out
 #SBATCH --error=logs/%j_mnist_gpu.err
 
+mkdir -p $SLURM_SUBMIT_DIR/logs
 cd $SLURM_SUBMIT_DIR/src/python
-
-mkdir -p logs
 
 echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURMD_NODENAME"
 echo "Device: GPU"
 echo "Start: $(date)"
 
-VENV="$HOME/venvs/venv"
-if [ -f "$VENV/bin/activate" ]; then
-    echo "Activating venv: $VENV"
-    source "$VENV/bin/activate"
-else
-    echo "WARNING: venv not found at $VENV, falling back to uenv base"
-fi
 
-uenv run pytorch/v2.9.1:v2 --view=default -- python3 train.py --device cuda
+VENV="$HOME/venvs/venv"
+
+uenv run pytorch/v2.9.1:v2 --view=default -- bash -c "source $VENV/bin/activate && python3 train.py --device cuda"
 
 echo "End: $(date)"

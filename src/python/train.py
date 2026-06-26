@@ -11,20 +11,18 @@ import matplotlib.pyplot as plt
 
 
 # Import dataset
+_data_root = os.path.join(os.path.dirname(__file__), '../../data')
 dataset_train_part = MNIST(
-    './data', download=False, transform=transforms.ToTensor(), train=True)
+    _data_root, download=False, transform=transforms.ToTensor(), train=True)
 dataset_test_part = MNIST(
-    './data', download=False, transform=transforms.ToTensor(), train=False)
+    _data_root, download=False, transform=transforms.ToTensor(), train=False)
 
-
-# Set device
-device = torch.device('cpu')
 
 # Set number of threads for CPU to 1
 torch.set_num_threads(1)
 
 
-def train_model(network, trainloader, optimizer, loss_function, num_epochs):
+def train_model(network, trainloader, optimizer, loss_function, num_epochs, device):
     # Function to perform the training.
     for epoch in range(num_epochs):
         print(f'Starting epoch {epoch + 1}')
@@ -48,7 +46,7 @@ def train_model(network, trainloader, optimizer, loss_function, num_epochs):
                 current_loss = 0.0
 
 
-def test_model(network, testloader):
+def test_model(network, testloader, device):
    # Function to test the model on the test set for a fold
     correct, total = 0, 0
 
@@ -66,7 +64,7 @@ def test_model(network, testloader):
     return accuracy
 
 
-def k_fold_cross_validation(k_folds, num_epochs, loss_function):
+def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
     # Function to perform k-fold cross-validation
     results = {}
     dataset = ConcatDataset([dataset_train_part, dataset_test_part])
@@ -88,7 +86,7 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function):
         network.apply(reset_weights)
         optimizer = torch.optim.Adam(network.parameters(), lr=1e-4)
 
-        train_model(network, trainloader, optimizer, loss_function, num_epochs)
+        train_model(network, trainloader, optimizer, loss_function, num_epochs, device)
 
         print('Training process has finished. Saving trained model.')
         print('Starting testing')
@@ -96,7 +94,7 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function):
         save_path = f'./model-fold-{fold}.pth'
         torch.save(network.state_dict(), save_path)
 
-        accuracy = test_model(network, testloader)
+        accuracy = test_model(network, testloader, device)
         results[fold] = accuracy
         print('--------------------------------')
 

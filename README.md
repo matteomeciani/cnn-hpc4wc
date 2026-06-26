@@ -47,7 +47,7 @@ You are now inside the uenv shell.
 ```bash
 unset PYTHONPATH
 export PYTHONUSERBASE="$(dirname "$(dirname "$(which python)")")"
-python -m venv --system-site-packages ~/venvs/pytorch-v2.9.1
+python -m venv --system-site-packages ~/venvs/venv
 ```
 
 This creates a venv on top of the uenv so you can install extra packages without hitting the
@@ -58,7 +58,7 @@ read-only filesystem. Do this only once.
 ## 4. Activate the venv and install dependencies
 
 ```bash
-source ~/venvs/pytorch-v2.9.1/bin/activate
+source ~/venvs/venv/bin/activate
 pip install -r requirements.txt
 ```
 
