@@ -24,14 +24,14 @@ dataset_test_part = MNIST(
 
 # Training parameters
 K_FOLDS = 5
-NUM_EPOCHS = 5
+NUM_EPOCHS = 10
+BATCH_SIZE = 64
 
 # Set number of threads for CPU to 1
 torch.set_num_threads(1)
 
 
-def train_model(network, trainloader, optimizer, loss_function, num_epochs, device):
-    # Function to perform the training.
+def train_model(network, trainloader, optimizer, scheduler, loss_function, num_epochs, device):
     for epoch in range(num_epochs):
         print(f'Starting epoch {epoch + 1}')
         current_loss = 0.0
@@ -39,7 +39,7 @@ def train_model(network, trainloader, optimizer, loss_function, num_epochs, devi
         for i, data in enumerate(trainloader, 0):
             inputs, targets = data
             inputs, targets = inputs.to(device), targets.to(device)
-            optimizer.zero_grad()
+            optimizer.zero_grad()        
             outputs = network(inputs)
             loss = loss_function(outputs, targets)
             loss.backward()
@@ -47,12 +47,11 @@ def train_model(network, trainloader, optimizer, loss_function, num_epochs, devi
             current_loss += loss.item()
 
             if i % 500 == 499:
-                print(
-                    'Loss after mini-batch %5d: %.3f' %
-                     (i + 1, current_loss / 500)
-                )
+                print('Loss after mini-batch %5d: %.3f' % (i + 1, current_loss / 500))
                 current_loss = 0.0
 
+        scheduler.step()                 # ← on scheduler, once per epoch
+        print(f'Epoch {epoch+1} LR: {scheduler.get_last_lr()[0]:.2e}')
 
 def test_model(network, testloader, device):
    # Function to test the model on the test set for a fold
@@ -72,7 +71,7 @@ def test_model(network, testloader, device):
     return accuracy
 
 
-def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
+def k_fold_cross_validation(k_folds, num_epochs, loss_function, batch_size, device):
     # Function to perform k-fold cross-validation
     results = {}
     best_accuracy = -1
@@ -88,21 +87,19 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
         test_subsampler = SubsetRandomSampler(test_ids)
 
         trainloader = DataLoader(
-            dataset, batch_size=10, sampler=train_subsampler)
+            dataset, batch_size=batch_size, sampler=train_subsampler)
         testloader = DataLoader(
-            dataset, batch_size=10, sampler=test_subsampler)
+            dataset, batch_size=batch_size, sampler=test_subsampler)
 
         network = CNN(in_channels=1, num_classes=10).to(device)
         network.apply(reset_weights)
         optimizer = torch.optim.Adam(network.parameters(), lr=1e-4)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6)
 
-        train_model(network, trainloader, optimizer, loss_function, num_epochs, device)
+        train_model(network, trainloader, optimizer, scheduler, loss_function, num_epochs, device)
 
         print('Training process has finished. Saving trained model.')
         print('Starting testing')
-
-        save_path = f'./model-fold-{fold}.pth'
-        torch.save(network.state_dict(), save_path)
 
         accuracy = test_model(network, testloader, device)
         results[fold] = accuracy
@@ -119,18 +116,24 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function, device):
     return results
 
 def save_weights_for_cpp(network, save_dir):
-    """Save each layer's weights as raw float32 binary + a JSON manifest with shapes.
-    In C++: read manifest to get layer names/shapes, then fread() the .bin files."""
+    """Dump each param/buffer as raw C-order float32 + a JSON manifest."""
     os.makedirs(save_dir, exist_ok=True)
     manifest = {}
     for name, tensor in network.state_dict().items():
-        arr = tensor.cpu().float().numpy()
+        if name.endswith('num_batches_tracked'):   # int64 scalar, not needed
+            continue
+        arr = np.ascontiguousarray(tensor.detach().cpu().float().numpy())
         filename = name.replace('.', '_') + '.bin'
         arr.tofile(os.path.join(save_dir, filename))
-        manifest[name] = {'shape': list(arr.shape), 'file': filename}
+        manifest[name] = {
+            'shape': list(arr.shape),
+            'count': int(arr.size),     # lets C++ validate file size == count*4
+            'dtype': 'float32',
+            'file': filename,
+        }
     with open(os.path.join(save_dir, 'manifest.json'), 'w') as f:
         json.dump(manifest, f, indent=2)
-    print(f'Saved C++ weights to {save_dir}/')
+    print(f'Saved {len(manifest)} tensors to {save_dir}/')
 
 
 # Function to print k-fold cross-validation results
@@ -154,11 +157,12 @@ def main():
     parser.add_argument('--device', type=str, default='cpu', choices=['cpu', 'cuda'])
     parser.add_argument('--k_folds', type=int, default=K_FOLDS)
     parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
+    parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
     args = parser.parse_args()
     device = torch.device(args.device)
     loss_function = nn.CrossEntropyLoss()
 
-    results = k_fold_cross_validation(args.k_folds, args.num_epochs, loss_function, device)
+    results = k_fold_cross_validation(args.k_folds, args.num_epochs, loss_function, args.batch_size, device)
     print_results(results)
 
 

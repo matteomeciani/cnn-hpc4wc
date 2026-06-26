@@ -1,2 +1,6 @@
 # Logs
 logs/*
+
+# Model weights
+**/*.pth
+
