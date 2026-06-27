@@ -86,11 +86,10 @@ You are now back to your normal shell.
 ## 7. Submit jobs with make
 
 ```bash
-make help          # see all available targets
-make submit-cpu    # submit CPU job to Slurm
-make submit-gpu    # submit GPU job to Slurm
-make logs          # tail the latest log file
-make clean         # remove logs and saved model checkpoints
+make help              # see all available targets
+make submit-pytorch    # submit GPU job to Slurm
+make logs              # tail the latest log file
+make clean             # remove logs and saved model checkpoints
 ```
 
 The sbatch scripts handle activating the uenv and venv automatically for each job.
