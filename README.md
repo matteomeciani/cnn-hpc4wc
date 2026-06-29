@@ -150,4 +150,23 @@ Class 8: -3.1246
 Class 9: 2.74064
 ```
 
+## Compiling the C++ Program on Säntis
 
+In the terminal (you need to be in the correct folder src/cpp) run:
+
+`g++ -O3 -mcpu=native main.cpp -o cnn_forward`
+
+`-O3` is a flag that tells the compiler to heavily optimize the math for speed.
+
+`-mcpu=native` is meant to unlock Säntis CPU ARM advanced vector extensions to speed up matrix math.
+
+
+## Running the C++ Program on Säntis
+
+Our project account name is `hpc4wc-course2026-ethz`
+
+Run the program `cnn_forward` with the terminal command:
+
+`srun -A hpc4wc-course2026-ethz --partition=normal --time=00:05:00 --ntasks=1 ./cnn_forward`
+
+For bigger jobs (later) use `sbatch` and an `.sh` script instead of `srun`.
