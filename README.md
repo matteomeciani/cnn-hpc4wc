@@ -150,7 +150,7 @@ Class 8: -3.1246
 Class 9: 2.74064
 ```
 
-## Compiling the C++ Program on Säntis
+## Compiling the C++ Program on Santis
 
 In the terminal (you need to be in the correct folder src/cpp) run:
 
@@ -161,7 +161,7 @@ In the terminal (you need to be in the correct folder src/cpp) run:
 `-mcpu=native` is meant to unlock Säntis CPU ARM advanced vector extensions to speed up matrix math.
 
 
-## Running the C++ Program on Säntis
+## Running the C++ Program on Santis
 
 Our project account name is `hpc4wc-course2026-ethz`
 
@@ -169,4 +169,4 @@ Run the program `cnn_forward` with the terminal command:
 
 `srun -A hpc4wc-course2026-ethz --partition=normal --time=00:05:00 --ntasks=1 ./cnn_forward`
 
-For bigger jobs (later) use `sbatch` and an `.sh` script instead of `srun`.
+For bigger jobs (later) use `sbatch` together with an `.sh` script instead of `srun`.
