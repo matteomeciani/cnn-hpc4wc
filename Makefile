@@ -28,6 +28,11 @@ ifdef DEBUG
   CXXFLAGS := -std=c++17 -O0 -g -fsanitize=address,undefined -Wall -Wextra
 endif
 
+# ASCII art image:  make PRINT_ASCII=1 build
+ifdef PRINT_ASCII
+  CXXFLAGS += -DPRINT_ASCII
+endif
+
 # Training device: make train DEVICE=cpu  (default: cuda)
 DEVICE ?= cuda
 
@@ -43,7 +48,7 @@ SCRIPTS   := scripts
 # -----------------------------------------------------------------------------
 # Sources & binary
 # -----------------------------------------------------------------------------
-CPP_SRCS := $(SRC_CPP)/main.cpp
+CPP_SRCS := $(SRC_CPP)/main.cpp $(SRC_CPP)/cnn_helpers.cpp
 CPP_HDRS := $(SRC_CPP)/cnn_helpers.h
 TARGET   := $(BUILD_DIR)/cnn_forward
 
@@ -77,6 +82,7 @@ help:
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'clean'           'Remove build artefacts, logs, and checkpoints'
 	@printf '\n$(C_BOLD)Overrides:$(C_RESET)\n'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEBUG=1'        'Build with -O0 -g -fsanitize=address,undefined'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'PRINT_ASCII=1'  'Enable ASCII art image print in C++ binary'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEVICE=cpu'     'Use CPU for training (default: cuda)'
 	@printf '\n'
 
