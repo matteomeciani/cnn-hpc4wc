@@ -7,6 +7,27 @@
 #include <algorithm>
 #include <fstream>
 #include <stdexcept>
+#include <unistd.h>
+
+// ---------------------------------------------------------
+// TERMINAL COLOR CODES
+// Empty strings when stdout is redirected (e.g. sbatch log files).
+// ---------------------------------------------------------
+
+namespace Color {
+    inline const bool _tty       = (isatty(STDOUT_FILENO) != 0);
+    inline const char* const RESET       = _tty ? "\033[0m"    : "";
+    inline const char* const BOLD        = _tty ? "\033[1m"    : "";
+    inline const char* const DIM         = _tty ? "\033[2m"    : "";
+    inline const char* const RED         = _tty ? "\033[31m"   : "";
+    inline const char* const GREEN       = _tty ? "\033[32m"   : "";
+    inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
+    inline const char* const CYAN        = _tty ? "\033[36m"   : "";
+    inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
+    inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
+    inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
+    inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
+}
 
 // ---------------------------------------------------------
 // DATA STRUCTURES

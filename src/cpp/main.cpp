@@ -124,7 +124,7 @@ void load_binary_weights(const std::string& filepath, std::vector<float>& target
     
     // The raw binary data is read directly into the memory block of the vector.
     if (file.read(reinterpret_cast<char*>(target_vector.data()), size)) {
-        std::cout << "Successfully loaded: " << filepath << std::endl;
+        std::cout << Color::DIM_GREEN << "Successfully loaded: " << filepath << Color::RESET << std::endl;
     } else {
         throw std::runtime_error("An error occurred while reading: " + filepath);
     }
@@ -262,13 +262,13 @@ void print_ascii_image(const Tensor& images_tensor, int batch_index) {
     int size = images_tensor.height * images_tensor.width;
     int start_idx = batch_index * size;
     
-    std::cout << "\nVisualizing image at index " << batch_index << ":\n";
+    std::cout << Color::CYAN << "\nVisualizing image at index " << batch_index << ":" << Color::RESET << "\n";
     for (int r = 0; r < images_tensor.height; ++r) {
         for (int c = 0; c < images_tensor.width; ++c) {
             float pixel = images_tensor.data[start_idx + r * images_tensor.width + c];
-            if (pixel > 0.5f) std::cout << "##";
-            else if (pixel > 0.2f) std::cout << "..";
-            else std::cout << "  ";
+            if (pixel > 0.5f)      std::cout << Color::BOLD << "##" << Color::RESET;
+            else if (pixel > 0.2f) std::cout << Color::DIM  << ".." << Color::RESET;
+            else                   std::cout << "  ";
         }
         std::cout << "\n";
     }
@@ -284,7 +284,7 @@ int main() {
     int batch_size = 1; 
     int num_classes = 10;
     
-    std::cout << "Memory allocation is starting..." << std::endl;
+    std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << std::endl;
 
     // 1. INPUT DATA ALLOCATION & LOADING
     Tensor input_batch;
@@ -294,9 +294,9 @@ int main() {
         // The path now points to the new raw data directory.
         std::string mnist_path = "../../data/MNIST/raw/t10k-images-idx3-ubyte"; 
         load_mnist_images(mnist_path, input_batch, batch_size);
-        std::cout << "MNIST dataset successfully loaded." << std::endl;
+        std::cout << Color::GREEN << "MNIST dataset successfully loaded." << Color::RESET << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << Color::RED << e.what() << Color::RESET << std::endl;
         return 1;
     }
 
@@ -304,7 +304,7 @@ int main() {
     print_ascii_image(input_batch, 0);
 
     // 2. WEIGHTS AND BIASES ALLOCATION & LOADING
-    std::cout << "\nLoading real weights..." << std::endl;
+    std::cout << Color::BOLD_CYAN << "\nLoading real weights..." << Color::RESET << std::endl;
 
     // The base directory path for the weights is defined.
     std::string w_path = "../python/weights_cpp/";
@@ -346,7 +346,7 @@ int main() {
 
     Tensor final_logits = {std::vector<float>(batch_size * num_classes), batch_size, 1, 1, num_classes};
 
-    std::cout << "The full machine learning forward pass is starting..." << std::endl;
+    std::cout << Color::BOLD_CYAN << "The full machine learning forward pass is starting..." << Color::RESET << std::endl;
 
     // --- LAYER 1 ---
     conv2d_forward(input_batch, conv1_weight, conv1_bias, conv1_out, 1, 0);
@@ -367,14 +367,14 @@ int main() {
     linear_forward(avgpool_out, fc_weight, fc_bias, final_logits);
 
     // --- LOGITS VERIFICATION ---
-    std::cout << "\nRaw Logits (Computational Verification):" << std::endl;
+    std::cout << Color::BOLD_YELLOW << "\nRaw Logits (Computational Verification):" << Color::RESET << std::endl;
     for (int i = 0; i < num_classes; ++i) {
         std::cout << "Class " << i << ": " << final_logits.data[i] << std::endl;
     }
 
     // --- PREDICTION ---
     int predicted_digit = get_prediction(final_logits);
-    std::cout << "\nThe network has successfully predicted the digit: " << predicted_digit << std::endl;
+    std::cout << Color::BOLD_GREEN << "\nThe network has successfully predicted the digit: " << predicted_digit << Color::RESET << std::endl;
 
     return 0;
 }
