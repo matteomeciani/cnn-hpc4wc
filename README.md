@@ -102,3 +102,52 @@ The sbatch scripts handle activating the uenv and venv automatically for each jo
 - Never run `pip install` directly inside the uenv without activating the venv first — the
   uenv filesystem is read-only and the install will fail.
 - Jobs are always submitted from the repo root (`cnn-hpc4wc/`).
+
+
+
+## Starting the C++ Implementation
+
+The main.cpp file is set up to mirror both the network architecture defined in model.py 
+and the execution script verify.py. 
+
+The goal of this setup is to prove that our custom C++ forward pass is mathematically 
+identical to the PyTorch implementation. Both scripts execute the complete forward pass 
+using the exact same binary weights and the same raw MNIST test image.
+
+As shown below, both versions assign the exact same raw final scores (logits) to classes 0 through 9. 
+The slight variations beyond the 4th decimal place might come down to `std::cout` only printing
+6 significant digits by default and beyond that, floating-point precision differences between 
+PyTorch's backend and standard C++ implementations.
+
+Pytorch model logits for the MNIST test image:
+```
+Python Raw Logits:
+Class 0: -4.310458660125732
+Class 1: -0.5118204951286316
+Class 2: 3.109337329864502
+Class 3: 0.44217315316200256
+Class 4: -2.627026081085205
+Class 5: -5.286825656890869
+Class 6: -22.92879295349121
+Class 7: 12.553877830505371
+Class 8: -3.124603509902954
+Class 9: 2.7406351566314697
+```
+
+C++ model logits for the MNIST test image: 
+
+```
+Raw Logits (Computational Verification):
+Class 0: -4.31046
+Class 1: -0.511821
+Class 2: 3.10934
+Class 3: 0.442172
+Class 4: -2.62703
+Class 5: -5.28683
+Class 6: -22.9288
+Class 7: 12.5539
+Class 8: -3.1246
+Class 9: 2.74064
+```
+
+
