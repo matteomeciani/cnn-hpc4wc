@@ -126,7 +126,6 @@ static inline int pmu_cycles_init(pmu_ctx_t *ctx) {
     pe.disabled       = 1;
     pe.exclude_kernel = 1;
     pe.exclude_hv     = 1;
-    pe.exclude_idle   = 1;
 
     ctx->fd = _perf_event_open(&pe, 0 /* self */, -1 /* any cpu */, -1, 0);
     if (ctx->fd == -1) {

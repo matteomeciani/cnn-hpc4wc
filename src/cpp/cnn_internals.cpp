@@ -1,4 +1,4 @@
-#include "include/cnn_helpers.h"
+#include "include/cnn_internals.h"
 
 void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                     int stride, int padding) {

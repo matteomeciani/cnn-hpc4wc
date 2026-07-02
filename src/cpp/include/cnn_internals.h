@@ -1,5 +1,5 @@
-#ifndef CNN_HELPERS_H
-#define CNN_HELPERS_H
+#ifndef cnn_internals_H
+#define cnn_internals_H
 
 #include <vector>
 #include <iostream>
@@ -77,4 +77,4 @@ void load_mnist_images(const std::string& filepath, Tensor& images_tensor, int n
 // A single MNIST image is printed to the console.
 void print_ascii_image(const Tensor& images_tensor, int batch_index);
 
-#endif // CNN_HELPERS_H
+#endif // cnn_internals_H

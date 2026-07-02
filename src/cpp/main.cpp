@@ -1,7 +1,8 @@
-#include "include/cnn_helpers.h"
+#include "include/cnn_internals.h"
 #include "include/timing.h"
 
 #define NUM_RUNS 10
+#define NUM_WARMUP_RUNS 2
 
 int main() {
     int batch_size  = 1;
@@ -12,7 +13,10 @@ int main() {
     double *os_sec_arr = (double *)malloc((size_t)NUM_RUNS * sizeof(double));
 
     pmu_ctx_t pmu;
-    pmu_cycles_init(&pmu); 
+
+    if (pmu_cycles_init(&pmu) != 0) {
+        std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
+    }
     double *cycles_arr = (double *)malloc((size_t)NUM_RUNS * sizeof(double));
 
     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
@@ -68,11 +72,26 @@ int main() {
     std::cout << Color::BOLD_CYAN << "The full machine learning forward pass is starting..." << Color::RESET << "\n";
 
     // Warmup
+    for (int run = 0; run < NUM_WARMUP_RUNS; ++run) {
+        conv2d_forward(input_batch, conv1_weight, conv1_bias, conv1_out, 1, 0);
+        relu_forward(conv1_out);
+        maxpool2d_forward(conv1_out, pool1_out, 2, 2);
+
+        conv2d_forward(pool1_out, conv2_weight, conv2_bias, conv2_out, 1, 0);
+        relu_forward(conv2_out);
+        maxpool2d_forward(conv2_out, pool2_out, 2, 2);
+
+        conv2d_forward(pool2_out, conv3_weight, conv3_bias, conv3_out, 1, 0);
+        relu_forward(conv3_out);
+        adaptive_avgpool2d_forward(conv3_out, avgpool_out);
+
+        linear_forward(avgpool_out, fc_weight, fc_bias, final_logits);
+    }
 
     // Timed run
     for (int run = 0; run < NUM_RUNS; ++run) {
-        start_timer(&timer_ctx);
         pmu_cycles_start(&pmu);
+        start_timer(&timer_ctx);
 
         conv2d_forward(input_batch, conv1_weight, conv1_bias, conv1_out, 1, 0);
         relu_forward(conv1_out);
@@ -94,6 +113,8 @@ int main() {
         os_sec_arr[run] = get_elapsed_os_sec(&timer_ctx);
         cycles_arr[run] = (double)cycles;
     }
+
+    pmu_cycles_close(&pmu);
 
     // 5. RESULTS
     std::cout << Color::BOLD_YELLOW << "\nRaw Logits (Computational Verification):" << Color::RESET << "\n";
