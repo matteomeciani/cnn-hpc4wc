@@ -15,3 +15,6 @@ logs/*
 # Python bytecode cache
 __pycache__/
 *.pyc
+
+# Generated benchmark timing (see benchmark.cpp / benchmark.py)
+src/python/weights_cpp/cpp_timing.json

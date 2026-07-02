@@ -2,13 +2,27 @@
 #include "include/cnn.h"
 #include "include/utils.h"
 
+#ifndef NUM_RUNS
 #define NUM_RUNS 10
+#endif
+#ifndef NUM_WARMUP_RUNS
 #define NUM_WARMUP_RUNS 2
+#endif
 
 int main(int argc, char** argv) {
     // In "verify" mode a single forward pass is run and the logits for every
     // image are dumped to disk for comparison against PyTorch (see verify.py).
-    bool verify_mode = (argc > 1 && std::string(argv[1]) == "verify");
+    // "-v"/"--verbose"/"verbose" prints the per-class logits (see benchmark.py
+    // for the equivalent Python flag).
+    bool verify_mode = false;
+    bool verbose      = false;
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        if (arg == "verify")
+            verify_mode = true;
+        else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
+            verbose = true;
+    }
 
     // Verify mode needs the full test set dumped for comparison against
     // PyTorch; timing runs only measure a single-image forward pass.
@@ -116,9 +130,11 @@ int main(int argc, char** argv) {
     pmu_cycles_close(&pmu);
 
     // 5. RESULTS
-    std::cout << Color::BOLD_YELLOW << "\nRaw Logits (Computational Verification):" << Color::RESET << "\n";
-    for (int i = 0; i < num_classes; ++i)
-        std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+    if (verbose) {
+        std::cout << Color::BOLD_YELLOW << "\nRaw Logits (Computational Verification):" << Color::RESET << "\n";
+        for (int i = 0; i < num_classes; ++i)
+            std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+    }
 
     int predicted_digit = get_prediction(final_logits);
     std::cout << Color::BOLD_GREEN << "\nThe network has successfully predicted the digit: "
@@ -131,6 +147,15 @@ int main(int argc, char** argv) {
     double median_cycles = compute_median(cycles_arr, NUM_RUNS);
     std::cout << Color::BOLD_YELLOW << "Median CPU cycles for the forward pass over " << NUM_RUNS << " runs: "
               << median_cycles << " cycles" << Color::RESET << "\n";
+
+    // Persisted for benchmark.py's C++ vs Python comparison table.
+    std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
+    if (timing_file.is_open()) {
+        timing_file << "{\n"
+                    << "  \"median_time_sec\": " << median_os_sec << ",\n"
+                    << "  \"median_cycles\": " << median_cycles << "\n"
+                    << "}\n";
+    }
 
     return 0;
 }

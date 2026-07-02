@@ -16,7 +16,13 @@ echo "Job ID:  $SLURM_JOB_ID"
 echo "Node:    $SLURMD_NODENAME"
 echo "Start:   $(date)"
 
-make build
-cd src/cpp && ../../build/cnn_forward
+NUM_RUNS="${NUM_RUNS:-10}"
+NUM_WARMUP_RUNS="${NUM_WARMUP_RUNS:-2}"
+VENV="$HOME/venvs/venv"
+
+make build NUM_RUNS="$NUM_RUNS" NUM_WARMUP_RUNS="$NUM_WARMUP_RUNS"
+cd src/cpp && ../../build/cnn_forward && cd $SLURM_SUBMIT_DIR
+
+uenv run pytorch/v2.9.1:v2 --view=default -- bash -c "source $VENV/bin/activate && cd src/python && python3 benchmark.py --num-runs $NUM_RUNS --num-warmup-runs $NUM_WARMUP_RUNS"
 
 echo "End:     $(date)"

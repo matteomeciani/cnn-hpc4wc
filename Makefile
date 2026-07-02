@@ -23,6 +23,13 @@ CXX      := g++
 CXXFLAGS := -std=c++17 -O3 -march=native -Wall -Wextra -Wpedantic
 PYTHON   := python3
 
+# Training device: make train DEVICE=cpu  (default: cuda)
+DEVICE ?= cuda
+
+# Benchmark run counts:  make run-local NUM_RUNS=20 NUM_WARMUP_RUNS=5
+NUM_RUNS        ?= 10
+NUM_WARMUP_RUNS ?= 2
+
 # Debug build:     make DEBUG=1 build
 ifdef DEBUG
   CXXFLAGS := -std=c++17 -O0 -g -fsanitize=address,undefined -Wall -Wextra
@@ -33,8 +40,7 @@ ifdef PRINT_ASCII
   CXXFLAGS += -DPRINT_ASCII
 endif
 
-# Training device: make train DEVICE=cpu  (default: cuda)
-DEVICE ?= cuda
+CXXFLAGS += -DNUM_RUNS=$(NUM_RUNS) -DNUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS)
 
 # -----------------------------------------------------------------------------
 # Directory layout
@@ -85,6 +91,8 @@ help:
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEBUG=1'        'Build with -O0 -g -fsanitize=address,undefined'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'PRINT_ASCII=1'  'Enable ASCII art image print in C++ binary'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEVICE=cpu'     'Use CPU for training (default: cuda)'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_RUNS=N'     'Timed benchmark runs for run/run-local (default: 10)'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_WARMUP_RUNS=N' 'Warmup runs for run/run-local (default: 2)'
 	@printf '\n'
 
 # -----------------------------------------------------------------------------
@@ -104,6 +112,8 @@ build: $(TARGET)
 run-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- C++ Forward Pass (local) ---$(C_RESET)\n'
 	cd $(SRC_CPP) && ../../$(TARGET)
+	@printf '$(C_BOLD_CYAN)--- Python/PyTorch Forward Pass (local) ---$(C_RESET)\n'
+	cd $(SRC_PY) && $(PYTHON) benchmark.py --num-runs $(NUM_RUNS) --num-warmup-runs $(NUM_WARMUP_RUNS)
 
 verify-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- Python/PyTorch Verifier (local) ---$(C_RESET)\n'
@@ -125,7 +135,7 @@ _check_slurm:
 
 run: _check_slurm
 	@mkdir -p $(LOGS_DIR)
-	@sbatch $(SCRIPTS)/submit_run.sh
+	@sbatch --export=ALL,NUM_RUNS=$(NUM_RUNS),NUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS) $(SCRIPTS)/submit_run.sh
 
 verify: _check_slurm
 	@mkdir -p $(LOGS_DIR)
