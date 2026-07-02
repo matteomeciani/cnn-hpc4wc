@@ -124,4 +124,39 @@ inline void print_ascii_image(const Tensor& images_tensor, int batch_index) {
     std::cout << "\n";
 }
 
+// A tensor's checksum is computed by summing all its elements.
+static double checksum_tensor(const Tensor &t) {
+    double s = 0.0;
+    for (float v : t.data) s += (double)v;
+    return s;
+}
+
+// ---------------------------------------------------------------
+// Implementations registering and benchmarking utility functions.
+// ---------------------------------------------------------------
+static bool contains_substr(const std::string &haystack, const std::string &needle) {
+    return needle.empty() ? false : haystack.find(needle) != std::string::npos;
+}
+
+static bool implementation_matches_filter(const std::string &name, const char *filter) {
+    if (!filter || !*filter) return true;
+    bool exact = std::getenv("CNN_BENCH_FILTER_EXACT") != nullptr;
+
+    std::string f(filter);
+    size_t pos = 0;
+    while (pos <= f.size()) {
+        size_t comma = f.find(',', pos);
+        std::string token = f.substr(pos, comma == std::string::npos ? std::string::npos : comma - pos);
+        size_t b = token.find_first_not_of(" \t");
+        size_t e = token.find_last_not_of(" \t");
+        if (b != std::string::npos) {
+            std::string trimmed = token.substr(b, e - b + 1);
+            if (exact ? (name == trimmed) : contains_substr(name, trimmed)) return true;
+        }
+        if (comma == std::string::npos) break;
+        pos = comma + 1;
+    }
+    return false;
+}
+
 #endif // utils_H

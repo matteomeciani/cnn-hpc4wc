@@ -12,6 +12,13 @@ struct CNNContext {
 };
 
 /*
+ * General function pointer type for CNN forward-pass implementations, useful
+ * for benchmarking different implementations with the same interface (mirrors
+ * ahe_func in the AHE project).
+ */
+typedef void (*cnn_func)(CNNContext&);
+
+/*
 * CNN forward pass function.
 * This function performs a forward pass through a convolutional neural network (CNN) 
 * using the provided context. It takes a CNNContext structure as input, which contains 
@@ -36,5 +43,24 @@ struct CNNContext {
 * This function is intended to be used as a baseline for performance comparison.
 */
 void cnn_baseline( CNNContext& ctx );
+
+
+/*
+ * Add new optimized forward-pass implementations here as they're written, e.g.:
+ *
+ *   void cnn_im2col_gemm( CNNContext& ctx );
+ *   void cnn_simd_avx2( CNNContext& ctx );
+ *
+ * and register each one below so it's picked up automatically by the
+ * benchmark harness (and, if you build one, by a correctness-verification
+ * pass against cnn_baseline).
+ */
+
+/*
+ * Register implementations here to include them in benchmarking. Each entry
+ * is (function, display_name), matching the AHE_IMPLEMENTATIONS pattern.
+ */
+#define CNN_IMPLEMENTATIONS(APPLY) \
+    APPLY(cnn_baseline, "Baseline Nested-Loop")
 
 #endif

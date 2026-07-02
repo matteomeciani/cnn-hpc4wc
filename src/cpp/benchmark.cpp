@@ -2,6 +2,9 @@
 #include "include/cnn.h"
 #include "include/utils.h"
 
+#include <cmath>
+#include <cstring>
+
 #ifndef NUM_RUNS
 #define NUM_RUNS 10
 #endif
@@ -9,13 +12,75 @@
 #define NUM_WARMUP_RUNS 2
 #endif
 
+// Prevents the compiler from dead-code-eliminating the forward pass.
+static volatile double benchmark_global_sink = 0.0;
+
+typedef struct {
+    const char *name;
+    cnn_func function;
+} benchmark_impl_t;
+
+typedef struct {
+    double cycles_median;
+    double seconds_median;
+    bool has_data;
+} bench_result_t;
+
+// ----------------------------------------------------------------------------
+// Runs a warm-cache phase for a single implementation: warmup runs followed
+// by NUM_RUNS measured runs, reporting median cycles/seconds.
+// ----------------------------------------------------------------------------
+static bench_result_t benchmark_cnn(cnn_func f, CNNContext &ctx,
+                                    pmu_ctx_t &pmu, int num_runs, int num_warmup) {
+    bench_result_t result = {NAN, NAN, false};
+
+    std::cout << Color::GREEN << "--- Performance Benchmarking (" << num_runs << " Runs) ---"
+               << Color::RESET << "\n";
+
+    std::vector<double> cycles_arr((size_t)num_runs);
+    std::vector<double> sec_arr((size_t)num_runs);
+
+    std::cout << "Running " << num_warmup << " warmup run" << (num_warmup == 1 ? "" : "s") << "...\n";
+    for (int w = 0; w < num_warmup; ++w) {
+        f(ctx);
+        benchmark_global_sink += checksum_tensor(ctx.final_logits);
+    }
+
+    std::cout << "Warmup complete. Starting " << num_runs << " benchmark run"
+              << (num_runs == 1 ? "" : "s") << "...\n";
+
+    for (int i = 0; i < num_runs; ++i) {
+
+        timer_context_t timer_ctx;
+        pmu_cycles_start(&pmu);
+        start_timer(&timer_ctx);
+
+        f(ctx);
+
+        stop_timer(&timer_ctx);
+        uint64_t cycles = pmu_cycles_stop(&pmu);
+
+        sec_arr[i] = get_elapsed_os_sec(&timer_ctx);
+        cycles_arr[i] = (double)cycles;
+
+        benchmark_global_sink += checksum_tensor(ctx.final_logits);
+    }
+
+    result.has_data = true;
+    result.cycles_median = compute_median(cycles_arr.data(), num_runs);
+    result.seconds_median = compute_median(sec_arr.data(), num_runs);
+
+    std::cout << Color::GREEN << "=== Results ===" << Color::RESET << "\n";
+    std::cout << "  Median cycles : " << result.cycles_median << "\n";
+    std::cout << "  Median time   : " << result.seconds_median
+              << " s (" << result.seconds_median * 1000.0 << " ms)\n\n";
+
+    return result;
+}
+
 int main(int argc, char** argv) {
-    // In "verify" mode a single forward pass is run and the logits for every
-    // image are dumped to disk for comparison against PyTorch (see verify.py).
-    // "-v"/"--verbose"/"verbose" prints the per-class logits (see benchmark.py
-    // for the equivalent Python flag).
     bool verify_mode = false;
-    bool verbose      = false;
+    bool verbose = false;
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if (arg == "verify")
@@ -24,21 +89,16 @@ int main(int argc, char** argv) {
             verbose = true;
     }
 
-    // Verify mode needs the full test set dumped for comparison against
-    // PyTorch; timing runs only measure a single-image forward pass.
     int batch_size  = verify_mode ? 10000 : 1;
     int num_classes = 10;
 
-    // Timing context
-    timer_context_t timer_ctx;
-    double *os_sec_arr = (double *)malloc((size_t)NUM_RUNS * sizeof(double));
+    int num_runs = NUM_RUNS;
+    int num_warmup = NUM_WARMUP_RUNS;
 
     pmu_ctx_t pmu;
-
     if (pmu_cycles_init(&pmu) != 0) {
         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
     }
-    double *cycles_arr = (double *)malloc((size_t)NUM_RUNS * sizeof(double));
 
     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
 
@@ -97,8 +157,6 @@ int main(int argc, char** argv) {
         fc_weight,    fc_bias,    final_logits
     };
 
-    // 4. FORWARD PASS
-    std::cout << Color::BOLD_CYAN << "The full machine learning forward pass is starting..." << Color::RESET << "\n";
 
     if (verify_mode) {
         cnn_baseline(ctx);
@@ -106,55 +164,132 @@ int main(int argc, char** argv) {
         save_binary(out_path, final_logits.data);
         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
                   << " images to " << out_path << Color::RESET << "\n";
+        pmu_cycles_close(&pmu);
         return 0;
     }
 
-    // Warmup
-    for (int run = 0; run < NUM_WARMUP_RUNS; ++run)
-        cnn_baseline(ctx);
+    // ------------------------------------------------------------------
+    // Registered implementations (see CNN_IMPLEMENTATIONS in cnn.h)
+    // ------------------------------------------------------------------
+        #define CNN_BENCH_ENTRY(function, name) {name, function},
+    const benchmark_impl_t implementations[] = {
+        CNN_IMPLEMENTATIONS(CNN_BENCH_ENTRY)
+    };
+    #undef CNN_BENCH_ENTRY
 
-    // Timed run
-    for (int run = 0; run < NUM_RUNS; ++run) {
-        pmu_cycles_start(&pmu);
-        start_timer(&timer_ctx);
+    int num_impls = sizeof(implementations) / sizeof(implementations[0]);
+    std::vector<bench_result_t> results((size_t)num_impls);
 
-        cnn_baseline(ctx);
+    const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
+    int num_selected = 0;
+    for (int i = 0; i < num_impls; ++i)
+        if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
 
-        stop_timer(&timer_ctx);
-        uint64_t cycles = pmu_cycles_stop(&pmu);
+    if (num_selected == 0) {
+        std::cerr << "Error: CNN_BENCH_FILTER matched no implementations: "
+                  << (bench_filter ? bench_filter : "") << "\n";
+        pmu_cycles_close(&pmu);
+        return 1;
+    }
+    if (bench_filter && *bench_filter) {
+        std::cout << Color::BOLD_CYAN << "Benchmark filter: " << bench_filter
+                  << " (" << num_selected << " of " << num_impls << " implementations)"
+                  << Color::RESET << "\n\n";
+    }
 
-        os_sec_arr[run] = get_elapsed_os_sec(&timer_ctx);
-        cycles_arr[run] = (double)cycles;
+    std::cout << Color::BOLD_CYAN << "Runs: " << num_runs << " measured, "
+              << num_warmup << " warmup\n\n" << Color::RESET;
+
+    // ------------------------------------------------------------------
+    // Execution loop: warm cache only for every implementation
+    // ------------------------------------------------------------------
+    for (int i = 0; i < num_impls; ++i) {
+        if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+
+        std::cout << Color::CYAN << "==================================================\n"
+                  << " -> Benchmarking " << implementations[i].name << " (WARM CACHE)\n"
+                  << "==================================================" << Color::RESET << "\n";
+        results[i] = benchmark_cnn(implementations[i].function, ctx, pmu, num_runs, num_warmup);
+        std::cout << "\n\n";
     }
 
     pmu_cycles_close(&pmu);
 
-    // 5. RESULTS
+    int predicted_digit = get_prediction(final_logits);
+    std::cout << Color::BOLD_GREEN << "The network has successfully predicted the digit: "
+              << predicted_digit << Color::RESET << "\n\n";
+
     if (verbose) {
-        std::cout << Color::BOLD_YELLOW << "\nRaw Logits (Computational Verification):" << Color::RESET << "\n";
+        std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
         for (int i = 0; i < num_classes; ++i)
             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+        std::cout << "\n";
     }
 
-    int predicted_digit = get_prediction(final_logits);
-    std::cout << Color::BOLD_GREEN << "\nThe network has successfully predicted the digit: "
-              << predicted_digit << Color::RESET << "\n";
+    // ------------------------------------------------------------------
+    // Final Summary Table
+    // ------------------------------------------------------------------
+    std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
+    printf("%-35s | %-12s | %-20s | %-14s\n",
+           "Implementation", "vs Base", "Cycles", "Seconds");
+    printf("---------------------------------------------------------------------------------------\n");
 
-    double median_os_sec = compute_median(os_sec_arr, NUM_RUNS);
-    std::cout << Color::BOLD_YELLOW << "\nMedian OS time for the forward pass over " << NUM_RUNS << " runs: "
-              << median_os_sec << " seconds" << Color::RESET << "\n";
+    int baseline_idx = -1;
+    int best_idx = -1;
+    double baseline_cycles = 0.0;
+    double best_cycles = 0.0;
 
-    double median_cycles = compute_median(cycles_arr, NUM_RUNS);
-    std::cout << Color::BOLD_YELLOW << "Median CPU cycles for the forward pass over " << NUM_RUNS << " runs: "
-              << median_cycles << " cycles" << Color::RESET << "\n";
+    for (int i = 0; i < num_impls; ++i) {
+        if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+        if (!results[i].has_data) continue;
+        if (std::strcmp(implementations[i].name, "Baseline Nested-Loop") == 0) {
+            baseline_idx = i;
+            baseline_cycles = results[i].cycles_median;
+        }
+        if (best_idx < 0 || results[i].cycles_median < best_cycles) {
+            best_idx = i;
+            best_cycles = results[i].cycles_median;
+        }
+    }
 
-    // Persisted for benchmark.py's C++ vs Python comparison table.
-    std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
-    if (timing_file.is_open()) {
-        timing_file << "{\n"
-                    << "  \"median_time_sec\": " << median_os_sec << ",\n"
-                    << "  \"median_cycles\": " << median_cycles << "\n"
-                    << "}\n";
+    for (int i = 0; i < num_impls; ++i) {
+        if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+
+        char speedup_text[32] = "";
+        if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
+            snprintf(speedup_text, sizeof(speedup_text), "%.2fx",
+                     baseline_cycles / results[i].cycles_median);
+        }
+
+        char cyc[24], sec[24];
+        if (results[i].has_data) {
+            snprintf(cyc, sizeof(cyc), "%.2f", results[i].cycles_median);
+            snprintf(sec, sizeof(sec), "%.6f", results[i].seconds_median);
+        } else {
+            snprintf(cyc, sizeof(cyc), "-");
+            snprintf(sec, sizeof(sec), "-");
+        }
+
+        bool is_best = (i == best_idx);
+        if (is_best) std::cout << Color::GREEN;
+        printf("%-35s | %-12s | %-20s | %-14s",
+               implementations[i].name, speedup_text, cyc, sec);
+        if (is_best) std::cout << Color::RESET;
+        std::cout << "\n";
+    }
+
+    std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
+
+    // Persisted for benchmark.py's C++ vs Python comparison table (uses the
+    // baseline implementation's numbers, matching the original single-impl file).
+    if (baseline_idx >= 0) {
+        std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
+        if (timing_file.is_open()) {
+            timing_file << "{\n"
+                        << "  \"median_time_sec\": " << results[baseline_idx].seconds_median << ",\n"
+                        << "  \"median_cycles\": " << results[baseline_idx].cycles_median << "\n"
+                        << "}\n";
+        }
     }
 
     return 0;
