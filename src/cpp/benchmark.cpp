@@ -1,5 +1,6 @@
-#include "include/cnn_internals.h"
 #include "include/timing.h"
+#include "include/cnn.h"
+#include "include/utils.h"
 
 #define NUM_RUNS 10
 #define NUM_WARMUP_RUNS 2
@@ -68,44 +69,27 @@ int main() {
     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
 
+    CNNContext ctx = {
+        input_batch,
+        conv1_weight, conv1_bias, conv1_out, pool1_out,
+        conv2_weight, conv2_bias, conv2_out, pool2_out,
+        conv3_weight, conv3_bias, conv3_out, avgpool_out,
+        fc_weight,    fc_bias,    final_logits
+    };
+
     // 4. FORWARD PASS
     std::cout << Color::BOLD_CYAN << "The full machine learning forward pass is starting..." << Color::RESET << "\n";
 
     // Warmup
-    for (int run = 0; run < NUM_WARMUP_RUNS; ++run) {
-        conv2d_forward(input_batch, conv1_weight, conv1_bias, conv1_out, 1, 0);
-        relu_forward(conv1_out);
-        maxpool2d_forward(conv1_out, pool1_out, 2, 2);
-
-        conv2d_forward(pool1_out, conv2_weight, conv2_bias, conv2_out, 1, 0);
-        relu_forward(conv2_out);
-        maxpool2d_forward(conv2_out, pool2_out, 2, 2);
-
-        conv2d_forward(pool2_out, conv3_weight, conv3_bias, conv3_out, 1, 0);
-        relu_forward(conv3_out);
-        adaptive_avgpool2d_forward(conv3_out, avgpool_out);
-
-        linear_forward(avgpool_out, fc_weight, fc_bias, final_logits);
-    }
+    for (int run = 0; run < NUM_WARMUP_RUNS; ++run)
+        cnn_baseline(ctx);
 
     // Timed run
     for (int run = 0; run < NUM_RUNS; ++run) {
         pmu_cycles_start(&pmu);
         start_timer(&timer_ctx);
 
-        conv2d_forward(input_batch, conv1_weight, conv1_bias, conv1_out, 1, 0);
-        relu_forward(conv1_out);
-        maxpool2d_forward(conv1_out, pool1_out, 2, 2);
-
-        conv2d_forward(pool1_out, conv2_weight, conv2_bias, conv2_out, 1, 0);
-        relu_forward(conv2_out);
-        maxpool2d_forward(conv2_out, pool2_out, 2, 2);
-
-        conv2d_forward(pool2_out, conv3_weight, conv3_bias, conv3_out, 1, 0);
-        relu_forward(conv3_out);
-        adaptive_avgpool2d_forward(conv3_out, avgpool_out);
-
-        linear_forward(avgpool_out, fc_weight, fc_bias, final_logits);
+        cnn_baseline(ctx);
 
         stop_timer(&timer_ctx);
         uint64_t cycles = pmu_cycles_stop(&pmu);

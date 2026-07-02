@@ -107,7 +107,7 @@ The sbatch scripts handle activating the uenv and venv automatically for each jo
 
 ## Starting the C++ Implementation
 
-The main.cpp file is set up to mirror both the network architecture defined in model.py 
+The benchmark.cpp file is set up to mirror both the network architecture defined in model.py 
 and the execution script verify.py. 
 
 The goal of this setup is to prove that our custom C++ forward pass is mathematically 
@@ -154,7 +154,7 @@ Class 9: 2.74064
 
 In the terminal (you need to be in the correct folder src/cpp) run:
 
-`g++ -O3 -mcpu=native main.cpp -o cnn_forward`
+`g++ -O3 -mcpu=native benchmark.cpp -o cnn_forward`
 
 `-O3` is a flag that tells the compiler to heavily optimize the math for speed.
 

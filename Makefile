@@ -49,8 +49,8 @@ SCRIPTS   := scripts
 # -----------------------------------------------------------------------------
 # Sources & binary
 # -----------------------------------------------------------------------------
-CPP_SRCS := $(SRC_CPP)/main.cpp $(SRC_CPP)/cnn_internals.cpp
-CPP_HDRS := $(HEADERS)/cnn_internals.h $(HEADERS)/timing.h
+CPP_SRCS := $(SRC_CPP)/main.cpp $(SRC_CPP)/cnn_internals.cpp $(SRC_CPP)/cnn.cpp
+CPP_HDRS := $(HEADERS)/cnn_internals.h $(HEADERS)/timing.h $(HEADERS)/cnn.h $(HEADERS)/utils.h
 TARGET   := $(BUILD_DIR)/cnn_forward
 
 # -----------------------------------------------------------------------------
