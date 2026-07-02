@@ -41,6 +41,7 @@ DEVICE ?= cuda
 # -----------------------------------------------------------------------------
 BUILD_DIR := build
 SRC_CPP   := src/cpp
+HEADERS   := $(SRC_CPP)/include
 SRC_PY    := src/python
 LOGS_DIR  := logs
 SCRIPTS   := scripts
@@ -49,7 +50,7 @@ SCRIPTS   := scripts
 # Sources & binary
 # -----------------------------------------------------------------------------
 CPP_SRCS := $(SRC_CPP)/main.cpp $(SRC_CPP)/cnn_helpers.cpp
-CPP_HDRS := $(SRC_CPP)/cnn_helpers.h
+CPP_HDRS := $(HEADERS)/cnn_helpers.h $(HEADERS)/timing.h
 TARGET   := $(BUILD_DIR)/cnn_forward
 
 # -----------------------------------------------------------------------------
