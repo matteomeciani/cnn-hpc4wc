@@ -5,8 +5,12 @@
 #define NUM_RUNS 10
 #define NUM_WARMUP_RUNS 2
 
-int main() {
-    int batch_size  = 1;
+int main(int argc, char** argv) {
+    // In "verify" mode a single forward pass is run and the logits for every
+    // image are dumped to disk for comparison against PyTorch (see verify.py).
+    bool verify_mode = (argc > 1 && std::string(argv[1]) == "verify");
+
+    int batch_size  = 10000;
     int num_classes = 10;
 
     // Timing context
@@ -79,6 +83,15 @@ int main() {
 
     // 4. FORWARD PASS
     std::cout << Color::BOLD_CYAN << "The full machine learning forward pass is starting..." << Color::RESET << "\n";
+
+    if (verify_mode) {
+        cnn_baseline(ctx);
+        const std::string out_path = "../python/cpp_logits.bin";
+        save_binary(out_path, final_logits.data);
+        std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
+                  << " images to " << out_path << Color::RESET << "\n";
+        return 0;
+    }
 
     // Warmup
     for (int run = 0; run < NUM_WARMUP_RUNS; ++run)

@@ -49,7 +49,7 @@ SCRIPTS   := scripts
 # -----------------------------------------------------------------------------
 # Sources & binary
 # -----------------------------------------------------------------------------
-CPP_SRCS := $(SRC_CPP)/main.cpp $(SRC_CPP)/cnn_internals.cpp $(SRC_CPP)/cnn.cpp
+CPP_SRCS := $(SRC_CPP)/benchmark.cpp $(SRC_CPP)/cnn_internals.cpp $(SRC_CPP)/cnn.cpp
 CPP_HDRS := $(HEADERS)/cnn_internals.h $(HEADERS)/timing.h $(HEADERS)/cnn.h $(HEADERS)/utils.h
 TARGET   := $(BUILD_DIR)/cnn_forward
 
@@ -105,8 +105,9 @@ run-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- C++ Forward Pass (local) ---$(C_RESET)\n'
 	cd $(SRC_CPP) && ../../$(TARGET)
 
-verify-local:
+verify-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- Python/PyTorch Verifier (local) ---$(C_RESET)\n'
+	cd $(SRC_CPP) && ../../$(TARGET) verify
 	cd $(SRC_PY) && $(PYTHON) verify.py
 
 train-local:

@@ -97,6 +97,15 @@ inline void load_mnist_images(const std::string& filepath, Tensor& images_tensor
     }
 }
 
+// A vector of floats is written to a binary file.
+inline void save_binary(const std::string& filepath, const std::vector<float>& v) {
+    std::ofstream file(filepath, std::ios::binary);
+    if (!file.is_open())
+        throw std::runtime_error("The file could not be opened for writing: " + filepath);
+    file.write(reinterpret_cast<const char*>(v.data()),
+               static_cast<std::streamsize>(v.size() * sizeof(float)));
+}
+
 // A single MNIST image is printed to the console.
 inline void print_ascii_image(const Tensor& images_tensor, int batch_index) {
     int size      = images_tensor.height * images_tensor.width;

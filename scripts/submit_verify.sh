@@ -19,7 +19,7 @@ echo "Start:   $(date)"
 VENV="$HOME/venvs/venv"
 
 make build
-cd src/cpp && ../../build/cnn_forward && cd $SLURM_SUBMIT_DIR
+cd src/cpp && ../../build/cnn_forward verify && cd $SLURM_SUBMIT_DIR
 uenv run pytorch/v2.9.1:v2 --view=default -- bash -c "source $VENV/bin/activate && cd src/python && python3 verify.py"
 
 echo "End:     $(date)"
