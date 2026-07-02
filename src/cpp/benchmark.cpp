@@ -10,7 +10,9 @@ int main(int argc, char** argv) {
     // image are dumped to disk for comparison against PyTorch (see verify.py).
     bool verify_mode = (argc > 1 && std::string(argv[1]) == "verify");
 
-    int batch_size  = 10000;
+    // Verify mode needs the full test set dumped for comparison against
+    // PyTorch; timing runs only measure a single-image forward pass.
+    int batch_size  = verify_mode ? 10000 : 1;
     int num_classes = 10;
 
     // Timing context
@@ -86,7 +88,7 @@ int main(int argc, char** argv) {
 
     if (verify_mode) {
         cnn_baseline(ctx);
-        const std::string out_path = "../python/cpp_logits.bin";
+        const std::string out_path = "../python/weights_cpp/cpp_logits.bin";
         save_binary(out_path, final_logits.data);
         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
                   << " images to " << out_path << Color::RESET << "\n";

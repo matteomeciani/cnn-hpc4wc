@@ -1,5 +1,5 @@
-#ifndef cnn_internals_H
-#define cnn_internals_H
+#ifndef CNN_INTERNALS_H
+#define CNN_INTERNALS_H
 
 #include <vector>
 #include <algorithm>
@@ -37,4 +37,4 @@ void maxpool2d_forward(const Tensor& input, Tensor& output, int pool_size, int s
 // Adaptive Average Pooling (to 1x1) is declared.
 void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output);
 
-#endif // cnn_internals_H
+#endif // CNN_INTERNALS_H

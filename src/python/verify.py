@@ -44,7 +44,7 @@ with torch.no_grad():
     torch_logits = model(image_tensor).numpy()  # (num, 10)
 
 # 5. The C++ logits are loaded and compared.
-cpp_logits = np.fromfile('cpp_logits.bin', dtype=np.float32).reshape(num, 10)
+cpp_logits = np.fromfile('weights_cpp/cpp_logits.bin', dtype=np.float32).reshape(num, 10)
 
 max_abs_diff = np.max(np.abs(torch_logits - cpp_logits))
 torch_pred = torch_logits.argmax(axis=1)
