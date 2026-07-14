@@ -11,6 +11,8 @@ logs/*
 
 # Binary files
 **/*.bin
+# save weights for comparability
+!src/python/weights_cpp/*.bin
 
 # Python bytecode cache
 __pycache__/
