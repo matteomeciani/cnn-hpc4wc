@@ -1,4 +1,6 @@
 #include "include/cnn_internals.h"
+#include "include/utils.h" // for colors and iostream
+
 
 void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                     int stride, int padding) {
@@ -40,6 +42,96 @@ void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bia
         }
     }
 }
+
+
+
+// Function-local flags (see declaration in cnn.h)
+__attribute__((optimize("associative-math", "no-signed-zeros", "no-trapping-math")))
+void conv2d_forward_noboundcheck(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                    int stride, int padding) {
+    int out_channels = weight.batches;
+    int in_channels  = weight.channels;
+    int kernel_h     = weight.height;
+    int kernel_w     = weight.width;
+
+    // --- Safety checks -----------------------------------------------------
+    // This function drops the in-bounds branch from the innermost loop to
+    // allow vectorization. That's only safe if padding == 0 and output was
+    // sized with the standard no-padding formula. If either assumption
+    // breaks, we warn and bail out *without* crashing the whole benchmark
+    // binary, since benchmark.cpp has no try/catch around implementation
+    // calls and calling exit()/throw here would take down every other
+    // registered implementation too.
+
+    bool ok = true;
+
+    if (padding != 0) {
+        std::cerr << Color::RED << "Error: conv2d_forward_autovec only supports padding == 0 (got "
+                   << padding << "). Skipping this call." << Color::RESET << "\n";
+        ok = false;
+    }
+
+    if (weight.channels != input.channels) {
+        std::cerr << Color::RED << "Error: conv2d_forward_autovec channel mismatch — weight.channels="
+                   << weight.channels << " but input.channels=" << input.channels
+                   << ". Skipping this call." << Color::RESET << "\n";
+        ok = false;
+    }
+
+    int expected_out_h = (input.height - kernel_h) / stride + 1;
+    int expected_out_w = (input.width  - kernel_w) / stride + 1;
+
+    if (output.height != expected_out_h || output.width != expected_out_w) {
+        std::cerr << Color::RED << "Error: conv2d_forward_autovec output dims (" << output.height << "x"
+                   << output.width << ") don't match formula-derived dims (" << expected_out_h << "x"
+                   << expected_out_w << "). Skipping this call." << Color::RESET << "\n";
+        ok = false;
+    }
+
+    if (output.batches != input.batches || output.channels != out_channels) {
+        std::cerr << Color::RED << "Error: conv2d_forward_autovec output batch/channel dims don't match "
+                   << "input/weight. Skipping this call." << Color::RESET << "\n";
+        ok = false;
+    }
+
+    if (!ok) {
+        std::fill(output.data.begin(), output.data.end(), 0.0f);  // leave output well-defined
+        return;
+    }
+    // -------------------------------------------------------------------------
+
+    std::fill(output.data.begin(), output.data.end(), 0.0f);
+
+    for (int b = 0; b < input.batches; ++b) {
+        for (int oc = 0; oc < out_channels; ++oc) {
+            for (int oh = 0; oh < output.height; ++oh) {
+                for (int ow = 0; ow < output.width; ++ow) {
+                    float pixel_value = bias.data[oc];
+                    for (int ic = 0; ic < in_channels; ++ic) {
+                        for (int kh = 0; kh < kernel_h; ++kh) {
+                            for (int kw = 0; kw < kernel_w; ++kw) {
+                                int ih = oh * stride + kh;
+                                int iw = ow * stride + kw;
+                                int in_idx = b * (input.channels * input.height * input.width) +
+                                             ic * (input.height * input.width) +
+                                             ih * input.width + iw;
+                                int w_idx  = oc * (weight.channels * weight.height * weight.width) +
+                                             ic * (weight.height * weight.width) +
+                                             kh * weight.width + kw;
+                                pixel_value += input.data[in_idx] * weight.data[w_idx];
+                            }
+                        }
+                    }
+                    int out_idx = b * (output.channels * output.height * output.width) +
+                                  oc * (output.height * output.width) +
+                                  oh * output.width + ow;
+                    output.data[out_idx] = pixel_value;
+                }
+            }
+        }
+    }
+}
+
 
 void relu_forward(Tensor& tensor) {
     int n = tensor.batches * tensor.channels * tensor.height * tensor.width;

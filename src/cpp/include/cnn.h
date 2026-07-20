@@ -44,7 +44,6 @@ typedef void (*cnn_func)(CNNContext&);
 */
 void cnn_baseline( CNNContext& ctx );
 
-
 /*
  * Add new optimized forward-pass implementations here as they're written, e.g.:
  *
@@ -57,10 +56,36 @@ void cnn_baseline( CNNContext& ctx );
  */
 
 /*
+ * cnn_baseline_autovec
+ * the gcc flag -fopt-info-vec-missed flagged the innermost accumulation
+ * (pixel_value += input * weight) as unvectorizable for two reasons:
+ *
+ * 1. "control flow in loop" — the bounds check on (ih, iw) sits inside the
+ *    innermost loop. 
+ *    a) Since padding == 0, the valid (oh, ow, kh, kw) range
+ *    can be derived so (ih, iw) are always in-bounds
+ *    b) The valid (oh, ow, kh, kw) range is being hardcoded in the architecture 
+ *       (via stride and dimensions) -> RELIES ON MANUAL SIZING
+ * 
+ *   -> we can drop check entirely instead of just disabling it
+ *     -> use conv2d_forward_noboundcheck
+ * 
+ *    TODO!!
+ *     remove boundary checks also for other files, not only conv2d_forward
+ *
+ * 2. "reduction: unsafe fp math" — pixel_value += is a float reduction, and
+ *    float addition isn't associative, so GCC won't reorder/vectorize it
+ *    without permission. Applied via a function-local
+ *    __attribute__((optimize("associative-math", ...))) so cnn_baseline
+ *    stays flag-free as the reference implementation.
+ */
+void cnn_baseline_autovec( CNNContext& ctx );
+
+/*
  * Register implementations here to include them in benchmarking. Each entry
  * is (function, display_name), matching the AHE_IMPLEMENTATIONS pattern.
  */
 #define CNN_IMPLEMENTATIONS(APPLY) \
-    APPLY(cnn_baseline, "Baseline Nested-Loop")
-
+    APPLY(cnn_baseline, "Baseline Nested-Loop") \
+    APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization")
 #endif
