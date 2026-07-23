@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <cstring>
+#include <cctype> 
 
 #ifndef NUM_RUNS
 #define NUM_RUNS 10
@@ -76,6 +77,26 @@ static bench_result_t benchmark_cnn(cnn_func f, CNNContext &ctx,
               << " s (" << result.seconds_median * 1000.0 << " ms)\n\n";
 
     return result;
+}
+
+
+// Turns "Baseline w. full auto-vectorization" into "baseline_w_full_auto_vectorization" for verification mode (so verify.py reads correctly)
+static std::string slugify(const std::string& name) {
+    std::string out;
+    bool last_underscore = false;
+    for (unsigned char c : name) {
+        char lc = static_cast<char>(std::tolower(c));
+        if (std::isalnum((unsigned char)lc)) {
+            out += lc;
+            last_underscore = false;
+        } else if (!last_underscore) {
+            out += '_';
+            last_underscore = true;
+        }
+    }
+    while (!out.empty() && out.front() == '_') out.erase(out.begin());
+    while (!out.empty() && out.back()  == '_') out.pop_back();
+    return out;
 }
 
 int main(int argc, char** argv) {
@@ -157,16 +178,51 @@ int main(int argc, char** argv) {
         fc_weight,    fc_bias,    final_logits
     };
 
-
+    // ------------------------------------------------------------------
+    // Verification mode: run every implementation registered in
+    // CNN_IMPLEMENTATIONS once over the full MNIST test set, dump each
+    // one's logits to its own cpp_logits_<slug>.bin, and record a
+    // manifest (name -> file) so verify.py can discover and check them
+    // all against PyTorch without a hardcoded implementation list.
+    // ------------------------------------------------------------------
     if (verify_mode) {
-        cnn_baseline(ctx);
-        const std::string out_path = "../python/weights_cpp/cpp_logits.bin";
-        save_binary(out_path, final_logits.data);
+        #define CNN_VERIFY_ENTRY(function, name) {name, function},
+        const benchmark_impl_t verify_impls[] = {
+            CNN_IMPLEMENTATIONS(CNN_VERIFY_ENTRY)
+        };
+        
+        #undef CNN_VERIFY_ENTRY
+        int num_verify_impls = sizeof(verify_impls) / sizeof(verify_impls[0]);
+
+        const std::string out_dir = "../python/weights_cpp/";
+        std::ofstream manifest(out_dir + "cpp_verify_manifest.json");
+
+        manifest << "[\n";
+        for (int i = 0; i < num_verify_impls; ++i) {
+            std::cout << Color::CYAN << "-> Running " << verify_impls[i].name
+                    << " for verification..." << Color::RESET << "\n";
+
+            verify_impls[i].function(ctx);
+
+            std::string filename = "cpp_logits_" + slugify(verify_impls[i].name) + ".bin";
+            save_binary(out_dir + filename, final_logits.data);
+
+            manifest << "  {\"name\": \"" << verify_impls[i].name << "\", "
+                    << "\"file\": \"" << filename << "\"}"
+                    << (i + 1 < num_verify_impls ? ",\n" : "\n");
+
+            std::cout << Color::GREEN << "   Wrote " << filename << Color::RESET << "\n";
+        }
+        manifest << "]\n";
+
         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
-                  << " images to " << out_path << Color::RESET << "\n";
+                << " images across " << num_verify_impls << " implementation(s)."
+                << Color::RESET << "\n";
+
         pmu_cycles_close(&pmu);
         return 0;
     }
+
 
     // ------------------------------------------------------------------
     // Registered implementations (see CNN_IMPLEMENTATIONS in cnn.h)

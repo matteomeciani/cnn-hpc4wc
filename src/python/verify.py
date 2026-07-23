@@ -1,3 +1,4 @@
+import json
 import struct
 import numpy as np
 import torch
@@ -42,20 +43,39 @@ image_tensor = torch.tensor(image_data, dtype=torch.float32).view(num, 1, rows, 
 # 4. The PyTorch forward pass is executed over all images.
 with torch.no_grad():
     torch_logits = model(image_tensor).numpy()  # (num, 10)
-
-# 5. The C++ logits are loaded and compared.
-cpp_logits = np.fromfile('weights_cpp/cpp_logits.bin', dtype=np.float32).reshape(num, 10)
-
-max_abs_diff = np.max(np.abs(torch_logits - cpp_logits))
 torch_pred = torch_logits.argmax(axis=1)
-cpp_pred = cpp_logits.argmax(axis=1)
-pred_mismatches = int(np.sum(torch_pred != cpp_pred))
 
-print(f"Compared {num} images.")
-print(f"Max absolute logit difference: {max_abs_diff:.3e}")
-print(f"Prediction mismatches:         {pred_mismatches} / {num}")
 
-if np.allclose(torch_logits, cpp_logits, atol=1e-3) and pred_mismatches == 0:
-    print("PASS: C++ output matches PyTorch.")
-else:
-    print("FAIL: C++ output differs from PyTorch.")
+# 5. Discover which C++ implementations were verified, via the manifest
+#    benchmark.cpp writes in `verify` mode
+with open(w_path + 'cpp_verify_manifest.json') as f:
+    implementations = json.load(f)
+
+print(f"Comparing {len(implementations)} C++ implementation(s) against PyTorch "
+      f"over {num} images.\n")
+
+all_passed = True
+summary = []
+
+for impl in implementations:
+    name = impl['name']
+    cpp_logits = np.fromfile(w_path + impl['file'], dtype=np.float32).reshape(num, 10)
+
+    max_abs_diff = np.max(np.abs(torch_logits - cpp_logits))
+    cpp_pred = cpp_logits.argmax(axis=1)
+    pred_mismatches = int(np.sum(torch_pred != cpp_pred))
+    passed = bool(np.allclose(torch_logits, cpp_logits, atol=1e-3) and pred_mismatches == 0)
+    all_passed &= passed
+    summary.append((name, max_abs_diff, pred_mismatches, passed))
+
+    print(f"[{'PASS' if passed else 'FAIL'}] {name}")
+    print(f"    Max absolute logit difference: {max_abs_diff:.5e}")
+    print(f"    Prediction mismatches:         {pred_mismatches} / {num}\n")
+
+print("=== Summary ===")
+print(f"{'Implementation':<42} | {'Status':<6} | {'Max |diff|':<12} | Mismatches")
+print("-" * 80)
+for name, diff, mism, passed in summary:
+    print(f"{name:<42} | {'PASS' if passed else 'FAIL':<6} | {diff:<12.3e} | {mism}/{num}")
+
+

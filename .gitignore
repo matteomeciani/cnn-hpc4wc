@@ -24,3 +24,5 @@ __pycache__/
 
 # Generated benchmark timing (see benchmark.cpp / benchmark.py)
 src/python/weights_cpp/cpp_timing.json
+# Generated manifest of cpp CNN implementations for verification
+src/python/weights_cpp/cpp_verify_manifest.json
