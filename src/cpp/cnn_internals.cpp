@@ -43,6 +43,77 @@ void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bia
     }
 }
 
+void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                             int stride, int padding) {
+    constexpr int OC_TILE = 4;
+    constexpr int OW_TILE = 4;
+
+    int out_channels = weight.batches;
+    int in_channels  = weight.channels;
+    int kernel_h     = weight.height;
+    int kernel_w     = weight.width;
+
+    std::fill(output.data.begin(), output.data.end(), 0.0f);
+
+    for (int b = 0; b < input.batches; ++b) {
+        for (int oh = 0; oh < output.height; ++oh) {
+            for (int oc0 = 0; oc0 < out_channels; oc0 += OC_TILE) {
+                int oc_lim = std::min(OC_TILE, out_channels - oc0);
+
+                for (int ow0 = 0; ow0 < output.width; ow0 += OW_TILE) {
+                    int ow_lim = std::min(OW_TILE, output.width - ow0);
+
+                    // accumulator tile, lives in registers/L1
+                    float acc[OC_TILE][OW_TILE];
+                    for (int t_oc = 0; t_oc < oc_lim; ++t_oc)
+                        for (int t_ow = 0; t_ow < ow_lim; ++t_ow)
+                            acc[t_oc][t_ow] = bias.data[oc0 + t_oc];
+
+                    for (int ic = 0; ic < in_channels; ++ic) {
+                        for (int kh = 0; kh < kernel_h; ++kh) {
+                            int ih = oh * stride - padding + kh;
+                            if (ih < 0 || ih >= input.height) continue;
+
+                            for (int kw = 0; kw < kernel_w; ++kw) {
+                                for (int t_ow = 0; t_ow < ow_lim; ++t_ow) {
+                                    int ow = ow0 + t_ow;
+                                    int iw = ow * stride - padding + kw;
+                                    if (iw < 0 || iw >= input.width) continue;
+
+                                    int in_idx = b * (input.channels * input.height * input.width) +
+                                                 ic * (input.height * input.width) +
+                                                 ih * input.width + iw;
+                                    float in_val = input.data[in_idx]; // reused across t_oc
+
+                                    for (int t_oc = 0; t_oc < oc_lim; ++t_oc) {
+                                        int oc = oc0 + t_oc;
+                                        int w_idx = oc * (weight.channels * weight.height * weight.width) +
+                                                    ic * (weight.height * weight.width) +
+                                                    kh * weight.width + kw;
+                                        acc[t_oc][t_ow] += in_val * weight.data[w_idx];
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // write tile back
+                    for (int t_oc = 0; t_oc < oc_lim; ++t_oc) {
+                        int oc = oc0 + t_oc;
+                        for (int t_ow = 0; t_ow < ow_lim; ++t_ow) {
+                            int ow = ow0 + t_ow;
+                            int out_idx = b * (output.channels * output.height * output.width) +
+                                          oc * (output.height * output.width) +
+                                          oh * output.width + ow;
+                            output.data[out_idx] = acc[t_oc][t_ow];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 
 // Function-local flags (see declaration in cnn.h)

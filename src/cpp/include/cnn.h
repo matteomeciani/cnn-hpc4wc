@@ -81,11 +81,20 @@ void cnn_baseline( CNNContext& ctx );
  */
 void cnn_baseline_autovec( CNNContext& ctx );
 
+
+/*
+ * Reorder loop such that output channel (oc), which is constant in the 
+ * input and kernel arguments, varies slower than ow and oh, so these can
+ * stay constant 
+*/
+void cnn_baseline_blocked( CNNContext& ctx );
+
 /*
  * Register implementations here to include them in benchmarking. Each entry
  * is (function, display_name), matching the AHE_IMPLEMENTATIONS pattern.
  */
 #define CNN_IMPLEMENTATIONS(APPLY) \
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
+    APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
     APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization")
 #endif
