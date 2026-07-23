@@ -242,7 +242,6 @@ void conv2d_forward_reorder(const Tensor& input, const Tensor& weight, const Ten
     }
 }
 
-
 void conv2d_forward_specialized(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output) {
     const float* __restrict input_ptr  = input.data.data();
     const float* __restrict weight_ptr = weight.data.data();
@@ -307,6 +306,174 @@ void conv2d_forward_specialized(const Tensor& input, const Tensor& weight, const
             }
         }
     }
+}
+
+template <int OC_T, int OW_PAD>
+static inline void conv_row_tile(const float* __restrict in_batch,
+                                 const float* __restrict weight_ptr,
+                                 const float* __restrict bias_ptr,
+                                 float* __restrict out_batch,
+                                 int oc0, int oh,
+                                 int in_channels, int in_size, int input_w,
+                                 int kernel_h, int kernel_w,
+                                 int weight_size, int weight_ch_size,
+                                 int output_w, int out_size)
+{
+    float acc[OC_T][OW_PAD];
+    for (int t = 0; t < OC_T; ++t) {
+        const float bv = bias_ptr[oc0 + t];
+        for (int v = 0; v < OW_PAD; ++v) acc[t][v] = bv;
+    }
+
+    const float* __restrict w_oc = weight_ptr + (std::size_t)oc0 * weight_ch_size;
+
+    for (int ic = 0; ic < in_channels; ++ic) {
+        const float* __restrict in_c = in_batch + (std::size_t)ic * in_size;
+        const float* __restrict w_c  = w_oc     + (std::size_t)ic * weight_size;
+
+        for (int kh = 0; kh < kernel_h; ++kh) {
+            const float* __restrict in_row = in_c + (std::size_t)(oh + kh) * input_w;
+            const float* __restrict w_row  = w_c  + (std::size_t)kh * kernel_w;
+
+            for (int kw = 0; kw < kernel_w; ++kw) {
+                float wv[OC_T];
+                for (int t = 0; t < OC_T; ++t)
+                    wv[t] = w_row[(std::size_t)t * weight_ch_size + kw];
+
+                const float* __restrict x = in_row + kw;
+
+                for (int v = 0; v < OW_PAD; ++v) {   // constant trip count
+                    const float xv = x[v];           // ONE contiguous load
+                    for (int t = 0; t < OC_T; ++t)   // OC_T independent FMAs
+                        acc[t][v] += xv * wv[t];
+                }
+            }
+        }
+    }
+
+    for (int t = 0; t < OC_T; ++t) {
+        float* __restrict o = out_batch
+                            + (std::size_t)(oc0 + t) * out_size
+                            + (std::size_t)oh * output_w;
+        for (int v = 0; v < OW_PAD; ++v)
+            if (v < output_w) o[v] = acc[t][v];
+    }
+}
+
+template <int OW_PAD, int OC_TILE>
+static void conv2d_blocked_impl(const float* __restrict input_ptr,
+                                const float* __restrict weight_ptr,
+                                const float* __restrict bias_ptr,
+                                float* __restrict out_ptr,
+                                int batches, int in_channels, int out_channels,
+                                int input_h, int input_w,
+                                int kernel_h, int kernel_w,
+                                int output_h, int output_w)
+{
+    const int in_size        = input_h * input_w;
+    const int in_ch_size     = in_channels * in_size;
+    const int out_size       = output_h * output_w;
+    const int out_ch_size    = out_channels * out_size;
+    const int weight_size    = kernel_h * kernel_w;
+    const int weight_ch_size = in_channels * weight_size;
+
+    for (int b = 0; b < batches; ++b) {
+        const float* __restrict in_b  = input_ptr + (std::size_t)b * in_ch_size;
+        float*       __restrict out_b = out_ptr   + (std::size_t)b * out_ch_size;
+
+        for (int oh = 0; oh < output_h; ++oh) {        // oh ABOVE oc: input rows
+            int oc0 = 0;                               // stay hot across all oc
+            for (; oc0 + OC_TILE <= out_channels; oc0 += OC_TILE)
+                conv_row_tile<OC_TILE, OW_PAD>(
+                    in_b, weight_ptr, bias_ptr, out_b, oc0, oh,
+                    in_channels, in_size, input_w, kernel_h, kernel_w,
+                    weight_size, weight_ch_size, output_w, out_size);
+
+            for (; oc0 < out_channels; ++oc0)          // remainder channels
+                conv_row_tile<1, OW_PAD>(
+                    in_b, weight_ptr, bias_ptr, out_b, oc0, oh,
+                    in_channels, in_size, input_w, kernel_h, kernel_w,
+                    weight_size, weight_ch_size, output_w, out_size);
+        }
+    }
+}
+
+static void conv2d_specialized_reference(const Tensor& input, const Tensor& weight,
+                                         const Tensor& bias, Tensor& output)
+{
+    const float* ip = input.data.data();
+    const float* wp = weight.data.data();
+    const float* bp = bias.data.data();
+    float*       op = output.data.data();
+
+    const int OC = weight.batches, IC = weight.channels;
+    const int KH = weight.height,  KW = weight.width;
+
+    for (int b = 0; b < input.batches; ++b)
+      for (int oc = 0; oc < OC; ++oc)
+        for (int oh = 0; oh < output.height; ++oh)
+          for (int ow = 0; ow < output.width; ++ow) {
+            float s = bp[oc];
+            for (int ic = 0; ic < IC; ++ic)
+              for (int kh = 0; kh < KH; ++kh)
+                for (int kw = 0; kw < KW; ++kw)
+                  s += ip[((std::size_t)b * IC + ic) * input.height * input.width
+                          + (std::size_t)(oh + kh) * input.width + (ow + kw)]
+                     * wp[((std::size_t)oc * IC + ic) * KH * KW
+                          + (std::size_t)kh * KW + kw];
+            op[((std::size_t)b * output.channels + oc) * output.height * output.width
+               + (std::size_t)oh * output.width + ow] = s;
+          }
+}
+
+void conv2d_forward_specialized_blocked(const Tensor& input, const Tensor& weight,
+                                const Tensor& bias, Tensor& output)
+{
+    const int OC = weight.batches, IC = weight.channels;
+    const int KH = weight.height,  KW = weight.width;
+    const int IH = input.height,   IW = input.width;
+    const int OH = output.height,  OW = output.width;
+
+    assert(input.channels  == IC);
+    assert(output.channels == OC);
+    assert(output.batches  == input.batches);
+    assert((int)bias.data.size() >= OC);
+    assert(OH == IH - KH + 1);         
+    assert(OW == IW - KW + 1);
+
+    if (OW > 28) { conv2d_specialized_reference(input, weight, bias, output); return; }
+
+    const int OW_PAD = ((OW + 3) / 4) * 4;
+
+    const std::size_t numel = (std::size_t)input.batches * IC * IH * IW;
+    const std::size_t slack = (std::size_t)(OW_PAD - OW);
+    const float* in_ptr = input.data.data();
+    std::vector<float> padded;
+    if (slack && input.data.size() < numel + slack) {
+        padded.assign(input.data.begin(), input.data.end());
+        padded.resize(numel + slack, 0.0f);
+        in_ptr = padded.data();
+    }
+
+    const float* wp = weight.data.data();
+    const float* bp = bias.data.data();
+    float*       op = output.data.data();
+
+    #define DISPATCH(PAD, TILE)                                        \
+        conv2d_blocked_impl<PAD, TILE>(in_ptr, wp, bp, op,             \
+            input.batches, IC, OC, IH, IW, KH, KW, OH, OW); break;
+
+    switch (OW_PAD) {
+        case 4:  DISPATCH(4,  8)    //  8 accumulator vectors   (conv3: OW=3)
+        case 8:  DISPATCH(8,  6)    // 12
+        case 12: DISPATCH(12, 4)    // 12                       (conv2: OW=11)
+        case 16: DISPATCH(16, 3)    // 12
+        case 20: DISPATCH(20, 2)    // 10
+        case 24: DISPATCH(24, 2)    // 12
+        case 28: DISPATCH(28, 2)    // 14                       (conv1: OW=26)
+        default: conv2d_specialized_reference(input, weight, bias, output);
+    }
+    #undef DISPATCH
 }
 
 void relu_forward(Tensor& tensor) {

@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <cstddef>
 
 // ---------------------------------------------------------
 // DATA STRUCTURES
@@ -39,6 +41,9 @@ void conv2d_forward_reorder(const Tensor& input, const Tensor& weight, const Ten
 
 // A specialized 2D convolution forward pass is declared, potentially optimized for specific input sizes or hardware.                    
 void conv2d_forward_specialized(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output);                    
+
+// A specialized 2D convolution forward pass with blocking is declared for further optimization.
+void conv2d_forward_specialized_blocked(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output);
 
 // A ReLU activation forward pass is declared.
 void relu_forward(Tensor& tensor);

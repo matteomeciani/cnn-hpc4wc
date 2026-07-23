@@ -12,6 +12,12 @@ logs/*
 # Binary files
 **/*.bin
 
+# Object files
+*.o
+
+# save trained python weights for comparability (but not the cpp logits)
+!src/python/weights_cpp/model*.bin
+
 # Python bytecode cache
 __pycache__/
 *.pyc
