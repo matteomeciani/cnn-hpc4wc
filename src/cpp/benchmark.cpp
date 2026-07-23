@@ -271,10 +271,6 @@ int main(int argc, char** argv) {
 
     pmu_cycles_close(&pmu);
 
-    int predicted_digit = get_prediction(final_logits);
-    std::cout << Color::BOLD_GREEN << "The network has successfully predicted the digit: "
-              << predicted_digit << Color::RESET << "\n\n";
-
     if (verbose) {
         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
         for (int i = 0; i < num_classes; ++i)
@@ -336,6 +332,7 @@ int main(int argc, char** argv) {
 
     std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
 
+    /*
     // Persisted for benchmark.py's C++ vs Python comparison table (uses the
     // baseline implementation's numbers, matching the original single-impl file).
     if (baseline_idx >= 0) {
@@ -346,6 +343,29 @@ int main(int argc, char** argv) {
                         << "  \"median_cycles\": " << results[baseline_idx].cycles_median << "\n"
                         << "}\n";
         }
+    }
+
+    return 0;
+    */
+    
+
+    // Persisted for benchmark.py's C++ vs Python comparison table.
+    // Writes every benchmarked implementation (not just the baseline) as a
+    // JSON array, so benchmark.py can compare Python against all of them.
+    std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
+    if (timing_file.is_open()) {
+        timing_file << "[\n";
+        bool first = true;
+        for (int i = 0; i < num_impls; ++i) {
+            if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+            if (!results[i].has_data) continue;
+            if (!first) timing_file << ",\n";
+            first = false;
+            timing_file << "  {\"name\": \"" << implementations[i].name << "\", "
+                        << "\"median_time_sec\": " << results[i].seconds_median << ", "
+                        << "\"median_cycles\": " << results[i].cycles_median << "}";
+        }
+        timing_file << "\n]\n";
     }
 
     return 0;

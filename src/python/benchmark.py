@@ -40,6 +40,7 @@ def print_ascii_image(image_tensor):
     print()
 
 
+"""
 def print_comparison(python_time_sec, num_runs, cpp_timing_path):
     '''
       A side-by-side comparison of the C++ and Python median time/cycles is
@@ -73,7 +74,59 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
             print(f"\nC++ is {python_time_sec / cpp_time_sec:.2f}x faster (median wall time).")
 
     print("Python cycle counts: not available (no hardware cycle counter is sampled from Python).")
+"""
 
+def print_comparison(python_time_sec, num_runs, cpp_timing_path):
+    '''
+      A side-by-side comparison of every C++ implementation's median time/cycles
+      against Python is printed. C++ numbers come from cpp_timing.json (a JSON
+      array written by cnn_forward, one entry per implementation in
+      CNN_IMPLEMENTATIONS); Python does not currently sample hardware cycle
+      counters.
+    '''
+    entries = []
+    if os.path.isfile(cpp_timing_path):
+        with open(cpp_timing_path) as f:
+            entries = json.load(f)
+
+        # Guard against a stale cpp_timing.json from before this file became
+        # a JSON array of {name, median_time_sec, median_cycles} entries.
+        if isinstance(entries, dict):
+            print(f"\n(Found an old-format {cpp_timing_path} (a single JSON object) — "
+                  "this file's format changed to a list of per-implementation entries. "
+                  "Delete it and re-run '../../build/cnn_forward' to regenerate it.)")
+            entries = []
+
+    py_time_str = f"{python_time_sec:.6f} s"
+
+    print(f"\n=== C++ (all implementations) vs Python/PyTorch ({num_runs} runs) ===")
+    print(f"{'Implementation':<38} | {'Time':<14} | {'Cycles':<14} | {'Relative':<12}")
+    print("-" * 85)
+    print(f"{'Python/PyTorch':<38} | {py_time_str:<14} | {'N/A':<14} | {'-':<12}")
+
+    if not entries:
+        print("\n(C++ timing not found — run ../../build/cnn_forward first to populate "
+              "weights_cpp/cpp_timing.json.)")
+        return
+
+    for entry in entries:
+        name = entry['name']
+        cpp_time = entry['median_time_sec']
+        cpp_cycles = entry['median_cycles']
+        cpp_time_str = f"{cpp_time:.6f} s"
+        cpp_cycles_str = f"{cpp_cycles:.0f}"
+
+        if cpp_time > 0 and python_time_sec > 0:
+            if python_time_sec < cpp_time:
+                relative = f"Py {cpp_time / python_time_sec:.2f}x"
+            else:
+                relative = f"C++ {python_time_sec / cpp_time:.2f}x"
+        else:
+            relative = "N/A"
+
+        print(f"{name:<38} | {cpp_time_str:<14} | {cpp_cycles_str:<14} | {relative:<12}")
+
+    print("\nPython cycle counts: not available (no hardware cycle counter is sampled from Python).")
 
 def main():
     parser = argparse.ArgumentParser()
@@ -134,8 +187,6 @@ def main():
             print(f"Class {i}: {logit}")
         print()
 
-    predicted_digit = int(logits.argmax(dim=1).item())
-    print(f"The network has successfully predicted the digit: {predicted_digit}")
 
     median_time = float(np.median(run_times))
     print_comparison(median_time, args.num_runs, w_path + 'cpp_timing.json')
