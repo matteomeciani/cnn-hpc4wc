@@ -1,0 +1,107 @@
+Job ID:  1016967
+Node:    nid005228
+Start:   Fri Jul 24 20:52:54 CEST 2026
+=== C++ Compiler Version ===
+g++ (Spack GCC) 14.2.0
+make[1]: Entering directory '/users/course_00420/cnn-hpc4wc'
+g++ -std=c++17 -O3 -march=native -mcpu=native -ffast-math -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG -DNUM_RUNS=10 -DNUM_WARMUP_RUNS=2 -Isrc/cpp -o build/cnn_forward src/cpp/benchmark.cpp src/cpp/cnn_internals.cpp src/cpp/cnn.cpp
+[1;32mBuild successful:[0m build/cnn_forward
+make[1]: Leaving directory '/users/course_00420/cnn-hpc4wc'
+Memory allocation is starting...
+MNIST dataset successfully loaded.
+
+Loading real weights...
+Successfully loaded: ../python/weights_cpp/model_0_weight.bin
+Successfully loaded: ../python/weights_cpp/model_0_bias.bin
+Successfully loaded: ../python/weights_cpp/model_3_weight.bin
+Successfully loaded: ../python/weights_cpp/model_3_bias.bin
+Successfully loaded: ../python/weights_cpp/model_6_weight.bin
+Successfully loaded: ../python/weights_cpp/model_6_bias.bin
+Successfully loaded: ../python/weights_cpp/model_10_weight.bin
+Successfully loaded: ../python/weights_cpp/model_10_bias.bin
+Runs: 10 measured, 2 warmup
+
+==================================================
+ -> Benchmarking Baseline Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 1.46526e+07
+  Median time   : 0.00451094 s (4.51094 ms)
+
+
+
+==================================================
+ -> Benchmarking Restructured Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 7.81256e+06
+  Median time   : 0.0024047 s (2.4047 ms)
+
+
+
+==================================================
+ -> Benchmarking Hoisted Vars + restrict (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 6.8141e+06
+  Median time   : 0.00209563 s (2.09563 ms)
+
+
+
+==================================================
+ -> Benchmarking Reordered Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 5.28364e+06
+  Median time   : 0.00162765 s (1.62765 ms)
+
+
+
+==================================================
+ -> Benchmarking Specialized Implementation (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 3.30859e+06
+  Median time   : 0.00101683 s (1.01683 ms)
+
+
+
+The network has successfully predicted the digit: 7
+
+=== Final Performance Summary ===
+
+Implementation                      | vs Base      | Cycles               | Seconds       
+---------------------------------------------------------------------------------------
+Baseline Nested-Loop                | 1.00x        | 14652622.50          | 0.004511      
+Restructured Nested-Loop            | 1.88x        | 7812562.50           | 0.002405      
+Hoisted Vars + restrict             | 2.15x        | 6814096.00           | 0.002096      
+Reordered Nested-Loop               | 2.77x        | 5283644.50           | 0.001628      
+Specialized Implementation          | 4.43x        | 3308592.50           | 0.001017      
+
+Benchmark sink: -1196.61
+
+The network has successfully predicted the digit: 7
+
+=== C++ (Specialized Implementation) [fastest] vs Python/PyTorch (10 runs) ===
+                C++ (Specialized Implementation)          Python
+Time (median)         0.001017 s      0.000368 s
+Cycles (median)          3308590             N/A
+
+Python is 2.76x faster than the fastest C++ implementation (median wall time).
+Python cycle counts: not available (no hardware cycle counter is sampled from Python).
+End:     Fri Jul 24 20:53:03 CEST 2026

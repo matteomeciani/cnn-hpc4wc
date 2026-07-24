@@ -1,0 +1,14 @@
+src/cpp/cnn_internals.cpp: In function 'void conv2d_forward_specialized(const Tensor&, const Tensor&, const Tensor&, Tensor&)':
+src/cpp/cnn_internals.cpp:282:55: error: 'acc_ptr' was not declared in this scope
+  282 |                 for (int ow = 0; ow < output_w; ++ow) acc_ptr[ow] = b_val;
+      |                                                       ^~~~~~~
+src/cpp/cnn_internals.cpp:298:33: error: 'acc_ptr' was not declared in this scope
+  298 |                                 acc_ptr[ow] += input_ptr[in_row_offset + ow + kw] * w_val;
+      |                                 ^~~~~~~
+src/cpp/cnn_internals.cpp:305:45: error: 'acc_ptr' was not declared in this scope
+  305 |                     out_ptr[out_row + ow] = acc_ptr[ow];
+      |                                             ^~~~~~~
+src/cpp/cnn_internals.cpp:270:23: warning: unused variable 'acc' [-Wunused-variable]
+  270 |     alignas(16) float acc[MAX_OW];
+      |                       ^~~
+make[1]: *** [Makefile:115: build/cnn_forward] Error 1

@@ -1,13 +1,6 @@
 # Build artefacts
 build/*
-!build/.gitkeep
-core_*
-
-# Logs
-logs/*
-
-# Model weights
-**/*.pth
+!build/*.s
 
 # Object files
 *.o

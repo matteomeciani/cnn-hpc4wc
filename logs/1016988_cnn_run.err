@@ -1,0 +1,7 @@
+In file included from src/cpp/cnn_internals.cpp:2:0:
+src/cpp/include/utils.h:141:13: warning: 'bool implementation_matches_filter(const string&, const char*)' defined but not used [-Wunused-function]
+ static bool implementation_matches_filter(const std::string &name, const char *filter) {
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/cpp/include/utils.h:128:15: warning: 'double checksum_tensor(const Tensor&)' defined but not used [-Wunused-function]
+ static double checksum_tensor(const Tensor &t) {
+               ^~~~~~~~~~~~~~~
