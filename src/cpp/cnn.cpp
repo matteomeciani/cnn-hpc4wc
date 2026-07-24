@@ -64,3 +64,19 @@ void cnn_reorder( CNNContext& ctx ) {
 
     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 }
+
+void cnn_specialized( CNNContext& ctx ) {
+    conv2d_forward_specialized(ctx.input_batch, ctx.conv1_weight, ctx.conv1_bias, ctx.conv1_out);
+    relu_forward(ctx.conv1_out);
+    maxpool2d_forward(ctx.conv1_out, ctx.pool1_out, 2, 2);
+
+    conv2d_forward_specialized(ctx.pool1_out, ctx.conv2_weight, ctx.conv2_bias, ctx.conv2_out);
+    relu_forward(ctx.conv2_out);
+    maxpool2d_forward(ctx.conv2_out, ctx.pool2_out, 2, 2);
+
+    conv2d_forward_specialized(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out);
+    relu_forward(ctx.conv3_out);
+    adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
+
+    linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
+}

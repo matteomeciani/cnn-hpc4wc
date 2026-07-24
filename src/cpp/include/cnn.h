@@ -60,6 +60,11 @@ void cnn_hoist_restrict( CNNContext& ctx );
 void cnn_reorder( CNNContext& ctx );
 
 /*
+* Specialized implementation of the forward pass of a CNN.
+*/
+void cnn_specialized( CNNContext& ctx );
+
+/*
  * Add new optimized forward-pass implementations here as they're written, e.g.:
  *
  *   void cnn_im2col_gemm( CNNContext& ctx );
@@ -78,6 +83,7 @@ void cnn_reorder( CNNContext& ctx );
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_restructured, "Restructured Nested-Loop") \
     APPLY(cnn_hoist_restrict, "Hoisted Vars + restrict") \
-    APPLY(cnn_reorder, "Reordered Nested-Loop")
+    APPLY(cnn_reorder, "Reordered Nested-Loop") \
+    APPLY(cnn_specialized, "Specialized Implementation")
 
 #endif
