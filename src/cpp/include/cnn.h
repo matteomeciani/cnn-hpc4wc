@@ -90,6 +90,6 @@ void cnn_specialized_blocked( CNNContext& ctx );
     APPLY(cnn_hoist_restrict, "Hoisted Vars + restrict") \
     APPLY(cnn_reorder, "Reordered Nested-Loop") \
     APPLY(cnn_specialized, "Specialized Implementation") \
-    APPLY(cnn_specialized_blocked, "Specialized Blocked Implementation")
+    APPLY(cnn_specialized_blocked, "NEON Blocked Implementation")
 
 #endif

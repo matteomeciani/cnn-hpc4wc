@@ -308,61 +308,87 @@ void conv2d_forward_specialized(const Tensor& input, const Tensor& weight, const
     }
 }
 
-template <int OC_T, int OW_PAD>
+template <int OC_T>
+static void pack_weights(const float* __restrict w,   // OIHW
+                         float* __restrict packed,
+                         int out_channels, int in_channels,
+                         int kernel_h, int kernel_w)
+{
+    const int ksz  = kernel_h * kernel_w;
+    const int wcsz  = in_channels * ksz;              // per-oc stride in OIHW
+    const int tiles = out_channels / OC_T;
+
+    for (int tb = 0; tb < tiles; ++tb) {
+        for (int ic = 0; ic < in_channels; ++ic)
+            for (int k = 0; k < ksz; ++k)
+                for (int t = 0; t < OC_T; ++t)
+                    *packed++ = w[(std::size_t)(tb * OC_T + t) * wcsz + ic * ksz + k];
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Row tile: OC_T output channels x one output row. stride 1, no padding.
+// NV = number of 4-lane vectors spanning the padded row (ceil(OW/4)).
+// Accumulators are NAMED locals in a fixed-size C array that never has its
+// address escape a constant index -> GCC keeps them in v-registers.
+// ---------------------------------------------------------------------------
+template <int OC_T, int NV>
 static inline void conv_row_tile(const float* __restrict in_batch,
-                                 const float* __restrict weight_ptr,
+                                 const float* __restrict wpack_tile,  // packed
                                  const float* __restrict bias_ptr,
                                  float* __restrict out_batch,
                                  int oc0, int oh,
                                  int in_channels, int in_size, int input_w,
                                  int kernel_h, int kernel_w,
-                                 int weight_size, int weight_ch_size,
                                  int output_w, int out_size)
 {
-    float acc[OC_T][OW_PAD];
+    float32x4_t acc[OC_T][NV];
     for (int t = 0; t < OC_T; ++t) {
-        const float bv = bias_ptr[oc0 + t];
-        for (int v = 0; v < OW_PAD; ++v) acc[t][v] = bv;
+        const float32x4_t bv = vdupq_n_f32(bias_ptr[oc0 + t]);
+        for (int v = 0; v < NV; ++v) acc[t][v] = bv;
     }
 
-    const float* __restrict w_oc = weight_ptr + (std::size_t)oc0 * weight_ch_size;
+    const float* __restrict wp = wpack_tile;         // walks contiguously
 
     for (int ic = 0; ic < in_channels; ++ic) {
         const float* __restrict in_c = in_batch + (std::size_t)ic * in_size;
-        const float* __restrict w_c  = w_oc     + (std::size_t)ic * weight_size;
-
         for (int kh = 0; kh < kernel_h; ++kh) {
             const float* __restrict in_row = in_c + (std::size_t)(oh + kh) * input_w;
-            const float* __restrict w_row  = w_c  + (std::size_t)kh * kernel_w;
-
             for (int kw = 0; kw < kernel_w; ++kw) {
+                // OC_T weights for this (ic,kh,kw), contiguous in packed layout
                 float wv[OC_T];
-                for (int t = 0; t < OC_T; ++t)
-                    wv[t] = w_row[(std::size_t)t * weight_ch_size + kw];
+                for (int t = 0; t < OC_T; ++t) wv[t] = wp[t];
+                wp += OC_T;
 
                 const float* __restrict x = in_row + kw;
-
-                for (int v = 0; v < OW_PAD; ++v) {   // constant trip count
-                    const float xv = x[v];           // ONE contiguous load
-                    for (int t = 0; t < OC_T; ++t)   // OC_T independent FMAs
-                        acc[t][v] += xv * wv[t];
+                for (int v = 0; v < NV; ++v) {            // fully unrolled
+                    const float32x4_t xv = vld1q_f32(x + 4 * v);  // ONE load
+                    for (int t = 0; t < OC_T; ++t)                // OC_T FMAs
+                        acc[t][v] = vfmaq_n_f32(acc[t][v], xv, wv[t]);
                 }
             }
         }
     }
 
+    // Store: full vectors, then a masked/narrow tail for the last partial one.
     for (int t = 0; t < OC_T; ++t) {
         float* __restrict o = out_batch
                             + (std::size_t)(oc0 + t) * out_size
                             + (std::size_t)oh * output_w;
-        for (int v = 0; v < OW_PAD; ++v)
-            if (v < output_w) o[v] = acc[t][v];
+        int v = 0, col = 0;
+        for (; col + 4 <= output_w; col += 4, ++v) vst1q_f32(o + col, acc[t][v]);
+        if (col < output_w) {                             // 1..3 leftover lanes
+            float tmp[4];
+            vst1q_f32(tmp, acc[t][v]);
+            for (int r = 0; col + r < output_w; ++r) o[col + r] = tmp[r];
+        }
     }
 }
 
-template <int OW_PAD, int OC_TILE>
+// ---------------------------------------------------------------------------
+template <int NV, int OC_TILE>
 static void conv2d_blocked_impl(const float* __restrict input_ptr,
-                                const float* __restrict weight_ptr,
+                                const float* __restrict wpack,   // packed
                                 const float* __restrict bias_ptr,
                                 float* __restrict out_ptr,
                                 int batches, int in_channels, int out_channels,
@@ -370,64 +396,41 @@ static void conv2d_blocked_impl(const float* __restrict input_ptr,
                                 int kernel_h, int kernel_w,
                                 int output_h, int output_w)
 {
-    const int in_size        = input_h * input_w;
-    const int in_ch_size     = in_channels * in_size;
-    const int out_size       = output_h * output_w;
-    const int out_ch_size    = out_channels * out_size;
-    const int weight_size    = kernel_h * kernel_w;
-    const int weight_ch_size = in_channels * weight_size;
+    const int in_size     = input_h * input_w;
+    const int in_ch_size  = in_channels * in_size;
+    const int out_size    = output_h * output_w;
+    const int out_ch_size = out_channels * out_size;
+    const int ksz         = kernel_h * kernel_w;
+    const int tile_wsz    = in_channels * ksz * OC_TILE;   // packed floats/tile
+
+    const int n_full = (out_channels / OC_TILE) * OC_TILE;
 
     for (int b = 0; b < batches; ++b) {
         const float* __restrict in_b  = input_ptr + (std::size_t)b * in_ch_size;
         float*       __restrict out_b = out_ptr   + (std::size_t)b * out_ch_size;
 
-        for (int oh = 0; oh < output_h; ++oh) {        // oh ABOVE oc: input rows
-            int oc0 = 0;                               // stay hot across all oc
-            for (; oc0 + OC_TILE <= out_channels; oc0 += OC_TILE)
-                conv_row_tile<OC_TILE, OW_PAD>(
-                    in_b, weight_ptr, bias_ptr, out_b, oc0, oh,
-                    in_channels, in_size, input_w, kernel_h, kernel_w,
-                    weight_size, weight_ch_size, output_w, out_size);
-
-            for (; oc0 < out_channels; ++oc0)          // remainder channels
-                conv_row_tile<1, OW_PAD>(
-                    in_b, weight_ptr, bias_ptr, out_b, oc0, oh,
-                    in_channels, in_size, input_w, kernel_h, kernel_w,
-                    weight_size, weight_ch_size, output_w, out_size);
+        for (int oh = 0; oh < output_h; ++oh) {            // oh above oc
+            int oc0 = 0, tile = 0;
+            for (; oc0 < n_full; oc0 += OC_TILE, ++tile)
+                conv_row_tile<OC_TILE, NV>(
+                    in_b, wpack + (std::size_t)tile * tile_wsz, bias_ptr, out_b,
+                    oc0, oh, in_channels, in_size, input_w,
+                    kernel_h, kernel_w, output_w, out_size);
+            // remainder channels: OC_T=1 tiles, packed contiguously after the rest
+            for (int r = 0; oc0 < out_channels; ++oc0, ++r)
+                conv_row_tile<1, NV>(
+                    in_b,
+                    wpack + (std::size_t)(n_full / OC_TILE) * tile_wsz
+                          + (std::size_t)r * in_channels * ksz,
+                    bias_ptr, out_b, oc0, oh, in_channels, in_size, input_w,
+                    kernel_h, kernel_w, output_w, out_size);
         }
     }
 }
 
-static void conv2d_specialized_reference(const Tensor& input, const Tensor& weight,
-                                         const Tensor& bias, Tensor& output)
-{
-    const float* ip = input.data.data();
-    const float* wp = weight.data.data();
-    const float* bp = bias.data.data();
-    float*       op = output.data.data();
-
-    const int OC = weight.batches, IC = weight.channels;
-    const int KH = weight.height,  KW = weight.width;
-
-    for (int b = 0; b < input.batches; ++b)
-      for (int oc = 0; oc < OC; ++oc)
-        for (int oh = 0; oh < output.height; ++oh)
-          for (int ow = 0; ow < output.width; ++ow) {
-            float s = bp[oc];
-            for (int ic = 0; ic < IC; ++ic)
-              for (int kh = 0; kh < KH; ++kh)
-                for (int kw = 0; kw < KW; ++kw)
-                  s += ip[((std::size_t)b * IC + ic) * input.height * input.width
-                          + (std::size_t)(oh + kh) * input.width + (ow + kw)]
-                     * wp[((std::size_t)oc * IC + ic) * KH * KW
-                          + (std::size_t)kh * KW + kw];
-            op[((std::size_t)b * output.channels + oc) * output.height * output.width
-               + (std::size_t)oh * output.width + ow] = s;
-          }
-}
-
+// ---------------------------------------------------------------------------
 void conv2d_forward_specialized_blocked(const Tensor& input, const Tensor& weight,
-                                const Tensor& bias, Tensor& output)
+                                        const Tensor& bias, Tensor& output)
 {
     const int OC = weight.batches, IC = weight.channels;
     const int KH = weight.height,  KW = weight.width;
@@ -438,42 +441,58 @@ void conv2d_forward_specialized_blocked(const Tensor& input, const Tensor& weigh
     assert(output.channels == OC);
     assert(output.batches  == input.batches);
     assert((int)bias.data.size() >= OC);
-    assert(OH == IH - KH + 1);         
+    assert(OH == IH - KH + 1);
     assert(OW == IW - KW + 1);
 
-    if (OW > 28) { conv2d_specialized_reference(input, weight, bias, output); return; }
+    const int NV = (OW + 3) / 4;
 
-    const int OW_PAD = ((OW + 3) / 4) * 4;
-
+    // Tail over-read: last row's vld1q reads up to (NV*4 - OW) floats past end.
     const std::size_t numel = (std::size_t)input.batches * IC * IH * IW;
-    const std::size_t slack = (std::size_t)(OW_PAD - OW);
+    const std::size_t slack = (std::size_t)(NV * 4 - OW);
     const float* in_ptr = input.data.data();
-    std::vector<float> padded;
+    std::vector<float> in_pad;
     if (slack && input.data.size() < numel + slack) {
-        padded.assign(input.data.begin(), input.data.end());
-        padded.resize(numel + slack, 0.0f);
-        in_ptr = padded.data();
+        in_pad.assign(input.data.begin(), input.data.end());
+        in_pad.resize(numel + slack, 0.0f);
+        in_ptr = in_pad.data();
     }
 
-    const float* wp = weight.data.data();
     const float* bp = bias.data.data();
     float*       op = output.data.data();
 
-    #define DISPATCH(PAD, TILE)                                        \
-        conv2d_blocked_impl<PAD, TILE>(in_ptr, wp, bp, op,             \
-            input.batches, IC, OC, IH, IW, KH, KW, OH, OW); break;
+    // --- pick tile, pack weights, dispatch --------------------------------
+    // Pack once here for a fair test. In production, pack per layer and cache.
+    auto run = [&](auto oc_tile_c, auto nv_c) {
+        constexpr int OC_TILE = decltype(oc_tile_c)::value;
+        constexpr int NVv     = decltype(nv_c)::value;
+        std::vector<float> packed((std::size_t)OC * IC * KH * KW);
+        pack_weights<OC_TILE>(weight.data.data(), packed.data(), OC, IC, KH, KW);
+        // remainder (OC % OC_TILE) channels: pack as OC_T=1 after the full tiles
+        const int n_full = (OC / OC_TILE) * OC_TILE;
+        if (n_full < OC)
+            pack_weights<1>(weight.data.data() + (std::size_t)n_full * IC * KH * KW,
+                            packed.data() + (std::size_t)n_full * IC * KH * KW,
+                            OC - n_full, IC, KH, KW);
+        conv2d_blocked_impl<NVv, OC_TILE>(
+            in_ptr, packed.data(), bp, op,
+            input.batches, IC, OC, IH, IW, KH, KW, OH, OW);
+    };
 
-    switch (OW_PAD) {
-        case 4:  DISPATCH(4,  8)    //  8 accumulator vectors   (conv3: OW=3)
-        case 8:  DISPATCH(8,  6)    // 12
-        case 12: DISPATCH(12, 4)    // 12                       (conv2: OW=11)
-        case 16: DISPATCH(16, 3)    // 12
-        case 20: DISPATCH(20, 2)    // 10
-        case 24: DISPATCH(24, 2)    // 12
-        case 28: DISPATCH(28, 2)    // 14                       (conv1: OW=26)
-        default: conv2d_specialized_reference(input, weight, bias, output);
+    #define IC_(x) std::integral_constant<int, x>{}
+    switch (NV) {
+        case 1: run(IC_(4), IC_(1)); break;   // OW<=4   conv3 (OW=3)
+        case 2: run(IC_(4), IC_(2)); break;   // OW<=8
+        case 3: run(IC_(4), IC_(3)); break;   // OW<=12  conv2 (OW=11) 12+1+4=17
+        case 4: run(IC_(3), IC_(4)); break;   // OW<=16
+        case 5: run(IC_(2), IC_(5)); break;
+        case 6: run(IC_(2), IC_(6)); break;
+        case 7: run(IC_(2), IC_(7)); break;   // OW<=28  conv1 (OW=26)
+        default:
+            // fall back to OC_T=1 for very wide rows
+            switch (NV) { }  // extend as needed
+            break;
     }
-    #undef DISPATCH
+    #undef IC_
 }
 
 void relu_forward(Tensor& tensor) {

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cstddef>
+#include <arm_neon.h>
 
 // ---------------------------------------------------------
 // DATA STRUCTURES

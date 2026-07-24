@@ -193,5 +193,5 @@ perf stat -e cycles:u,instructions:u,cache-references:u,cache-misses:u,branch-mi
 ```
 
 ```bash
-make -b ASM=1 build
+make -B ASM=1 build
 ```
