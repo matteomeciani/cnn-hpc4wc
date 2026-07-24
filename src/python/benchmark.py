@@ -83,6 +83,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--num-runs', type=int, default=10)
     parser.add_argument('--num-warmup-runs', type=int, default=2)
+    parser.add_argument('--batch-size', type=int, default=1)
     parser.add_argument('-v', '--verbose', action='store_true',
                          help='Print the ASCII input image and per-class logits.')
     args = parser.parse_args()
@@ -109,13 +110,15 @@ def main():
         model.model[10].weight.copy_(load_bin(w_path + 'model_10_weight.bin', (10, 128)))
         model.model[10].bias.copy_(load_bin(w_path + 'model_10_bias.bin', (10,)))
 
-    # 2. A single MNIST test image is loaded, matching the C++ timing
-    #    benchmark's single-image forward pass.
+    # 2. `--batch-size` MNIST test images are loaded, matching the C++
+    #    timing benchmark's batch size.
     mnist_path = '../../data/MNIST/raw/t10k-images-idx3-ubyte'
     with open(mnist_path, 'rb') as f:
-        _, _, rows, cols = struct.unpack(">IIII", f.read(16))
-        image_data = np.frombuffer(f.read(rows * cols), dtype=np.uint8)
-    image_tensor = torch.tensor(image_data, dtype=torch.float32).view(1, 1, rows, cols) / 255.0
+        _, num_available, rows, cols = struct.unpack(">IIII", f.read(16))
+        batch_size = min(args.batch_size, num_available)
+        image_data = np.frombuffer(f.read(batch_size * rows * cols), dtype=np.uint8)
+    image_tensor = torch.tensor(image_data, dtype=torch.float32).view(batch_size, 1, rows, cols) / 255.0
+    print(f"Batch size: {batch_size}")
 
     if args.verbose:
         print_ascii_image(image_tensor)
@@ -138,7 +141,7 @@ def main():
             print(f"Class {i}: {logit}")
         print()
 
-    predicted_digit = int(logits.argmax(dim=1).item())
+    predicted_digit = int(logits[0].argmax().item())
     print(f"The network has successfully predicted the digit: {predicted_digit}")
 
     median_time = float(np.median(run_times))

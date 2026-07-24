@@ -1,5 +1,5 @@
 {
-  "implementation": "Specialized Blocked Implementation",
-  "median_time_sec": 0.000337424,
-  "median_cycles": 1.1066e+06
+  "implementation": "NEON Blocked Implementation",
+  "median_time_sec": 0.00031912,
+  "median_cycles": 1.0443e+06
 }

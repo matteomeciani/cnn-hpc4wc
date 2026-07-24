@@ -178,7 +178,7 @@ cd src/cpp && ../../build/cnn_forward profile
 ```
 
 ```bash
-make build NUM_RUNS=200000 NUM_WARMUP_RUNS=100
+make build NUM_RUNS=2000 NUM_WARMUP_RUNS=100
 cd src/cpp
 perf record -e cycles:u -g -o /tmp/perf.data -- ../../build/cnn_forward
 perf report -i /tmp/perf.data

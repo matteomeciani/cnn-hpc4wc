@@ -1,6 +1,6 @@
-Job ID:  1017003
-Node:    nid005296
-Start:   Fri Jul 24 21:46:53 CEST 2026
+Job ID:  1017017
+Node:    nid005016
+Start:   Fri Jul 24 22:22:32 CEST 2026
 === C++ Compiler Version ===
 g++ (Spack GCC) 14.2.0
 make[1]: Entering directory '/users/course_00420/cnn-hpc4wc'
@@ -27,8 +27,8 @@ Runs: 10 measured, 2 warmup
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 1.46941e+07
-  Median time   : 0.00456107 s (4.56107 ms)
+  Median cycles : 1.47819e+07
+  Median time   : 0.00455232 s (4.55232 ms)
 
 
 
@@ -39,8 +39,8 @@ Warmup complete. Starting 10 benchmark runs...
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 7.78962e+06
-  Median time   : 0.00241891 s (2.41891 ms)
+  Median cycles : 6.24093e+06
+  Median time   : 0.00192138 s (1.92138 ms)
 
 
 
@@ -51,8 +51,8 @@ Warmup complete. Starting 10 benchmark runs...
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 6.8115e+06
-  Median time   : 0.00211651 s (2.11651 ms)
+  Median cycles : 6.09668e+06
+  Median time   : 0.00187797 s (1.87797 ms)
 
 
 
@@ -63,8 +63,8 @@ Warmup complete. Starting 10 benchmark runs...
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 5.28316e+06
-  Median time   : 0.00163875 s (1.63875 ms)
+  Median cycles : 5.82078e+06
+  Median time   : 0.00179064 s (1.79064 ms)
 
 
 
@@ -75,20 +75,32 @@ Warmup complete. Starting 10 benchmark runs...
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 3.30956e+06
-  Median time   : 0.00102597 s (1.02597 ms)
+  Median cycles : 4.46672e+06
+  Median time   : 0.00137418 s (1.37418 ms)
 
 
 
 ==================================================
- -> Benchmarking Specialized Blocked Implementation (WARM CACHE)
+ -> Benchmarking NEON Blocked Implementation (WARM CACHE)
 ==================================================
 --- Performance Benchmarking (10 Runs) ---
 Running 2 warmup runs...
 Warmup complete. Starting 10 benchmark runs...
 === Results ===
-  Median cycles : 3.47123e+06
-  Median time   : 0.001076 s (1.076 ms)
+  Median cycles : 1.09657e+06
+  Median time   : 0.000337264 s (0.337264 ms)
+
+
+
+==================================================
+ -> Benchmarking Specialized MaxPool2D (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 1.10103e+06
+  Median time   : 0.000338704 s (0.338704 ms)
 
 
 
@@ -98,22 +110,23 @@ The network has successfully predicted the digit: 7
 
 Implementation                      | vs Base      | Cycles               | Seconds       
 ---------------------------------------------------------------------------------------
-Baseline Nested-Loop                | 1.00x        | 14694136.00          | 0.004561      
-Restructured Nested-Loop            | 1.89x        | 7789618.00           | 0.002419      
-Hoisted Vars + restrict             | 2.16x        | 6811504.50           | 0.002117      
-Reordered Nested-Loop               | 2.78x        | 5283164.00           | 0.001639      
-Specialized Implementation          | 4.44x        | 3309562.50           | 0.001026      
-Specialized Blocked Implementation  | 4.23x        | 3471228.50           | 0.001076      
+Baseline Nested-Loop                | 1.00x        | 14781922.00          | 0.004552      
+Restructured Nested-Loop            | 2.37x        | 6240932.50           | 0.001921      
+Hoisted Vars + restrict             | 2.42x        | 6096682.50           | 0.001878      
+Reordered Nested-Loop               | 2.54x        | 5820780.00           | 0.001791      
+Specialized Implementation          | 3.31x        | 4466715.50           | 0.001374      
+NEON Blocked Implementation         | 13.48x       | 1096568.00           | 0.000337      
+Specialized MaxPool2D               | 13.43x       | 1101026.00           | 0.000339      
 
-Benchmark sink: -2359.95
+Benchmark sink: -2753.27
 
 The network has successfully predicted the digit: 7
 
-=== C++ (Specialized Implementation) [fastest] vs Python/PyTorch (10 runs) ===
-                C++ (Specialized Implementation)          Python
-Time (median)         0.001026 s      0.000373 s
-Cycles (median)          3309560             N/A
+=== C++ (NEON Blocked Implementation) [fastest] vs Python/PyTorch (10 runs) ===
+                C++ (NEON Blocked Implementation)          Python
+Time (median)         0.000337 s      0.000321 s
+Cycles (median)          1096570             N/A
 
-Python is 2.75x faster than the fastest C++ implementation (median wall time).
+Python is 1.05x faster than the fastest C++ implementation (median wall time).
 Python cycle counts: not available (no hardware cycle counter is sampled from Python).
-End:     Fri Jul 24 21:47:02 CEST 2026
+End:     Fri Jul 24 22:22:41 CEST 2026

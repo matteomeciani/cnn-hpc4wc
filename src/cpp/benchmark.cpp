@@ -11,6 +11,9 @@
 #ifndef NUM_WARMUP_RUNS
 #define NUM_WARMUP_RUNS 2
 #endif
+#ifndef BATCH_SIZE
+#define BATCH_SIZE 1
+#endif
 
 // Prevents the compiler from dead-code-eliminating the forward pass.
 static volatile double benchmark_global_sink = 0.0;
@@ -92,7 +95,7 @@ int main(int argc, char** argv) {
             verbose = true;
     }
 
-    int batch_size  = verify_mode ? 10000 : 1;
+    int batch_size  = verify_mode ? 10000 : BATCH_SIZE;
     int num_classes = 10;
 
     int num_runs = NUM_RUNS;
@@ -103,6 +106,7 @@ int main(int argc, char** argv) {
         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
     }
 
+    std::cout << Color::BOLD_CYAN << "Batch size: " << batch_size << Color::RESET << "\n";
     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
 
     // 1. INPUT

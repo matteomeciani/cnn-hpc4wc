@@ -32,6 +32,9 @@ DEVICE ?= cuda
 NUM_RUNS        ?= 10
 NUM_WARMUP_RUNS ?= 2
 
+# Benchmark batch size:  make run-local BATCH_SIZE=64
+BATCH_SIZE      ?= 1
+
 # Debug build:     make DEBUG=1 build
 ifdef DEBUG
   CXXFLAGS := -std=c++17 -O0 -g -fsanitize=address,undefined -Wall -Wextra
@@ -50,7 +53,7 @@ ifdef ASM
   CXX := uenv run --view=default $(UENV_VIEW) -- g++
 endif
 
-CXXFLAGS += -DNUM_RUNS=$(NUM_RUNS) -DNUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS)
+CXXFLAGS += -DNUM_RUNS=$(NUM_RUNS) -DNUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS) -DBATCH_SIZE=$(BATCH_SIZE)
 
 # -----------------------------------------------------------------------------
 # Directory layout
@@ -105,6 +108,7 @@ help:
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEVICE=cpu'     'Use CPU for training (default: cuda)'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_RUNS=N'     'Timed benchmark runs for run/run-local (default: 10)'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_WARMUP_RUNS=N' 'Warmup runs for run/run-local (default: 2)'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'BATCH_SIZE=N'   'Images per forward pass for run/run-local (default: 1)'
 	@printf '\n'
 
 # -----------------------------------------------------------------------------
@@ -135,7 +139,7 @@ run-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- C++ Forward Pass (local) ---$(C_RESET)\n'
 	cd $(SRC_CPP) && ../../$(TARGET)
 	@printf '$(C_BOLD_CYAN)--- Python/PyTorch Forward Pass (local) ---$(C_RESET)\n'
-	cd $(SRC_PY) && $(PYTHON) benchmark.py --num-runs $(NUM_RUNS) --num-warmup-runs $(NUM_WARMUP_RUNS)
+	cd $(SRC_PY) && $(PYTHON) benchmark.py --num-runs $(NUM_RUNS) --num-warmup-runs $(NUM_WARMUP_RUNS) --batch-size $(BATCH_SIZE)
 
 verify-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- Python/PyTorch Verifier (local) ---$(C_RESET)\n'
@@ -157,7 +161,7 @@ _check_slurm:
 
 run: _check_slurm
 	@mkdir -p $(LOGS_DIR)
-	@sbatch --export=ALL,NUM_RUNS=$(NUM_RUNS),NUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS) $(SCRIPTS)/submit_run.sh
+	@sbatch --export=ALL,NUM_RUNS=$(NUM_RUNS),NUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS),BATCH_SIZE=$(BATCH_SIZE) $(SCRIPTS)/submit_run.sh
 
 verify: _check_slurm
 	@mkdir -p $(LOGS_DIR)

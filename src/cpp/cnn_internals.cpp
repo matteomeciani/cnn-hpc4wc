@@ -545,6 +545,59 @@ void maxpool2d_forward(const Tensor& input, Tensor& output, int pool_size, int s
     }
 }
 
+void maxpool2d_forward_specialized(const Tensor& input, Tensor& output) {
+
+    const float* __restrict input_ptr  = input.data.data();
+    float* __restrict       out_ptr    = output.data.data();
+
+    int in_channels   = input.channels;
+    int input_h       = input.height;
+    int input_w       = input.width;
+    int output_h      = output.height;
+    int output_w      = output.width;
+    int input_batches = input.batches;
+    int out_channels  = output.channels;
+
+    int in_size      = input_h * input_w;
+    int in_ch_size   = in_channels * in_size;
+    int out_size     = output_h * output_w;
+    int out_ch_size  = out_channels * out_size;
+
+    constexpr int MAX_OW = 64;
+    alignas(16) float acc[MAX_OW]; 
+
+    for (int b = 0; b < input_batches; ++b) {
+        int in_b_ch_size  = b * in_ch_size;
+        int out_b_ch_size = b * out_ch_size;
+
+        for (int c = 0; c < in_channels; ++c) {
+            int ic_size    = c * in_size;
+            int out_c_size = c * out_size;
+
+            for (int oh = 0; oh < output_h; ++oh) {
+                for (int ow = 0; ow < output_w; ++ow) acc[ow] = -1e9f;
+
+                for (int ph = 0; ph < 2; ++ph) {
+                    int ih = oh * 2 + ph;
+                    int in_row_offset = in_b_ch_size + ic_size + ih * input_w;
+
+                    for (int pw = 0; pw < 2; ++pw) {
+                        for (int ow = 0; ow < output_w; ++ow) {
+                            int iw = ow * 2 + pw;
+                            acc[ow] = std::max(acc[ow], input_ptr[in_row_offset + iw]);
+                        }
+                    }
+                }
+
+                int out_row = out_b_ch_size + out_c_size + oh * output_w;
+                for (int ow = 0; ow < output_w; ++ow) {
+                    out_ptr[out_row + ow] = acc[ow];
+                }
+            }
+        }
+    }
+}
+
 void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output) {
     int spatial_size = input.height * input.width;
 

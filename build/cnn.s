@@ -10,7 +10,7 @@
 	.global	_Z12cnn_baselineR10CNNContext
 	.type	_Z12cnn_baselineR10CNNContext, %function
 _Z12cnn_baselineR10CNNContext:
-.LFB1528:
+.LFB5444:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -76,14 +76,14 @@ _Z12cnn_baselineR10CNNContext:
 // src/cpp/cnn.cpp:17:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1528:
+.LFE5444:
 	.size	_Z12cnn_baselineR10CNNContext, .-_Z12cnn_baselineR10CNNContext
 	.align	2
 	.p2align 5,,15
 	.global	_Z16cnn_restructuredR10CNNContext
 	.type	_Z16cnn_restructuredR10CNNContext, %function
 _Z16cnn_restructuredR10CNNContext:
-.LFB1529:
+.LFB5445:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -149,14 +149,14 @@ _Z16cnn_restructuredR10CNNContext:
 // src/cpp/cnn.cpp:33:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1529:
+.LFE5445:
 	.size	_Z16cnn_restructuredR10CNNContext, .-_Z16cnn_restructuredR10CNNContext
 	.align	2
 	.p2align 5,,15
 	.global	_Z18cnn_hoist_restrictR10CNNContext
 	.type	_Z18cnn_hoist_restrictR10CNNContext, %function
 _Z18cnn_hoist_restrictR10CNNContext:
-.LFB1530:
+.LFB5446:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -222,14 +222,14 @@ _Z18cnn_hoist_restrictR10CNNContext:
 // src/cpp/cnn.cpp:49:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1530:
+.LFE5446:
 	.size	_Z18cnn_hoist_restrictR10CNNContext, .-_Z18cnn_hoist_restrictR10CNNContext
 	.align	2
 	.p2align 5,,15
 	.global	_Z11cnn_reorderR10CNNContext
 	.type	_Z11cnn_reorderR10CNNContext, %function
 _Z11cnn_reorderR10CNNContext:
-.LFB1531:
+.LFB5447:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -295,14 +295,14 @@ _Z11cnn_reorderR10CNNContext:
 // src/cpp/cnn.cpp:65:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1531:
+.LFE5447:
 	.size	_Z11cnn_reorderR10CNNContext, .-_Z11cnn_reorderR10CNNContext
 	.align	2
 	.p2align 5,,15
 	.global	_Z15cnn_specializedR10CNNContext
 	.type	_Z15cnn_specializedR10CNNContext, %function
 _Z15cnn_specializedR10CNNContext:
-.LFB1532:
+.LFB5448:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -360,14 +360,14 @@ _Z15cnn_specializedR10CNNContext:
 // src/cpp/cnn.cpp:81:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1532:
+.LFE5448:
 	.size	_Z15cnn_specializedR10CNNContext, .-_Z15cnn_specializedR10CNNContext
 	.align	2
 	.p2align 5,,15
 	.global	_Z23cnn_specialized_blockedR10CNNContext
 	.type	_Z23cnn_specialized_blockedR10CNNContext, %function
 _Z23cnn_specialized_blockedR10CNNContext:
-.LFB1533:
+.LFB5449:
 	.cfi_startproc
 	stp	x29, x30, [sp, -32]!	//,,,
 	.cfi_def_cfa_offset 32
@@ -425,7 +425,68 @@ _Z23cnn_specialized_blockedR10CNNContext:
 // src/cpp/cnn.cpp:97:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
 	.cfi_endproc
-.LFE1533:
+.LFE5449:
 	.size	_Z23cnn_specialized_blockedR10CNNContext, .-_Z23cnn_specialized_blockedR10CNNContext
+	.align	2
+	.p2align 5,,15
+	.global	_Z21specialized_maxpool2dR10CNNContext
+	.type	_Z21specialized_maxpool2dR10CNNContext, %function
+_Z21specialized_maxpool2dR10CNNContext:
+.LFB5450:
+	.cfi_startproc
+	stp	x29, x30, [sp, -32]!	//,,,
+	.cfi_def_cfa_offset 32
+	.cfi_offset 29, -32
+	.cfi_offset 30, -24
+	mov	x29, sp	//,
+	str	x19, [sp, 16]	//,
+	.cfi_offset 19, -16
+// src/cpp/cnn.cpp:100: void specialized_maxpool2d( CNNContext& ctx ) {
+	mov	x19, x0	// ctx, tmp151
+// src/cpp/cnn.cpp:101:     conv2d_forward_specialized_blocked(ctx.input_batch, ctx.conv1_weight, ctx.conv1_bias, ctx.conv1_out);
+	ldp	x2, x3, [x19, 16]	//,,
+	ldp	x0, x1, [x0]	//,,* ctx
+	bl	_Z34conv2d_forward_specialized_blockedRK6TensorS1_S1_RS_		//
+// src/cpp/cnn.cpp:102:     relu_forward(ctx.conv1_out);
+	ldr	x0, [x19, 24]	//, ctx_27(D)->conv1_out
+	bl	_Z12relu_forwardR6Tensor		//
+// src/cpp/cnn.cpp:103:     maxpool2d_forward_specialized(ctx.conv1_out, ctx.pool1_out);
+	ldp	x0, x1, [x19, 24]	//,,
+	bl	_Z29maxpool2d_forward_specializedRK6TensorRS_		//
+// src/cpp/cnn.cpp:105:     conv2d_forward_specialized_blocked(ctx.pool1_out, ctx.conv2_weight, ctx.conv2_bias, ctx.conv2_out);
+	ldp	x0, x1, [x19, 32]	//,,
+	ldp	x2, x3, [x19, 48]	//,,
+	bl	_Z34conv2d_forward_specialized_blockedRK6TensorS1_S1_RS_		//
+// src/cpp/cnn.cpp:106:     relu_forward(ctx.conv2_out);
+	ldr	x0, [x19, 56]	//, ctx_27(D)->conv2_out
+	bl	_Z12relu_forwardR6Tensor		//
+// src/cpp/cnn.cpp:107:     maxpool2d_forward_specialized(ctx.conv2_out, ctx.pool2_out);
+	ldp	x0, x1, [x19, 56]	//,,
+	bl	_Z29maxpool2d_forward_specializedRK6TensorRS_		//
+// src/cpp/cnn.cpp:109:     conv2d_forward_specialized_blocked(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out);
+	ldp	x0, x1, [x19, 64]	//,,
+	ldp	x2, x3, [x19, 80]	//,,
+	bl	_Z34conv2d_forward_specialized_blockedRK6TensorS1_S1_RS_		//
+// src/cpp/cnn.cpp:110:     relu_forward(ctx.conv3_out);
+	ldr	x0, [x19, 88]	//, ctx_27(D)->conv3_out
+	bl	_Z12relu_forwardR6Tensor		//
+// src/cpp/cnn.cpp:111:     adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
+	ldp	x0, x1, [x19, 88]	//,,
+	bl	_Z26adaptive_avgpool2d_forwardRK6TensorRS_		//
+// src/cpp/cnn.cpp:113:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
+	ldp	x0, x1, [x19, 96]	//,,
+	ldp	x2, x3, [x19, 112]	//,,
+// src/cpp/cnn.cpp:114: }
+	ldr	x19, [sp, 16]	//,
+	ldp	x29, x30, [sp], 32	//,,,
+	.cfi_restore 30
+	.cfi_restore 29
+	.cfi_restore 19
+	.cfi_def_cfa_offset 0
+// src/cpp/cnn.cpp:113:     linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
+	b	_Z14linear_forwardRK6TensorS1_S1_RS_		//
+	.cfi_endproc
+.LFE5450:
+	.size	_Z21specialized_maxpool2dR10CNNContext, .-_Z21specialized_maxpool2dR10CNNContext
 	.ident	"GCC: (Spack GCC) 14.2.0"
 	.section	.note.GNU-stack,"",@progbits

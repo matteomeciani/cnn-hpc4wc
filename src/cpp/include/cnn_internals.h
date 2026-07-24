@@ -55,6 +55,9 @@ void linear_forward(const Tensor& input, const Tensor& weight, const Tensor& bia
 // A 2D Max Pooling forward pass is declared.
 void maxpool2d_forward(const Tensor& input, Tensor& output, int pool_size, int stride);
 
+// A specialized 2D Max Pooling forward pass is declared, potentially optimized for specific input sizes or hardware.
+void maxpool2d_forward_specialized(const Tensor& input, Tensor& output);
+
 // Adaptive Average Pooling (to 1x1) is declared.
 void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output);
 

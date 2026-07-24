@@ -31,14 +31,14 @@ _ZL11_cmp_doublePKvS0_:
 	.size	_ZL11_cmp_doublePKvS0_, .-_ZL11_cmp_doublePKvS0_
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align	3
-.LC8:
+.LC9:
 	.string	"cannot create std::vector larger than max_size()"
 	.text
 	.align	2
 	.p2align 5,,15
 	.type	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0, %function
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0:
-.LFB4471:
+.LFB8387:
 	.cfi_startproc
 	stp	x29, x30, [sp, -64]!	//,,,
 	.cfi_def_cfa_offset 64
@@ -74,13 +74,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
 	mov	x3, x0	// __first, tmp116
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:398: 	this->_M_impl._M_start = this->_M_allocate(__n);
-	str	x0, [x19]	// tmp116, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.79399._M_start
+	str	x0, [x19]	// tmp116, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.100808._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
 	mov	x21, x0	// tmp116, tmp126
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
 	str	xzr, [x3], 8	//, *_27
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:400: 	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-	str	x23, [x19, 16]	// _15, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.79399._M_end_of_storage
+	str	x23, [x19, 16]	// _15, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.100808._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:1146:       if (__n <= 0)
 	cmp	x20, 1	// __n,
 	beq	.L11		//,
@@ -99,7 +99,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0:
 	sub	x3, x3, #8	// __first, _44,
 .L6:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1719: 	this->_M_impl._M_finish =
-	str	x3, [x19, 8]	// __first, *this_1(D).D.80064._M_impl.D.79399._M_finish
+	str	x3, [x19, 8]	// __first, *this_1(D).D.101473._M_impl.D.100808._M_finish
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:558:       { _M_default_initialize(__n); }
 	ldp	x19, x20, [sp, 16]	//,,
 	ldp	x29, x30, [sp], 64	//,,,
@@ -115,9 +115,9 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:380: 	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
 	mov	x3, 0	// __first,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:398: 	this->_M_impl._M_start = this->_M_allocate(__n);
-	str	xzr, [x0]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.79399._M_start
+	str	xzr, [x0]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.100808._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:400: 	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-	str	xzr, [x0, 16]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.79399._M_end_of_storage
+	str	xzr, [x0, 16]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.100808._M_end_of_storage
 	b	.L6		//
 .L11:
 	.cfi_offset 21, -32
@@ -131,23 +131,23 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0:
 	b	.L6		//
 .L12:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1920: 	  __throw_length_error(
-	adrp	x0, .LC8	// tmp115,
+	adrp	x0, .LC9	// tmp115,
 	stp	x21, x22, [sp, 32]	//,,
 	.cfi_offset 22, -24
 	.cfi_offset 21, -32
-	add	x0, x0, :lo12:.LC8	//, tmp115,
+	add	x0, x0, :lo12:.LC9	//, tmp115,
 	str	x23, [sp, 48]	//,
 	.cfi_offset 23, -16
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1920: 	  __throw_length_error(
 	bl	_ZSt20__throw_length_errorPKc		//
 	.cfi_endproc
-.LFE4471:
+.LFE8387:
 	.size	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0, .-_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0
 	.align	2
 	.p2align 5,,15
 	.type	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0, %function
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0:
-.LFB4474:
+.LFB8390:
 	.cfi_startproc
 	stp	x29, x30, [sp, -64]!	//,,,
 	.cfi_def_cfa_offset 64
@@ -183,13 +183,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
 	mov	x3, x0	// __first, tmp116
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:398: 	this->_M_impl._M_start = this->_M_allocate(__n);
-	str	x0, [x19]	// tmp116, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.35493._M_start
+	str	x0, [x19]	// tmp116, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
 	mov	x21, x0	// tmp116, tmp126
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
 	str	wzr, [x3], 4	//, *_27
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:400: 	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-	str	x23, [x19, 16]	// _15, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.35493._M_end_of_storage
+	str	x23, [x19, 16]	// _15, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:1146:       if (__n <= 0)
 	cmp	x20, 1	// __n,
 	beq	.L22		//,
@@ -208,7 +208,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0:
 	sub	x3, x3, #4	// __first, _44,
 .L17:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1719: 	this->_M_impl._M_finish =
-	str	x3, [x19, 8]	// __first, *this_1(D).D.36192._M_impl.D.35493._M_finish
+	str	x3, [x19, 8]	// __first, *this_1(D).D.57594._M_impl.D.56895._M_finish
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:558:       { _M_default_initialize(__n); }
 	ldp	x19, x20, [sp, 16]	//,,
 	ldp	x29, x30, [sp], 64	//,,,
@@ -224,9 +224,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:380: 	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
 	mov	x3, 0	// __first,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:398: 	this->_M_impl._M_start = this->_M_allocate(__n);
-	str	xzr, [x0]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.35493._M_start
+	str	xzr, [x0]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:400: 	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-	str	xzr, [x0, 16]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.35493._M_end_of_storage
+	str	xzr, [x0, 16]	//, MEM[(struct _Vector_base *)this_1(D)]._M_impl.D.56895._M_end_of_storage
 	b	.L17		//
 .L22:
 	.cfi_offset 21, -32
@@ -240,28 +240,28 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0:
 	b	.L17		//
 .L23:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1920: 	  __throw_length_error(
-	adrp	x0, .LC8	// tmp115,
+	adrp	x0, .LC9	// tmp115,
 	stp	x21, x22, [sp, 32]	//,,
 	.cfi_offset 22, -24
 	.cfi_offset 21, -32
-	add	x0, x0, :lo12:.LC8	//, tmp115,
+	add	x0, x0, :lo12:.LC9	//, tmp115,
 	str	x23, [sp, 48]	//,
 	.cfi_offset 23, -16
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1920: 	  __throw_length_error(
 	bl	_ZSt20__throw_length_errorPKc		//
 	.cfi_endproc
-.LFE4474:
+.LFE8390:
 	.size	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0, .-_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0
 	.section	.rodata.str1.8
 	.align	3
-.LC9:
+.LC10:
 	.string	"basic_string::append"
 	.text
 	.align	2
 	.p2align 5,,15
 	.type	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0, %function
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0:
-.LFB4477:
+.LFB8393:
 	.cfi_startproc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:404: 	if (this->max_size() - (this->size() - __n1) < __n2)
 	ldr	x4, [x0, 8]	// MEM[(const struct basic_string *)this_1(D)]._M_string_length, MEM[(const struct basic_string *)this_1(D)]._M_string_length
@@ -273,7 +273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0:
 	b	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm		//
 .L30:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:405: 	  __throw_length_error(__N(__s));
-	adrp	x0, .LC9	// tmp109,
+	adrp	x0, .LC10	// tmp109,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:1466:       append(const _CharT* __s, size_type __n)
 	stp	x29, x30, [sp, -16]!	//,,,
 	.cfi_def_cfa_offset 16
@@ -281,19 +281,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0:
 	.cfi_offset 30, -8
 	mov	x29, sp	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:405: 	  __throw_length_error(__N(__s));
-	add	x0, x0, :lo12:.LC9	//, tmp109,
+	add	x0, x0, :lo12:.LC10	//, tmp109,
 	bl	_ZSt20__throw_length_errorPKc		//
 	.cfi_endproc
-.LFE4477:
+.LFE8393:
 	.size	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0, .-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.isra.0
 	.align	2
 	.p2align 5,,15
 	.type	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0, %function
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0:
-.LFB4478:
+.LFB8394:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA4478
+	.cfi_lsda 0x1b,.LLSDA8394
 	stp	x29, x30, [sp, -64]!	//,,,
 	.cfi_def_cfa_offset 64
 	.cfi_offset 29, -64
@@ -370,35 +370,35 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.i
 	bl	_Unwind_Resume		//
 .LEHE1:
 	.cfi_endproc
-.LFE4478:
+.LFE8394:
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA4478:
+.LLSDA8394:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE4478-.LLSDACSB4478
-.LLSDACSB4478:
-	.uleb128 .LEHB0-.LFB4478
+	.uleb128 .LLSDACSE8394-.LLSDACSB8394
+.LLSDACSB8394:
+	.uleb128 .LEHB0-.LFB8394
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L34-.LFB4478
+	.uleb128 .L34-.LFB8394
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB4478
+	.uleb128 .LEHB1-.LFB8394
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE4478:
+.LLSDACSE8394:
 	.text
 	.size	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0, .-_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0
 	.section	.rodata.str1.8
 	.align	3
-.LC10:
+.LC11:
 	.string	"basic_string: construction from null is not valid"
 	.text
 	.align	2
 	.p2align 5,,15
 	.type	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0, %function
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0:
-.LFB4480:
+.LFB8396:
 	.cfi_startproc
 	stp	x29, x30, [sp, -64]!	//,,,
 	.cfi_def_cfa_offset 64
@@ -476,7 +476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [x19]	// _2, *this_1(D)._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [x19, 16]	// __dnew, *this_1(D).D.42750._M_allocated_capacity
+	str	x1, [x19, 16]	// __dnew, *this_1(D).D.64159._M_allocated_capacity
 .L40:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	mov	x2, x20	//, _4
@@ -487,34 +487,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.
 	b	.L42		//
 .L47:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp110,
-	add	x0, x0, :lo12:.LC10	//, tmp110,
+	adrp	x0, .LC11	// tmp110,
+	add	x0, x0, :lo12:.LC11	//, tmp110,
 	bl	_ZSt19__throw_logic_errorPKc		//
 	.cfi_endproc
-.LFE4480:
+.LFE8396:
 	.size	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0, .-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0
 	.section	.rodata.str1.8
 	.align	3
-.LC11:
+.LC12:
 	.string	"CNN_BENCH_FILTER_EXACT"
 	.align	3
-.LC12:
+.LC13:
 	.string	" \t"
 	.align	3
-.LC13:
+.LC14:
 	.string	"basic_string::substr"
 	.align	3
-.LC14:
+.LC15:
 	.string	"%s: __pos (which is %zu) > this->size() (which is %zu)"
 	.text
 	.align	2
 	.p2align 5,,15
 	.type	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc, %function
 _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc:
-.LFB2850:
+.LFB6766:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA2850
+	.cfi_lsda 0x1b,.LLSDA6766
 	stp	x29, x30, [sp, -208]!	//,,,
 	.cfi_def_cfa_offset 208
 	.cfi_offset 29, -208
@@ -559,14 +559,14 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	.cfi_offset 29, -208
 	.cfi_offset 30, -200
 // src/cpp/include/utils.h:143:     bool exact = std::getenv("CNN_BENCH_FILTER_EXACT") != nullptr;
-	adrp	x0, .LC11	// tmp203,
+	adrp	x0, .LC12	// tmp203,
 	stp	x23, x24, [sp, 48]	//,,
 	.cfi_offset 24, -152
 	.cfi_offset 23, -160
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
 	add	x23, sp, 128	// tmp334,,
 // src/cpp/include/utils.h:143:     bool exact = std::getenv("CNN_BENCH_FILTER_EXACT") != nullptr;
-	add	x0, x0, :lo12:.LC11	//, tmp203,
+	add	x0, x0, :lo12:.LC12	//, tmp203,
 	stp	x25, x26, [sp, 64]	//,,
 	.cfi_offset 26, -136
 	.cfi_offset 25, -144
@@ -605,8 +605,8 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cbz	x24, .L151	// _2,
 .L169:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3089: 	return this->find_first_not_of(__s, __pos, traits_type::length(__s));
-	adrp	x24, .LC12	// tmp349,
-	add	x24, x24, :lo12:.LC12	// tmp350, tmp349,
+	adrp	x24, .LC13	// tmp349,
+	add	x24, x24, :lo12:.LC13	// tmp350, tmp349,
 	.p2align 5,,15
 .L56:
 // src/cpp/include/utils.h:148:         size_t comma = f.find(',', pos);
@@ -722,10 +722,10 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x19, x27	// _257, tmp337
 	beq	.L91		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x19	//, _257
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L91:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
@@ -739,9 +739,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x0, x21	// pretmp_130, tmp336
 	beq	.L103		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 160]	// token.D.42750._M_allocated_capacity, token.D.42750._M_allocated_capacity
+	ldr	x1, [sp, 160]	// token.D.64159._M_allocated_capacity, token.D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, token.D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, token.D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L103:
 // src/cpp/include/utils.h:147:     while (pos <= f.size()) {
@@ -758,9 +758,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x0, x23	// _149, tmp334
 	beq	.L158		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 128]	// f.D.42750._M_allocated_capacity, f.D.42750._M_allocated_capacity
+	ldr	x1, [sp, 128]	// f.D.64159._M_allocated_capacity, f.D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, f.D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, f.D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
 	ldr	x27, [sp, 80]	//,
@@ -838,10 +838,10 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x19, x27	// _257, tmp337
 	beq	.L99		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x19	//, _257
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L99:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
@@ -850,9 +850,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x0, x21	// _119, tmp336
 	beq	.L100		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 160]	// token.D.42750._M_allocated_capacity, token.D.42750._M_allocated_capacity
+	ldr	x1, [sp, 160]	// token.D.64159._M_allocated_capacity, token.D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, token.D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, token.D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L100:
 // src/cpp/include/utils.h:154:             if (exact ? (name == trimmed) : contains_substr(name, trimmed)) return true;
@@ -886,7 +886,7 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 144]	// _68, token._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 160]	// MEM[(long unsigned int *)_289], token.D.42750._M_allocated_capacity
+	str	x1, [sp, 160]	// MEM[(long unsigned int *)_289], token.D.64159._M_allocated_capacity
 	b	.L87		//
 	.p2align 2,,3
 .L166:
@@ -910,7 +910,7 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 176]	// _86, MEM[(struct basic_string *)_289]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 192]	// __dnew, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity
+	str	x1, [sp, 192]	// __dnew, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity
 	b	.L94		//
 	.p2align 2,,3
 .L109:
@@ -951,9 +951,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x0, x21	// pretmp_130, tmp336
 	beq	.L104		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 160]	// token.D.42750._M_allocated_capacity, token.D.42750._M_allocated_capacity
+	ldr	x1, [sp, 160]	// token.D.64159._M_allocated_capacity, token.D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, token.D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, token.D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
 	b	.L104		//
@@ -971,7 +971,7 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 112]	// _70, f._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 128]	// MEM[(long unsigned int *)_289], f.D.42750._M_allocated_capacity
+	str	x1, [sp, 128]	// MEM[(long unsigned int *)_289], f.D.64159._M_allocated_capacity
 .L52:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	mov	x2, x21	//, prephitmp_65
@@ -990,8 +990,8 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cbnz	x24, .L169	// _2,
 .L151:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3089: 	return this->find_first_not_of(__s, __pos, traits_type::length(__s));
-	adrp	x24, .LC12	// tmp345,
-	add	x24, x24, :lo12:.LC12	// tmp346, tmp345,
+	adrp	x24, .LC13	// tmp345,
+	add	x24, x24, :lo12:.LC13	// tmp346, tmp345,
 	.p2align 5,,15
 .L82:
 // src/cpp/include/utils.h:148:         size_t comma = f.find(',', pos);
@@ -1109,9 +1109,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x19	//, _257
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 192]	// MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L65:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
@@ -1125,9 +1125,9 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	cmp	x0, x21	// pretmp_130, tmp336
 	beq	.L81		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 160]	// token.D.42750._M_allocated_capacity, token.D.42750._M_allocated_capacity
+	ldr	x1, [sp, 160]	// token.D.64159._M_allocated_capacity, token.D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, token.D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, token.D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L81:
 // src/cpp/include/utils.h:147:     while (pos <= f.size()) {
@@ -1149,7 +1149,7 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 144]	// _6, token._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 160]	// MEM[(long unsigned int *)_289], token.D.42750._M_allocated_capacity
+	str	x1, [sp, 160]	// MEM[(long unsigned int *)_289], token.D.64159._M_allocated_capacity
 .L64:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	mov	x2, x19	//, _11
@@ -1173,7 +1173,7 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 176]	// _271, MEM[(struct basic_string *)_289]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 192]	// __dnew, MEM[(struct basic_string *)_289].D.42750._M_allocated_capacity
+	str	x1, [sp, 192]	// __dnew, MEM[(struct basic_string *)_289].D.64159._M_allocated_capacity
 .L79:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	mov	x2, x19	//, _242
@@ -1235,21 +1235,21 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 .L66:
 	.cfi_restore_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:394: 	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
-	adrp	x1, .LC13	// tmp283,
-	adrp	x0, .LC14	// tmp285,
+	adrp	x1, .LC14	// tmp283,
+	adrp	x0, .LC15	// tmp285,
 	mov	x3, x19	//, _96
 	mov	x2, x20	//, _23
-	add	x1, x1, :lo12:.LC13	//, tmp283,
-	add	x0, x0, :lo12:.LC14	//, tmp285,
+	add	x1, x1, :lo12:.LC14	//, tmp283,
+	add	x0, x0, :lo12:.LC15	//, tmp285,
 	bl	_ZSt24__throw_out_of_range_fmtPKcz		//
 .LEHE6:
 .L58:
-	adrp	x1, .LC13	// tmp260,
-	adrp	x0, .LC14	// tmp262,
+	adrp	x1, .LC14	// tmp260,
+	adrp	x0, .LC15	// tmp262,
 	mov	x3, x19	//, _78
 	mov	x2, x20	//, pos
-	add	x1, x1, :lo12:.LC13	//, tmp260,
-	add	x0, x0, :lo12:.LC14	//, tmp262,
+	add	x1, x1, :lo12:.LC14	//, tmp260,
+	add	x0, x0, :lo12:.LC15	//, tmp262,
 .LEHB7:
 	bl	_ZSt24__throw_out_of_range_fmtPKcz		//
 .LEHE7:
@@ -1269,53 +1269,53 @@ _ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 	mov	x19, x0	// tmp329, tmp369
 	b	.L108		//
 	.cfi_endproc
-.LFE2850:
+.LFE6766:
 	.section	.gcc_except_table
-.LLSDA2850:
+.LLSDA6766:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE2850-.LLSDACSB2850
-.LLSDACSB2850:
-	.uleb128 .LEHB2-.LFB2850
+	.uleb128 .LLSDACSE6766-.LLSDACSB6766
+.LLSDACSB6766:
+	.uleb128 .LEHB2-.LFB6766
 	.uleb128 .LEHE2-.LEHB2
-	.uleb128 .L114-.LFB2850
+	.uleb128 .L114-.LFB6766
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB2850
+	.uleb128 .LEHB3-.LFB6766
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L115-.LFB2850
+	.uleb128 .L115-.LFB6766
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB2850
+	.uleb128 .LEHB4-.LFB6766
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB2850
+	.uleb128 .LEHB5-.LFB6766
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L114-.LFB2850
+	.uleb128 .L114-.LFB6766
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB2850
+	.uleb128 .LEHB6-.LFB6766
 	.uleb128 .LEHE6-.LEHB6
-	.uleb128 .L115-.LFB2850
+	.uleb128 .L115-.LFB6766
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB2850
+	.uleb128 .LEHB7-.LFB6766
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L114-.LFB2850
+	.uleb128 .L114-.LFB6766
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB2850
+	.uleb128 .LEHB8-.LFB6766
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE2850:
+.LLSDACSE6766:
 	.text
 	.size	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc, .-_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc
 	.section	.text.unlikely,"ax",@progbits
 	.align	2
 	.type	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0, %function
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0:
-.LFB4484:
+.LFB8400:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA4484
+	.cfi_lsda 0x1b,.LLSDA8400
 	stp	x29, x30, [sp, -64]!	//,,,
 	.cfi_def_cfa_offset 64
 	.cfi_offset 29, -64
@@ -1389,23 +1389,23 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.i
 	bl	_Unwind_Resume		//
 .LEHE10:
 	.cfi_endproc
-.LFE4484:
+.LFE8400:
 	.section	.gcc_except_table
-.LLSDA4484:
+.LLSDA8400:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE4484-.LLSDACSB4484
-.LLSDACSB4484:
-	.uleb128 .LEHB9-.LFB4484
+	.uleb128 .LLSDACSE8400-.LLSDACSB8400
+.LLSDACSB8400:
+	.uleb128 .LEHB9-.LFB8400
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L176-.LFB4484
+	.uleb128 .L176-.LFB8400
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB4484
+	.uleb128 .LEHB10-.LFB8400
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE4484:
+.LLSDACSE8400:
 	.section	.text.unlikely
 	.size	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0, .-_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0
 	.section	.text._ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_,"axG",@progbits,_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_,comdat
@@ -1414,7 +1414,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.i
 	.weak	_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_
 	.type	_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_, %function
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_:
-.LFB3877:
+.LFB7793:
 	.cfi_startproc
 	stp	x29, x30, [sp, -48]!	//,,,
 	.cfi_def_cfa_offset 48
@@ -1481,11 +1481,11 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_:
 	.cfi_def_cfa_offset 0
 	ret	
 	.cfi_endproc
-.LFE3877:
+.LFE7793:
 	.size	_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_, .-_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_
 	.section	.rodata._Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori.str1.8,"aMS",@progbits,1
 	.align	3
-.LC15:
+.LC16:
 	.string	"The MNIST image file could not be opened: "
 	.section	.text._Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori,"axG",@progbits,_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori,comdat
 	.align	2
@@ -1493,10 +1493,10 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_:
 	.weak	_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori
 	.type	_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori, %function
 _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori:
-.LFB2837:
+.LFB6753:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA2837
+	.cfi_lsda 0x1b,.LLSDA6753
 	sub	sp, sp, #720	//,,
 	.cfi_def_cfa_offset 720
 	stp	x29, x30, [sp]	//,,
@@ -1550,14 +1550,14 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	ldr	x0, [x22, -24]	// MEM[(long int *)_154 + -24B], MEM[(long int *)_154 + -24B]
 	str	x22, [sp, 192]	// _154, MEM[(struct basic_istream *)&file]._vptr.basic_istream
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
-	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:465:       : ios_base(), _M_tie(0), _M_fill(char_type()), _M_fill_init(false), 
 	str	xzr, [sp, 672]	//, MEM[(struct basic_ios *)&file + 264B]._M_tie
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
 	stp	xzr, xzr, [x2]	//,,
 	stp	xzr, xzr, [x2, 16]	//,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:697:       : _M_gcount(streamsize(0))
-	str	x26, [x19, x0]	// _158, MEM[(struct basic_ios *)_157].D.60108._vptr.ios_base
+	str	x26, [x19, x0]	// _158, MEM[(struct basic_ios *)_157].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:697:       : _M_gcount(streamsize(0))
 	str	xzr, [sp, 200]	//, MEM[(struct basic_istream *)&file]._M_gcount
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:698:       { this->init(0); }
@@ -1574,8 +1574,8 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
 	add	x0, sp, 208	// tmp351,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
-	str	x25, [sp, 192]	// tmp332, MEM[(struct basic_ifstream *)&file].D.67260._vptr.basic_istream
-	str	x24, [sp, 456]	// tmp325, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x25, [sp, 192]	// tmp332, MEM[(struct basic_ifstream *)&file].D.88669._vptr.basic_istream
+	str	x24, [sp, 456]	// tmp325, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 .LEHB12:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEEC1Ev		//
@@ -1592,7 +1592,7 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode		//
 	mov	x2, x0	// tmp338,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:740: 	  this->setstate(ios_base::failbit);
-	ldr	x0, [sp, 192]	// file.D.67260._vptr.basic_istream, file.D.67260._vptr.basic_istream
+	ldr	x0, [sp, 192]	// file.D.88669._vptr.basic_istream, file.D.88669._vptr.basic_istream
 	ldr	x1, [x0, -24]	// MEM[(long int *)pretmp_301 + -24B], MEM[(long int *)pretmp_301 + -24B]
 	add	x0, x19, x1	// _304, tmp327, MEM[(long int *)pretmp_301 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:739: 	if (!_M_filebuf.open(__s, __mode | ios_base::in))
@@ -1729,17 +1729,17 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 .L196:
 // src/cpp/include/utils.h:93:     for (int i = 0; i < images_to_read * n_rows * n_cols; ++i) {
 	mul	w1, w21, w1	// _264, _27, pretmp_55
-// src/cpp/include/cnn_internals.h:14: struct Tensor {
+// src/cpp/include/cnn_internals.h:15: struct Tensor {
 	mov	w2, 1	// tmp276,
 // src/cpp/include/utils.h:96:         images_tensor.data[i] = static_cast<float>(pixel) / 255.0f;
 	mov	w0, 32897	// tmp348,
-// src/cpp/include/cnn_internals.h:14: struct Tensor {
+// src/cpp/include/cnn_internals.h:15: struct Tensor {
 	stp	w5, w28, [x20, 32]	// n_rows.74_5, _125,
 // src/cpp/include/utils.h:96:         images_tensor.data[i] = static_cast<float>(pixel) / 255.0f;
 	movk	w0, 0x3b80, lsl 16	// tmp348,,
 // src/cpp/include/utils.h:93:     for (int i = 0; i < images_to_read * n_rows * n_cols; ++i) {
 	mov	x27, 0	// ivtmp.508,
-// src/cpp/include/cnn_internals.h:14: struct Tensor {
+// src/cpp/include/cnn_internals.h:15: struct Tensor {
 	stp	w21, w2, [x20, 24]	// _27, tmp276,
 // src/cpp/include/utils.h:93:     for (int i = 0; i < images_to_read * n_rows * n_cols; ++i) {
 	mul	w1, w1, w3	// _138, _264, prephitmp_53
@@ -1764,7 +1764,7 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 // src/cpp/include/utils.h:93:     for (int i = 0; i < images_to_read * n_rows * n_cols; ++i) {
 	ldp	w0, w2, [sp, 156]	//,,
 // src/cpp/include/utils.h:96:         images_tensor.data[i] = static_cast<float>(pixel) / 255.0f;
-	ldr	x1, [x20]	// MEM[(struct vector *)images_tensor_51(D)].D.36192._M_impl.D.35493._M_start, MEM[(struct vector *)images_tensor_51(D)].D.36192._M_impl.D.35493._M_start
+	ldr	x1, [x20]	// MEM[(struct vector *)images_tensor_51(D)].D.57594._M_impl.D.56895._M_start, MEM[(struct vector *)images_tensor_51(D)].D.57594._M_impl.D.56895._M_start
 // src/cpp/include/utils.h:96:         images_tensor.data[i] = static_cast<float>(pixel) / 255.0f;
 	ucvtf	s31, s31	// _12, pixel
 // src/cpp/include/utils.h:93:     for (int i = 0; i < images_to_read * n_rows * n_cols; ++i) {
@@ -1785,13 +1785,13 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:259: 	  { this->close(); }
 	add	x0, sp, 208	// tmp361,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:640:       { }
-	str	x25, [sp, 192]	// tmp332, file.D.67260._vptr.basic_istream
+	str	x25, [sp, 192]	// tmp332, file.D.88669._vptr.basic_istream
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:262:       }
 	add	x1, x1, :lo12:_ZTVSt13basic_filebufIcSt11char_traitsIcEE+16	// tmp283, tmp284,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:640:       { }
-	str	x24, [sp, 456]	// tmp325, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x24, [sp, 456]	// tmp325, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:262:       }
-	str	x1, [sp, 208]	// tmp283, MEM[(struct basic_filebuf *)&file + 16B].D.67068._vptr.basic_streambuf
+	str	x1, [sp, 208]	// tmp283, MEM[(struct basic_filebuf *)&file + 16B].D.88477._vptr.basic_streambuf
 .LEHB15:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:259: 	  { this->close(); }
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv		//
@@ -1812,11 +1812,11 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	add	x0, sp, 456	// tmp364,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	x22, [sp, 192]	// _154, MEM[(struct basic_istream *)&file]._vptr.basic_istream
-	str	x26, [x19, x1]	// _158, MEM[(struct basic_ios *)_216].D.60108._vptr.ios_base
+	str	x26, [x19, x1]	// _158, MEM[(struct basic_ios *)_216].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	xzr, [sp, 200]	//, MEM[(struct basic_istream *)&file]._M_gcount
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
-	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 // src/cpp/include/utils.h:98: }
 	ldr	d15, [sp, 96]	//,
@@ -1860,9 +1860,9 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	.p2align 2,,3
 .L222:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_304].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_304].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_304].D.60108._M_streambuf_state,
+	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_304].D.81517._M_streambuf_state,
 .LEHB16:
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE16:
@@ -1876,13 +1876,13 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	ldr	x0, [x22, -24]	// MEM[(long int *)_154 + -24B], MEM[(long int *)_154 + -24B]
 	str	x22, [sp, 192]	// _154, MEM[(struct basic_istream *)&file]._vptr.basic_istream
-	str	x26, [x19, x0]	// _158, MEM[(struct basic_ios *)_167].D.60108._vptr.ios_base
+	str	x26, [x19, x0]	// _158, MEM[(struct basic_ios *)_167].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	xzr, [sp, 200]	//, MEM[(struct basic_istream *)&file]._M_gcount
 .L193:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
 	add	x0, sp, 456	// tmp357,,
-	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x23, [sp, 456]	// tmp321, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 	mov	x0, x20	//, tmp225
 .LEHB17:
@@ -1902,10 +1902,10 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	bl	__cxa_allocate_exception		//
 	mov	x3, x0	// tmp343,
 // src/cpp/include/utils.h:81:         throw std::runtime_error("The MNIST image file could not be opened: " + filepath);
-	adrp	x0, .LC15	// tmp233,
+	adrp	x0, .LC16	// tmp233,
 	ldp	x1, x2, [x21]	//,,* filepath
 	add	x8, sp, 160	// tmp358,,
-	add	x0, x0, :lo12:.LC15	//, tmp233,
+	add	x0, x0, :lo12:.LC16	//, tmp233,
 // src/cpp/include/utils.h:81:         throw std::runtime_error("The MNIST image file could not be opened: " + filepath);
 	mov	x21, x3	// _71, tmp343
 .LEHB18:
@@ -1951,8 +1951,8 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	b	.L198		//
 .L224:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1920: 	  __throw_length_error(
-	adrp	x0, .LC8	// tmp265,
-	add	x0, x0, :lo12:.LC8	//, tmp265,
+	adrp	x0, .LC9	// tmp265,
+	add	x0, x0, :lo12:.LC9	//, tmp265,
 .LEHB21:
 	bl	_ZSt20__throw_length_errorPKc		//
 .LEHE21:
@@ -1965,73 +1965,73 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	mov	x20, x0	// tmp225, tmp342
 	b	.L193		//
 	.cfi_endproc
-.LFE2837:
+.LFE6753:
 	.section	.gcc_except_table
 	.align	2
-.LLSDA2837:
+.LLSDA6753:
 	.byte	0xff
 	.byte	0x9b
-	.uleb128 .LLSDATT2837-.LLSDATTD2837
-.LLSDATTD2837:
+	.uleb128 .LLSDATT6753-.LLSDATTD6753
+.LLSDATTD6753:
 	.byte	0x1
-	.uleb128 .LLSDACSE2837-.LLSDACSB2837
-.LLSDACSB2837:
-	.uleb128 .LEHB11-.LFB2837
+	.uleb128 .LLSDACSE6753-.LLSDACSB6753
+.LLSDACSB6753:
+	.uleb128 .LEHB11-.LFB6753
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L210-.LFB2837
+	.uleb128 .L210-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB2837
+	.uleb128 .LEHB12-.LFB6753
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L211-.LFB2837
+	.uleb128 .L211-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB2837
+	.uleb128 .LEHB13-.LFB6753
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L212-.LFB2837
+	.uleb128 .L212-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB14-.LFB2837
+	.uleb128 .LEHB14-.LFB6753
 	.uleb128 .LEHE14-.LEHB14
-	.uleb128 .L209-.LFB2837
+	.uleb128 .L209-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB2837
+	.uleb128 .LEHB15-.LFB6753
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L213-.LFB2837
+	.uleb128 .L213-.LFB6753
 	.uleb128 0x1
-	.uleb128 .LEHB16-.LFB2837
+	.uleb128 .LEHB16-.LFB6753
 	.uleb128 .LEHE16-.LEHB16
-	.uleb128 .L212-.LFB2837
+	.uleb128 .L212-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB17-.LFB2837
+	.uleb128 .LEHB17-.LFB6753
 	.uleb128 .LEHE17-.LEHB17
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB18-.LFB2837
+	.uleb128 .LEHB18-.LFB6753
 	.uleb128 .LEHE18-.LEHB18
-	.uleb128 .L207-.LFB2837
+	.uleb128 .L207-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB19-.LFB2837
+	.uleb128 .LEHB19-.LFB6753
 	.uleb128 .LEHE19-.LEHB19
-	.uleb128 .L208-.LFB2837
+	.uleb128 .L208-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB20-.LFB2837
+	.uleb128 .LEHB20-.LFB6753
 	.uleb128 .LEHE20-.LEHB20
-	.uleb128 .L209-.LFB2837
+	.uleb128 .L209-.LFB6753
 	.uleb128 0
-	.uleb128 .LEHB21-.LFB2837
+	.uleb128 .LEHB21-.LFB6753
 	.uleb128 .LEHE21-.LEHB21
-	.uleb128 .L209-.LFB2837
+	.uleb128 .L209-.LFB6753
 	.uleb128 0
-.LLSDACSE2837:
+.LLSDACSE6753:
 	.byte	0x1
 	.byte	0
 	.align	2
 	.4byte	0
 
-.LLSDATT2837:
+.LLSDATT6753:
 	.section	.text._Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori,"axG",@progbits,_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori,comdat
 	.size	_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori, .-_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori
 	.section	.rodata._Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE.str1.8,"aMS",@progbits,1
 	.align	3
-.LC16:
+.LC17:
 	.string	"The file could not be opened for writing: "
 	.section	.text._Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE,"axG",@progbits,_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE,comdat
 	.align	2
@@ -2039,10 +2039,10 @@ _Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Ten
 	.weak	_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE
 	.type	_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE, %function
 _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE:
-.LFB2846:
+.LFB6762:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA2846
+	.cfi_lsda 0x1b,.LLSDA6762
 	sub	sp, sp, #640	//,,
 	.cfi_def_cfa_offset 640
 	stp	x29, x30, [sp]	//,,
@@ -2091,7 +2091,7 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 	ldr	x2, [x20, -24]	// MEM[(long int *)_31 + -24B], MEM[(long int *)_31 + -24B]
 	str	x20, [sp, 112]	// _31, MEM[(struct basic_ostream *)&file]._vptr.basic_ostream
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
-	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.60108._vptr.ios_base
+	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:465:       : ios_base(), _M_tie(0), _M_fill(char_type()), _M_fill_init(false), 
 	str	xzr, [sp, 584]	//, MEM[(struct basic_ios *)&file + 256B]._M_tie
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
@@ -2101,7 +2101,7 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
 	stp	xzr, xzr, [x3, 16]	//,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:438:       { this->init(0); }
-	str	x26, [x19, x2]	// _35, MEM[(struct basic_ios *)_34].D.60108._vptr.ios_base
+	str	x26, [x19, x2]	// _35, MEM[(struct basic_ios *)_34].D.81517._vptr.ios_base
 .LEHB22:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:438:       { this->init(0); }
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E		//
@@ -2114,8 +2114,8 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:876:       : __ostream_type(), _M_filebuf()
 	add	x0, sp, 120	// tmp251,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:876:       : __ostream_type(), _M_filebuf()
-	str	x23, [sp, 112]	// tmp230, MEM[(struct basic_ofstream *)&file].D.67430._vptr.basic_ostream
-	str	x22, [sp, 368]	// tmp235, MEM[(struct basic_ios *)&file + 256B].D.60108._vptr.ios_base
+	str	x23, [sp, 112]	// tmp230, MEM[(struct basic_ofstream *)&file].D.88839._vptr.basic_ostream
+	str	x22, [sp, 368]	// tmp235, MEM[(struct basic_ios *)&file + 256B].D.81517._vptr.ios_base
 .LEHB23:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:876:       : __ostream_type(), _M_filebuf()
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEEC1Ev		//
@@ -2133,7 +2133,7 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:1011: 	if (!_M_filebuf.open(__s, __mode | ios_base::out))
 	cbz	x0, .L248	// tmp240,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:1016: 	  this->clear();
-	ldr	x0, [sp, 112]	// file.D.67430._vptr.basic_ostream,
+	ldr	x0, [sp, 112]	// file.D.88839._vptr.basic_ostream,
 	mov	w1, 0	//,
 	ldr	x0, [x0, -24]	// MEM[(long int *)_47 + -24B], MEM[(long int *)_47 + -24B]
 	add	x0, x19, x0	//, tmp233, MEM[(long int *)_47 + -24B]
@@ -2146,10 +2146,10 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // src/cpp/include/utils.h:103:     if (!file.is_open())
 	tbz	x0, 0, .L249	// tmp241,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:993:       { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
-	ldp	x1, x2, [x24]	// _22, v_7(D)->D.36192._M_impl.D.35493._M_finish,* v
+	ldp	x1, x2, [x24]	// _22, v_7(D)->D.57594._M_impl.D.56895._M_finish,* v
 // src/cpp/include/utils.h:105:     file.write(reinterpret_cast<const char*>(v.data()),
 	mov	x0, x19	//, tmp233
-	sub	x2, x2, x1	//, v_7(D)->D.36192._M_impl.D.35493._M_finish, _22
+	sub	x2, x2, x1	//, v_7(D)->D.57594._M_impl.D.56895._M_finish, _22
 .LEHB25:
 	bl	_ZNSo5writeEPKcl		//
 .LEHE25:
@@ -2158,7 +2158,7 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:259: 	  { this->close(); }
 	add	x0, sp, 120	// tmp261,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:912:       { }
-	str	x22, [sp, 368]	// tmp235, MEM[(struct basic_ios *)&file + 256B].D.60108._vptr.ios_base
+	str	x22, [sp, 368]	// tmp235, MEM[(struct basic_ios *)&file + 256B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:262:       }
 	add	x1, x1, :lo12:_ZTVSt13basic_filebufIcSt11char_traitsIcEE+16	// tmp202, tmp203,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:912:       { }
@@ -2183,9 +2183,9 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 	add	x0, sp, 368	// tmp263,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:101:       ~basic_ostream() { }
 	str	x20, [sp, 112]	// _31, MEM[(struct basic_ostream *)&file]._vptr.basic_ostream
-	str	x26, [x19, x1]	// _35, MEM[(struct basic_ios *)_62].D.60108._vptr.ios_base
+	str	x26, [x19, x1]	// _35, MEM[(struct basic_ios *)_62].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
-	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.60108._vptr.ios_base
+	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 // src/cpp/include/utils.h:107: }
 	ldp	x29, x30, [sp]	//,,
@@ -2211,13 +2211,13 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 .L248:
 	.cfi_restore_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:740: 	  this->setstate(ios_base::failbit);
-	ldr	x0, [sp, 112]	// MEM[(struct basic_ifstream *)&file].D.67260._vptr.basic_istream,
+	ldr	x0, [sp, 112]	// MEM[(struct basic_ifstream *)&file].D.88669._vptr.basic_istream,
 	ldr	x0, [x0, -24]	// MEM[(long int *)_51 + -24B], MEM[(long int *)_51 + -24B]
 	add	x0, x19, x0	// _54, tmp233, MEM[(long int *)_51 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_54].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_54].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_54].D.60108._M_streambuf_state,
+	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_54].D.81517._M_streambuf_state,
 .LEHB27:
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE27:
@@ -2232,11 +2232,11 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:101:       ~basic_ostream() { }
 	ldr	x0, [x20, -24]	// MEM[(long int *)_31 + -24B], MEM[(long int *)_31 + -24B]
 	str	x20, [sp, 112]	// _31, MEM[(struct basic_ostream *)&file]._vptr.basic_ostream
-	str	x26, [x19, x0]	// _35, MEM[(struct basic_ios *)_41].D.60108._vptr.ios_base
+	str	x26, [x19, x0]	// _35, MEM[(struct basic_ios *)_41].D.81517._vptr.ios_base
 .L232:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
 	add	x0, sp, 368	// tmp257,,
-	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.60108._vptr.ios_base
+	str	x21, [sp, 368]	// tmp229, MEM[(struct basic_ios *)&file + 256B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 	mov	x0, x22	//, tmp179
 .LEHB28:
@@ -2272,10 +2272,10 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 	bl	__cxa_allocate_exception		//
 	mov	x21, x0	// tmp245,
 // src/cpp/include/utils.h:104:         throw std::runtime_error("The file could not be opened for writing: " + filepath);
-	adrp	x0, .LC16	// tmp187,
+	adrp	x0, .LC17	// tmp187,
 	ldp	x1, x2, [x25]	//,,* filepath
 	add	x8, sp, 80	// tmp258,,
-	add	x0, x0, :lo12:.LC16	//, tmp187,
+	add	x0, x0, :lo12:.LC17	//, tmp187,
 .LEHB30:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0		//
 .LEHE30:
@@ -2311,85 +2311,85 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 	mov	x20, x0	// tmp220, tmp247
 	b	.L236		//
 	.cfi_endproc
-.LFE2846:
+.LFE6762:
 	.section	.gcc_except_table
 	.align	2
-.LLSDA2846:
+.LLSDA6762:
 	.byte	0xff
 	.byte	0x9b
-	.uleb128 .LLSDATT2846-.LLSDATTD2846
-.LLSDATTD2846:
+	.uleb128 .LLSDATT6762-.LLSDATTD6762
+.LLSDATTD6762:
 	.byte	0x1
-	.uleb128 .LLSDACSE2846-.LLSDACSB2846
-.LLSDACSB2846:
-	.uleb128 .LEHB22-.LFB2846
+	.uleb128 .LLSDACSE6762-.LLSDACSB6762
+.LLSDACSB6762:
+	.uleb128 .LEHB22-.LFB6762
 	.uleb128 .LEHE22-.LEHB22
-	.uleb128 .L241-.LFB2846
+	.uleb128 .L241-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB23-.LFB2846
+	.uleb128 .LEHB23-.LFB6762
 	.uleb128 .LEHE23-.LEHB23
-	.uleb128 .L242-.LFB2846
+	.uleb128 .L242-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB24-.LFB2846
+	.uleb128 .LEHB24-.LFB6762
 	.uleb128 .LEHE24-.LEHB24
-	.uleb128 .L243-.LFB2846
+	.uleb128 .L243-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB25-.LFB2846
+	.uleb128 .LEHB25-.LFB6762
 	.uleb128 .LEHE25-.LEHB25
-	.uleb128 .L240-.LFB2846
+	.uleb128 .L240-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB26-.LFB2846
+	.uleb128 .LEHB26-.LFB6762
 	.uleb128 .LEHE26-.LEHB26
-	.uleb128 .L244-.LFB2846
+	.uleb128 .L244-.LFB6762
 	.uleb128 0x1
-	.uleb128 .LEHB27-.LFB2846
+	.uleb128 .LEHB27-.LFB6762
 	.uleb128 .LEHE27-.LEHB27
-	.uleb128 .L243-.LFB2846
+	.uleb128 .L243-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB28-.LFB2846
+	.uleb128 .LEHB28-.LFB6762
 	.uleb128 .LEHE28-.LEHB28
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB29-.LFB2846
+	.uleb128 .LEHB29-.LFB6762
 	.uleb128 .LEHE29-.LEHB29
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB30-.LFB2846
+	.uleb128 .LEHB30-.LFB6762
 	.uleb128 .LEHE30-.LEHB30
-	.uleb128 .L238-.LFB2846
+	.uleb128 .L238-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB31-.LFB2846
+	.uleb128 .LEHB31-.LFB6762
 	.uleb128 .LEHE31-.LEHB31
-	.uleb128 .L239-.LFB2846
+	.uleb128 .L239-.LFB6762
 	.uleb128 0
-	.uleb128 .LEHB32-.LFB2846
+	.uleb128 .LEHB32-.LFB6762
 	.uleb128 .LEHE32-.LEHB32
-	.uleb128 .L240-.LFB2846
+	.uleb128 .L240-.LFB6762
 	.uleb128 0
-.LLSDACSE2846:
+.LLSDACSE6762:
 	.byte	0x1
 	.byte	0
 	.align	2
 	.4byte	0
 
-.LLSDATT2846:
+.LLSDATT6762:
 	.section	.text._Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE,"axG",@progbits,_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE,comdat
 	.size	_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE, .-_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE
 	.section	.rodata._Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE.str1.8,"aMS",@progbits,1
 	.align	3
-.LC17:
+.LC18:
 	.string	"The file could not be opened: "
 	.align	3
-.LC18:
+.LC19:
 	.string	"File size mismatch for: "
 	.align	3
-.LC19:
+.LC20:
 	.string	"Successfully loaded: "
 	.align	3
-.LC20:
+.LC21:
 	.string	"\n"
 	.align	3
-.LC21:
+.LC22:
 	.string	"Read error: "
 	.section	.text._Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE,"axG",@progbits,_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE,comdat
 	.align	2
@@ -2397,10 +2397,10 @@ _Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vector
 	.weak	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE
 	.type	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE, %function
 _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE:
-.LFB2834:
+.LFB6750:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA2834
+	.cfi_lsda 0x1b,.LLSDA6750
 	sub	sp, sp, #656	//,,
 	.cfi_def_cfa_offset 656
 	stp	x29, x30, [sp]	//,,
@@ -2448,14 +2448,14 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	ldr	x0, [x21, -24]	// MEM[(long int *)_87 + -24B], MEM[(long int *)_87 + -24B]
 	str	x21, [sp, 128]	// _87, MEM[(struct basic_istream *)&file]._vptr.basic_istream
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
-	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:465:       : ios_base(), _M_tie(0), _M_fill(char_type()), _M_fill_init(false), 
 	str	xzr, [sp, 608]	//, MEM[(struct basic_ios *)&file + 264B]._M_tie
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:466: 	_M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)
 	stp	xzr, xzr, [x2]	//,,
 	stp	xzr, xzr, [x2, 16]	//,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:697:       : _M_gcount(streamsize(0))
-	str	x25, [x19, x0]	// _91, MEM[(struct basic_ios *)_90].D.60108._vptr.ios_base
+	str	x25, [x19, x0]	// _91, MEM[(struct basic_ios *)_90].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:697:       : _M_gcount(streamsize(0))
 	str	xzr, [sp, 136]	//, MEM[(struct basic_istream *)&file]._M_gcount
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:698:       { this->init(0); }
@@ -2472,8 +2472,8 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
 	add	x0, sp, 144	// tmp372,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
-	str	x24, [sp, 128]	// tmp345, MEM[(struct basic_ifstream *)&file].D.67260._vptr.basic_istream
-	str	x23, [sp, 392]	// tmp337, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x24, [sp, 128]	// tmp345, MEM[(struct basic_ifstream *)&file].D.88669._vptr.basic_istream
+	str	x23, [sp, 392]	// tmp337, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 .LEHB34:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:604:       : __istream_type(), _M_filebuf()
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEEC1Ev		//
@@ -2490,7 +2490,7 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode		//
 	mov	x2, x0	// tmp350,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:740: 	  this->setstate(ios_base::failbit);
-	ldr	x0, [sp, 128]	// file.D.67260._vptr.basic_istream, file.D.67260._vptr.basic_istream
+	ldr	x0, [sp, 128]	// file.D.88669._vptr.basic_istream, file.D.88669._vptr.basic_istream
 	ldr	x1, [x0, -24]	// MEM[(long int *)pretmp_179 + -24B], MEM[(long int *)pretmp_179 + -24B]
 	add	x0, x19, x1	// _135, tmp340, MEM[(long int *)pretmp_179 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:739: 	if (!_M_filebuf.open(__s, __mode | ios_base::in))
@@ -2511,8 +2511,8 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	bl	_ZNSi5tellgEv		//
 	mov	x27, x0	// _57, tmp356
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:993:       { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
-	ldp	x1, x0, [x26]	// MEM[(const struct vector *)target_vector_18(D)].D.36192._M_impl.D.35493._M_start, MEM[(const struct vector *)target_vector_18(D)].D.36192._M_impl.D.35493._M_finish,* target_vector
-	sub	x0, x0, x1	// _14, MEM[(const struct vector *)target_vector_18(D)].D.36192._M_impl.D.35493._M_finish, MEM[(const struct vector *)target_vector_18(D)].D.36192._M_impl.D.35493._M_start
+	ldp	x1, x0, [x26]	// MEM[(const struct vector *)target_vector_18(D)].D.57594._M_impl.D.56895._M_start, MEM[(const struct vector *)target_vector_18(D)].D.57594._M_impl.D.56895._M_finish,* target_vector
+	sub	x0, x0, x1	// _14, MEM[(const struct vector *)target_vector_18(D)].D.57594._M_impl.D.56895._M_finish, MEM[(const struct vector *)target_vector_18(D)].D.57594._M_impl.D.56895._M_start
 // src/cpp/include/utils.h:45:     if (size != static_cast<std::streamsize>(target_vector.size() * sizeof(float)))
 	cmp	x0, x27	// _14, _57
 	bne	.L293		//,
@@ -2522,7 +2522,7 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	mov	x0, x19	//, tmp340
 	bl	_ZNSi5seekgElSt12_Ios_Seekdir		//
 // src/cpp/include/utils.h:49:     if (file.read(reinterpret_cast<char*>(target_vector.data()), size))
-	ldr	x1, [x26]	//, target_vector_18(D)->D.36192._M_impl.D.35493._M_start
+	ldr	x1, [x26]	//, target_vector_18(D)->D.57594._M_impl.D.56895._M_start
 	mov	x2, x27	//, _57
 	mov	x0, x19	//, tmp340
 	bl	_ZNSi4readEPcl		//
@@ -2533,9 +2533,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	ldr	x1, [x1, -24]	// MEM[(long int *)_1 + -24B], MEM[(long int *)_1 + -24B]
 	add	x1, x0, x1	// tmp250, _23, MEM[(long int *)_1 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:182:   { return _Ios_Iostate(static_cast<int>(__a) & static_cast<int>(__b)); }
-	ldr	w0, [x1, 32]	//, MEM[(const struct basic_ios *)_4].D.60108._M_streambuf_state
+	ldr	w0, [x1, 32]	//, MEM[(const struct basic_ios *)_4].D.81517._M_streambuf_state
 // src/cpp/include/utils.h:49:     if (file.read(reinterpret_cast<char*>(target_vector.data()), size))
-	tst	w0, w2	// MEM[(const struct basic_ios *)_4].D.60108._M_streambuf_state, tmp253
+	tst	w0, w2	// MEM[(const struct basic_ios *)_4].D.81517._M_streambuf_state, tmp253
 	bne	.L259		//,
 // src/cpp/include/utils.h:50:         std::cout << Color::DIM_GREEN << "Successfully loaded: " << filepath << Color::RESET << "\n";
 	adrp	x0, _ZN5Color9DIM_GREENE	// tmp255,
@@ -2555,9 +2555,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	mov	x0, x26	//, tmp343
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .L261:
-	adrp	x1, .LC19	// tmp268,
+	adrp	x1, .LC20	// tmp268,
 	mov	x2, 21	//,
-	add	x1, x1, :lo12:.LC19	//, tmp268,
+	add	x1, x1, :lo12:.LC20	//, tmp268,
 	mov	x0, x26	//, tmp343
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
@@ -2581,9 +2581,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	mov	x0, x20	//, _64
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .L263:
-	adrp	x1, .LC20	// tmp283,
+	adrp	x1, .LC21	// tmp283,
 	mov	x0, x20	//, _64
-	add	x1, x1, :lo12:.LC20	//, tmp283,
+	add	x1, x1, :lo12:.LC21	//, tmp283,
 	mov	x2, 1	//,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .LEHE36:
@@ -2592,13 +2592,13 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:259: 	  { this->close(); }
 	add	x0, sp, 144	// tmp379,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:640:       { }
-	str	x24, [sp, 128]	// tmp345, file.D.67260._vptr.basic_istream
+	str	x24, [sp, 128]	// tmp345, file.D.88669._vptr.basic_istream
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:262:       }
 	add	x1, x1, :lo12:_ZTVSt13basic_filebufIcSt11char_traitsIcEE+16	// tmp298, tmp299,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:640:       { }
-	str	x23, [sp, 392]	// tmp337, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x23, [sp, 392]	// tmp337, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:262:       }
-	str	x1, [sp, 144]	// tmp298, MEM[(struct basic_filebuf *)&file + 16B].D.67068._vptr.basic_streambuf
+	str	x1, [sp, 144]	// tmp298, MEM[(struct basic_filebuf *)&file + 16B].D.88477._vptr.basic_streambuf
 .LEHB37:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:259: 	  { this->close(); }
 	bl	_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv		//
@@ -2619,11 +2619,11 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	add	x0, sp, 392	// tmp381,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	x21, [sp, 128]	// _87, MEM[(struct basic_istream *)&file]._vptr.basic_istream
-	str	x25, [x19, x1]	// _91, MEM[(struct basic_ios *)_139].D.60108._vptr.ios_base
+	str	x25, [x19, x1]	// _91, MEM[(struct basic_ios *)_139].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	xzr, [sp, 136]	//, MEM[(struct basic_istream *)&file]._M_gcount
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
-	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 // src/cpp/include/utils.h:53: }
 	ldr	x27, [sp, 80]	//,
@@ -2651,9 +2651,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 .L291:
 	.cfi_restore_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_135].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_135].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_135].D.60108._M_streambuf_state,
+	orr	w1, w1, 4	//, MEM[(const struct basic_ios *)_135].D.81517._M_streambuf_state,
 .LEHB38:
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE38:
@@ -2665,9 +2665,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	ldr	x0, [x0, -24]	// MEM[(long int *)_126 + -24B], MEM[(long int *)_126 + -24B]
 	add	x0, x20, x0	// _129, _64, MEM[(long int *)_126 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_129].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_129].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_129].D.60108._M_streambuf_state,
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_129].D.81517._M_streambuf_state,
 .LEHB39:
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 	b	.L263		//
@@ -2680,9 +2680,9 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	ldr	x0, [x0, -24]	// MEM[(long int *)_118 + -24B], MEM[(long int *)_118 + -24B]
 	add	x0, x26, x0	// _121, tmp343, MEM[(long int *)_118 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_121].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_121].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_121].D.60108._M_streambuf_state,
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_121].D.81517._M_streambuf_state,
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE39:
 	b	.L261		//
@@ -2695,13 +2695,13 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	ldr	x0, [x21, -24]	// MEM[(long int *)_87 + -24B], MEM[(long int *)_87 + -24B]
 	str	x21, [sp, 128]	// _87, MEM[(struct basic_istream *)&file]._vptr.basic_istream
-	str	x25, [x19, x0]	// _91, MEM[(struct basic_ios *)_100].D.60108._vptr.ios_base
+	str	x25, [x19, x0]	// _91, MEM[(struct basic_ios *)_100].D.81517._vptr.ios_base
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/istream:106:       { _M_gcount = streamsize(0); }
 	str	xzr, [sp, 136]	//, MEM[(struct basic_istream *)&file]._M_gcount
 .L257:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:286:       ~basic_ios() { }
 	add	x0, sp, 392	// tmp378,,
-	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.60108._vptr.ios_base
+	str	x22, [sp, 392]	// tmp347, MEM[(struct basic_ios *)&file + 264B].D.81517._vptr.ios_base
 	bl	_ZNSt8ios_baseD2Ev		//
 	mov	x0, x20	//, tmp215
 .LEHB40:
@@ -2730,10 +2730,10 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	bl	__cxa_allocate_exception		//
 	mov	x22, x0	// tmp362,
 // src/cpp/include/utils.h:52:         throw std::runtime_error("Read error: " + filepath);
-	adrp	x0, .LC21	// tmp286,
+	adrp	x0, .LC22	// tmp286,
 	ldp	x1, x2, [x20]	//,,* filepath
 	mov	x8, x21	//, tmp335
-	add	x0, x0, :lo12:.LC21	//, tmp286,
+	add	x0, x0, :lo12:.LC22	//, tmp286,
 .LEHB41:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0		//
 .LEHE41:
@@ -2764,10 +2764,10 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	bl	__cxa_allocate_exception		//
 	mov	x22, x0	// tmp357,
 // src/cpp/include/utils.h:46:         throw std::runtime_error("File size mismatch for: " + filepath);
-	adrp	x0, .LC18	// tmp237,
+	adrp	x0, .LC19	// tmp237,
 	ldp	x1, x2, [x20]	//,,* filepath
 	mov	x8, x21	//, tmp335
-	add	x0, x0, :lo12:.LC18	//, tmp237,
+	add	x0, x0, :lo12:.LC19	//, tmp237,
 .LEHB44:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0		//
 .LEHE44:
@@ -2824,10 +2824,10 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	bl	__cxa_allocate_exception		//
 	mov	x22, x0	// tmp355,
 // src/cpp/include/utils.h:42:         throw std::runtime_error("The file could not be opened: " + filepath);
-	adrp	x0, .LC17	// tmp223,
+	adrp	x0, .LC18	// tmp223,
 	ldp	x1, x2, [x20]	//,,* filepath
 	mov	x8, x21	//, tmp335
-	add	x0, x0, :lo12:.LC17	//, tmp223,
+	add	x0, x0, :lo12:.LC18	//, tmp223,
 .LEHB48:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0		//
 .LEHE48:
@@ -2861,383 +2861,383 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	mov	x20, x0	// tmp328, tmp368
 	b	.L273		//
 	.cfi_endproc
-.LFE2834:
+.LFE6750:
 	.section	.gcc_except_table
 	.align	2
-.LLSDA2834:
+.LLSDA6750:
 	.byte	0xff
 	.byte	0x9b
-	.uleb128 .LLSDATT2834-.LLSDATTD2834
-.LLSDATTD2834:
+	.uleb128 .LLSDATT6750-.LLSDATTD6750
+.LLSDATTD6750:
 	.byte	0x1
-	.uleb128 .LLSDACSE2834-.LLSDACSB2834
-.LLSDACSB2834:
-	.uleb128 .LEHB33-.LFB2834
+	.uleb128 .LLSDACSE6750-.LLSDACSB6750
+.LLSDACSB6750:
+	.uleb128 .LEHB33-.LFB6750
 	.uleb128 .LEHE33-.LEHB33
-	.uleb128 .L281-.LFB2834
+	.uleb128 .L281-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB34-.LFB2834
+	.uleb128 .LEHB34-.LFB6750
 	.uleb128 .LEHE34-.LEHB34
-	.uleb128 .L282-.LFB2834
+	.uleb128 .L282-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB35-.LFB2834
+	.uleb128 .LEHB35-.LFB6750
 	.uleb128 .LEHE35-.LEHB35
-	.uleb128 .L283-.LFB2834
+	.uleb128 .L283-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB36-.LFB2834
+	.uleb128 .LEHB36-.LFB6750
 	.uleb128 .LEHE36-.LEHB36
-	.uleb128 .L276-.LFB2834
+	.uleb128 .L276-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB37-.LFB2834
+	.uleb128 .LEHB37-.LFB6750
 	.uleb128 .LEHE37-.LEHB37
-	.uleb128 .L284-.LFB2834
+	.uleb128 .L284-.LFB6750
 	.uleb128 0x1
-	.uleb128 .LEHB38-.LFB2834
+	.uleb128 .LEHB38-.LFB6750
 	.uleb128 .LEHE38-.LEHB38
-	.uleb128 .L283-.LFB2834
+	.uleb128 .L283-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB39-.LFB2834
+	.uleb128 .LEHB39-.LFB6750
 	.uleb128 .LEHE39-.LEHB39
-	.uleb128 .L276-.LFB2834
+	.uleb128 .L276-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB40-.LFB2834
+	.uleb128 .LEHB40-.LFB6750
 	.uleb128 .LEHE40-.LEHB40
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB41-.LFB2834
+	.uleb128 .LEHB41-.LFB6750
 	.uleb128 .LEHE41-.LEHB41
-	.uleb128 .L279-.LFB2834
+	.uleb128 .L279-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB42-.LFB2834
+	.uleb128 .LEHB42-.LFB6750
 	.uleb128 .LEHE42-.LEHB42
-	.uleb128 .L280-.LFB2834
+	.uleb128 .L280-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB43-.LFB2834
+	.uleb128 .LEHB43-.LFB6750
 	.uleb128 .LEHE43-.LEHB43
-	.uleb128 .L276-.LFB2834
+	.uleb128 .L276-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB44-.LFB2834
+	.uleb128 .LEHB44-.LFB6750
 	.uleb128 .LEHE44-.LEHB44
-	.uleb128 .L277-.LFB2834
+	.uleb128 .L277-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB45-.LFB2834
+	.uleb128 .LEHB45-.LFB6750
 	.uleb128 .LEHE45-.LEHB45
-	.uleb128 .L278-.LFB2834
+	.uleb128 .L278-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB46-.LFB2834
+	.uleb128 .LEHB46-.LFB6750
 	.uleb128 .LEHE46-.LEHB46
-	.uleb128 .L276-.LFB2834
+	.uleb128 .L276-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB47-.LFB2834
+	.uleb128 .LEHB47-.LFB6750
 	.uleb128 .LEHE47-.LEHB47
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB48-.LFB2834
+	.uleb128 .LEHB48-.LFB6750
 	.uleb128 .LEHE48-.LEHB48
-	.uleb128 .L274-.LFB2834
+	.uleb128 .L274-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB49-.LFB2834
+	.uleb128 .LEHB49-.LFB6750
 	.uleb128 .LEHE49-.LEHB49
-	.uleb128 .L275-.LFB2834
+	.uleb128 .L275-.LFB6750
 	.uleb128 0
-	.uleb128 .LEHB50-.LFB2834
+	.uleb128 .LEHB50-.LFB6750
 	.uleb128 .LEHE50-.LEHB50
-	.uleb128 .L276-.LFB2834
+	.uleb128 .L276-.LFB6750
 	.uleb128 0
-.LLSDACSE2834:
+.LLSDACSE6750:
 	.byte	0x1
 	.byte	0
 	.align	2
 	.4byte	0
 
-.LLSDATT2834:
+.LLSDATT6750:
 	.section	.text._Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE,"axG",@progbits,_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE,comdat
 	.size	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE, .-_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE
 	.section	.rodata.str1.8
 	.align	3
-.LC22:
+.LC23:
 	.string	""
 	.align	3
-.LC23:
+.LC24:
 	.string	"verify"
 	.align	3
-.LC24:
+.LC25:
 	.string	"profile"
 	.align	3
-.LC25:
+.LC26:
 	.string	"--verbose"
 	.align	3
-.LC26:
+.LC27:
 	.string	"verbose"
 	.align	3
-.LC27:
+.LC28:
 	.string	"perf_event_open failed: %s\n"
 	.align	3
-.LC28:
+.LC29:
 	.string	"PMU init failed \342\200\224 cycle counts will be invalid.\n"
 	.align	3
-.LC29:
+.LC30:
 	.string	"Memory allocation is starting..."
 	.align	3
-.LC30:
+.LC31:
 	.string	"../../data/MNIST/raw/t10k-images-idx3-ubyte"
 	.align	3
-.LC31:
+.LC32:
 	.string	"MNIST dataset successfully loaded."
 	.align	3
-.LC32:
+.LC33:
 	.string	"\nLoading real weights..."
 	.align	3
-.LC33:
+.LC34:
 	.string	"../python/weights_cpp/"
 	.align	3
-.LC34:
+.LC35:
 	.string	"model_0_weight.bin"
 	.align	3
-.LC35:
+.LC36:
 	.string	"model_0_bias.bin"
 	.align	3
-.LC36:
+.LC37:
 	.string	"model_3_weight.bin"
 	.align	3
-.LC37:
+.LC38:
 	.string	"model_3_bias.bin"
 	.align	3
-.LC38:
+.LC39:
 	.string	"model_6_weight.bin"
 	.align	3
-.LC39:
+.LC40:
 	.string	"model_6_bias.bin"
 	.align	3
-.LC40:
+.LC41:
 	.string	"model_10_weight.bin"
 	.align	3
-.LC41:
+.LC42:
 	.string	"model_10_bias.bin"
 	.align	3
-.LC43:
+.LC44:
 	.string	"  VERIFYING IMPLEMENTATION: "
 	.align	3
-.LC5:
-	.string	"Specialized Blocked Implementation"
-	.align	3
-.LC44:
-	.string	"  "
+.LC6:
+	.string	"Specialized MaxPool2D"
 	.align	3
 .LC45:
-	.string	"\n\n"
+	.string	"  "
 	.align	3
 .LC46:
-	.string	"../python/weights_cpp/cpp_logits.bin"
+	.string	"\n\n"
 	.align	3
 .LC47:
-	.string	"Wrote logits for "
+	.string	"../python/weights_cpp/cpp_logits.bin"
 	.align	3
 .LC48:
-	.string	" images (implementation: "
+	.string	"Wrote logits for "
 	.align	3
 .LC49:
-	.string	") to "
+	.string	" images (implementation: "
 	.align	3
 .LC50:
-	.string	"\n--- Per-Layer Profiling ("
+	.string	") to "
 	.align	3
 .LC51:
-	.string	" Runs) ---"
+	.string	"\n--- Per-Layer Profiling ("
 	.align	3
 .LC52:
-	.string	"conv1"
+	.string	" Runs) ---"
 	.align	3
 .LC53:
-	.string	"relu1"
+	.string	"conv1"
 	.align	3
 .LC54:
-	.string	"pool1"
+	.string	"relu1"
 	.align	3
 .LC55:
-	.string	"conv2"
+	.string	"pool1"
 	.align	3
 .LC56:
-	.string	"relu2"
+	.string	"conv2"
 	.align	3
 .LC57:
-	.string	"pool2"
+	.string	"relu2"
 	.align	3
 .LC58:
-	.string	"conv3"
+	.string	"pool2"
 	.align	3
 .LC59:
-	.string	"relu3"
+	.string	"conv3"
 	.align	3
 .LC60:
-	.string	"avgpool"
+	.string	"relu3"
 	.align	3
 .LC61:
-	.string	"fc"
+	.string	"avgpool"
 	.align	3
 .LC62:
-	.string	"=== Per-Layer Breakdown (median cycles) ==="
+	.string	"fc"
 	.align	3
 .LC63:
-	.string	" cycles  ("
+	.string	"=== Per-Layer Breakdown (median cycles) ==="
 	.align	3
 .LC64:
-	.string	"%)\n"
+	.string	" cycles  ("
 	.align	3
 .LC65:
-	.string	"  total: "
+	.string	"%)\n"
 	.align	3
 .LC66:
-	.string	" cycles\n\n"
+	.string	"  total: "
 	.align	3
 .LC67:
-	.string	"CNN_BENCH_FILTER"
+	.string	" cycles\n\n"
 	.align	3
 .LC68:
-	.string	"Error: CNN_BENCH_FILTER matched no implementations: "
+	.string	"CNN_BENCH_FILTER"
 	.align	3
 .LC69:
-	.string	"Benchmark filter: "
+	.string	"Error: CNN_BENCH_FILTER matched no implementations: "
 	.align	3
 .LC70:
-	.string	" ("
+	.string	"Benchmark filter: "
 	.align	3
 .LC71:
-	.string	" of "
+	.string	" ("
 	.align	3
 .LC72:
-	.string	" implementations)"
+	.string	" of "
 	.align	3
 .LC73:
-	.string	"Runs: "
+	.string	" implementations)"
 	.align	3
 .LC74:
-	.string	" measured, "
+	.string	"Runs: "
 	.align	3
 .LC75:
-	.string	" warmup\n\n"
+	.string	" measured, "
 	.align	3
 .LC76:
-	.string	"==================================================\n"
+	.string	" warmup\n\n"
 	.align	3
 .LC77:
-	.string	" -> Benchmarking "
+	.string	"==================================================\n"
 	.align	3
 .LC78:
-	.string	" (WARM CACHE)\n"
+	.string	" -> Benchmarking "
 	.align	3
 .LC79:
-	.string	"=================================================="
+	.string	" (WARM CACHE)\n"
 	.align	3
 .LC80:
-	.string	"--- Performance Benchmarking ("
+	.string	"=================================================="
 	.align	3
 .LC81:
-	.string	"Running "
+	.string	"--- Performance Benchmarking ("
 	.align	3
 .LC82:
-	.string	" warmup run"
+	.string	"Running "
 	.align	3
 .LC83:
-	.string	"s"
+	.string	" warmup run"
 	.align	3
 .LC84:
-	.string	"...\n"
+	.string	"s"
 	.align	3
 .LC85:
-	.string	"Warmup complete. Starting "
+	.string	"...\n"
 	.align	3
 .LC86:
-	.string	" benchmark run"
+	.string	"Warmup complete. Starting "
 	.align	3
 .LC87:
-	.string	"=== Results ==="
+	.string	" benchmark run"
 	.align	3
 .LC88:
-	.string	"  Median cycles : "
+	.string	"=== Results ==="
 	.align	3
 .LC89:
-	.string	"  Median time   : "
+	.string	"  Median cycles : "
 	.align	3
 .LC90:
-	.string	" s ("
+	.string	"  Median time   : "
 	.align	3
 .LC91:
-	.string	" ms)\n\n"
+	.string	" s ("
 	.align	3
 .LC92:
-	.string	"The network has successfully predicted the digit: "
+	.string	" ms)\n\n"
 	.align	3
 .LC93:
-	.string	"Raw Logits (Computational Verification):"
+	.string	"The network has successfully predicted the digit: "
 	.align	3
 .LC94:
-	.string	"Class "
+	.string	"Raw Logits (Computational Verification):"
 	.align	3
 .LC95:
-	.string	": "
+	.string	"Class "
 	.align	3
 .LC96:
-	.string	"=== Final Performance Summary ==="
+	.string	": "
 	.align	3
 .LC97:
-	.string	"Seconds"
+	.string	"=== Final Performance Summary ==="
 	.align	3
 .LC98:
-	.string	"Cycles"
+	.string	"Seconds"
 	.align	3
 .LC99:
-	.string	"vs Base"
+	.string	"Cycles"
 	.align	3
 .LC100:
-	.string	"Implementation"
+	.string	"vs Base"
 	.align	3
 .LC101:
-	.string	"%-35s | %-12s | %-20s | %-14s\n"
+	.string	"Implementation"
 	.align	3
 .LC102:
+	.string	"%-35s | %-12s | %-20s | %-14s\n"
+	.align	3
+.LC103:
 	.string	"---------------------------------------------------------------------------------------"
 	.align	3
 .LC0:
 	.string	"Baseline Nested-Loop"
 	.align	3
-.LC103:
+.LC104:
 	.string	"%-35s | %-12s | %-20s | %-14s"
 	.align	3
-.LC104:
+.LC105:
 	.string	"%.2f"
 	.align	3
-.LC105:
+.LC106:
 	.string	"%.6f"
 	.align	3
-.LC106:
+.LC107:
 	.string	"%.2fx"
 	.align	3
-.LC107:
+.LC108:
 	.string	"\nBenchmark sink: "
 	.align	3
-.LC108:
+.LC109:
 	.string	"../python/weights_cpp/cpp_timing.json"
 	.align	3
-.LC109:
+.LC110:
 	.string	"{\n"
 	.align	3
-.LC110:
+.LC111:
 	.string	"  \"implementation\": \""
 	.align	3
-.LC111:
+.LC112:
 	.string	"\",\n"
 	.align	3
-.LC112:
+.LC113:
 	.string	"  \"median_time_sec\": "
 	.align	3
-.LC113:
+.LC114:
 	.string	",\n"
 	.align	3
-.LC114:
+.LC115:
 	.string	"  \"median_cycles\": "
 	.align	3
-.LC115:
+.LC116:
 	.string	"}\n"
 	.section	.text.startup,"ax",@progbits
 	.align	2
@@ -3245,10 +3245,10 @@ _Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt
 	.global	main
 	.type	main, %function
 main:
-.LFB3459:
+.LFB7375:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA3459
+	.cfi_lsda 0x1b,.LLSDA7375
 	sub	sp, sp, #1824	//,,
 	.cfi_def_cfa_offset 1824
 	stp	x29, x30, [sp]	//,,
@@ -3278,944 +3278,968 @@ main:
 	.cfi_offset 79, -1704
 // src/cpp/benchmark.cpp:85:     for (int i = 1; i < argc; ++i) {
 	cmp	w0, 1	// argc,
-	ble	.L553		//,
+	ble	.L557		//,
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	adrp	x23, .LC25	// tmp2441,
+	adrp	x24, .LC26	// tmp2438,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:381: 	return __builtin_memcmp(__s1, __s2, __n);
-	mov	w24, 29296	// tmp2443,
+	mov	w25, 29296	// tmp2440,
 // src/cpp/benchmark.cpp:82:     bool verify_mode = false;
-	str	wzr, [sp, 136]	//, %sfp
+	str	wzr, [sp, 128]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:381: 	return __builtin_memcmp(__s1, __s2, __n);
-	mov	w22, 25974	// tmp2444,
+	mov	w23, 25974	// tmp2441,
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	add	x23, x23, :lo12:.LC25	// tmp2442, tmp2441,
+	add	x24, x24, :lo12:.LC26	// tmp2439, tmp2438,
 // src/cpp/benchmark.cpp:83:     bool profile_mode = false;
-	str	wzr, [sp, 144]	//, %sfp
-	add	x19, sp, 1304	// tmp2354,,
-	add	x28, sp, 1320	// tmp2355,,
+	str	wzr, [sp, 136]	//, %sfp
+	add	x19, sp, 1304	// tmp2346,,
+	add	x20, sp, 1320	// tmp2347,,
 // src/cpp/benchmark.cpp:84:     bool verbose = false;
-	str	wzr, [sp, 216]	//, %sfp
+	str	wzr, [sp, 208]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:381: 	return __builtin_memcmp(__s1, __s2, __n);
-	movk	w24, 0x666f, lsl 16	// tmp2443,,
-	movk	w22, 0x6972, lsl 16	// tmp2444,,
-	add	x20, x1, 8	// ivtmp.809, argv,
-	sub	w0, w0, #2	// _5376, argc,
+	movk	w25, 0x666f, lsl 16	// tmp2440,,
+	movk	w23, 0x6972, lsl 16	// tmp2441,,
+	add	x21, x1, 8	// ivtmp.809, argv,
+	sub	w0, w0, #2	// _5324, argc,
 	add	x1, x1, 16	// _1823, argv,
-	add	x21, x1, w0, uxtw 3	// _5218, _1823, _5376,
+	add	x22, x1, w0, uxtw 3	// _4985, _1823, _5324,
 	.p2align 5,,15
 .L314:
 // src/cpp/benchmark.cpp:86:         std::string arg = argv[i];
-	ldr	x26, [x20]	// _4, MEM[(char * *)_834]
+	ldr	x27, [x21]	// _4, MEM[(char * *)_5364]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x26, .L859	// _4,
+	cbz	x27, .L863	// _4,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x26	//, _4
+	mov	x0, x27	//, _4
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
 	str	x0, [sp, 1168]	// _1306, MEM[(long unsigned int *)_2139]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x25, x0	// _1306, tmp2447
+	mov	x26, x0	// _1306, tmp2444
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
 	cmp	x0, 15	// _1306,
-	bhi	.L860		//,
+	bhi	.L864		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
 	cmp	x0, 1	// _1306,
 	bne	.L301		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x26]	// _1313, MEM[(const char_type &)_4]
+	ldrb	w0, [x27]	// _1313, MEM[(const char_type &)_4]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
 	strb	w0, [sp, 1320]	// _1313, MEM[(char_type &)_1195 + 16]
 .L303:
-	mov	x0, x28	// pretmp_5516, tmp2355
+	mov	x0, x20	// pretmp_5516, tmp2347
 .L302:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x25, [sp, 1312]	// _1306, MEM[(struct basic_string *)_1195]._M_string_length
+	str	x26, [sp, 1312]	// _1306, MEM[(struct basic_string *)_1195]._M_string_length
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x0, x25]	//, MEM[(char_type &)_1316]
+	strb	wzr, [x0, x26]	//, MEM[(char_type &)_1316]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:1077:       { return _M_string_length; }
 	ldr	x0, [sp, 1312]	// _1300, MEM[(struct basic_string *)_1195]._M_string_length
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
-	ldr	x25, [sp, 1304]	// pretmp_5659, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+	ldr	x26, [sp, 1304]	// pretmp_5671, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3776: 	       && !_Traits::compare(__lhs.data(), __rhs, __lhs.size());
 	cmp	x0, 6	// _1300,
-	beq	.L861		//,
+	beq	.L865		//,
 	cmp	x0, 7	// _1300,
-	beq	.L862		//,
+	beq	.L866		//,
 	cmp	x0, 2	// _1300,
 	bne	.L307		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3776: 	       && !_Traits::compare(__lhs.data(), __rhs, __lhs.size());
-	ldrh	w1, [x25]	// MEM <unsigned short> [(char * {ref-all})pretmp_5659], MEM <unsigned short> [(char * {ref-all})pretmp_5659]
-	mov	w0, 30253	// tmp984,
-	cmp	w1, w0	// MEM <unsigned short> [(char * {ref-all})pretmp_5659], tmp984
-	beq	.L863		//,
+	ldrh	w1, [x26]	// MEM <unsigned short> [(char * {ref-all})pretmp_5671], MEM <unsigned short> [(char * {ref-all})pretmp_5671]
+	mov	w0, 30253	// tmp981,
+	cmp	w1, w0	// MEM <unsigned short> [(char * {ref-all})pretmp_5671], tmp981
+	beq	.L867		//,
 	.p2align 5,,15
 .L307:
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	mov	x1, x23	//, tmp2442
-	mov	x0, x19	//, tmp2354
+	mov	x1, x24	//, tmp2439
+	mov	x0, x19	//, tmp2346
 	bl	_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_		//
-	and	w1, w0, 255	// _818, tmp2449
+	and	w1, w0, 255	// _818, tmp2446
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	tbnz	x0, 0, .L557	// tmp2449,,
+	tbnz	x0, 0, .L561	// tmp2446,,
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	adrp	x1, .LC26	// tmp993,
-	mov	x0, x19	//, tmp2354
-	add	x1, x1, :lo12:.LC26	//, tmp993,
+	adrp	x1, .LC27	// tmp990,
+	mov	x0, x19	//, tmp2346
+	add	x1, x1, :lo12:.LC27	//, tmp990,
 	bl	_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_		//
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	ldr	w1, [sp, 216]	//, %sfp
+	ldr	w1, [sp, 208]	//, %sfp
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
-	and	w0, w0, 255	// _820, tmp2450
+	and	w0, w0, 255	// _820, tmp2447
 // src/cpp/benchmark.cpp:91:         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
 	cmp	w1, 0	// verbose,
 	ccmp	w0, 0, 0, eq	// _820,,,
 	cset	w0, ne	// verbose,
-	str	w0, [sp, 216]	// verbose, %sfp
+	str	w0, [sp, 208]	// verbose, %sfp
 .L313:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x25, x28	// pretmp_5659, tmp2355
+	cmp	x26, x20	// pretmp_5671, tmp2347
 	beq	.L308		//,
 .L309:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	mov	x0, x25	//, pretmp_5659
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
+	mov	x0, x26	//, pretmp_5671
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L308:
 // src/cpp/benchmark.cpp:85:     for (int i = 1; i < argc; ++i) {
-	add	x20, x20, 8	// ivtmp.809, ivtmp.809,
-	cmp	x20, x21	// ivtmp.809, _5218
+	add	x21, x21, 8	// ivtmp.809, ivtmp.809,
+	cmp	x21, x22	// ivtmp.809, _4985
 	bne	.L314		//,
 // src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
-	ldr	w0, [sp, 136]	//, %sfp
+	ldr	w0, [sp, 128]	//, %sfp
 	cbz	w0, .L297	// verify_mode,
 	mov	x0, 34464	// prephitmp_5533,
-	mov	x21, 34816	// prephitmp_5531,
+	mov	x20, 34816	// prephitmp_5531,
 	movk	x0, 0x1, lsl 16	// prephitmp_5533,,
-	movk	x21, 0x13, lsl 16	// prephitmp_5531,,
-	mov	x22, 51200	// prephitmp_5521,
+	movk	x20, 0x13, lsl 16	// prephitmp_5531,,
+	mov	x27, 41984	// prephitmp_5525,
+	mov	x23, 12800	// prephitmp_5523,
+	str	x0, [sp, 176]	// prephitmp_5533, %sfp
+	add	x0, x20, 10240000	// prephitmp_5529, prephitmp_5531,
+	movk	x27, 0x49d, lsl 16	// prephitmp_5525,,
+	movk	x23, 0x339, lsl 16	// prephitmp_5523,,
 // src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
 	mov	w25, 10000	// iftmp.4_168,
-	str	x0, [sp, 192]	// prephitmp_5533, %sfp
-	add	x0, x21, 10240000	// prephitmp_5529, prephitmp_5531,
-	movk	x22, 0xce4, lsl 16	// prephitmp_5521,,
-	str	x0, [sp, 184]	// prephitmp_5529, %sfp
+	str	x0, [sp, 160]	// prephitmp_5529, %sfp
 	mov	x0, 9216	// prephitmp_5527,
 	movk	x0, 0xf4, lsl 16	// prephitmp_5527,,
-	str	x0, [sp, 168]	// prephitmp_5527, %sfp
-	mov	x0, 41984	// prephitmp_5525,
-	movk	x0, 0x49d, lsl 16	// prephitmp_5525,,
-	str	x0, [sp, 160]	// prephitmp_5525, %sfp
-	mov	x0, 12800	// prephitmp_5523,
-	movk	x0, 0x339, lsl 16	// prephitmp_5523,,
-	str	x0, [sp, 152]	// prephitmp_5523, %sfp
+	str	x0, [sp, 152]	// prephitmp_5527, %sfp
+	mov	x0, 51200	// prephitmp_5521,
+	movk	x0, 0xce4, lsl 16	// prephitmp_5521,,
+	str	x0, [sp, 144]	// prephitmp_5521, %sfp
+	b	.L315		//
+.L557:
+	add	x19, sp, 1304	// tmp2346,,
+// src/cpp/benchmark.cpp:83:     bool profile_mode = false;
+	str	wzr, [sp, 136]	//, %sfp
+// src/cpp/benchmark.cpp:84:     bool verbose = false;
+	str	wzr, [sp, 208]	//, %sfp
+.L297:
+// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
+	mov	x0, 10	// prephitmp_5533,
+	mov	x20, 128	// prephitmp_5531,
+	str	wzr, [sp, 128]	//, %sfp
+	mov	x27, 7744	// prephitmp_5525,
+	mov	x23, 5408	// prephitmp_5523,
+	str	x0, [sp, 176]	// prephitmp_5533, %sfp
+	mov	x0, 1152	// prephitmp_5529,
+// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
+	mov	w25, 1	// iftmp.4_168,
+// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
+	str	x0, [sp, 160]	// prephitmp_5529, %sfp
+	mov	x0, 1600	// prephitmp_5527,
+	str	x0, [sp, 152]	// prephitmp_5527, %sfp
+	mov	x0, 21632	// prephitmp_5521,
+	str	x0, [sp, 144]	// prephitmp_5521, %sfp
 .L315:
 // src/cpp/include/timing.h:122:     memset(&pe, 0, sizeof(pe));
-	movi	v31.4s, 0	// tmp1005
-	add	x6, sp, 1152	// tmp2689,,
+	movi	v31.4s, 0	// tmp1002
+	add	x6, sp, 1136	// tmp2683,,
 // src/cpp/include/timing.h:126:     pe.disabled       = 1;
-	mov	w7, 97	// tmp1013,
+	mov	w7, 97	// tmp1010,
 // src/cpp/include/timing.h:124:     pe.size           = sizeof(pe);
-	mov	w8, 136	// tmp1007,
+	mov	w8, 136	// tmp1004,
 // src/cpp/include/timing.h:117:     return syscall(SYS_perf_event_open, hw_event, pid, cpu, group_fd, flags);
 	mov	w4, -1	//,
 	mov	x5, 0	//,
 	mov	w3, w4	//,
 	mov	w2, 0	//,
-	mov	x1, x19	//, tmp2354
+	mov	x1, x19	//, tmp2346
 // src/cpp/include/timing.h:122:     memset(&pe, 0, sizeof(pe));
-	str	q31, [x6, 152]	// tmp1005, MEM <char[1:136]> [(void *)_1195]
+	str	q31, [x6, 168]	// tmp1002, MEM <char[1:136]> [(void *)_1195]
 // src/cpp/include/timing.h:117:     return syscall(SYS_perf_event_open, hw_event, pid, cpu, group_fd, flags);
 	mov	x0, 241	//,
 // src/cpp/include/timing.h:122:     memset(&pe, 0, sizeof(pe));
-	stp	q31, q31, [x19, 16]	// tmp1005, tmp1005,
-	stp	q31, q31, [x19, 48]	// tmp1005, tmp1005,
-	stp	q31, q31, [x19, 80]	// tmp1005, tmp1005,
-	str	q31, [x19, 112]	// tmp1005, MEM <char[1:136]> [(void *)_1195]
+	stp	q31, q31, [x19, 16]	// tmp1002, tmp1002,
+	stp	q31, q31, [x19, 48]	// tmp1002, tmp1002,
+	stp	q31, q31, [x19, 80]	// tmp1002, tmp1002,
+	str	q31, [x19, 112]	// tmp1002, MEM <char[1:136]> [(void *)_1195]
 	str	xzr, [x19, 128]	//, MEM <char[1:136]> [(void *)_1195]
 // src/cpp/include/timing.h:126:     pe.disabled       = 1;
 	ldrb	w6, [sp, 1344]	//, MEM <unsigned char> [(struct perf_event_attr *)_1195 + 40B]
 // src/cpp/include/timing.h:124:     pe.size           = sizeof(pe);
-	str	w8, [sp, 1308]	// tmp1007, MEM[(struct perf_event_attr *)_1195].size
+	str	w8, [sp, 1308]	// tmp1004, MEM[(struct perf_event_attr *)_1195].size
 // src/cpp/include/timing.h:126:     pe.disabled       = 1;
-	orr	w6, w6, w7	// tmp1012, MEM <unsigned char> [(struct perf_event_attr *)_1195 + 40B], tmp1013
-	strb	w6, [sp, 1344]	// tmp1012, MEM <unsigned char> [(struct perf_event_attr *)_1195 + 40B]
+	orr	w6, w6, w7	// tmp1009, MEM <unsigned char> [(struct perf_event_attr *)_1195 + 40B], tmp1010
+	strb	w6, [sp, 1344]	// tmp1009, MEM <unsigned char> [(struct perf_event_attr *)_1195 + 40B]
 // src/cpp/include/timing.h:117:     return syscall(SYS_perf_event_open, hw_event, pid, cpu, group_fd, flags);
 	bl	syscall		//
-	str	x0, [sp, 240]	// _1333, %sfp
+	str	x0, [sp, 224]	// _1333, %sfp
 // src/cpp/include/timing.h:130:     ctx->fd = _perf_event_open(&pe, 0 /* self */, -1 /* any cpu */, -1, 0);
-	mov	w20, w0	// _1334, _1333
+	mov	w21, w0	// _1334, _1333
 // src/cpp/include/timing.h:131:     if (ctx->fd == -1) {
-	cmn	w0, #1	// tmp2690,
-	beq	.L864		//,
+	cmn	w0, #1	// tmp2684,
+	beq	.L868		//,
 .L317:
 // src/cpp/benchmark.cpp:106:     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
-	adrp	x0, _ZSt4cout	// tmp2373,
-	add	x27, x0, :lo12:_ZSt4cout	// tmp2362, tmp2373,
-	adrp	x0, _ZN5Color4CYANE	// tmp2692,
+	adrp	x0, _ZSt4cout	// tmp2362,
+	add	x28, x0, :lo12:_ZSt4cout	// tmp2355, tmp2362,
+	adrp	x0, _ZN5Color4CYANE	// tmp2686,
 	ldr	x1, [x0, #:lo12:_ZN5Color4CYANE]	//, CYAN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 .LEHB51:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 32	//,
 // src/cpp/benchmark.cpp:106:     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
-	mov	x23, x0	// _236, tmp2455
+	mov	x22, x0	// _236, tmp2452
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC29	// tmp1034,
-	add	x1, x1, :lo12:.LC29	//, tmp1034,
+	adrp	x1, .LC30	// tmp1031,
+	add	x1, x1, :lo12:.LC30	//, tmp1031,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:106:     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2693,
-	mov	x0, x23	//, _236
+	adrp	x1, _ZN5Color5RESETE	// tmp2687,
+	mov	x0, x22	//, _236
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:106:     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
-	adrp	x1, .LC20	// tmp2361,
-	add	x24, x1, :lo12:.LC20	// tmp2357, tmp2361,
-	mov	x1, x24	//, tmp2357
-	str	x24, [sp, 176]	// tmp2357, %sfp
+	adrp	x1, .LC21	// tmp2332,
+	add	x24, x1, :lo12:.LC21	// tmp2327, tmp2332,
+	mov	x1, x24	//, tmp2327
+	str	x24, [sp, 168]	// tmp2327, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE51:
 // src/cpp/benchmark.cpp:111:         load_mnist_images("../../data/MNIST/raw/t10k-images-idx3-ubyte", input_batch, batch_size);
-	adrp	x1, .LC30	// tmp1041,
-	mov	x0, x19	//, tmp2354
+	adrp	x1, .LC31	// tmp1038,
+	mov	x0, x19	//, tmp2346
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:99: 	: _M_start(), _M_finish(), _M_end_of_storage()
-	stp	xzr, xzr, [sp, 384]	//,,
+	stp	xzr, xzr, [sp, 368]	//,,
 // src/cpp/benchmark.cpp:111:         load_mnist_images("../../data/MNIST/raw/t10k-images-idx3-ubyte", input_batch, batch_size);
-	add	x1, x1, :lo12:.LC30	//, tmp1041,
+	add	x1, x1, :lo12:.LC31	//, tmp1038,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:99: 	: _M_start(), _M_finish(), _M_end_of_storage()
-	str	xzr, [sp, 400]	//, MEM[(struct _Vector_impl_data *)&input_batch]._M_end_of_storage
+	str	xzr, [sp, 384]	//, MEM[(struct _Vector_impl_data *)&input_batch]._M_end_of_storage
 .LEHB52:
 // src/cpp/benchmark.cpp:111:         load_mnist_images("../../data/MNIST/raw/t10k-images-idx3-ubyte", input_batch, batch_size);
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0		//
 .LEHE52:
 // src/cpp/benchmark.cpp:111:         load_mnist_images("../../data/MNIST/raw/t10k-images-idx3-ubyte", input_batch, batch_size);
 	mov	w2, w25	//, iftmp.4_168
-	add	x1, sp, 384	// tmp2695,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 368	// tmp2689,,
+	mov	x0, x19	//, tmp2346
 .LEHB53:
 	bl	_Z17load_mnist_imagesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Tensori		//
 .LEHE53:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:112:         std::cout << Color::GREEN << "MNIST dataset successfully loaded." << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5GREENE	// tmp2696,
-	mov	x0, x27	//, tmp2362
+	adrp	x1, _ZN5Color5GREENE	// tmp2690,
+	mov	x0, x28	//, tmp2355
 	ldr	x1, [x1, #:lo12:_ZN5Color5GREENE]	//, GREEN
 .LEHB54:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC31	// tmp1052,
+	adrp	x1, .LC32	// tmp1049,
 	mov	x2, 34	//,
-	add	x1, x1, :lo12:.LC31	//, tmp1052,
+	add	x1, x1, :lo12:.LC32	//, tmp1049,
 // src/cpp/benchmark.cpp:112:         std::cout << Color::GREEN << "MNIST dataset successfully loaded." << Color::RESET << "\n";
-	mov	x23, x0	// _247, tmp2456
+	mov	x22, x0	// _247, tmp2453
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:112:         std::cout << Color::GREEN << "MNIST dataset successfully loaded." << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2697,
-	mov	x0, x23	//, _247
+	adrp	x1, _ZN5Color5RESETE	// tmp2691,
+	mov	x0, x22	//, _247
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:112:         std::cout << Color::GREEN << "MNIST dataset successfully loaded." << Color::RESET << "\n";
-	mov	x1, x24	//, tmp2357
+	mov	x1, x24	//, tmp2327
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE54:
 // src/cpp/benchmark.cpp:123:     std::cout << Color::BOLD_CYAN << "\nLoading real weights..." << Color::RESET << "\n";
-	adrp	x1, _ZN5Color9BOLD_CYANE	// tmp2698,
-	mov	x0, x27	//, tmp2362
+	adrp	x1, _ZN5Color9BOLD_CYANE	// tmp2692,
+	mov	x0, x28	//, tmp2355
 	ldr	x1, [x1, #:lo12:_ZN5Color9BOLD_CYANE]	//, BOLD_CYAN
 .LEHB55:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC32	// tmp1064,
+	adrp	x1, .LC33	// tmp1061,
 	mov	x2, 24	//,
-	add	x1, x1, :lo12:.LC32	//, tmp1064,
+	add	x1, x1, :lo12:.LC33	//, tmp1061,
 // src/cpp/benchmark.cpp:123:     std::cout << Color::BOLD_CYAN << "\nLoading real weights..." << Color::RESET << "\n";
-	mov	x23, x0	// _252, tmp2457
+	mov	x22, x0	// _252, tmp2454
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:123:     std::cout << Color::BOLD_CYAN << "\nLoading real weights..." << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2699,
-	mov	x0, x23	//, _252
+	adrp	x1, _ZN5Color5RESETE	// tmp2693,
+	mov	x0, x22	//, _252
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:123:     std::cout << Color::BOLD_CYAN << "\nLoading real weights..." << Color::RESET << "\n";
-	mov	x1, x24	//, tmp2357
+	mov	x1, x24	//, tmp2327
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:124:     const std::string w_path = "../python/weights_cpp/";
-	adrp	x1, .LC33	// tmp1071,
-	add	x0, sp, 288	// tmp2700,,
-	add	x1, x1, :lo12:.LC33	//, tmp1071,
+	adrp	x1, .LC34	// tmp1068,
+	add	x0, sp, 272	// tmp2694,,
+	add	x1, x1, :lo12:.LC34	//, tmp1068,
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0		//
 .LEHE55:
 // src/cpp/benchmark.cpp:126:     Tensor conv1_weight = {std::vector<float>(32 * 1 * 3 * 3), 32,  1,  3,   3};
-	mov	x3, 32	// tmp1073,
-	mov	x2, 12884901891	// tmp1074,
-	stp	xzr, xzr, [sp, 432]	// MEM <char[24]> [(struct Tensor *)&conv1_weight]
-	movk	x3, 0x1, lsl 32	// tmp1073,,
+	mov	x3, 32	// tmp1070,
+	mov	x2, 12884901891	// tmp1071,
+	stp	xzr, xzr, [sp, 416]	// MEM <char[24]> [(struct Tensor *)&conv1_weight]
+	movk	x3, 0x1, lsl 32	// tmp1070,,
 // src/cpp/benchmark.cpp:126:     Tensor conv1_weight = {std::vector<float>(32 * 1 * 3 * 3), 32,  1,  3,   3};
 	mov	x1, 288	//,
-	add	x0, sp, 432	// tmp2701,,
+	add	x0, sp, 416	// tmp2695,,
 // src/cpp/benchmark.cpp:126:     Tensor conv1_weight = {std::vector<float>(32 * 1 * 3 * 3), 32,  1,  3,   3};
-	stp	xzr, x3, [sp, 448]	//, tmp1073,
-	str	x2, [sp, 464]	// tmp1074, MEM <unsigned long> [(int *)&conv1_weight + 32B]
+	stp	xzr, x3, [sp, 432]	//, tmp1070,
+	str	x2, [sp, 448]	// tmp1071, MEM <unsigned long> [(int *)&conv1_weight + 32B]
 .LEHB56:
 // src/cpp/benchmark.cpp:126:     Tensor conv1_weight = {std::vector<float>(32 * 1 * 3 * 3), 32,  1,  3,   3};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE56:
 // src/cpp/benchmark.cpp:127:     Tensor conv1_bias   = {std::vector<float>(32), 32,  1,  1,   1};
-	mov	x3, 32	// tmp1076,
-	mov	x2, 4294967297	// tmp1077,
-	stp	xzr, xzr, [sp, 480]	// MEM <char[24]> [(struct Tensor *)&conv1_bias]
-	movk	x3, 0x1, lsl 32	// tmp1076,,
+	mov	x3, 32	// tmp1073,
+	mov	x2, 4294967297	// tmp1074,
+	stp	xzr, xzr, [sp, 464]	// MEM <char[24]> [(struct Tensor *)&conv1_bias]
+	movk	x3, 0x1, lsl 32	// tmp1073,,
 // src/cpp/benchmark.cpp:127:     Tensor conv1_bias   = {std::vector<float>(32), 32,  1,  1,   1};
 	mov	x1, 32	//,
-	add	x0, sp, 480	// tmp2702,,
+	add	x0, sp, 464	// tmp2696,,
 // src/cpp/benchmark.cpp:127:     Tensor conv1_bias   = {std::vector<float>(32), 32,  1,  1,   1};
-	stp	xzr, x3, [sp, 496]	//, tmp1076,
-	str	x2, [sp, 512]	// tmp1077, MEM <unsigned long> [(int *)&conv1_bias + 32B]
+	stp	xzr, x3, [sp, 480]	//, tmp1073,
+	str	x2, [sp, 496]	// tmp1074, MEM <unsigned long> [(int *)&conv1_bias + 32B]
 .LEHB57:
 // src/cpp/benchmark.cpp:127:     Tensor conv1_bias   = {std::vector<float>(32), 32,  1,  1,   1};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE57:
 // src/cpp/benchmark.cpp:128:     load_binary_weights(w_path + "model_0_weight.bin", conv1_weight.data);
-	adrp	x2, .LC34	// tmp1080,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC34	//, tmp1080,
+	adrp	x2, .LC35	// tmp1077,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC35	//, tmp1077,
 .LEHB58:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE58:
 // src/cpp/benchmark.cpp:128:     load_binary_weights(w_path + "model_0_weight.bin", conv1_weight.data);
-	add	x1, sp, 432	// tmp2703,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 416	// tmp2697,,
+	mov	x0, x19	//, tmp2346
 .LEHB59:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE59:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:129:     load_binary_weights(w_path + "model_0_bias.bin", conv1_bias.data);
-	adrp	x2, .LC35	// tmp1088,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC35	//, tmp1088,
+	adrp	x2, .LC36	// tmp1085,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC36	//, tmp1085,
 .LEHB60:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE60:
 // src/cpp/benchmark.cpp:129:     load_binary_weights(w_path + "model_0_bias.bin", conv1_bias.data);
-	add	x1, sp, 480	// tmp2704,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 464	// tmp2698,,
+	mov	x0, x19	//, tmp2346
 .LEHB61:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE61:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
-	add	x0, sp, 512	// tmp2991,,
-	mov	x3, 64	// tmp1095,
-	movk	x3, 0x20, lsl 32	// tmp1095,,
-	mov	x2, 12884901891	// tmp1096,
+	mov	x3, 64	// tmp1092,
+	add	x0, sp, 512	// tmp2998,,
+	movk	x3, 0x20, lsl 32	// tmp1092,,
+	mov	x2, 12884901891	// tmp1093,
 // src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
 	mov	x1, 18432	//,
 // src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
-	stp	xzr, xzr, [x0, 16]	// MEM <char[24]> [(struct Tensor *)&conv2_weight]
-// src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
-	add	x0, sp, 528	// tmp2705,,
-// src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
-	str	xzr, [sp, 544]	//, MEM <char[24]> [(struct Tensor *)&conv2_weight]
-	str	x3, [sp, 552]	// tmp1095, MEM <unsigned long> [(int *)&conv2_weight + 24B]
-	str	x2, [sp, 560]	// tmp1096, MEM <unsigned long> [(int *)&conv2_weight + 32B]
+	stp	xzr, xzr, [x0]	// MEM <char[24]> [(struct Tensor *)&conv2_weight]
+	str	xzr, [sp, 528]	//, MEM <char[24]> [(struct Tensor *)&conv2_weight]
+	str	x3, [sp, 536]	// tmp1092, MEM <unsigned long> [(int *)&conv2_weight + 24B]
+	str	x2, [sp, 544]	// tmp1093, MEM <unsigned long> [(int *)&conv2_weight + 32B]
 .LEHB62:
 // src/cpp/benchmark.cpp:131:     Tensor conv2_weight = {std::vector<float>(64 * 32 * 3 * 3), 64, 32,  3,   3};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE62:
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
-	add	x0, sp, 512	// tmp2989,,
-	mov	x3, 64	// tmp1098,
-	movk	x3, 0x1, lsl 32	// tmp1098,,
-	mov	x2, 4294967297	// tmp1099,
+	add	x0, sp, 512	// tmp2996,,
+	mov	x3, 64	// tmp1095,
+	movk	x3, 0x1, lsl 32	// tmp1095,,
+	mov	x2, 4294967297	// tmp1096,
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
 	mov	x1, 64	//,
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
-	stp	xzr, xzr, [x0, 64]	// MEM <char[24]> [(struct Tensor *)&conv2_bias]
+	stp	xzr, xzr, [x0, 48]	// MEM <char[24]> [(struct Tensor *)&conv2_bias]
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
-	add	x0, sp, 576	// tmp2706,,
+	add	x0, sp, 560	// tmp2700,,
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
-	str	xzr, [sp, 592]	//, MEM <char[24]> [(struct Tensor *)&conv2_bias]
-	str	x3, [sp, 600]	// tmp1098, MEM <unsigned long> [(int *)&conv2_bias + 24B]
-	str	x2, [sp, 608]	// tmp1099, MEM <unsigned long> [(int *)&conv2_bias + 32B]
+	str	xzr, [sp, 576]	//, MEM <char[24]> [(struct Tensor *)&conv2_bias]
+	str	x3, [sp, 584]	// tmp1095, MEM <unsigned long> [(int *)&conv2_bias + 24B]
+	str	x2, [sp, 592]	// tmp1096, MEM <unsigned long> [(int *)&conv2_bias + 32B]
 .LEHB63:
 // src/cpp/benchmark.cpp:132:     Tensor conv2_bias   = {std::vector<float>(64), 64,  1,  1,   1};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE63:
 // src/cpp/benchmark.cpp:133:     load_binary_weights(w_path + "model_3_weight.bin", conv2_weight.data);
-	adrp	x2, .LC36	// tmp1102,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC36	//, tmp1102,
+	adrp	x2, .LC37	// tmp1099,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC37	//, tmp1099,
 .LEHB64:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE64:
 // src/cpp/benchmark.cpp:133:     load_binary_weights(w_path + "model_3_weight.bin", conv2_weight.data);
-	add	x1, sp, 528	// tmp2707,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 512	// tmp2701,,
+	mov	x0, x19	//, tmp2346
 .LEHB65:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE65:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:134:     load_binary_weights(w_path + "model_3_bias.bin", conv2_bias.data);
-	adrp	x2, .LC37	// tmp1110,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC37	//, tmp1110,
+	adrp	x2, .LC38	// tmp1107,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC38	//, tmp1107,
 .LEHB66:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE66:
 // src/cpp/benchmark.cpp:134:     load_binary_weights(w_path + "model_3_bias.bin", conv2_bias.data);
-	add	x1, sp, 576	// tmp2708,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 560	// tmp2702,,
+	mov	x0, x19	//, tmp2346
 .LEHB67:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE67:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
-// src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
-	add	x26, sp, 624	// tmp2327,,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
-	add	x0, sp, 512	// tmp2987,,
-	mov	x3, 128	// tmp1117,
-	movk	x3, 0x40, lsl 32	// tmp1117,,
-	mov	x2, 12884901891	// tmp1118,
+	add	x0, sp, 512	// tmp2994,,
+	mov	x3, 128	// tmp1114,
+	movk	x3, 0x40, lsl 32	// tmp1114,,
+	mov	x2, 12884901891	// tmp1115,
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
 	mov	x1, 8192	//,
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
-	stp	xzr, xzr, [x0, 112]	// MEM <char[24]> [(struct Tensor *)&conv3_weight]
+	stp	xzr, xzr, [x0, 96]	// MEM <char[24]> [(struct Tensor *)&conv3_weight]
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
-	mov	x0, x26	//, tmp2327
+	add	x0, sp, 608	// tmp2703,,
 	movk	x1, 0x1, lsl 16	//,,
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
-	str	xzr, [sp, 640]	//, MEM <char[24]> [(struct Tensor *)&conv3_weight]
-	str	x3, [sp, 648]	// tmp1117, MEM <unsigned long> [(int *)&conv3_weight + 24B]
-	str	x2, [sp, 656]	// tmp1118, MEM <unsigned long> [(int *)&conv3_weight + 32B]
+	str	xzr, [sp, 624]	//, MEM <char[24]> [(struct Tensor *)&conv3_weight]
+	str	x3, [sp, 632]	// tmp1114, MEM <unsigned long> [(int *)&conv3_weight + 24B]
+	str	x2, [sp, 640]	// tmp1115, MEM <unsigned long> [(int *)&conv3_weight + 32B]
 .LEHB68:
 // src/cpp/benchmark.cpp:136:     Tensor conv3_weight = {std::vector<float>(128 * 64 * 3 * 3), 128, 64,  3,   3};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE68:
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
-	add	x0, sp, 640	// tmp2710,,
-	mov	x3, 128	// tmp1121,
-	movk	x3, 0x1, lsl 32	// tmp1121,,
-	mov	x2, 4294967297	// tmp1122,
+	add	x0, sp, 624	// tmp2705,,
+	mov	x3, 128	// tmp1118,
+	movk	x3, 0x1, lsl 32	// tmp1118,,
+	mov	x2, 4294967297	// tmp1119,
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
-	add	x28, sp, 672	// tmp2330,,
+	add	x26, sp, 656	// tmp2323,,
 	mov	x1, 128	//,
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
 	stp	xzr, xzr, [x0, 32]	// MEM <char[24]> [(struct Tensor *)&conv3_bias]
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
-	mov	x0, x28	//, tmp2330
+	mov	x0, x26	//, tmp2323
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
-	str	xzr, [sp, 688]	//, MEM <char[24]> [(struct Tensor *)&conv3_bias]
-	str	x3, [sp, 696]	// tmp1121, MEM <unsigned long> [(int *)&conv3_bias + 24B]
-	str	x2, [sp, 704]	// tmp1122, MEM <unsigned long> [(int *)&conv3_bias + 32B]
+	str	xzr, [sp, 672]	//, MEM <char[24]> [(struct Tensor *)&conv3_bias]
+	str	x3, [sp, 680]	// tmp1118, MEM <unsigned long> [(int *)&conv3_bias + 24B]
+	str	x2, [sp, 688]	// tmp1119, MEM <unsigned long> [(int *)&conv3_bias + 32B]
 .LEHB69:
 // src/cpp/benchmark.cpp:137:     Tensor conv3_bias   = {std::vector<float>(128), 128,  1,  1,   1};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE69:
 // src/cpp/benchmark.cpp:138:     load_binary_weights(w_path + "model_6_weight.bin", conv3_weight.data);
-	adrp	x2, .LC38	// tmp1125,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC38	//, tmp1125,
+	adrp	x2, .LC39	// tmp1122,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC39	//, tmp1122,
 .LEHB70:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE70:
 // src/cpp/benchmark.cpp:138:     load_binary_weights(w_path + "model_6_weight.bin", conv3_weight.data);
-	mov	x1, x26	//, tmp2327
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 608	// tmp2706,,
+	mov	x0, x19	//, tmp2346
 .LEHB71:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE71:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:139:     load_binary_weights(w_path + "model_6_bias.bin", conv3_bias.data);
-	adrp	x2, .LC39	// tmp1133,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC39	//, tmp1133,
+	adrp	x2, .LC40	// tmp1130,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC40	//, tmp1130,
 .LEHB72:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE72:
 // src/cpp/benchmark.cpp:139:     load_binary_weights(w_path + "model_6_bias.bin", conv3_bias.data);
-	mov	x1, x28	//, tmp2330
-	mov	x0, x19	//, tmp2354
+	mov	x1, x26	//, tmp2323
+	mov	x0, x19	//, tmp2346
 .LEHB73:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE73:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
-	add	x23, sp, 712	// tmp2331,,
+	add	x24, sp, 696	// tmp2325,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
-	add	x0, sp, 640	// tmp2712,,
-	add	x4, sp, 640	// tmp2714,,
-	add	x15, sp, 744	//,,
-	mov	w3, 128	// tmp1142,
-	mov	w2, 1	// tmp1140,
+	add	x0, sp, 624	// tmp2708,,
+	add	x4, sp, 624	// tmp2710,,
+	add	x14, sp, 728	//,,
+	mov	w3, 128	// tmp1139,
+	mov	w2, 1	// tmp1137,
 	stp	xzr, xzr, [x0, 88]	// MEM <char[36]> [(struct Tensor *)&fc_weight]
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
 	mov	x1, 1280	//,
-	mov	x0, x23	//, tmp2331
+	mov	x0, x24	//, tmp2325
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
 	stp	xzr, xzr, [x4, 72]	// MEM <char[36]> [(struct Tensor *)&fc_weight]
-	stp	w2, w2, [x15, -8]	// tmp1140, tmp1140,
-	stp	wzr, w3, [x15]	//, tmp1142,
+	stp	w2, w2, [x14, -8]	// tmp1137, tmp1137,
+	stp	wzr, w3, [x14]	//, tmp1139,
 .LEHB74:
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE74:
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
-	mov	w1, 10	// tmp1144,
+	mov	w1, 10	// tmp1141,
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	add	x0, sp, 640	// tmp2716,,
-	mov	w3, 1	// tmp1145,
-	mov	x2, 4294967297	// tmp1146,
+	add	x0, sp, 624	// tmp2712,,
+	mov	w3, 1	// tmp1142,
+	mov	x2, 4294967297	// tmp1143,
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	add	x24, sp, 752	// tmp2332,,
+	add	x22, sp, 736	// tmp2326,,
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
 	stp	xzr, xzr, [x0, 112]	// MEM <char[28]> [(struct Tensor *)&fc_bias]
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	mov	x0, x24	//, tmp2332
+	mov	x0, x22	//, tmp2326
 // src/cpp/benchmark.cpp:141:     Tensor fc_weight    = {std::vector<float>(num_classes * 128),        1,  1, num_classes, 128};
-	str	w1, [sp, 744]	// tmp1144, fc_weight.height
+	str	w1, [sp, 728]	// tmp1141, fc_weight.height
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
 	mov	x1, 10	//,
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	str	xzr, [sp, 768]	//, MEM <char[28]> [(struct Tensor *)&fc_bias]
-	str	wzr, [sp, 776]	//, MEM <char[28]> [(struct Tensor *)&fc_bias]
-	str	w3, [sp, 780]	// tmp1145, fc_bias.channels
-	str	x2, [sp, 784]	// tmp1146, MEM <unsigned long> [(int *)&fc_bias + 32B]
+	str	xzr, [sp, 752]	//, MEM <char[28]> [(struct Tensor *)&fc_bias]
+	str	wzr, [sp, 760]	//, MEM <char[28]> [(struct Tensor *)&fc_bias]
+	str	w3, [sp, 764]	// tmp1142, fc_bias.channels
+	str	x2, [sp, 768]	// tmp1143, MEM <unsigned long> [(int *)&fc_bias + 32B]
 .LEHB75:
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE75:
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	mov	w3, 10	// tmp1148,
+	mov	w3, 10	// tmp1145,
 // src/cpp/benchmark.cpp:143:     load_binary_weights(w_path + "model_10_weight.bin", fc_weight.data);
-	adrp	x2, .LC40	// tmp1150,
-	ldp	x0, x1, [sp, 288]	//,,
-	add	x2, x2, :lo12:.LC40	//, tmp1150,
-	mov	x8, x19	//, tmp2354
+	adrp	x2, .LC41	// tmp1147,
+	ldp	x0, x1, [sp, 272]	//,,
+	add	x2, x2, :lo12:.LC41	//, tmp1147,
+	mov	x8, x19	//, tmp2346
 // src/cpp/benchmark.cpp:142:     Tensor fc_bias      = {std::vector<float>(num_classes), num_classes, 1,  1,   1};
-	str	w3, [sp, 776]	// tmp1148, fc_bias.batches
+	str	w3, [sp, 760]	// tmp1145, fc_bias.batches
 .LEHB76:
 // src/cpp/benchmark.cpp:143:     load_binary_weights(w_path + "model_10_weight.bin", fc_weight.data);
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE76:
 // src/cpp/benchmark.cpp:143:     load_binary_weights(w_path + "model_10_weight.bin", fc_weight.data);
-	mov	x1, x23	//, tmp2331
-	mov	x0, x19	//, tmp2354
+	mov	x1, x24	//, tmp2325
+	mov	x0, x19	//, tmp2346
 .LEHB77:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE77:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:144:     load_binary_weights(w_path + "model_10_bias.bin", fc_bias.data);
-	adrp	x2, .LC41	// tmp1158,
-	ldp	x0, x1, [sp, 288]	//,,
-	mov	x8, x19	//, tmp2354
-	add	x2, x2, :lo12:.LC41	//, tmp1158,
+	adrp	x2, .LC42	// tmp1155,
+	ldp	x0, x1, [sp, 272]	//,,
+	mov	x8, x19	//, tmp2346
+	add	x2, x2, :lo12:.LC42	//, tmp1155,
 .LEHB78:
 	bl	_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.isra.0		//
 .LEHE78:
 // src/cpp/benchmark.cpp:144:     load_binary_weights(w_path + "model_10_bias.bin", fc_bias.data);
-	mov	x1, x24	//, tmp2332
-	mov	x0, x19	//, tmp2354
+	mov	x1, x22	//, tmp2326
+	mov	x0, x19	//, tmp2346
 .LEHB79:
 	bl	_Z19load_binary_weightsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIfSaIfEE		//
 .LEHE79:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
-	add	x0, sp, 640	// tmp2718,,
-	add	x14, sp, 824	//,,
-	mov	w3, 32	// tmp1165,
-	mov	w2, 26	// tmp1166,
+	add	x0, sp, 624	// tmp2714,,
+	add	x13, sp, 808	//,,
+// src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
+	ldr	x1, [sp, 144]	//, %sfp
+// src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
+	mov	w3, 32	// tmp1162,
+	mov	w2, 26	// tmp1163,
 	stp	xzr, xzr, [x0, 152]	// MEM <char[28]> [(struct Tensor *)&conv1_out]
 // src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
-	mov	x1, x22	//, prephitmp_5521
-	add	x0, sp, 792	// tmp2719,,
+	add	x0, sp, 776	// tmp2715,,
 // src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
-	str	xzr, [sp, 808]	//, MEM <char[28]> [(struct Tensor *)&conv1_out]
-	stp	wzr, w3, [x14, -8]	//, tmp1165,
-	stp	w2, w2, [x14]	// tmp1166, tmp1166,
+	str	xzr, [sp, 792]	//, MEM <char[28]> [(struct Tensor *)&conv1_out]
+	stp	wzr, w3, [x13, -8]	//, tmp1162,
+	stp	w2, w2, [x13]	// tmp1163, tmp1163,
 .LEHB80:
 // src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE80:
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	add	x0, sp, 640	// tmp2721,,
-	add	x13, sp, 864	//,,
-// src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	ldr	x1, [sp, 152]	//, %sfp
-// src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	mov	w3, 32	// tmp1168,
-	mov	w2, 13	// tmp1169,
+	add	x0, sp, 624	// tmp2717,,
+	add	x12, sp, 848	//,,
 // src/cpp/benchmark.cpp:147:     Tensor conv1_out   = {std::vector<float>(batch_size * 32  * 26 * 26), batch_size,  32, 26, 26};
-	str	w25, [sp, 816]	// iftmp.4_168, conv1_out.batches
+	str	w25, [sp, 800]	// iftmp.4_168, conv1_out.batches
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
+	mov	w3, 32	// tmp1165,
+	mov	w2, 13	// tmp1166,
 	stp	xzr, xzr, [x0, 192]	// MEM <char[28]> [(struct Tensor *)&pool1_out]
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	add	x0, sp, 832	// tmp2722,,
+	mov	x1, x23	//, prephitmp_5523
+	add	x0, sp, 816	// tmp2718,,
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	str	xzr, [sp, 848]	//, MEM <char[28]> [(struct Tensor *)&pool1_out]
-	stp	wzr, w3, [x13, -8]	//, tmp1168,
-	stp	w2, w2, [x13]	// tmp1169, tmp1169,
+	str	xzr, [sp, 832]	//, MEM <char[28]> [(struct Tensor *)&pool1_out]
+	stp	wzr, w3, [x12, -8]	//, tmp1165,
+	stp	w2, w2, [x12]	// tmp1166, tmp1166,
 .LEHB81:
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE81:
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	add	x0, sp, 640	// tmp2724,,
-	add	x12, sp, 904	//,,
-// src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	ldr	x1, [sp, 160]	//, %sfp
-// src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	mov	w3, 64	// tmp1171,
-	mov	w2, 11	// tmp1172,
+	add	x0, sp, 624	// tmp2720,,
+	add	x11, sp, 888	//,,
 // src/cpp/benchmark.cpp:148:     Tensor pool1_out   = {std::vector<float>(batch_size * 32  * 13 * 13), batch_size,  32, 13, 13};
-	str	w25, [sp, 856]	// iftmp.4_168, pool1_out.batches
+	str	w25, [sp, 840]	// iftmp.4_168, pool1_out.batches
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
+	mov	w3, 64	// tmp1168,
+	mov	w2, 11	// tmp1169,
 	stp	xzr, xzr, [x0, 232]	// MEM <char[28]> [(struct Tensor *)&conv2_out]
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	add	x0, sp, 872	// tmp2725,,
+	mov	x1, x27	//, prephitmp_5525
+	add	x0, sp, 856	// tmp2721,,
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	str	xzr, [sp, 888]	//, MEM <char[28]> [(struct Tensor *)&conv2_out]
-	stp	wzr, w3, [x12, -8]	//, tmp1171,
-	stp	w2, w2, [x12]	// tmp1172, tmp1172,
+	str	xzr, [sp, 872]	//, MEM <char[28]> [(struct Tensor *)&conv2_out]
+	stp	wzr, w3, [x11, -8]	//, tmp1168,
+	stp	w2, w2, [x11]	// tmp1169, tmp1169,
 .LEHB82:
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE82:
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	add	x0, sp, 1152	// tmp2727,,
-	add	x11, sp, 944	//,,
+	add	x0, sp, 1136	// tmp2723,,
+	add	x10, sp, 928	//,,
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	ldr	x1, [sp, 168]	//, %sfp
+	ldr	x1, [sp, 152]	//, %sfp
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	mov	w3, 64	// tmp1174,
-	mov	w2, 5	// tmp1175,
+	mov	w3, 64	// tmp1171,
+	mov	w2, 5	// tmp1172,
 // src/cpp/benchmark.cpp:149:     Tensor conv2_out   = {std::vector<float>(batch_size * 64  * 11 * 11), batch_size,  64, 11, 11};
-	str	w25, [sp, 896]	// iftmp.4_168, conv2_out.batches
+	str	w25, [sp, 880]	// iftmp.4_168, conv2_out.batches
+// src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
+	add	x27, sp, 896	// tmp2333,,
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
 	stp	xzr, xzr, [x0, -240]	// MEM <char[28]> [(struct Tensor *)&pool2_out]
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	add	x0, sp, 912	// tmp2728,,
+	mov	x0, x27	//, tmp2333
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	str	xzr, [sp, 928]	//, MEM <char[28]> [(struct Tensor *)&pool2_out]
-	stp	wzr, w3, [x11, -8]	//, tmp1174,
-	stp	w2, w2, [x11]	// tmp1175, tmp1175,
+	str	xzr, [sp, 912]	//, MEM <char[28]> [(struct Tensor *)&pool2_out]
+	stp	wzr, w3, [x10, -8]	//, tmp1171,
+	stp	w2, w2, [x10]	// tmp1172, tmp1172,
 .LEHB83:
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE83:
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	add	x0, sp, 1152	// tmp2730,,
-	mov	w3, 128	// tmp1177,
+	add	x0, sp, 1136	// tmp2725,,
+	mov	w3, 128	// tmp1174,
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	ldr	x1, [sp, 184]	//, %sfp
+	ldr	x1, [sp, 160]	//, %sfp
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	mov	x2, 12884901891	// tmp1178,
+	mov	x2, 12884901891	// tmp1175,
+// src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
+	add	x23, sp, 936	// tmp2334,,
 // src/cpp/benchmark.cpp:150:     Tensor pool2_out   = {std::vector<float>(batch_size * 64  *  5 *  5), batch_size,  64,  5,  5};
-	str	w25, [sp, 936]	// iftmp.4_168, pool2_out.batches
+	str	w25, [sp, 920]	// iftmp.4_168, pool2_out.batches
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
 	stp	xzr, xzr, [x0, -200]	// MEM <char[28]> [(struct Tensor *)&conv3_out]
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	add	x0, sp, 952	// tmp2731,,
+	mov	x0, x23	//, tmp2334
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	str	xzr, [sp, 968]	//, MEM <char[28]> [(struct Tensor *)&conv3_out]
-	str	wzr, [sp, 976]	//, MEM <char[28]> [(struct Tensor *)&conv3_out]
-	str	w3, [sp, 980]	// tmp1177, conv3_out.channels
-	str	x2, [sp, 984]	// tmp1178, MEM <unsigned long> [(int *)&conv3_out + 32B]
+	str	xzr, [sp, 952]	//, MEM <char[28]> [(struct Tensor *)&conv3_out]
+	str	wzr, [sp, 960]	//, MEM <char[28]> [(struct Tensor *)&conv3_out]
+	str	w3, [sp, 964]	// tmp1174, conv3_out.channels
+	str	x2, [sp, 968]	// tmp1175, MEM <unsigned long> [(int *)&conv3_out + 32B]
 .LEHB84:
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE84:
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	add	x0, sp, 1152	// tmp2733,,
-	mov	w3, 128	// tmp1180,
+	add	x0, sp, 1136	// tmp2727,,
+	mov	w3, 128	// tmp1177,
 // src/cpp/benchmark.cpp:151:     Tensor conv3_out   = {std::vector<float>(batch_size * 128 *  3 *  3), batch_size, 128,  3,  3};
-	str	w25, [sp, 976]	// iftmp.4_168, conv3_out.batches
+	str	w25, [sp, 960]	// iftmp.4_168, conv3_out.batches
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	mov	x2, 4294967297	// tmp1181,
+	mov	x2, 4294967297	// tmp1178,
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	add	x22, sp, 992	// tmp2343,,
-	mov	x1, x21	//, prephitmp_5531
+	mov	x1, x20	//, prephitmp_5531
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
 	stp	xzr, xzr, [x0, -160]	// MEM <char[28]> [(struct Tensor *)&avgpool_out]
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	mov	x0, x22	//, tmp2343
+	add	x0, sp, 976	// tmp2728,,
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	str	xzr, [sp, 1008]	//, MEM <char[28]> [(struct Tensor *)&avgpool_out]
-	str	wzr, [sp, 1016]	//, MEM <char[28]> [(struct Tensor *)&avgpool_out]
-	str	w3, [sp, 1020]	// tmp1180, avgpool_out.channels
-	str	x2, [sp, 1024]	// tmp1181, MEM <unsigned long> [(int *)&avgpool_out + 32B]
+	str	xzr, [sp, 992]	//, MEM <char[28]> [(struct Tensor *)&avgpool_out]
+	str	wzr, [sp, 1000]	//, MEM <char[28]> [(struct Tensor *)&avgpool_out]
+	str	w3, [sp, 1004]	// tmp1177, avgpool_out.channels
+	str	x2, [sp, 1008]	// tmp1178, MEM <unsigned long> [(int *)&avgpool_out + 32B]
 .LEHB85:
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE85:
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	add	x0, sp, 1152	// tmp2735,,
-	add	x3, sp, 1152	// tmp2737,,
+	add	x0, sp, 1136	// tmp2730,,
+	add	x3, sp, 1136	// tmp2732,,
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	ldr	x1, [sp, 192]	//, %sfp
+	ldr	x1, [sp, 176]	//, %sfp
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	mov	x2, 4294967297	// tmp1183,
+	mov	x2, 4294967297	// tmp1180,
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	add	x21, sp, 1032	// tmp2347,,
+	add	x20, sp, 1016	// tmp2339,,
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	str	xzr, [sp, 1064]	//, final_logits
+	str	xzr, [sp, 1048]	//, final_logits
 	stp	xzr, xzr, [x0, -104]	// final_logits
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	mov	x0, x21	//, tmp2347
+	mov	x0, x20	//, tmp2339
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
 	stp	xzr, xzr, [x3, -120]	// final_logits
-	str	x2, [x3, -92]	// tmp1183, MEM <unsigned long> [(int *)&final_logits + 28B]
+	str	x2, [x3, -92]	// tmp1180, MEM <unsigned long> [(int *)&final_logits + 28B]
 // src/cpp/benchmark.cpp:152:     Tensor avgpool_out = {std::vector<float>(batch_size * 128),           batch_size, 128,  1,  1};
-	str	w25, [sp, 1016]	// iftmp.4_168, avgpool_out.batches
+	str	w25, [sp, 1000]	// iftmp.4_168, avgpool_out.batches
 .LEHB86:
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
 	bl	_ZNSt6vectorIfSaIfEEC2EmRKS0_.constprop.0		//
 .LEHE86:
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	adrp	x0, .LANCHOR0	// tmp2334,
+	adrp	x0, .LANCHOR0	// tmp2351,
 // src/cpp/benchmark.cpp:161:     };
-	add	x9, sp, 1168	//,,
+	add	x2, sp, 416	// tmp2737,,
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	str	w25, [sp, 1056]	// iftmp.4_168, final_logits.batches
+	str	w25, [sp, 1040]	// iftmp.4_168, final_logits.batches
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	add	x1, x0, :lo12:.LANCHOR0	// tmp2328, tmp2334,
+	add	x1, x0, :lo12:.LANCHOR0	// tmp2348, tmp2351,
 // src/cpp/benchmark.cpp:161:     };
-	add	x2, sp, 432	// tmp2742,,
-	add	x0, sp, 384	// tmp2741,,
-	add	x10, sp, 1264	//,,
+	add	x0, sp, 368	// tmp2736,,
+	str	x27, [sp, 1232]	// tmp2333, MEM[(struct CNNContext *)_2139].pool2_out
+	add	x9, sp, 1248	//,,
+	str	x2, [sp, 1176]	// tmp2737, MEM[(struct CNNContext *)_2139].conv1_weight
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	ldp	q31, q28, [x1]	// tmp1206, tmp1207,
-	str	x1, [sp, 232]	// tmp2328, %sfp
+	str	x1, [sp, 216]	// tmp2348, %sfp
 // src/cpp/benchmark.cpp:161:     };
-	stp	x0, x2, [x9]	// tmp2741, tmp2742,
+	str	x0, [sp, 1168]	// tmp2736, MEM[(struct CNNContext *)_2139].input_batch
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	mov	w0, 10	// tmp1185,
+	mov	w0, 10	// tmp1182,
 // src/cpp/benchmark.cpp:161:     };
-	stp	x26, x28, [x9, 72]	// tmp2327, tmp2330,
-	stp	x22, x23, [x10]	// tmp2343, tmp2331,
-	stp	x24, x21, [x10, 16]	// tmp2332, tmp2347,
+	stp	x26, x23, [x9]	// tmp2323, tmp2334,
+	stp	x24, x22, [x9, 24]	// tmp2325, tmp2326,
+// src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
+	ldp	q31, q27, [x1]	// tmp1203, tmp1204,
 // src/cpp/benchmark.cpp:153:     Tensor final_logits= {std::vector<float>(batch_size * num_classes),   batch_size,   1,  1, num_classes};
-	str	w0, [sp, 1068]	// tmp1185, final_logits.width
+	str	w0, [sp, 1052]	// tmp1182, final_logits.width
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	mov	x0, x1	// tmp2328, tmp2328
+	mov	x0, x1	// tmp2348, tmp2348
 // src/cpp/benchmark.cpp:161:     };
-	add	x1, sp, 480	// tmp2745,,
+	add	x1, sp, 464	// tmp2740,,
+	str	x20, [sp, 1288]	// tmp2339, MEM[(struct CNNContext *)_2139].final_logits
+	str	x1, [sp, 1184]	// tmp2740, MEM[(struct CNNContext *)_2139].conv1_bias
+	add	x1, sp, 776	// tmp2741,,
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	str	q31, [sp, 1072]	// tmp1206, implementations
+	ldr	q30, [x0, 96]	// tmp1209,
 // src/cpp/benchmark.cpp:161:     };
-	str	x1, [sp, 1184]	// tmp2745, MEM[(struct CNNContext *)_2139].conv1_bias
-	add	x1, sp, 792	// tmp2746,,
-	str	x1, [sp, 1192]	// tmp2746, MEM[(struct CNNContext *)_2139].conv1_out
+	str	x1, [sp, 1192]	// tmp2741, MEM[(struct CNNContext *)_2139].conv1_out
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	add	x1, x0, 32	// tmp2749, tmp2328,
-	add	x0, x0, 64	// tmp2754, tmp2328,
-	ldp	q29, q31, [x0]	// tmp1210, tmp1211,
+	add	x1, x0, 32	// tmp2744, tmp2348,
+	ldp	q26, q29, [x1]	// tmp1205, tmp1206,
 // src/cpp/benchmark.cpp:161:     };
-	add	x0, sp, 528	// tmp2756,,
-	str	x0, [sp, 1208]	// tmp2756, MEM[(struct CNNContext *)_2139].conv2_weight
-	add	x0, sp, 576	// tmp2757,,
+	add	x1, sp, 816	// tmp2746,,
+	str	x1, [sp, 1200]	// tmp2746, MEM[(struct CNNContext *)_2139].pool1_out
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	ldp	q27, q30, [x1]	// tmp1208, tmp1209,
+	add	x1, x0, 64	// tmp2749, tmp2348,
 // src/cpp/benchmark.cpp:161:     };
-	add	x1, sp, 832	// tmp2751,,
-	str	x0, [sp, 1216]	// tmp2757, MEM[(struct CNNContext *)_2139].conv2_bias
-	add	x0, sp, 872	// tmp2758,,
-	str	x1, [sp, 1200]	// tmp2751, MEM[(struct CNNContext *)_2139].pool1_out
-	str	x0, [sp, 1224]	// tmp2758, MEM[(struct CNNContext *)_2139].conv2_out
-	add	x0, sp, 912	// tmp2759,,
-	str	x0, [sp, 1232]	// tmp2759, MEM[(struct CNNContext *)_2139].pool2_out
-	add	x0, sp, 952	// tmp2760,,
-	str	x0, [sp, 1256]	// tmp2760, MEM[(struct CNNContext *)_2139].conv3_out
+	add	x0, sp, 560	// tmp2753,,
 // src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	add	x0, sp, 1088	// tmp2984,,
-	stp	q28, q27, [x0]	// tmp1207, tmp1208,
-	add	x0, sp, 1120	// tmp2981,,
-	stp	q30, q29, [x0]	// tmp1209, tmp1210,
+	str	q31, [sp, 1056]	// tmp1203, implementations
+// src/cpp/benchmark.cpp:161:     };
+	str	x0, [sp, 1216]	// tmp2753, MEM[(struct CNNContext *)_2139].conv2_bias
+	add	x0, sp, 856	// tmp2754,,
+// src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
+	ldp	q28, q31, [x1]	// tmp1207, tmp1208,
+// src/cpp/benchmark.cpp:161:     };
+	add	x1, sp, 512	// tmp2751,,
+	str	x0, [sp, 1224]	// tmp2754, MEM[(struct CNNContext *)_2139].conv2_out
+	add	x0, sp, 608	// tmp2755,,
+	str	x1, [sp, 1208]	// tmp2751, MEM[(struct CNNContext *)_2139].conv2_weight
+	str	x0, [sp, 1240]	// tmp2755, MEM[(struct CNNContext *)_2139].conv3_weight
+	add	x0, sp, 976	// tmp2756,,
+	str	x0, [sp, 1264]	// tmp2756, MEM[(struct CNNContext *)_2139].avgpool_out
+// src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
+	add	x0, sp, 1072	// tmp2991,,
+	stp	q27, q26, [x0]	// tmp1204, tmp1205,
+	add	x0, sp, 1104	// tmp2986,,
+	stp	q29, q28, [x0]	// tmp1206, tmp1207,
+	add	x0, sp, 1136	// tmp2758,,
+	stp	q31, q30, [x0]	// tmp1208, tmp1209,
 // src/cpp/benchmark.cpp:175:     if (verify_mode) {
-	ldr	w0, [sp, 136]	//, %sfp
-// src/cpp/benchmark.cpp:168:     const benchmark_impl_t implementations[] = {
-	str	q31, [sp, 1152]	// tmp1211, implementations
-// src/cpp/benchmark.cpp:175:     if (verify_mode) {
-	cbnz	w0, .L865	// verify_mode,
+	ldr	w0, [sp, 128]	//, %sfp
+	cbnz	w0, .L869	// verify_mode,
 // src/cpp/benchmark.cpp:192:     if (profile_mode) {
-	ldr	w0, [sp, 144]	//, %sfp
+	ldr	w0, [sp, 136]	//, %sfp
 	cbz	w0, .L320	// profile_mode,
 // src/cpp/benchmark.cpp:193:         std::cout << Color::BOLD_CYAN << "\n--- Per-Layer Profiling (" << num_runs << " Runs) ---"
-	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2770,
+	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2769,
 	ldr	x1, [x0, #:lo12:_ZN5Color9BOLD_CYANE]	//, BOLD_CYAN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 .LEHB87:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC50	// tmp1276,
+	adrp	x1, .LC51	// tmp1274,
 	mov	x2, 26	//,
-	add	x1, x1, :lo12:.LC50	//, tmp1276,
+	add	x1, x1, :lo12:.LC51	//, tmp1274,
 // src/cpp/benchmark.cpp:193:         std::cout << Color::BOLD_CYAN << "\n--- Per-Layer Profiling (" << num_runs << " Runs) ---"
-	mov	x21, x0	// _560, tmp2465
+	mov	x20, x0	// _560, tmp2462
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:194:                   << Color::RESET << "\n";
-	mov	x0, x21	//, _560
+	mov	x0, x20	//, _560
 	mov	w1, 10	//,
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC51	// tmp1278,
+	adrp	x1, .LC52	// tmp1276,
 	mov	x2, 10	//,
-	add	x1, x1, :lo12:.LC51	//, tmp1278,
+	add	x1, x1, :lo12:.LC52	//, tmp1276,
 // src/cpp/benchmark.cpp:194:                   << Color::RESET << "\n";
-	mov	x21, x0	// _562, tmp2466
+	mov	x20, x0	// _562, tmp2463
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:194:                   << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2771,
-	mov	x0, x21	//, _562
+	adrp	x1, _ZN5Color5RESETE	// tmp2770,
+	mov	x0, x20	//, _562
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:194:                   << Color::RESET << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE87:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC52	// tmp1284,
+	adrp	x2, .LC53	// tmp1282,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC52	// tmp1283, tmp1284,
+	add	x2, x2, :lo12:.LC53	// tmp1281, tmp1282,
 	add	x0, sp, 1312	//,,
-	str	x2, [sp, 1304]	// tmp1283, MEM[(struct LayerStat *)_1195].name
+	str	x2, [sp, 1304]	// tmp1281, MEM[(struct LayerStat *)_1195].name
 .LEHB88:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE88:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC53	// tmp1288,
+	adrp	x2, .LC54	// tmp1286,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC53	// tmp1287, tmp1288,
+	add	x2, x2, :lo12:.LC54	// tmp1285, tmp1286,
 	add	x0, sp, 1344	//,,
-	str	x2, [sp, 1336]	// tmp1287, MEM[(struct LayerStat *)_1195 + 32B].name
+	str	x2, [sp, 1336]	// tmp1285, MEM[(struct LayerStat *)_1195 + 32B].name
 .LEHB89:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE89:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC54	// tmp1292,
+	adrp	x2, .LC55	// tmp1290,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC54	// tmp1291, tmp1292,
+	add	x2, x2, :lo12:.LC55	// tmp1289, tmp1290,
 	add	x0, sp, 1376	//,,
-	str	x2, [sp, 1368]	// tmp1291, MEM[(struct LayerStat *)_1195 + 64B].name
+	str	x2, [sp, 1368]	// tmp1289, MEM[(struct LayerStat *)_1195 + 64B].name
 .LEHB90:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE90:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC55	// tmp1296,
+	adrp	x2, .LC56	// tmp1294,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC55	// tmp1295, tmp1296,
+	add	x2, x2, :lo12:.LC56	// tmp1293, tmp1294,
 	add	x0, sp, 1408	//,,
-	str	x2, [sp, 1400]	// tmp1295, MEM[(struct LayerStat *)_1195 + 96B].name
+	str	x2, [sp, 1400]	// tmp1293, MEM[(struct LayerStat *)_1195 + 96B].name
 .LEHB91:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE91:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC56	// tmp1300,
+	adrp	x2, .LC57	// tmp1298,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC56	// tmp1299, tmp1300,
+	add	x2, x2, :lo12:.LC57	// tmp1297, tmp1298,
 	add	x0, sp, 1440	//,,
-	str	x2, [sp, 1432]	// tmp1299, MEM[(struct LayerStat *)_1195 + 128B].name
+	str	x2, [sp, 1432]	// tmp1297, MEM[(struct LayerStat *)_1195 + 128B].name
 .LEHB92:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE92:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC57	// tmp1304,
+	adrp	x2, .LC58	// tmp1302,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC57	// tmp1303, tmp1304,
+	add	x2, x2, :lo12:.LC58	// tmp1301, tmp1302,
 	add	x0, sp, 1472	//,,
-	str	x2, [sp, 1464]	// tmp1303, MEM[(struct LayerStat *)_1195 + 160B].name
+	str	x2, [sp, 1464]	// tmp1301, MEM[(struct LayerStat *)_1195 + 160B].name
 .LEHB93:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE93:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC58	// tmp1308,
+	adrp	x2, .LC59	// tmp1306,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC58	// tmp1307, tmp1308,
+	add	x2, x2, :lo12:.LC59	// tmp1305, tmp1306,
 	add	x0, sp, 1504	//,,
-	str	x2, [sp, 1496]	// tmp1307, MEM[(struct LayerStat *)_1195 + 192B].name
+	str	x2, [sp, 1496]	// tmp1305, MEM[(struct LayerStat *)_1195 + 192B].name
 .LEHB94:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE94:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC59	// tmp1312,
+	adrp	x2, .LC60	// tmp1310,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC59	// tmp1311, tmp1312,
+	add	x2, x2, :lo12:.LC60	// tmp1309, tmp1310,
 	add	x0, sp, 1536	//,,
-	str	x2, [sp, 1528]	// tmp1311, MEM[(struct LayerStat *)_1195 + 224B].name
+	str	x2, [sp, 1528]	// tmp1309, MEM[(struct LayerStat *)_1195 + 224B].name
 .LEHB95:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE95:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC60	// tmp1316,
+	adrp	x2, .LC61	// tmp1314,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC60	// tmp1315, tmp1316,
+	add	x2, x2, :lo12:.LC61	// tmp1313, tmp1314,
 	add	x0, sp, 1568	//,,
-	str	x2, [sp, 1560]	// tmp1315, MEM[(struct LayerStat *)_1195 + 256B].name
+	str	x2, [sp, 1560]	// tmp1313, MEM[(struct LayerStat *)_1195 + 256B].name
 .LEHB96:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE96:
 // src/cpp/benchmark.cpp:208:         };
-	adrp	x2, .LC61	// tmp1320,
+	adrp	x2, .LC62	// tmp1318,
 	mov	x1, 10	//,
-	add	x2, x2, :lo12:.LC61	// tmp1319, tmp1320,
+	add	x2, x2, :lo12:.LC62	// tmp1317, tmp1318,
 	add	x0, sp, 1600	//,,
-	str	x2, [sp, 1592]	// tmp1319, MEM[(struct LayerStat *)_1195 + 288B].name
+	str	x2, [sp, 1592]	// tmp1317, MEM[(struct LayerStat *)_1195 + 288B].name
 .LEHB97:
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE97:
 // src/cpp/benchmark.cpp:211:         for (int w = 0; w < num_warmup; ++w) cnn_baseline(ctx);
-	add	x23, sp, 1168	// tmp2351,,
-	mov	x0, x23	//, tmp2351
+	add	x24, sp, 1168	// tmp2344,,
+	mov	x0, x24	//, tmp2344
 .LEHB98:
 	bl	_Z12cnn_baselineR10CNNContext		//
-	mov	x0, x23	//, tmp2351
+	mov	x0, x24	//, tmp2344
 	bl	_Z12cnn_baselineR10CNNContext		//
-	mov	x21, 0	// ivtmp.703,
+	mov	x20, 0	// ivtmp.703,
 	.p2align 5,,15
 .L357:
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:217:             pmu_cycles_start(&pmu); conv2d_forward(ctx.input_batch, ctx.conv1_weight, ctx.conv1_bias, ctx.conv1_out, 1, 0);
 	add	x8, sp, 1168	//,,
@@ -4227,33 +4251,33 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2772,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2771,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d29, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2476,
+	cmn	x0, #1	// tmp2473,
 	beq	.L340		//,
 // src/cpp/benchmark.cpp:218:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d29, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d29, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d29, d29	//, MEM[(long unsigned int *)_2140]
 .L340:
 // src/cpp/benchmark.cpp:218:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1312]	// MEM[(struct vector *)_1195 + 8B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 8B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1312]	// MEM[(struct vector *)_1195 + 8B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 8B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:218:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d29, [x3, x21]	//, *_528
+	str	d29, [x3, x20]	//, *_528
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
 	bl	ioctl		//
@@ -4263,35 +4287,35 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2773,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2772,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d28, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2477,
+	cmn	x0, #1	// tmp2474,
 	beq	.L341		//,
 // src/cpp/benchmark.cpp:221:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d28, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d28, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d28, d28	//, MEM[(long unsigned int *)_2140]
 .L341:
 // src/cpp/benchmark.cpp:221:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1344]	// MEM[(struct vector *)_1195 + 40B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 40B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1344]	// MEM[(struct vector *)_1195 + 40B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 40B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:221:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d28, [x3, x21]	//, *_548
+	str	d28, [x3, x20]	//, *_548
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:223:             pmu_cycles_start(&pmu); maxpool2d_forward(ctx.conv1_out, ctx.pool1_out, 2, 2);
 	mov	w3, 2	//,
@@ -4302,35 +4326,35 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2774,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2773,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d27, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2478,
+	cmn	x0, #1	// tmp2475,
 	beq	.L342		//,
 // src/cpp/benchmark.cpp:224:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d27, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d27, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d27, d27	//, MEM[(long unsigned int *)_2140]
 .L342:
 // src/cpp/benchmark.cpp:224:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1376]	// MEM[(struct vector *)_1195 + 72B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 72B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1376]	// MEM[(struct vector *)_1195 + 72B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 72B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:224:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d27, [x3, x21]	//, *_620
+	str	d27, [x3, x20]	//, *_620
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:226:             pmu_cycles_start(&pmu); conv2d_forward(ctx.pool1_out, ctx.conv2_weight, ctx.conv2_bias, ctx.conv2_out, 1, 0);
 	add	x7, sp, 1200	//,,
@@ -4342,33 +4366,33 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2775,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2774,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d26, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2479,
+	cmn	x0, #1	// tmp2476,
 	beq	.L343		//,
 // src/cpp/benchmark.cpp:227:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d26, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d26, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d26, d26	//, MEM[(long unsigned int *)_2140]
 .L343:
 // src/cpp/benchmark.cpp:227:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1408]	// MEM[(struct vector *)_1195 + 104B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 104B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1408]	// MEM[(struct vector *)_1195 + 104B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 104B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:227:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d26, [x3, x21]	//, *_617
+	str	d26, [x3, x20]	//, *_617
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
 	bl	ioctl		//
@@ -4378,35 +4402,35 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2776,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2775,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d25, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2480,
+	cmn	x0, #1	// tmp2477,
 	beq	.L344		//,
 // src/cpp/benchmark.cpp:230:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d25, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d25, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d25, d25	//, MEM[(long unsigned int *)_2140]
 .L344:
 // src/cpp/benchmark.cpp:230:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1440]	// MEM[(struct vector *)_1195 + 136B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 136B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1440]	// MEM[(struct vector *)_1195 + 136B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 136B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:230:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d25, [x3, x21]	//, *_624
+	str	d25, [x3, x20]	//, *_624
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:232:             pmu_cycles_start(&pmu); maxpool2d_forward(ctx.conv2_out, ctx.pool2_out, 2, 2);
 	mov	w3, 2	//,
@@ -4417,35 +4441,35 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2777,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2776,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d24, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2481,
+	cmn	x0, #1	// tmp2478,
 	beq	.L345		//,
 // src/cpp/benchmark.cpp:233:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d24, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d24, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d24, d24	//, MEM[(long unsigned int *)_2140]
 .L345:
 // src/cpp/benchmark.cpp:233:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1472]	// MEM[(struct vector *)_1195 + 168B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 168B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1472]	// MEM[(struct vector *)_1195 + 168B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 168B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:233:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d24, [x3, x21]	//, *_689
+	str	d24, [x3, x20]	//, *_689
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:235:             pmu_cycles_start(&pmu); conv2d_forward(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out, 1, 0);
 	add	x6, sp, 1232	//,,
@@ -4457,33 +4481,33 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2778,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2777,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d23, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2482,
+	cmn	x0, #1	// tmp2479,
 	beq	.L346		//,
 // src/cpp/benchmark.cpp:236:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d23, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d23, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d23, d23	//, MEM[(long unsigned int *)_2140]
 .L346:
 // src/cpp/benchmark.cpp:236:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1504]	// MEM[(struct vector *)_1195 + 200B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 200B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1504]	// MEM[(struct vector *)_1195 + 200B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 200B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:236:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d23, [x3, x21]	//, *_676
+	str	d23, [x3, x20]	//, *_676
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
 	bl	ioctl		//
@@ -4493,34 +4517,34 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2779,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2778,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d22, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2483,
+	cmn	x0, #1	// tmp2480,
 	beq	.L347		//,
 // src/cpp/benchmark.cpp:239:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d22, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d22, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d22, d22	//, MEM[(long unsigned int *)_2140]
 .L347:
 // src/cpp/benchmark.cpp:239:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1536]	// MEM[(struct vector *)_1195 + 232B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 232B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1536]	// MEM[(struct vector *)_1195 + 232B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 232B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:239:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d22, [x3, x21]	//, *_659
+	str	d22, [x3, x20]	//, *_659
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	mov	w2, 0	//,
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:241:             pmu_cycles_start(&pmu); adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
@@ -4530,35 +4554,35 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2780,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2779,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d21, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2484,
+	cmn	x0, #1	// tmp2481,
 	beq	.L348		//,
 // src/cpp/benchmark.cpp:242:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d21, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d21, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d21, d21	//, MEM[(long unsigned int *)_2140]
 .L348:
 // src/cpp/benchmark.cpp:242:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x3, [sp, 1568]	// MEM[(struct vector *)_1195 + 264B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 264B].D.80064._M_impl.D.79399._M_start
+	ldr	x3, [sp, 1568]	// MEM[(struct vector *)_1195 + 264B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 264B].D.101473._M_impl.D.100808._M_start
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 // src/cpp/benchmark.cpp:242:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d21, [x3, x21]	//, *_642
+	str	d21, [x3, x20]	//, *_642
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/benchmark.cpp:244:             pmu_cycles_start(&pmu); linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 	add	x4, sp, 1264	//,,
@@ -4568,42 +4592,42 @@ main:
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	add	x1, sp, 352	// tmp2781,,
-	mov	w0, w20	//, _1334
+	add	x1, sp, 336	// tmp2780,,
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 	movi	d20, #0	//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2485,
+	cmn	x0, #1	// tmp2482,
 	beq	.L349		//,
 // src/cpp/benchmark.cpp:245:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	d20, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	d20, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 	ucvtf	d20, d20	//, MEM[(long unsigned int *)_2140]
 .L349:
 // src/cpp/benchmark.cpp:247:             benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	ldr	x0, [sp, 1288]	// _79, MEM[(struct CNNContext *)_2139].final_logits
 // src/cpp/benchmark.cpp:245:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	ldr	x1, [sp, 1600]	// MEM[(struct vector *)_1195 + 296B].D.80064._M_impl.D.79399._M_start, MEM[(struct vector *)_1195 + 296B].D.80064._M_impl.D.79399._M_start
+	ldr	x1, [sp, 1600]	// MEM[(struct vector *)_1195 + 296B].D.101473._M_impl.D.100808._M_start, MEM[(struct vector *)_1195 + 296B].D.101473._M_impl.D.100808._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_iterator.h:1068:       : _M_current(__i) { }
 	ldp	x3, x0, [x0]	// _636, _597,* _79
 // src/cpp/benchmark.cpp:245:             c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
-	str	d20, [x1, x21]	//, *_402
+	str	d20, [x1, x20]	//, *_402
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
 	cmp	x0, x3	// _597, _636
-	beq	.L569		//,
+	beq	.L573		//,
 	sub	x2, x0, #4	// _147, _597,
 	mov	x0, x3	// ivtmp.696, _636
-	sub	x2, x2, x3	// _5326, _147, _636
-	lsr	x1, x2, 2	// _5325, _5326,
-	add	x1, x1, 1	// niters.556, _5325,
-	cmp	x2, 56	// _5326,
-	bls	.L570		//,
+	sub	x2, x2, x3	// _5320, _147, _636
+	lsr	x1, x2, 2	// _5319, _5320,
+	add	x1, x1, 1	// niters.556, _5319,
+	cmp	x2, 56	// _5320,
+	bls	.L574		//,
 	movi	v18.2d, 0	//
-	lsr	x2, x1, 4	// bnd.557_5310, niters.556,
-	add	x2, x3, x2, lsl 6	// _1690, _636, bnd.557_5310,
+	lsr	x2, x1, 4	// bnd.557_5304, niters.556,
+	add	x2, x3, x2, lsl 6	// _1690, _636, bnd.557_5304,
 	mov	v17.16b, v18.16b	//,
 	mov	v16.16b, v18.16b	//,
 	mov	v7.16b, v18.16b	//,
@@ -4651,91 +4675,91 @@ main:
 .L351:
 	add	x3, x3, x4, lsl 2	// vectp.574, _636, niters_vector_mult_vf.558,
 // src/cpp/include/utils.h:129:     double s = 0.0;
-	mov	x0, 0	// ivtmp_5221,
+	mov	x0, 0	// ivtmp_5215,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	cntw	x2		// tmp1416
+	cntw	x2		// tmp1414
 // src/cpp/include/utils.h:129:     double s = 0.0;
 	mov	z29.d, #0	//
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ptrue	p4.b, all	// tmp1409
+	ptrue	p4.b, all	// tmp1407
 	sub	x1, x1, x4	// bnd.571, niters.556, niters_vector_mult_vf.558
-	whilelo	p7.s, xzr, x1	// next_mask_5219,, bnd.571
+	whilelo	p7.s, xzr, x1	// next_mask_5213,, bnd.571
 .L355:
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ld1w	z5.s, p7/z, [x3, x0, lsl 2]	//, next_mask_5219,* vectp.574
+	ld1w	z5.s, p7/z, [x3, x0, lsl 2]	//, next_mask_5213,* vectp.574
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	punpklo	p5.h, p7.b	// loop_mask_5229, next_mask_5219
+	punpklo	p5.h, p7.b	// loop_mask_5223, next_mask_5213
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
 	zip1	z3.s, z5.s, z5.s	//,,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	punpkhi	p6.h, p7.b	// loop_mask_5228, next_mask_5219
+	punpkhi	p6.h, p7.b	// loop_mask_5222, next_mask_5213
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	add	x0, x0, x2	// ivtmp_5221, ivtmp_5221, tmp1416
+	add	x0, x0, x2	// ivtmp_5215, ivtmp_5215, tmp1414
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvt	z3.d, p4/m, z3.s	//, tmp1409,
+	fcvt	z3.d, p4/m, z3.s	//, tmp1407,
 	zip2	z5.s, z5.s, z5.s	//,,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	z29.d, p5/m, z29.d, z3.d	//, loop_mask_5229,
+	fadd	z29.d, p5/m, z29.d, z3.d	//, loop_mask_5223,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvt	z5.d, p4/m, z5.s	//, tmp1409,
-	whilelo	p7.s, x0, x1	// next_mask_5219, ivtmp_5221, bnd.571
+	fcvt	z5.d, p4/m, z5.s	//, tmp1407,
+	whilelo	p7.s, x0, x1	// next_mask_5213, ivtmp_5215, bnd.571
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	z29.d, p6/m, z29.d, z5.d	//, loop_mask_5228,
+	fadd	z29.d, p6/m, z29.d, z5.d	//, loop_mask_5222,
 	b.any	.L355	//,
-	faddv	d29, p4, z29.d	//, tmp1409,
+	faddv	d29, p4, z29.d	//, tmp1407,
 	fadd	d19, d19, d29	//,,
 .L350:
 // src/cpp/benchmark.cpp:247:             benchmark_global_sink += checksum_tensor(ctx.final_logits);
-	adrp	x0, .LANCHOR1	// tmp1419,
+	adrp	x0, .LANCHOR1	// tmp1417,
 // src/cpp/benchmark.cpp:213:         for (int i = 0; i < num_runs; ++i) {
-	add	x21, x21, 8	// ivtmp.703, ivtmp.703,
+	add	x20, x20, 8	// ivtmp.703, ivtmp.703,
 // src/cpp/benchmark.cpp:247:             benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	ldr	d30, [x0, #:lo12:.LANCHOR1]	//, benchmark_global_sink
 	fadd	d30, d30, d19	//,,
 	str	d30, [x0, #:lo12:.LANCHOR1]	//, benchmark_global_sink
 // src/cpp/benchmark.cpp:213:         for (int i = 0; i < num_runs; ++i) {
-	cmp	x21, 80	// ivtmp.703,
+	cmp	x20, 80	// ivtmp.703,
 	bne	.L357		//,
 // src/cpp/benchmark.cpp:250:         std::vector<double> medians(num_layers);
 	mov	x1, 10	//,
-	add	x0, sp, 320	//,,
+	add	x0, sp, 304	//,,
 	bl	_ZNSt6vectorIdSaIdEEC2EmRKS0_.constprop.0		//
 .LEHE98:
-	ldr	x25, [sp, 320]	// medians$D80064$_M_impl$D79399$_M_start, MEM <double *> [(struct vector *)_807]
+	ldr	x25, [sp, 304]	// medians$D101473$_M_impl$D100808$_M_start, MEM <double *> [(struct vector *)_807]
 // src/cpp/benchmark.cpp:251:         double total = 0.0;
 	movi	d15, #0	// total
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmov	d14, 5.0e-1	// tmp2401,
-	adrp	x21, _ZL11_cmp_doublePKvS0_	// tmp2325,
+	fmov	d14, 5.0e-1	// tmp2398,
+	adrp	x22, _ZL11_cmp_doublePKvS0_	// tmp2340,
 // src/cpp/benchmark.cpp:250:         std::vector<double> medians(num_layers);
 	mov	x20, 0	// ivtmp.674,
-	add	x21, x21, :lo12:_ZL11_cmp_doublePKvS0_	// tmp2374, tmp2325,
-	ldr	x0, [sp, 336]	// medians$_M_impl$D79399$_M_end_of_storage, MEM <double *> [(struct vector *)_807 + 16B]
-	str	x0, [sp, 136]	// medians$_M_impl$D79399$_M_end_of_storage, %sfp
+	add	x22, x22, :lo12:_ZL11_cmp_doublePKvS0_	// tmp2331, tmp2340,
+	ldr	x0, [sp, 320]	// medians$_M_impl$D100808$_M_end_of_storage, MEM <double *> [(struct vector *)_807 + 16B]
+	str	x0, [sp, 128]	// medians$_M_impl$D100808$_M_end_of_storage, %sfp
 	.p2align 5,,15
 .L358:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1263:       { return _M_data_ptr(this->_M_impl._M_start); }
-	ubfiz	x0, x20, 5, 32	// _5315, ivtmp.674,,
+	ubfiz	x0, x20, 5, 32	// _5310, ivtmp.674,,
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
-	mov	x3, x21	//, tmp2374
+	mov	x3, x22	//, tmp2331
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1263:       { return _M_data_ptr(this->_M_impl._M_start); }
-	add	x0, x19, x0	// tmp1426, tmp2354, _5315
+	add	x0, x19, x0	// tmp1424, tmp2346, _5310
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
 	mov	x2, 8	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1263:       { return _M_data_ptr(this->_M_impl._M_start); }
-	ldr	x22, [x0, 8]	// _398, MEM[(double * *)_1195 + 8B + _5315 * 1]
+	ldr	x21, [x0, 8]	// _398, MEM[(double * *)_1195 + 8B + _5310 * 1]
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
 	mov	x1, 10	//,
-	mov	x0, x22	//, _398
+	mov	x0, x21	//, _398
 .LEHB99:
 	bl	qsort		//
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	ldp	d31, d30, [x22, 32]	// MEM[(double *)_398 + 32B], MEM[(double *)_398 + 40B],
+	ldp	d31, d30, [x21, 32]	// MEM[(double *)_398 + 32B], MEM[(double *)_398 + 40B],
 	fadd	d31, d31, d30	// _1427, MEM[(double *)_398 + 32B], MEM[(double *)_398 + 40B]
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmul	d31, d31, d14	// _1428, _1427, tmp2401
+	fmul	d31, d31, d14	// _1428, _1427, tmp2398
 // src/cpp/benchmark.cpp:253:             medians[k] = compute_median(layers[k].cycles.data(), num_runs);
-	str	d31, [x25, x20, lsl 3]	// _1428, MEM[(value_type &)medians$D80064$_M_impl$D79399$_M_start_160 + ivtmp.674_5313 * 8]
+	str	d31, [x25, x20, lsl 3]	// _1428, MEM[(value_type &)medians$D101473$_M_impl$D100808$_M_start_160 + ivtmp.674_5308 * 8]
 // src/cpp/benchmark.cpp:252:         for (int k = 0; k < num_layers; ++k) {
 	add	x20, x20, 1	// ivtmp.674, ivtmp.674,
 // src/cpp/benchmark.cpp:254:             total += medians[k];
@@ -4744,42 +4768,42 @@ main:
 	cmp	x20, 10	// ivtmp.674,
 	bne	.L358		//,
 // src/cpp/benchmark.cpp:257:         std::cout << Color::GREEN << "=== Per-Layer Breakdown (median cycles) ===" << Color::RESET << "\n";
-	adrp	x0, _ZN5Color5GREENE	// tmp2783,
+	adrp	x0, _ZN5Color5GREENE	// tmp2782,
 	ldr	x1, [x0, #:lo12:_ZN5Color5GREENE]	//, GREEN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC62	// tmp1438,
+	adrp	x1, .LC63	// tmp1436,
 	mov	x2, 43	//,
-	add	x1, x1, :lo12:.LC62	//, tmp1438,
+	add	x1, x1, :lo12:.LC63	//, tmp1436,
 // src/cpp/benchmark.cpp:257:         std::cout << Color::GREEN << "=== Per-Layer Breakdown (median cycles) ===" << Color::RESET << "\n";
-	mov	x20, x0	// _603, tmp2486
+	mov	x20, x0	// _603, tmp2483
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:257:         std::cout << Color::GREEN << "=== Per-Layer Breakdown (median cycles) ===" << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2784,
+	adrp	x1, _ZN5Color5RESETE	// tmp2783,
 	mov	x0, x20	//, _603
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:257:         std::cout << Color::GREEN << "=== Per-Layer Breakdown (median cycles) ===" << Color::RESET << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE99:
 // src/cpp/benchmark.cpp:261:                       << medians[k] << " cycles  (" << (100.0 * medians[k] / total) << "%)\n";
-	mov	x0, 4636737291354636288	// tmp2594,
-	adrp	x26, .LC44	// tmp2379,
+	mov	x0, 4636737291354636288	// tmp2591,
+	adrp	x26, .LC45	// tmp2342,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC63	// tmp2395,
-	add	x26, x26, :lo12:.LC44	// tmp2367, tmp2379,
+	adrp	x27, .LC64	// tmp2392,
+	add	x26, x26, :lo12:.LC45	// tmp2337, tmp2342,
 // src/cpp/benchmark.cpp:261:                       << medians[k] << " cycles  (" << (100.0 * medians[k] / total) << "%)\n";
-	fmov	d14, x0	// tmp2397, tmp2594
+	fmov	d14, x0	// tmp2394, tmp2591
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	add	x28, x1, :lo12:.LC63	// tmp2396, tmp2395,
-	mov	x22, x25	// ivtmp.671, medians$D80064$_M_impl$D79399$_M_start
-	mov	x21, x19	// ivtmp.672, tmp2354
+	add	x27, x27, :lo12:.LC64	// tmp2393, tmp2392,
+	mov	x22, x25	// ivtmp.671, medians$D101473$_M_impl$D100808$_M_start
+	mov	x21, x19	// ivtmp.672, tmp2346
 	add	x20, sp, 1624	// _694,,
 // src/cpp/benchmark.cpp:261:                       << medians[k] << " cycles  (" << (100.0 * medians[k] / total) << "%)\n";
-	fdiv	d14, d14, d15	// _5156, tmp2397, total
+	fdiv	d14, d14, d15	// _5150, tmp2394, total
 	b	.L366		//
 	.p2align 2,,3
 .L359:
@@ -4787,180 +4811,180 @@ main:
 	mov	x0, x23	//, BOLD.36_85
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2487
+	mov	x2, x0	//, tmp2484
 	mov	x1, x23	//, BOLD.36_85
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 .LEHB100:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	ldr	x23, [x21]	// _86, MEM[(const char * *)_5305]
+	ldr	x23, [x21]	// _86, MEM[(const char * *)_5307]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x23, .L866	// _86,
+	cbz	x23, .L870	// _86,
 .L361:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
 	mov	x0, x23	//, _86
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2488
+	mov	x2, x0	//, tmp2485
 	mov	x1, x23	//, _86
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	adrp	x0, _ZN5Color5RESETE	// tmp2785,
+	adrp	x0, _ZN5Color5RESETE	// tmp2784,
 	ldr	x24, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.37_87, RESET
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x24, .L867	// RESET.37_87,
+	cbz	x24, .L871	// RESET.37_87,
 .L363:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
 	mov	x0, x24	//, RESET.37_87
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2489
+	mov	x2, x0	//, tmp2486
 	mov	x1, x24	//, RESET.37_87
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .L364:
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
 	mov	x0, x23	//, _86
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	add	x24, sp, 368	// tmp2371,,
+	add	x24, sp, 352	// tmp2367,,
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
 	bl	strlen		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	mov	x1, 9	// tmp1488,
+	mov	x1, 9	// tmp1486,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:671:       { _M_construct(__n, __c); }
 	mov	w2, 32	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x24, [sp, 352]	// tmp2371, MEM[(struct _Alloc_hider *)_2140]._M_p
+	str	x24, [sp, 336]	// tmp2367, MEM[(struct _Alloc_hider *)_2140]._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:671:       { _M_construct(__n, __c); }
-	sub	x1, x1, x0	//, tmp1488, tmp2490
-	add	x0, sp, 352	// tmp2786,,
+	sub	x1, x1, x0	//, tmp1486, tmp2487
+	add	x0, sp, 336	// tmp2785,,
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc		//
 .LEHE100:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	ldp	x1, x2, [sp, 352]	//,,
-	mov	x0, x27	//, tmp2362
+	ldp	x1, x2, [sp, 336]	//,,
+	mov	x0, x28	//, tmp2355
 .LEHB101:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	ldr	d0, [x22]	//, MEM[(value_type &)_5244]
+	ldr	d0, [x22]	//, MEM[(value_type &)_5299]
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 10	//,
-	mov	x1, x28	//, tmp2396
+	mov	x1, x27	//, tmp2393
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	mov	x23, x0	// _329, tmp2491
+	mov	x23, x0	// _329, tmp2488
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:261:                       << medians[k] << " cycles  (" << (100.0 * medians[k] / total) << "%)\n";
-	ldr	d0, [x22]	// MEM[(value_type &)_5244], MEM[(value_type &)_5244]
+	ldr	d0, [x22]	// MEM[(value_type &)_5299], MEM[(value_type &)_5299]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	mov	x0, x23	//, _329
-	fmul	d0, d14, d0	//, _5156, MEM[(value_type &)_5244]
+	fmul	d0, d14, d0	//, _5150, MEM[(value_type &)_5299]
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC64	// tmp1502,
+	adrp	x1, .LC65	// tmp1500,
 	mov	x2, 3	//,
-	add	x1, x1, :lo12:.LC64	//, tmp1502,
+	add	x1, x1, :lo12:.LC65	//, tmp1500,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .LEHE101:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
-	ldr	x0, [sp, 352]	// _1456, MEM[(struct basic_string *)_2140]._M_dataplus._M_p
+	ldr	x0, [sp, 336]	// _1456, MEM[(struct basic_string *)_2140]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x0, x24	// _1456, tmp2371
+	cmp	x0, x24	// _1456, tmp2367
 	beq	.L365		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 368]	// MEM[(struct basic_string *)_2140].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_2140].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 352]	// MEM[(struct basic_string *)_2140].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_2140].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_2140].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_2140].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L365:
 // src/cpp/benchmark.cpp:258:         for (int k = 0; k < num_layers; ++k) {
 	add	x21, x21, 32	// ivtmp.672, ivtmp.672,
 	add	x22, x22, 8	// ivtmp.671, ivtmp.671,
 	cmp	x21, x20	// ivtmp.672, _694
-	beq	.L868		//,
+	beq	.L872		//,
 .L366:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 2	//,
-	mov	x1, x26	//, tmp2367
-	mov	x0, x27	//, tmp2362
+	mov	x1, x26	//, tmp2337
+	mov	x0, x28	//, tmp2355
 .LEHB102:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	adrp	x0, _ZN5Color4BOLDE	// tmp1448,
+	adrp	x0, _ZN5Color4BOLDE	// tmp1446,
 	ldr	x23, [x0, #:lo12:_ZN5Color4BOLDE]	// BOLD.36_85, BOLD
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
 	cbnz	x23, .L359	// BOLD.36_85,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
 	ldr	x0, [x0, -24]	// MEM[(long int *)_1432 + -24B], MEM[(long int *)_1432 + -24B]
-	add	x0, x27, x0	// _1435, tmp2362, MEM[(long int *)_1432 + -24B]
+	add	x0, x28, x0	// _1435, tmp2355, MEM[(long int *)_1432 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1435].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1435].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1435].D.60108._M_streambuf_state,
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1435].D.81517._M_streambuf_state,
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	ldr	x23, [x21]	// _86, MEM[(const char * *)_5305]
+	ldr	x23, [x21]	// _86, MEM[(const char * *)_5307]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
 	cbnz	x23, .L361	// _86,
-.L866:
+.L870:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
 	ldr	x0, [x0, -24]	// MEM[(long int *)_1440 + -24B], MEM[(long int *)_1440 + -24B]
-	add	x0, x27, x0	// _1443, tmp2362, MEM[(long int *)_1440 + -24B]
+	add	x0, x28, x0	// _1443, tmp2355, MEM[(long int *)_1440 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1443].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1443].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1443].D.60108._M_streambuf_state,
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1443].D.81517._M_streambuf_state,
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 // src/cpp/benchmark.cpp:260:                       << std::string(9 - strlen(layers[k].name), ' ')
-	adrp	x0, _ZN5Color5RESETE	// tmp2785,
+	adrp	x0, _ZN5Color5RESETE	// tmp2784,
 	ldr	x24, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.37_87, RESET
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
 	cbnz	x24, .L363	// RESET.37_87,
-.L867:
+.L871:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
 	ldr	x0, [x0, -24]	// MEM[(long int *)_1448 + -24B], MEM[(long int *)_1448 + -24B]
-	add	x0, x27, x0	// _1451, tmp2362, MEM[(long int *)_1448 + -24B]
+	add	x0, x28, x0	// _1451, tmp2355, MEM[(long int *)_1448 + -24B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1451].D.60108._M_streambuf_state
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1451].D.81517._M_streambuf_state
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1451].D.60108._M_streambuf_state,
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1451].D.81517._M_streambuf_state,
 	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE102:
 	b	.L364		//
 	.p2align 2,,3
-.L861:
+.L865:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:381: 	return __builtin_memcmp(__s1, __s2, __n);
-	ldr	w0, [x25]	//, MEM <char[1:6]> [(void *)pretmp_5659]
-	cmp	w0, w22	// MEM <char[1:6]> [(void *)pretmp_5659], tmp2444
+	ldr	w0, [x26]	//, MEM <char[1:6]> [(void *)pretmp_5671]
+	cmp	w0, w23	// MEM <char[1:6]> [(void *)pretmp_5671], tmp2441
 	bne	.L307		//,
-	ldrh	w1, [x25, 4]	// MEM <char[1:6]> [(void *)pretmp_5659], MEM <char[1:6]> [(void *)pretmp_5659]
-	mov	w0, 31078	// tmp971,
-	cmp	w1, w0	// MEM <char[1:6]> [(void *)pretmp_5659], tmp971
+	ldrh	w1, [x26, 4]	// MEM <char[1:6]> [(void *)pretmp_5671], MEM <char[1:6]> [(void *)pretmp_5671]
+	mov	w0, 31078	// tmp968,
+	cmp	w1, w0	// MEM <char[1:6]> [(void *)pretmp_5671], tmp968
 	bne	.L307		//,
 // src/cpp/benchmark.cpp:88:             verify_mode = true;
 	mov	w0, 1	// verify_mode,
-	str	w0, [sp, 136]	// verify_mode, %sfp
+	str	w0, [sp, 128]	// verify_mode, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x25, x28	// pretmp_5659, tmp2355
+	cmp	x26, x20	// pretmp_5671, tmp2347
 	bne	.L309		//,
 	b	.L308		//
 	.p2align 2,,3
 .L301:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
 	cbz	x0, .L303	// _1306,
-	mov	x0, x28	// _707, tmp2355
+	mov	x0, x20	// _707, tmp2347
 	b	.L300		//
 	.p2align 2,,3
-.L860:
+.L864:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
-	add	x1, sp, 1168	// tmp2668,,
+	add	x1, sp, 1168	// tmp2664,,
 	mov	x2, 0	//,
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 .LEHB103:
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
 .LEHE103:
@@ -4969,153 +4993,133 @@ main:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 1304]	// _707, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2139], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2139], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 .L300:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x25	//, _1306
-	mov	x1, x26	//, _4
+	mov	x2, x26	//, _1306
+	mov	x1, x27	//, _4
 	bl	memcpy		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x25, [sp, 1168]	// _1306, MEM[(long unsigned int *)_2139]
+	ldr	x26, [sp, 1168]	// _1306, MEM[(long unsigned int *)_2139]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x0, [sp, 1304]	// pretmp_5516, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	b	.L302		//
 	.p2align 2,,3
-.L862:
+.L866:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:381: 	return __builtin_memcmp(__s1, __s2, __n);
-	ldr	w0, [x25]	//, MEM <char[1:7]> [(void *)pretmp_5659]
-	cmp	w0, w24	// MEM <char[1:7]> [(void *)pretmp_5659], tmp2443
+	ldr	w0, [x26]	//, MEM <char[1:7]> [(void *)pretmp_5671]
+	cmp	w0, w25	// MEM <char[1:7]> [(void *)pretmp_5671], tmp2440
 	bne	.L307		//,
-	ldrh	w1, [x25, 4]	// MEM <char[1:7]> [(void *)pretmp_5659], MEM <char[1:7]> [(void *)pretmp_5659]
-	mov	w0, 27753	// tmp979,
-	cmp	w1, w0	// MEM <char[1:7]> [(void *)pretmp_5659], tmp979
+	ldrh	w1, [x26, 4]	// MEM <char[1:7]> [(void *)pretmp_5671], MEM <char[1:7]> [(void *)pretmp_5671]
+	mov	w0, 27753	// tmp976,
+	cmp	w1, w0	// MEM <char[1:7]> [(void *)pretmp_5671], tmp976
 	bne	.L307		//,
-	ldrb	w0, [x25, 6]	// MEM <char[1:7]> [(void *)pretmp_5659], MEM <char[1:7]> [(void *)pretmp_5659]
-	cmp	w0, 101	// MEM <char[1:7]> [(void *)pretmp_5659],
+	ldrb	w0, [x26, 6]	// MEM <char[1:7]> [(void *)pretmp_5671], MEM <char[1:7]> [(void *)pretmp_5671]
+	cmp	w0, 101	// MEM <char[1:7]> [(void *)pretmp_5671],
 	bne	.L307		//,
 // src/cpp/benchmark.cpp:90:             profile_mode = true;
 	mov	w0, 1	// profile_mode,
-	str	w0, [sp, 144]	// profile_mode, %sfp
+	str	w0, [sp, 136]	// profile_mode, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x25, x28	// pretmp_5659, tmp2355
+	cmp	x26, x20	// pretmp_5671, tmp2347
 	bne	.L309		//,
 	b	.L308		//
-.L557:
+.L561:
 // src/cpp/benchmark.cpp:92:             verbose = true;
-	str	w1, [sp, 216]	// _818, %sfp
+	str	w1, [sp, 208]	// _818, %sfp
 	b	.L313		//
-.L553:
-	add	x19, sp, 1304	// tmp2354,,
-// src/cpp/benchmark.cpp:83:     bool profile_mode = false;
-	str	wzr, [sp, 144]	//, %sfp
-// src/cpp/benchmark.cpp:84:     bool verbose = false;
-	str	wzr, [sp, 216]	//, %sfp
-.L297:
-// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
-	mov	x0, 10	// prephitmp_5533,
-	mov	x21, 128	// prephitmp_5531,
-	str	wzr, [sp, 136]	//, %sfp
-	mov	x22, 21632	// prephitmp_5521,
-// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
-	mov	w25, 1	// iftmp.4_168,
-// src/cpp/benchmark.cpp:95:     int batch_size  = verify_mode ? 10000 : 1;
-	str	x0, [sp, 192]	// prephitmp_5533, %sfp
-	mov	x0, 1152	// prephitmp_5529,
-	str	x0, [sp, 184]	// prephitmp_5529, %sfp
-	mov	x0, 1600	// prephitmp_5527,
-	str	x0, [sp, 168]	// prephitmp_5527, %sfp
-	mov	x0, 7744	// prephitmp_5525,
-	str	x0, [sp, 160]	// prephitmp_5525, %sfp
-	mov	x0, 5408	// prephitmp_5523,
-	str	x0, [sp, 152]	// prephitmp_5523, %sfp
-	b	.L315		//
 .L320:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	mov	x0, 144	//,
+	mov	x0, 168	//,
 .LEHB104:
 	bl	_Znwm		//
 .LEHE104:
-	mov	x3, x0	// _1475, tmp2492
+	mov	x7, x0	// _1475, tmp2489
 // src/cpp/benchmark.cpp:271:     const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
-	adrp	x1, .LC67	// tmp1552,
+	adrp	x1, .LC68	// tmp1556,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:940: 	*__first = __value;
-	mov	x2, x3	// tmp1528, _1475
-// src/cpp/benchmark.cpp:271:     const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
-	add	x0, x1, :lo12:.LC67	//, tmp1552,
+	mov	x3, x7	// tmp1526, _1475
+	mov	x2, x7	// tmp1538, _1475
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	str	x3, [sp, 248]	// _1475, %sfp
+	str	x7, [sp, 232]	// _1475, %sfp
+// src/cpp/benchmark.cpp:271:     const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
+	add	x0, x1, :lo12:.LC68	//, tmp1556,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:940: 	*__first = __value;
-	mov	x1, x3	// tmp1540, _1475
+	mov	x1, x7	// tmp1550, _1475
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+	stp	xzr, xzr, [x7]	//,,* _1475
 // src/cpp/benchmark.cpp:272:     int num_selected = 0;
-	mov	w22, 0	// num_selected,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	stp	xzr, xzr, [x3]	//,,* _1475
-	add	x23, sp, 1168	// tmp2351,,
-	add	x28, sp, 1320	// tmp2355,,
+	mov	w23, 0	// num_selected,
+	add	x24, sp, 1168	// tmp2344,,
+	add	x20, sp, 1320	// tmp2347,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:940: 	*__first = __value;
-	ldp	x6, x7, [x3]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	ldp	x4, x5, [x7]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	strb	wzr, [x3, 16]	//, _1475->has_data
+	strb	wzr, [x7, 16]	//, _1475->has_data
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_algobase.h:940: 	*__first = __value;
-	ldr	x4, [x3, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	stp	x6, x7, [x3, 24]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 24B]
-	mov	x6, x3	// _1475, _1475
+	ldr	x6, [x7, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	stp	x4, x5, [x7, 24]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 24B]
+	mov	x4, x6	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	str	x6, [x7, 40]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 24B]
+	ldp	x6, x7, [x3], 48	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	stp	x6, x7, [x2, 48]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 48B]
+	str	x4, [x3, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 48B]
+	ldp	x6, x7, [x2]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	ldr	x4, [x2, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	stp	x6, x7, [x2, 72]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 72B]
+	mov	x6, x2	// _1475, _1475
 	mov	x3, x4	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	str	x4, [x2, 40]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 24B]
-	ldp	x4, x5, [x2], 48	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	stp	x4, x5, [x1, 48]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 48B]
-	str	x3, [x2, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 48B]
+	str	x4, [x2, 88]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 72B]
+	ldp	x4, x5, [x2], 96	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	stp	x4, x5, [x1, 96]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 96B]
+	str	x3, [x2, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 96B]
 	ldp	x4, x5, [x1]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
 	ldr	x3, [x1, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	stp	x4, x5, [x1, 72]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 72B]
-	str	x3, [x1, 88]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 72B]
-	ldp	x4, x5, [x1], 96	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	stp	x4, x5, [x6, 96]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 96B]
-	str	x3, [x1, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 96B]
-	ldp	x2, x3, [x6]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	ldr	x1, [x6, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
-	stp	x2, x3, [x6, 120]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 120B]
-	str	x1, [x6, 136]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 120B]
+	stp	x4, x5, [x1, 120]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 120B]
+	str	x3, [x1, 136]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 120B]
+	ldp	x4, x5, [x1], 144	// MEM[(const struct bench_result_t &)_1475], MEM[(const struct bench_result_t &)_1475]
+	stp	x4, x5, [x6, 144]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 144B]
+	str	x3, [x1, 16]	// MEM[(const struct bench_result_t &)_1475], MEM[(struct bench_result_t *)_1475 + 144B]
 // src/cpp/benchmark.cpp:271:     const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
 	bl	getenv		//
-	add	x1, sp, 1072	// tmp2807,,
-	str	x0, [sp, 168]	// tmp2493, %sfp
-	mov	x21, x1	// tmp2808, tmp2807
-	str	x1, [sp, 208]	// tmp2807, %sfp
+	add	x1, sp, 1056	// tmp2808,,
+	str	x0, [sp, 160]	// tmp2490, %sfp
+	mov	x22, x1	// tmp2809, tmp2808
+	str	x1, [sp, 192]	// tmp2808, %sfp
 	.p2align 5,,15
 .L379:
 // src/cpp/benchmark.cpp:274:         if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
-	ldr	x25, [x21]	// _95, MEM[(const char * *)_5193]
+	ldr	x26, [x22]	// _95, MEM[(const char * *)_1399]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x25, .L869	// _95,
+	cbz	x26, .L873	// _95,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x25	//, _95
+	mov	x0, x26	//, _95
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-	str	x0, [sp, 352]	// _1486, MEM[(long unsigned int *)_2140]
+	str	x0, [sp, 336]	// _1486, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x24, x0	// _1486, tmp2494
+	mov	x25, x0	// _1486, tmp2491
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
 	cmp	x0, 15	// _1486,
-	bhi	.L870		//,
+	bhi	.L874		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
 	cmp	x0, 1	// _1486,
-	beq	.L871		//,
+	beq	.L875		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	cbnz	x0, .L872	// _1486,
+	cbnz	x0, .L876	// _1486,
 .L377:
-	mov	x2, x28	// pretmp_5537, tmp2355
+	mov	x2, x20	// pretmp_5537, tmp2347
 .L376:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x24, [sp, 1312]	// _1486, MEM[(struct basic_string *)_1195]._M_string_length
+	str	x25, [sp, 1312]	// _1486, MEM[(struct basic_string *)_1195]._M_string_length
 // src/cpp/benchmark.cpp:274:         if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
-	mov	x0, x19	//, tmp2354
-	ldr	x1, [sp, 168]	//, %sfp
+	mov	x0, x19	//, tmp2346
+	ldr	x1, [sp, 160]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x2, x24]	//, MEM[(char_type &)_1496]
+	strb	wzr, [x2, x25]	//, MEM[(char_type &)_1496]
 .LEHB105:
 // src/cpp/benchmark.cpp:274:         if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
 	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
@@ -5123,135 +5127,132 @@ main:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x2, [sp, 1304]	// _1497, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // src/cpp/benchmark.cpp:274:         if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
-	and	w24, w0, 255	// _551, tmp2496
+	and	w25, w0, 255	// _551, tmp2493
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x2, x28	// _1497, tmp2355
+	cmp	x2, x20	// _1497, tmp2347
 	beq	.L378		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x2	//, _1497
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
 .L378:
 // src/cpp/benchmark.cpp:273:     for (int i = 0; i < num_impls; ++i)
-	add	x21, x21, 16	// ivtmp.804, ivtmp.804,
+	add	x22, x22, 16	// ivtmp.804, ivtmp.804,
 // src/cpp/benchmark.cpp:274:         if (implementation_matches_filter(implementations[i].name, bench_filter)) num_selected++;
-	add	w22, w22, w24	// num_selected, num_selected, _551
+	add	w23, w23, w25	// num_selected, num_selected, _551
 // src/cpp/benchmark.cpp:273:     for (int i = 0; i < num_impls; ++i)
-	cmp	x23, x21	// tmp2351, ivtmp.804
+	cmp	x24, x22	// tmp2344, ivtmp.804
 	bne	.L379		//,
 // src/cpp/benchmark.cpp:276:     if (num_selected == 0) {
-	cbz	w22, .L873	// num_selected,
+	cbz	w23, .L877	// num_selected,
 // src/cpp/benchmark.cpp:282:     if (bench_filter && *bench_filter) {
-	ldr	x0, [sp, 168]	// bench_filter, %sfp
+	ldr	x0, [sp, 160]	// bench_filter, %sfp
 	cbz	x0, .L383	// bench_filter,
 // src/cpp/benchmark.cpp:282:     if (bench_filter && *bench_filter) {
 	ldrb	w0, [x0]	// *bench_filter_425, *bench_filter_425
-	cbnz	w0, .L874	// *bench_filter_425,
+	cbnz	w0, .L878	// *bench_filter_425,
 .L383:
 // src/cpp/benchmark.cpp:288:     std::cout << Color::BOLD_CYAN << "Runs: " << num_runs << " measured, "
-	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2816,
+	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2817,
 	ldr	x1, [x0, #:lo12:_ZN5Color9BOLD_CYANE]	//, BOLD_CYAN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 .LEHB106:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC73	// tmp1602,
+	adrp	x1, .LC74	// tmp1606,
 	mov	x2, 6	//,
-	add	x1, x1, :lo12:.LC73	//, tmp1602,
+	add	x1, x1, :lo12:.LC74	//, tmp1606,
 // src/cpp/benchmark.cpp:288:     std::cout << Color::BOLD_CYAN << "Runs: " << num_runs << " measured, "
-	mov	x21, x0	// _438, tmp2501
+	mov	x22, x0	// _438, tmp2498
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:288:     std::cout << Color::BOLD_CYAN << "Runs: " << num_runs << " measured, "
-	mov	x0, x21	//, _438
+	mov	x0, x22	//, _438
 	mov	w1, 10	//,
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC74	// tmp1604,
+	adrp	x1, .LC75	// tmp1608,
 	mov	x2, 11	//,
-	add	x1, x1, :lo12:.LC74	//, tmp1604,
+	add	x1, x1, :lo12:.LC75	//, tmp1608,
 // src/cpp/benchmark.cpp:288:     std::cout << Color::BOLD_CYAN << "Runs: " << num_runs << " measured, "
-	mov	x21, x0	// _440, tmp2502
+	mov	x22, x0	// _440, tmp2499
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:289:               << num_warmup << " warmup\n\n" << Color::RESET;
-	mov	x0, x21	//, _440
+	mov	x0, x22	//, _440
 	mov	w1, 2	//,
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC75	// tmp1606,
+	adrp	x1, .LC76	// tmp1610,
 	mov	x2, 9	//,
-	add	x1, x1, :lo12:.LC75	//, tmp1606,
+	add	x1, x1, :lo12:.LC76	//, tmp1610,
 // src/cpp/benchmark.cpp:289:               << num_warmup << " warmup\n\n" << Color::RESET;
-	mov	x21, x0	// _442, tmp2503
+	mov	x22, x0	// _442, tmp2500
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:289:               << num_warmup << " warmup\n\n" << Color::RESET;
-	adrp	x1, _ZN5Color5RESETE	// tmp2817,
-	mov	x0, x21	//, _442
+	adrp	x1, _ZN5Color5RESETE	// tmp2818,
+	mov	x0, x22	//, _442
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE106:
-// src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	adrp	x1, .LC116	// tmp2818,
 // src/cpp/benchmark.cpp:76:               << " s (" << result.seconds_median * 1000.0 << " ms)\n\n";
-	mov	x0, 70368744177664	// tmp2593,
-	movk	x0, 0x408f, lsl 48	// tmp2593,,
-// src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	mov	x25, 51712	// tmp2434,
+	mov	x0, 70368744177664	// tmp2590,
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	ldr	d15, [x1, #:lo12:.LC116]	// tmp2435,
-// src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	movk	x25, 0x3b9a, lsl 16	// tmp2434,,
+	adrp	x1, .LC117	// tmp2819,
 // src/cpp/benchmark.cpp:76:               << " s (" << result.seconds_median * 1000.0 << " ms)\n\n";
-	fmov	d14, x0	// tmp2438, tmp2593
+	movk	x0, 0x408f, lsl 48	// tmp2590,,
+// src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
+	mov	x26, 51712	// tmp2431,
+// src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
+	ldr	d15, [x1, #:lo12:.LC117]	// tmp2432,
+// src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
+	movk	x26, 0x3b9a, lsl 16	// tmp2431,,
+// src/cpp/benchmark.cpp:76:               << " s (" << result.seconds_median * 1000.0 << " ms)\n\n";
+	fmov	d14, x0	// tmp2435, tmp2590
+	ldr	x1, [sp, 232]	// _1475, %sfp
+	str	x1, [sp, 184]	// _1475, %sfp
 // src/cpp/benchmark.cpp:289:               << num_warmup << " warmup\n\n" << Color::RESET;
-	add	x0, sp, 1072	// tmp2823,,
-	ldr	x1, [sp, 248]	// _1475, %sfp
-	add	x2, x1, 144	// _1565, _1475,
-	stp	x0, x1, [sp, 184]	// tmp2823, _1475,
 	str	x1, [sp, 200]	// _1475, %sfp
-	str	x2, [sp, 224]	// _1565, %sfp
+	add	x1, sp, 1056	// tmp2822,,
+	str	x1, [sp, 176]	// tmp2822, %sfp
 	.p2align 5,,15
-.L419:
+.L420:
 // src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x0, [sp, 184]	// ivtmp.794, %sfp
+	ldr	x0, [sp, 176]	// ivtmp.794, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x21, [x0]	// _101, MEM[(const char * *)_1364]
+	ldr	x22, [x0]	// _101, MEM[(const char * *)_1565]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x21, .L875	// _101,
+	cbz	x22, .L879	// _101,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x21	//, _101
+	mov	x0, x22	//, _101
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-	str	x0, [sp, 352]	// _1504, MEM[(long unsigned int *)_2140]
+	str	x0, [sp, 336]	// _1504, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x22, x0	// _1504, tmp2504
+	mov	x23, x0	// _1504, tmp2501
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
 	cmp	x0, 15	// _1504,
-	bhi	.L876		//,
+	bhi	.L880		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
 	cmp	x0, 1	// _1504,
-	beq	.L877		//,
+	beq	.L881		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	cbnz	x0, .L878	// _1504,
+	cbnz	x0, .L882	// _1504,
+.L389:
+	mov	x2, x20	// pretmp_5543, tmp2347
 .L388:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x2, [sp, 352]	// __dnew.121_1512, MEM[(long unsigned int *)_2140]
-// src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	mov	x0, x19	//, tmp2354
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldr	x3, [sp, 1304]	// MEM[(struct basic_string *)_1195]._M_dataplus._M_p, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x1, [sp, 168]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x2, [sp, 1312]	// __dnew.121_1512, MEM[(struct basic_string *)_1195]._M_string_length
+	str	x23, [sp, 1312]	// _1504, MEM[(struct basic_string *)_1195]._M_string_length
+// src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	mov	x0, x19	//, tmp2346
+	ldr	x1, [sp, 160]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x3, x2]	//, MEM[(char_type &)_1514]
+	strb	wzr, [x2, x23]	//, MEM[(char_type &)_1514]
 .LEHB107:
 // src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
 	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
@@ -5259,120 +5260,120 @@ main:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x2, [sp, 1304]	// _1515, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	and	w22, w0, 255	// _527, tmp2506
+	and	w23, w0, 255	// _527, tmp2503
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x2, x28	// _1515, tmp2355
-	beq	.L389		//,
+	cmp	x2, x20	// _1515, tmp2347
+	beq	.L390		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x2	//, _1515
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
-.L389:
+.L390:
 // src/cpp/benchmark.cpp:295:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	tbz	x22, 0, .L390	// _527,,
+	tbz	x23, 0, .L391	// _527,,
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	adrp	x0, _ZN5Color4CYANE	// tmp2825,
+	adrp	x0, _ZN5Color4CYANE	// tmp2824,
 	ldr	x1, [x0, #:lo12:_ZN5Color4CYANE]	//, CYAN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 .LEHB108:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC76	// tmp1636,
+	adrp	x1, .LC77	// tmp1639,
 	mov	x2, 51	//,
-	add	x1, x1, :lo12:.LC76	//, tmp1636,
+	add	x1, x1, :lo12:.LC77	//, tmp1639,
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	mov	x22, x0	// _532, tmp2507
+	mov	x23, x0	// _532, tmp2504
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC77	// tmp1638,
+	adrp	x1, .LC78	// tmp1641,
 	mov	x2, 17	//,
-	add	x1, x1, :lo12:.LC77	//, tmp1638,
-	mov	x0, x22	//, _532
+	add	x1, x1, :lo12:.LC78	//, tmp1641,
+	mov	x0, x23	//, _532
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	mov	x1, x21	//, _101
-	mov	x0, x22	//, _532
+	mov	x1, x22	//, _101
+	mov	x0, x23	//, _532
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC78	// tmp1640,
+	adrp	x1, .LC79	// tmp1643,
 	mov	x2, 14	//,
-	add	x1, x1, :lo12:.LC78	//, tmp1640,
+	add	x1, x1, :lo12:.LC79	//, tmp1643,
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	mov	x21, x0	// _534, tmp2508
+	mov	x22, x0	// _534, tmp2505
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC79	// tmp1642,
+	adrp	x1, .LC80	// tmp1645,
 	mov	x2, 50	//,
-	add	x1, x1, :lo12:.LC79	//, tmp1642,
-	mov	x0, x21	//, _534
+	add	x1, x1, :lo12:.LC80	//, tmp1645,
+	mov	x0, x22	//, _534
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2826,
-	mov	x0, x21	//, _534
+	adrp	x1, _ZN5Color5RESETE	// tmp2825,
+	mov	x0, x22	//, _534
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:299:                   << "==================================================" << Color::RESET << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:35:     bench_result_t result = {NAN, NAN, false};
-	ldr	x0, [sp, 232]	// tmp2328, %sfp
+	ldr	x0, [sp, 216]	// tmp2348, %sfp
 // src/cpp/benchmark.cpp:37:     std::cout << Color::GREEN << "--- Performance Benchmarking (" << num_runs << " Runs) ---"
-	adrp	x1, _ZN5Color5GREENE	// tmp2829,
-	ldr	x21, [x1, #:lo12:_ZN5Color5GREENE]	// GREEN.108_1521, GREEN
+	adrp	x1, _ZN5Color5GREENE	// tmp2828,
+	ldr	x22, [x1, #:lo12:_ZN5Color5GREENE]	// GREEN.108_1521, GREEN
 // src/cpp/benchmark.cpp:35:     bench_result_t result = {NAN, NAN, false};
-	ldp	x2, x3, [x0, 96]	// tmp1654,
-	ldr	x0, [x0, 112]	// tmp1655,
-	stp	x2, x3, [sp, 256]	// tmp1654, D.89623
-	str	x0, [sp, 272]	// tmp1655, D.89623
+	ldp	x2, x3, [x0, 112]	// tmp1657,
+	ldr	x0, [x0, 128]	// tmp1658,
+	stp	x2, x3, [sp, 240]	// tmp1657, D.111033
+	str	x0, [sp, 256]	// tmp1658, D.111033
 // src/cpp/benchmark.cpp:300:         results[i] = benchmark_cnn(implementations[i].function, ctx, pmu, num_runs, num_warmup);
-	ldr	x0, [sp, 184]	// ivtmp.794, %sfp
-	ldr	x24, [x0, 8]	// _104, MEM[(void (*<T6971>) (struct CNNContext &) *)_1364 + 8B]
+	ldr	x0, [sp, 176]	// ivtmp.794, %sfp
+	ldr	x25, [x0, 8]	// _104, MEM[(void (*<T7f54>) (struct CNNContext &) *)_1565 + 8B]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x21, .L879	// GREEN.108_1521,
+	cbz	x22, .L883	// GREEN.108_1521,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x21	//, GREEN.108_1521
+	mov	x0, x22	//, GREEN.108_1521
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2509
-	mov	x1, x21	//, GREEN.108_1521
-	mov	x0, x27	//, tmp2362
+	mov	x2, x0	//, tmp2506
+	mov	x1, x22	//, GREEN.108_1521
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-.L392:
-	adrp	x1, .LC80	// tmp1670,
+.L393:
+	adrp	x1, .LC81	// tmp1673,
 	mov	x2, 30	//,
-	add	x1, x1, :lo12:.LC80	//, tmp1670,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC81	//, tmp1673,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:38:                << Color::RESET << "\n";
 	mov	w1, 10	//,
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC51	// tmp1676,
+	adrp	x1, .LC52	// tmp1679,
 	mov	x2, 10	//,
-	add	x1, x1, :lo12:.LC51	//, tmp1676,
+	add	x1, x1, :lo12:.LC52	//, tmp1679,
 // src/cpp/benchmark.cpp:38:                << Color::RESET << "\n";
-	mov	x21, x0	// _1523, tmp2510
+	mov	x22, x0	// _1523, tmp2507
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:38:                << Color::RESET << "\n";
-	adrp	x0, _ZN5Color5RESETE	// tmp2831,
-	ldr	x22, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.109_1524, RESET
+	adrp	x0, _ZN5Color5RESETE	// tmp2830,
+	ldr	x23, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.109_1524, RESET
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x22, .L880	// RESET.109_1524,
+	cbz	x23, .L884	// RESET.109_1524,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x22	//, RESET.109_1524
+	mov	x0, x23	//, RESET.109_1524
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2511
-	mov	x1, x22	//, RESET.109_1524
-	mov	x0, x21	//, _1523
+	mov	x2, x0	//, tmp2508
+	mov	x1, x23	//, RESET.109_1524
+	mov	x0, x22	//, _1523
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-.L394:
-	ldr	x1, [sp, 176]	//, %sfp
-	mov	x0, x21	//, _1523
+.L395:
+	ldr	x1, [sp, 168]	//, %sfp
+	mov	x0, x22	//, _1523
 	mov	x2, 1	//,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
@@ -5380,96 +5381,96 @@ main:
 	bl	_Znwm		//
 .LEHE108:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	movi	v31.2d, 0	// tmp1687
+	movi	v31.2d, 0	// tmp1690
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	mov	x1, x0	// tmp2512,
+	mov	x1, x0	// tmp2509,
 	mov	x0, 80	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	add	x2, x1, 32	// tmp2836, _1629,
+	add	x2, x1, 32	// tmp2835, _1629,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	str	x1, [sp, 152]	// _1629, %sfp
+	str	x1, [sp, 144]	// _1629, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	stp	q31, q31, [x1]	// tmp1687, tmp1687,* _1629
-	stp	q31, q31, [x2]	// tmp1687, tmp1687,
-	str	q31, [x1, 64]	// tmp1687, MEM <vector(2) double> [(double *)_1629 + 64B]
+	stp	q31, q31, [x1]	// tmp1690, tmp1690,* _1629
+	stp	q31, q31, [x2]	// tmp1690, tmp1690,
+	str	q31, [x1, 64]	// tmp1690, MEM <vector(2) double> [(double *)_1629 + 64B]
 .LEHB109:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
 	bl	_Znwm		//
 .LEHE109:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	movi	v31.2d, 0	// tmp1693
+	movi	v31.2d, 0	// tmp1696
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	mov	x3, x0	// _1650, tmp2513
+	mov	x3, x0	// _1650, tmp2510
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC81	// tmp1699,
+	adrp	x1, .LC82	// tmp1702,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	add	x4, x3, 32	// tmp2843, _1650,
+	add	x4, x3, 32	// tmp2842, _1650,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	add	x1, x1, :lo12:.LC81	//, tmp1699,
+	add	x1, x1, :lo12:.LC82	//, tmp1702,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:151: 	return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
-	str	x3, [sp, 160]	// _1650, %sfp
+	str	x3, [sp, 152]	// _1650, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 8	//,
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_construct.h:119:       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
-	stp	q31, q31, [x3]	// tmp1693, tmp1693,* _1650
-	stp	q31, q31, [x4]	// tmp1693, tmp1693,
-	str	q31, [x3, 64]	// tmp1693, MEM <vector(2) double> [(double *)_1650 + 64B]
+	stp	q31, q31, [x3]	// tmp1696, tmp1696,* _1650
+	stp	q31, q31, [x4]	// tmp1696, tmp1696,
+	str	q31, [x3, 64]	// tmp1696, MEM <vector(2) double> [(double *)_1650 + 64B]
 .LEHB110:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:43:     std::cout << "Running " << num_warmup << " warmup run" << (num_warmup == 1 ? "" : "s") << "...\n";
 	mov	w1, 2	//,
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC82	// tmp1705,
+	adrp	x1, .LC83	// tmp1708,
 	mov	x2, 11	//,
-	add	x1, x1, :lo12:.LC82	//, tmp1705,
+	add	x1, x1, :lo12:.LC83	//, tmp1708,
 // src/cpp/benchmark.cpp:43:     std::cout << "Running " << num_warmup << " warmup run" << (num_warmup == 1 ? "" : "s") << "...\n";
-	mov	x21, x0	// _1527, tmp2514
+	mov	x22, x0	// _1527, tmp2511
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x0, .LC83	// tmp2345,
+	adrp	x0, .LC84	// tmp2360,
 	mov	x2, 1	//,
-	add	x0, x0, :lo12:.LC83	// tmp2337, tmp2345,
-	mov	x1, x0	// tmp2337, tmp2337
-	mov	x0, x21	//, _1527
-	str	x1, [sp, 136]	// tmp2337, %sfp
+	add	x0, x0, :lo12:.LC84	// tmp2353, tmp2360,
+	mov	x1, x0	// tmp2353, tmp2353
+	mov	x0, x22	//, _1527
+	str	x1, [sp, 128]	// tmp2353, %sfp
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC84	// tmp2346,
-	mov	x0, x21	//, _1527
-	add	x1, x1, :lo12:.LC84	// tmp2338, tmp2346,
+	adrp	x1, .LC85	// tmp2361,
+	mov	x0, x22	//, _1527
+	add	x1, x1, :lo12:.LC85	// tmp2354, tmp2361,
 	mov	x2, 4	//,
-	str	x1, [sp, 144]	// tmp2338, %sfp
+	str	x1, [sp, 136]	// tmp2354, %sfp
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	mov	w26, 2	// ivtmp_5350,
+	mov	w27, 2	// ivtmp_5344,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	cntw	x21		// tmp2431
+	cntw	x22		// tmp2428
 	.p2align 5,,15
-.L402:
+.L403:
 // src/cpp/benchmark.cpp:45:         f(ctx);
-	mov	x0, x23	//, tmp2351
-	blr	x24		// _104
+	mov	x0, x24	//, tmp2344
+	blr	x25		// _104
 // src/cpp/benchmark.cpp:46:         benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	ldr	x0, [sp, 1288]	// _1530, MEM[(struct CNNContext *)_2139].final_logits
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	adrp	x4, .LANCHOR1	// tmp2433,
+	adrp	x4, .LANCHOR1	// tmp2430,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_iterator.h:1068:       : _M_current(__i) { }
 	ldp	x3, x0, [x0]	// _1531, _1532,* _1530
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
 	cmp	x3, x0	// _1531, _1532
-	beq	.L573		//,
-	sub	x2, x0, #4	// _5155, _1532,
+	beq	.L577		//,
+	sub	x2, x0, #4	// _5149, _1532,
 	mov	x0, x3	// ivtmp.782, _1531
-	sub	x2, x2, x3	// _5100, _5155, _1531
-	lsr	x1, x2, 2	// _5099, _5100,
-	add	x1, x1, 1	// niters.602, _5099,
-	cmp	x2, 56	// _5100,
-	bls	.L574		//,
+	sub	x2, x2, x3	// _5094, _5149, _1531
+	lsr	x1, x2, 2	// _5093, _5094,
+	add	x1, x1, 1	// niters.602, _5093,
+	cmp	x2, 56	// _5094,
+	bls	.L578		//,
 	movi	v26.2d, 0	// vect_s_1383.606
-	lsr	x2, x1, 4	// bnd.603_5084, niters.602,
-	add	x2, x3, x2, lsl 6	// _5209, _1531, bnd.603_5084,
+	lsr	x2, x1, 4	// bnd.603_5078, niters.602,
+	add	x2, x3, x2, lsl 6	// _5202, _1531, bnd.603_5078,
 	mov	v24.16b, v26.16b	// vect_s_1537.614, vect_s_1383.606
 	mov	v23.16b, v26.16b	// vect_s_1537.614, vect_s_1383.606
 	mov	v22.16b, v26.16b	// vect_s_1537.614, vect_s_1383.606
@@ -5478,230 +5479,243 @@ main:
 	mov	v27.16b, v26.16b	// vect_s_1537.614, vect_s_1383.606
 	mov	v20.16b, v26.16b	// vect_s_1537.614, vect_s_1383.606
 	.p2align 5,,15
-.L397:
+.L398:
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ldp	q28, q29, [x0]	// MEM <const vector(4) float> [(const float &)_5136], MEM <const vector(4) float> [(const float &)_5136 + 16],* ivtmp.782
-	ldp	q30, q31, [x0, 32]	// MEM <const vector(4) float> [(const float &)_5136 + 32], MEM <const vector(4) float> [(const float &)_5136 + 48],
+	ldp	q28, q29, [x0]	// MEM <const vector(4) float> [(const float &)_5128], MEM <const vector(4) float> [(const float &)_5128 + 16],* ivtmp.782
+	ldp	q30, q31, [x0, 32]	// MEM <const vector(4) float> [(const float &)_5128 + 32], MEM <const vector(4) float> [(const float &)_5128 + 48],
 	add	x0, x0, 64	// ivtmp.782, ivtmp.782,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvtl	v19.2d, v28.2s	// vect__1535.613_5061, MEM <const vector(4) float> [(const float &)_5136]
-	fcvtl	v17.2d, v29.2s	// vect__1535.613_5059, MEM <const vector(4) float> [(const float &)_5136 + 16]
-	fcvtl2	v28.2d, v28.4s	// vect__1535.613_5060, MEM <const vector(4) float> [(const float &)_5136]
-	fcvtl2	v29.2d, v29.4s	// vect__1535.613_5058, MEM <const vector(4) float> [(const float &)_5136 + 16]
-	fcvtl	v18.2d, v30.2s	// vect__1535.613_5057, MEM <const vector(4) float> [(const float &)_5136 + 32]
-	fcvtl2	v30.2d, v30.4s	// vect__1535.613_5056, MEM <const vector(4) float> [(const float &)_5136 + 32]
+	fcvtl	v19.2d, v28.2s	// vect__1535.613_5055, MEM <const vector(4) float> [(const float &)_5128]
+	fcvtl	v17.2d, v29.2s	// vect__1535.613_5053, MEM <const vector(4) float> [(const float &)_5128 + 16]
+	fcvtl2	v28.2d, v28.4s	// vect__1535.613_5054, MEM <const vector(4) float> [(const float &)_5128]
+	fcvtl2	v29.2d, v29.4s	// vect__1535.613_5052, MEM <const vector(4) float> [(const float &)_5128 + 16]
+	fcvtl	v18.2d, v30.2s	// vect__1535.613_5051, MEM <const vector(4) float> [(const float &)_5128 + 32]
+	fcvtl2	v30.2d, v30.4s	// vect__1535.613_5050, MEM <const vector(4) float> [(const float &)_5128 + 32]
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	v20.2d, v20.2d, v19.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5061
+	fadd	v20.2d, v20.2d, v19.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5055
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvtl	v19.2d, v31.2s	// vect__1535.613_5055, MEM <const vector(4) float> [(const float &)_5136 + 48]
-	fcvtl2	v31.2d, v31.4s	// vect__1535.613_5054, MEM <const vector(4) float> [(const float &)_5136 + 48]
+	fcvtl	v19.2d, v31.2s	// vect__1535.613_5049, MEM <const vector(4) float> [(const float &)_5128 + 48]
+	fcvtl2	v31.2d, v31.4s	// vect__1535.613_5048, MEM <const vector(4) float> [(const float &)_5128 + 48]
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	v27.2d, v27.2d, v28.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5060
-	fadd	v21.2d, v21.2d, v17.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5059
-	fadd	v25.2d, v25.2d, v29.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5058
-	fadd	v22.2d, v22.2d, v18.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5057
-	fadd	v23.2d, v23.2d, v30.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5056
-	fadd	v24.2d, v24.2d, v19.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5055
-	fadd	v26.2d, v26.2d, v31.2d	// vect_s_1383.606, vect_s_1383.606, vect__1535.613_5054
-	cmp	x0, x2	// ivtmp.782, _5209
-	bne	.L397		//,
-	fadd	v30.2d, v27.2d, v20.2d	// _4999, vect_s_1537.614, vect_s_1537.614
+	fadd	v27.2d, v27.2d, v28.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5054
+	fadd	v21.2d, v21.2d, v17.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5053
+	fadd	v25.2d, v25.2d, v29.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5052
+	fadd	v22.2d, v22.2d, v18.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5051
+	fadd	v23.2d, v23.2d, v30.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5050
+	fadd	v24.2d, v24.2d, v19.2d	// vect_s_1537.614, vect_s_1537.614, vect__1535.613_5049
+	fadd	v26.2d, v26.2d, v31.2d	// vect_s_1383.606, vect_s_1383.606, vect__1535.613_5048
+	cmp	x0, x2	// ivtmp.782, _5202
+	bne	.L398		//,
+	fadd	v30.2d, v27.2d, v20.2d	// _4993, vect_s_1537.614, vect_s_1537.614
 	and	x2, x1, -16	// niters_vector_mult_vf.604, niters.602,
 	fadd	v25.2d, v25.2d, v21.2d	// _5440, vect_s_1537.614, vect_s_1537.614
-	fadd	v30.2d, v30.2d, v22.2d	// _5150, _4999, vect_s_1537.614
-	fadd	v25.2d, v25.2d, v23.2d	// _5151, _5440, vect_s_1537.614
-	fadd	v30.2d, v30.2d, v24.2d	// _5152, _5150, vect_s_1537.614
-	fadd	v25.2d, v25.2d, v26.2d	// _5153, _5151, vect_s_1383.606
-	fadd	v30.2d, v30.2d, v25.2d	// _5031, _5152, _5153
-	faddp	d30, v30.2d	// s, _5031
+	fadd	v30.2d, v30.2d, v22.2d	// _5144, _4993, vect_s_1537.614
+	fadd	v25.2d, v25.2d, v23.2d	// _5145, _5440, vect_s_1537.614
+	fadd	v30.2d, v30.2d, v24.2d	// _5146, _5144, vect_s_1537.614
+	fadd	v25.2d, v25.2d, v26.2d	// _5147, _5145, vect_s_1383.606
+	fadd	v30.2d, v30.2d, v25.2d	// _5025, _5146, _5147
+	faddp	d30, v30.2d	// s, _5025
 	tst	x1, 15	// niters.602,
-	beq	.L395		//,
-.L396:
+	beq	.L396		//,
+.L397:
 	add	x3, x3, x2, lsl 2	// vectp.620, _1531, niters_vector_mult_vf.604,
 // src/cpp/include/utils.h:129:     double s = 0.0;
-	mov	x0, 0	// ivtmp_4995,
+	mov	x0, 0	// ivtmp_4989,
 	sub	x1, x1, x2	// bnd.617, niters.602, niters_vector_mult_vf.604
-	ptrue	p5.b, all	// tmp2430
-	mov	z29.d, #0	// vect_s_5097.618
-	whilelo	p7.s, xzr, x1	// next_mask_4993,, bnd.617
-.L400:
+	ptrue	p5.b, all	// tmp2427
+	mov	z29.d, #0	// vect_s_5091.618
+	whilelo	p7.s, xzr, x1	// next_mask_4987,, bnd.617
+.L401:
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	punpklo	p6.h, p7.b	// loop_mask_5003, next_mask_4993
+	punpklo	p6.h, p7.b	// loop_mask_4997, next_mask_4987
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ld1w	z31.s, p7/z, [x3, x0, lsl 2]	// vect_v_5096.621, next_mask_4993,* vectp.620
+	ld1w	z31.s, p7/z, [x3, x0, lsl 2]	// vect_v_5090.621, next_mask_4987,* vectp.620
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	add	x0, x0, x21	// ivtmp_4995, ivtmp_4995, tmp2431
+	add	x0, x0, x22	// ivtmp_4989, ivtmp_4989, tmp2428
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	zip1	z28.s, z31.s, z31.s	// tmp1739, vect_v_5096.621, vect_v_5096.621
-	zip2	z31.s, z31.s, z31.s	// tmp1743, vect_v_5096.621, vect_v_5096.621
-	fcvt	z28.d, p5/m, z28.s	// vect__5095.622_5005, tmp2430, tmp1739
-	fcvt	z31.d, p5/m, z31.s	// vect__5095.622_5004, tmp2430, tmp1743
+	zip1	z28.s, z31.s, z31.s	// tmp1742, vect_v_5090.621, vect_v_5090.621
+	zip2	z31.s, z31.s, z31.s	// tmp1746, vect_v_5090.621, vect_v_5090.621
+	fcvt	z28.d, p5/m, z28.s	// vect__5089.622_4999, tmp2427, tmp1742
+	fcvt	z31.d, p5/m, z31.s	// vect__5089.622_4998, tmp2427, tmp1746
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	z29.d, p6/m, z29.d, z28.d	// vect_s_5094.623, loop_mask_5003, vect__5095.622_5005
-	punpkhi	p6.h, p7.b	// loop_mask_5002, next_mask_4993
-	whilelo	p7.s, x0, x1	// next_mask_4993, ivtmp_4995, bnd.617
-	fadd	z29.d, p6/m, z29.d, z31.d	// vect_s_5097.618, loop_mask_5002, vect__5095.622_5004
-	b.any	.L400	//,
-	faddv	d29, p5, z29.d	// _4998, tmp2430, vect_s_5097.618
-	fadd	d30, d30, d29	// s, s, _4998
-.L395:
+	fadd	z29.d, p6/m, z29.d, z28.d	// vect_s_5088.623, loop_mask_4997, vect__5089.622_4999
+	punpkhi	p6.h, p7.b	// loop_mask_4996, next_mask_4987
+	whilelo	p7.s, x0, x1	// next_mask_4987, ivtmp_4989, bnd.617
+	fadd	z29.d, p6/m, z29.d, z31.d	// vect_s_5091.618, loop_mask_4996, vect__5089.622_4998
+	b.any	.L401	//,
+	faddv	d29, p5, z29.d	// _4992, tmp2427, vect_s_5091.618
+	fadd	d30, d30, d29	// s, s, _4992
+.L396:
 // src/cpp/benchmark.cpp:46:         benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	ldr	d31, [x4, #:lo12:.LANCHOR1]	// benchmark_global_sink.112_1539, benchmark_global_sink
-	add	x22, x4, :lo12:.LANCHOR1	// tmp2329, tmp2433,
+	add	x23, x4, :lo12:.LANCHOR1	// tmp2349, tmp2430,
 	fadd	d30, d30, d31	// _1540, s, benchmark_global_sink.112_1539
 	str	d30, [x4, #:lo12:.LANCHOR1]	// _1540, benchmark_global_sink
 // src/cpp/benchmark.cpp:44:     for (int w = 0; w < num_warmup; ++w) {
-	cmp	w26, 1	// ivtmp_5350,
-	beq	.L881		//,
-	mov	w26, 1	// ivtmp_5350,
-	b	.L402		//
-.L863:
+	cmp	w27, 1	// ivtmp_5344,
+	beq	.L885		//,
+	mov	w27, 1	// ivtmp_5344,
+	b	.L403		//
+.L867:
 // src/cpp/benchmark.cpp:92:             verbose = true;
 	mov	w0, 1	// verbose,
-	str	w0, [sp, 216]	// verbose, %sfp
+	str	w0, [sp, 208]	// verbose, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x25, x28	// pretmp_5659, tmp2355
+	cmp	x26, x20	// pretmp_5671, tmp2347
 	bne	.L309		//,
 	b	.L308		//
-.L872:
-	mov	x0, x28	// _1490, tmp2355
+.L876:
+	mov	x0, x20	// _1490, tmp2347
 .L374:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x24	//, _1486
-	mov	x1, x25	//, _95
+	mov	x2, x25	//, _1486
+	mov	x1, x26	//, _95
 	bl	memcpy		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x24, [sp, 352]	// _1486, MEM[(long unsigned int *)_2140]
+	ldr	x25, [sp, 336]	// _1486, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x2, [sp, 1304]	// pretmp_5537, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
 	b	.L376		//
+.L882:
+	mov	x0, x20	// _1508, tmp2347
+.L386:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+	mov	x2, x23	//, _1504
+	mov	x1, x22	//, _101
+	bl	memcpy		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
+	ldr	x23, [sp, 336]	// _1504, MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
+	ldr	x2, [sp, 1304]	// pretmp_5543, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+	b	.L388		//
 	.p2align 2,,3
-.L881:
+.L885:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC85	// tmp1754,
+	adrp	x1, .LC86	// tmp1757,
 	mov	x2, 26	//,
-	add	x1, x1, :lo12:.LC85	//, tmp1754,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC86	//, tmp1757,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:50:               << (num_runs == 1 ? "" : "s") << "...\n";
 	mov	w1, 10	//,
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC86	// tmp1760,
+	adrp	x1, .LC87	// tmp1763,
 	mov	x2, 14	//,
-	add	x1, x1, :lo12:.LC86	//, tmp1760,
+	add	x1, x1, :lo12:.LC87	//, tmp1763,
 // src/cpp/benchmark.cpp:50:               << (num_runs == 1 ? "" : "s") << "...\n";
-	mov	x21, x0	// _1543, tmp2515
+	mov	x22, x0	// _1543, tmp2512
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	ldr	x1, [sp, 136]	//, %sfp
+	ldr	x1, [sp, 128]	//, %sfp
 	mov	x2, 1	//,
-	mov	x0, x21	//, _1543
+	mov	x0, x22	//, _1543
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	ldr	x1, [sp, 144]	//, %sfp
-	mov	x0, x21	//, _1543
+	ldr	x1, [sp, 136]	//, %sfp
+	mov	x0, x22	//, _1543
 	mov	x2, 4	//,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	mov	x21, 0	// ivtmp.768,
+	mov	x22, 0	// ivtmp.768,
 	.p2align 5,,15
-.L411:
+.L412:
 // src/cpp/include/timing.h:139:     ioctl(ctx->fd, PERF_EVENT_IOC_RESET, 0);
 	mov	w2, 0	//,
 	mov	x1, 9219	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:140:     ioctl(ctx->fd, PERF_EVENT_IOC_ENABLE, 0);
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	mov	w2, 0	//,
 	mov	x1, 9216	//,
 	bl	ioctl		//
 // src/cpp/include/timing.h:40:     __asm__ volatile("" ::: "memory");
 // src/cpp/include/timing.h:58:     clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
 	mov	w0, 4	//,
-	mov	x1, x19	//, tmp2354
+	mov	x1, x19	//, tmp2346
 	bl	clock_gettime		//
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
 	ldr	x0, [sp, 1304]	// MEM[(struct timespec *)_1195].tv_sec, MEM[(struct timespec *)_1195].tv_sec
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	ldr	x26, [sp, 1312]	// _1670, MEM[(struct timespec *)_1195].tv_nsec
+	ldr	x27, [sp, 1312]	// _1670, MEM[(struct timespec *)_1195].tv_nsec
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	mul	x0, x0, x25	// _1668, MEM[(struct timespec *)_1195].tv_sec, tmp2434
-	str	x0, [sp, 136]	// _1668, %sfp
+	mul	x0, x0, x26	// _1668, MEM[(struct timespec *)_1195].tv_sec, tmp2431
+	str	x0, [sp, 128]	// _1668, %sfp
 // src/cpp/include/timing.h:40:     __asm__ volatile("" ::: "memory");
 // src/cpp/benchmark.cpp:58:         f(ctx);
-	mov	x0, x23	//, tmp2351
-	blr	x24		// _104
+	mov	x0, x24	//, tmp2344
+	blr	x25		// _104
 // src/cpp/include/timing.h:40:     __asm__ volatile("" ::: "memory");
 // src/cpp/include/timing.h:58:     clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
 	mov	w0, 4	//,
-	mov	x1, x19	//, tmp2354
+	mov	x1, x19	//, tmp2346
 	bl	clock_gettime		//
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
 	ldr	x0, [sp, 1304]	// MEM[(struct timespec *)_1195].tv_sec, MEM[(struct timespec *)_1195].tv_sec
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
 	ldr	x3, [sp, 1312]	// _1683, MEM[(struct timespec *)_1195].tv_nsec
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	mul	x0, x0, x25	// _1681, MEM[(struct timespec *)_1195].tv_sec, tmp2434
+	mul	x0, x0, x26	// _1681, MEM[(struct timespec *)_1195].tv_sec, tmp2431
 // src/cpp/include/timing.h:62:     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
-	str	x3, [sp, 144]	// _1683, %sfp
-	sub	x26, x0, x26	// _5044, _1681, _1670
+	str	x3, [sp, 136]	// _1683, %sfp
+	sub	x27, x0, x27	// _5038, _1681, _1670
 // src/cpp/include/timing.h:40:     __asm__ volatile("" ::: "memory");
 // src/cpp/include/timing.h:144:     ioctl(ctx->fd, PERF_EVENT_IOC_DISABLE, 0);
 	mov	w2, 0	//,
 	mov	x1, 9217	//,
-	mov	w0, w20	//, _1334
+	mov	w0, w21	//, _1334
 	bl	ioctl		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	mov	x1, x19	//, tmp2354
-	mov	w0, w20	//, _1334
+	mov	x1, x19	//, tmp2346
+	mov	w0, w21	//, _1334
 	mov	x2, 8	//,
 	bl	read		//
 // src/cpp/include/timing.h:146:     if (read(ctx->fd, &val, sizeof(val)) == -1) {
-	cmn	x0, #1	// tmp2516,
-	ldr	x3, [sp, 144]	// _1683, %sfp
-	movi	d31, #0	// _5544
-	beq	.L403		//,
+	cmn	x0, #1	// tmp2513,
+	ldr	x3, [sp, 136]	// _1683, %sfp
+	movi	d31, #0	// _5548
+	beq	.L404		//,
 // src/cpp/benchmark.cpp:64:         cycles_arr[i] = (double)cycles;
 	ldr	d31, [sp, 1304]	// MEM[(long unsigned int *)_1195], MEM[(long unsigned int *)_1195]
-	ucvtf	d31, d31	// _5544, MEM[(long unsigned int *)_1195]
-.L403:
+	ucvtf	d31, d31	// _5548, MEM[(long unsigned int *)_1195]
+.L404:
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	ldr	x0, [sp, 136]	// _1668, %sfp
+	ldr	x0, [sp, 128]	// _1668, %sfp
 // src/cpp/benchmark.cpp:64:         cycles_arr[i] = (double)cycles;
-	ldr	x1, [sp, 152]	// _1629, %sfp
+	ldr	x1, [sp, 144]	// _1629, %sfp
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	sub	x3, x3, x0	// _5045, _1683, _1668
+	sub	x3, x3, x0	// _5039, _1683, _1668
 // src/cpp/benchmark.cpp:66:         benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	ldr	x0, [sp, 1288]	// _1560, MEM[(struct CNNContext *)_2139].final_logits
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	add	x3, x3, x26	// _1549, _5045, _5044
+	add	x3, x3, x27	// _1549, _5039, _5038
 // src/cpp/benchmark.cpp:64:         cycles_arr[i] = (double)cycles;
-	str	d31, [x1, x21]	// _5544, MEM[(value_type &)_1629 + ivtmp.768_5317 * 1]
+	str	d31, [x1, x22]	// _5548, MEM[(value_type &)_1629 + ivtmp.768_5301 * 1]
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
 	ucvtf	d31, x3	// _1550, _1549
 // src/cpp/benchmark.cpp:63:         sec_arr[i] = get_elapsed_os_sec(&timer_ctx);
-	ldr	x1, [sp, 160]	// _1650, %sfp
+	ldr	x1, [sp, 152]	// _1650, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_iterator.h:1068:       : _M_current(__i) { }
 	ldp	x3, x0, [x0]	// _1561, _1562,* _1560
 // src/cpp/include/timing.h:87:     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
-	fmul	d31, d31, d15	// _1551, _1550, tmp2435
+	fmul	d31, d31, d15	// _1551, _1550, tmp2432
 // src/cpp/benchmark.cpp:63:         sec_arr[i] = get_elapsed_os_sec(&timer_ctx);
-	str	d31, [x1, x21]	// _1551, MEM[(value_type &)_1650 + ivtmp.768_5317 * 1]
+	str	d31, [x1, x22]	// _1551, MEM[(value_type &)_1650 + ivtmp.768_5301 * 1]
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
 	cmp	x3, x0	// _1561, _1562
-	beq	.L577		//,
-	sub	x2, x0, #4	// _5043, _1562,
+	beq	.L581		//,
+	sub	x2, x0, #4	// _5037, _1562,
 	mov	x0, x3	// ivtmp.759, _1561
-	sub	x2, x2, x3	// _5212, _5043, _1561
-	lsr	x1, x2, 2	// _5211, _5212,
-	add	x1, x1, 1	// niters.579, _5211,
-	cmp	x2, 56	// _5212,
-	bls	.L578		//,
+	sub	x2, x2, x3	// _5206, _5037, _1561
+	lsr	x1, x2, 2	// _5205, _5206,
+	add	x1, x1, 1	// niters.579, _5205,
+	cmp	x2, 56	// _5206,
+	bls	.L582		//,
 	movi	v26.2d, 0	// vect_s_1361.583
-	lsr	x2, x1, 4	// bnd.580_5196, niters.579,
-	add	x2, x3, x2, lsl 6	// _5253, _1561, bnd.580_5196,
+	lsr	x2, x1, 4	// bnd.580_5190, niters.579,
+	add	x2, x3, x2, lsl 6	// _5312, _1561, bnd.580_5190,
 	mov	v24.16b, v26.16b	// vect_s_1567.591, vect_s_1361.583
 	mov	v23.16b, v26.16b	// vect_s_1567.591, vect_s_1361.583
 	mov	v22.16b, v26.16b	// vect_s_1567.591, vect_s_1361.583
@@ -5710,393 +5724,453 @@ main:
 	mov	v27.16b, v26.16b	// vect_s_1567.591, vect_s_1361.583
 	mov	v20.16b, v26.16b	// vect_s_1567.591, vect_s_1361.583
 	.p2align 5,,15
-.L406:
+.L407:
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ldp	q28, q29, [x0]	// MEM <const vector(4) float> [(const float &)_1505], MEM <const vector(4) float> [(const float &)_1505 + 16],* ivtmp.759
-	ldp	q30, q31, [x0, 32]	// MEM <const vector(4) float> [(const float &)_1505 + 32], MEM <const vector(4) float> [(const float &)_1505 + 48],
+	ldp	q28, q29, [x0]	// MEM <const vector(4) float> [(const float &)_716], MEM <const vector(4) float> [(const float &)_716 + 16],* ivtmp.759
+	ldp	q30, q31, [x0, 32]	// MEM <const vector(4) float> [(const float &)_716 + 32], MEM <const vector(4) float> [(const float &)_716 + 48],
 	add	x0, x0, 64	// ivtmp.759, ivtmp.759,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvtl	v19.2d, v28.2s	// vect__1565.590_5173, MEM <const vector(4) float> [(const float &)_1505]
-	fcvtl	v17.2d, v29.2s	// vect__1565.590_5171, MEM <const vector(4) float> [(const float &)_1505 + 16]
-	fcvtl2	v28.2d, v28.4s	// vect__1565.590_5172, MEM <const vector(4) float> [(const float &)_1505]
-	fcvtl2	v29.2d, v29.4s	// vect__1565.590_5170, MEM <const vector(4) float> [(const float &)_1505 + 16]
-	fcvtl	v18.2d, v30.2s	// vect__1565.590_5169, MEM <const vector(4) float> [(const float &)_1505 + 32]
-	fcvtl2	v30.2d, v30.4s	// vect__1565.590_5168, MEM <const vector(4) float> [(const float &)_1505 + 32]
+	fcvtl	v19.2d, v28.2s	// vect__1565.590_5167, MEM <const vector(4) float> [(const float &)_716]
+	fcvtl	v17.2d, v29.2s	// vect__1565.590_5165, MEM <const vector(4) float> [(const float &)_716 + 16]
+	fcvtl2	v28.2d, v28.4s	// vect__1565.590_5166, MEM <const vector(4) float> [(const float &)_716]
+	fcvtl2	v29.2d, v29.4s	// vect__1565.590_5164, MEM <const vector(4) float> [(const float &)_716 + 16]
+	fcvtl	v18.2d, v30.2s	// vect__1565.590_5163, MEM <const vector(4) float> [(const float &)_716 + 32]
+	fcvtl2	v30.2d, v30.4s	// vect__1565.590_5162, MEM <const vector(4) float> [(const float &)_716 + 32]
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	v20.2d, v20.2d, v19.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5173
+	fadd	v20.2d, v20.2d, v19.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5167
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fcvtl	v19.2d, v31.2s	// vect__1565.590_5167, MEM <const vector(4) float> [(const float &)_1505 + 48]
-	fcvtl2	v31.2d, v31.4s	// vect__1565.590_5166, MEM <const vector(4) float> [(const float &)_1505 + 48]
+	fcvtl	v19.2d, v31.2s	// vect__1565.590_5161, MEM <const vector(4) float> [(const float &)_716 + 48]
+	fcvtl2	v31.2d, v31.4s	// vect__1565.590_5160, MEM <const vector(4) float> [(const float &)_716 + 48]
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	v27.2d, v27.2d, v28.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5172
-	fadd	v21.2d, v21.2d, v17.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5171
-	fadd	v25.2d, v25.2d, v29.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5170
-	fadd	v22.2d, v22.2d, v18.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5169
-	fadd	v23.2d, v23.2d, v30.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5168
-	fadd	v24.2d, v24.2d, v19.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5167
-	fadd	v26.2d, v26.2d, v31.2d	// vect_s_1361.583, vect_s_1361.583, vect__1565.590_5166
-	cmp	x2, x0	// _5253, ivtmp.759
-	bne	.L406		//,
+	fadd	v27.2d, v27.2d, v28.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5166
+	fadd	v21.2d, v21.2d, v17.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5165
+	fadd	v25.2d, v25.2d, v29.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5164
+	fadd	v22.2d, v22.2d, v18.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5163
+	fadd	v23.2d, v23.2d, v30.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5162
+	fadd	v24.2d, v24.2d, v19.2d	// vect_s_1567.591, vect_s_1567.591, vect__1565.590_5161
+	fadd	v26.2d, v26.2d, v31.2d	// vect_s_1361.583, vect_s_1361.583, vect__1565.590_5160
+	cmp	x0, x2	// ivtmp.759, _5312
+	bne	.L407		//,
 	fadd	v30.2d, v27.2d, v20.2d	// _1388, vect_s_1567.591, vect_s_1567.591
 	and	x5, x1, -16	// niters_vector_mult_vf.581, niters.579,
 	fadd	v25.2d, v25.2d, v21.2d	// _1381, vect_s_1567.591, vect_s_1567.591
-	fadd	v30.2d, v30.2d, v22.2d	// _5038, _1388, vect_s_1567.591
-	fadd	v25.2d, v25.2d, v23.2d	// _5039, _1381, vect_s_1567.591
-	fadd	v30.2d, v30.2d, v24.2d	// _5040, _5038, vect_s_1567.591
-	fadd	v25.2d, v25.2d, v26.2d	// _5041, _5039, vect_s_1361.583
-	fadd	v30.2d, v30.2d, v25.2d	// _5143, _5040, _5041
-	faddp	d30, v30.2d	// s, _5143
+	fadd	v30.2d, v30.2d, v22.2d	// _5032, _1388, vect_s_1567.591
+	fadd	v25.2d, v25.2d, v23.2d	// _5033, _1381, vect_s_1567.591
+	fadd	v30.2d, v30.2d, v24.2d	// _5034, _5032, vect_s_1567.591
+	fadd	v25.2d, v25.2d, v26.2d	// _5035, _5033, vect_s_1361.583
+	fadd	v30.2d, v30.2d, v25.2d	// _5137, _5034, _5035
+	faddp	d30, v30.2d	// s, _5137
 	tst	x1, 15	// niters.579,
-	beq	.L404		//,
-.L405:
+	beq	.L405		//,
+.L406:
 	add	x3, x3, x5, lsl 2	// vectp.597, _1561, niters_vector_mult_vf.581,
 // src/cpp/include/utils.h:129:     double s = 0.0;
-	mov	x0, 0	// ivtmp_5107,
+	mov	x0, 0	// ivtmp_5101,
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	cntw	x2		// tmp1816
+	cntw	x2		// tmp1819
 // src/cpp/include/utils.h:129:     double s = 0.0;
-	mov	z29.d, #0	// vect_s_5209.595
+	mov	z29.d, #0	// vect_s_5203.595
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ptrue	p5.b, all	// tmp1809
+	ptrue	p5.b, all	// tmp1812
 	sub	x1, x1, x5	// bnd.594, niters.579, niters_vector_mult_vf.581
-	whilelo	p7.s, xzr, x1	// next_mask_5105,, bnd.594
-.L409:
+	whilelo	p7.s, xzr, x1	// next_mask_5099,, bnd.594
+.L410:
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	punpklo	p6.h, p7.b	// loop_mask_5115, next_mask_5105
+	punpklo	p6.h, p7.b	// loop_mask_5109, next_mask_5099
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	ld1w	z31.s, p7/z, [x3, x0, lsl 2]	// vect_v_5208.598, next_mask_5105,* vectp.597
+	ld1w	z31.s, p7/z, [x3, x0, lsl 2]	// vect_v_5202.598, next_mask_5099,* vectp.597
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	add	x0, x0, x2	// ivtmp_5107, ivtmp_5107, tmp1816
+	add	x0, x0, x2	// ivtmp_5101, ivtmp_5101, tmp1819
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	zip1	z28.s, z31.s, z31.s	// tmp1808, vect_v_5208.598, vect_v_5208.598
-	zip2	z31.s, z31.s, z31.s	// tmp1812, vect_v_5208.598, vect_v_5208.598
-	fcvt	z28.d, p5/m, z28.s	// vect__5207.599_5117, tmp1809, tmp1808
-	fcvt	z31.d, p5/m, z31.s	// vect__5207.599_5116, tmp1809, tmp1812
+	zip1	z28.s, z31.s, z31.s	// tmp1811, vect_v_5202.598, vect_v_5202.598
+	zip2	z31.s, z31.s, z31.s	// tmp1815, vect_v_5202.598, vect_v_5202.598
+	fcvt	z28.d, p5/m, z28.s	// vect__5201.599_5111, tmp1812, tmp1811
+	fcvt	z31.d, p5/m, z31.s	// vect__5201.599_5110, tmp1812, tmp1815
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	fadd	z29.d, p6/m, z29.d, z28.d	// vect_s_5206.600, loop_mask_5115, vect__5207.599_5117
-	punpkhi	p6.h, p7.b	// loop_mask_5114, next_mask_5105
-	whilelo	p7.s, x0, x1	// next_mask_5105, ivtmp_5107, bnd.594
-	fadd	z29.d, p6/m, z29.d, z31.d	// vect_s_5209.595, loop_mask_5114, vect__5207.599_5116
-	b.any	.L409	//,
-	faddv	d29, p5, z29.d	// _5110, tmp1809, vect_s_5209.595
-	fadd	d30, d30, d29	// s, s, _5110
-.L404:
+	fadd	z29.d, p6/m, z29.d, z28.d	// vect_s_5200.600, loop_mask_5109, vect__5201.599_5111
+	punpkhi	p6.h, p7.b	// loop_mask_5108, next_mask_5099
+	whilelo	p7.s, x0, x1	// next_mask_5099, ivtmp_5101, bnd.594
+	fadd	z29.d, p6/m, z29.d, z31.d	// vect_s_5203.595, loop_mask_5108, vect__5201.599_5110
+	b.any	.L410	//,
+	faddv	d29, p5, z29.d	// _5104, tmp1812, vect_s_5203.595
+	fadd	d30, d30, d29	// s, s, _5104
+.L405:
 // src/cpp/benchmark.cpp:66:         benchmark_global_sink += checksum_tensor(ctx.final_logits);
-	ldr	d31, [x22]	// benchmark_global_sink.115_1569, benchmark_global_sink
+	ldr	d31, [x23]	// benchmark_global_sink.115_1569, benchmark_global_sink
 // src/cpp/benchmark.cpp:52:     for (int i = 0; i < num_runs; ++i) {
-	add	x21, x21, 8	// ivtmp.768, ivtmp.768,
+	add	x22, x22, 8	// ivtmp.768, ivtmp.768,
 // src/cpp/benchmark.cpp:66:         benchmark_global_sink += checksum_tensor(ctx.final_logits);
 	fadd	d30, d30, d31	// _1570, s, benchmark_global_sink.115_1569
-	str	d30, [x22]	// _1570, benchmark_global_sink
+	str	d30, [x23]	// _1570, benchmark_global_sink
 // src/cpp/benchmark.cpp:52:     for (int i = 0; i < num_runs; ++i) {
-	cmp	x21, 80	// ivtmp.768,
-	bne	.L411		//,
+	cmp	x22, 80	// ivtmp.768,
+	bne	.L412		//,
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
-	ldr	x22, [sp, 152]	// _1629, %sfp
-	adrp	x21, _ZL11_cmp_doublePKvS0_	// tmp2325,
+	ldr	x23, [sp, 144]	// _1629, %sfp
+	adrp	x22, _ZL11_cmp_doublePKvS0_	// tmp2340,
 	mov	x2, 8	//,
-	add	x21, x21, :lo12:_ZL11_cmp_doublePKvS0_	// tmp2374, tmp2325,
+	add	x22, x22, :lo12:_ZL11_cmp_doublePKvS0_	// tmp2331, tmp2340,
 	mov	x1, 10	//,
-	mov	x3, x21	//, tmp2374
-	mov	x0, x22	//, _1629
+	mov	x3, x22	//, tmp2331
+	mov	x0, x23	//, _1629
 	bl	qsort		//
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	add	x4, x22, 32	// tmp2854, _1629,
+	add	x4, x23, 32	// tmp2853, _1629,
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmov	d31, 5.0e-1	// tmp1827,
+	fmov	d31, 5.0e-1	// tmp1830,
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
-	mov	x3, x21	//, tmp2374
-	ldr	x21, [sp, 160]	// _1650, %sfp
+	mov	x3, x22	//, tmp2331
+	ldr	x22, [sp, 152]	// _1650, %sfp
 	mov	x2, 8	//,
 	mov	x1, 10	//,
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
 	ldp	d12, d30, [x4]	// MEM[(double *)_1629 + 32B], MEM[(double *)_1629 + 40B],
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
-	mov	x0, x21	//, _1650
+	mov	x0, x22	//, _1650
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
 	fadd	d12, d12, d30	// _1702, MEM[(double *)_1629 + 32B], MEM[(double *)_1629 + 40B]
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmul	d12, d12, d31	// _1703, _1702, tmp1827
+	fmul	d12, d12, d31	// _1703, _1702, tmp1830
 // src/cpp/include/timing.h:101:     qsort(arr, n, sizeof(double), _cmp_double);
 	bl	qsort		//
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	add	x0, x21, 32	// tmp2858, _1650,
+	add	x0, x22, 32	// tmp2857, _1650,
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmov	d31, 5.0e-1	// tmp1833,
+	fmov	d31, 5.0e-1	// tmp1836,
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
 	ldp	d13, d30, [x0]	// MEM[(double *)_1650 + 32B], MEM[(double *)_1650 + 40B],
 // src/cpp/benchmark.cpp:73:     std::cout << Color::GREEN << "=== Results ===" << Color::RESET << "\n";
-	adrp	x0, _ZN5Color5GREENE	// tmp2860,
-	ldr	x21, [x0, #:lo12:_ZN5Color5GREENE]	// GREEN.116_1576, GREEN
+	adrp	x0, _ZN5Color5GREENE	// tmp2859,
+	ldr	x22, [x0, #:lo12:_ZN5Color5GREENE]	// GREEN.116_1576, GREEN
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
 	fadd	d13, d13, d30	// _1722, MEM[(double *)_1650 + 32B], MEM[(double *)_1650 + 40B]
 // src/cpp/include/timing.h:103:         return (arr[n/2 - 1] + arr[n/2]) / 2.0;
-	fmul	d13, d13, d31	// _1723, _1722, tmp1833
+	fmul	d13, d13, d31	// _1723, _1722, tmp1836
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x21, .L882	// GREEN.116_1576,
+	cbz	x22, .L886	// GREEN.116_1576,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x21	//, GREEN.116_1576
+	mov	x0, x22	//, GREEN.116_1576
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2517
-	mov	x1, x21	//, GREEN.116_1576
-	mov	x0, x27	//, tmp2362
+	mov	x2, x0	//, tmp2514
+	mov	x1, x22	//, GREEN.116_1576
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-.L413:
-	adrp	x1, .LC87	// tmp1848,
+.L414:
+	adrp	x1, .LC88	// tmp1851,
 	mov	x2, 15	//,
-	add	x1, x1, :lo12:.LC87	//, tmp1848,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC88	//, tmp1851,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:73:     std::cout << Color::GREEN << "=== Results ===" << Color::RESET << "\n";
-	adrp	x0, _ZN5Color5RESETE	// tmp2861,
-	ldr	x21, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.117_1578, RESET
+	adrp	x0, _ZN5Color5RESETE	// tmp2860,
+	ldr	x22, [x0, #:lo12:_ZN5Color5RESETE]	// RESET.117_1578, RESET
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:670:       if (!__s)
-	cbz	x21, .L883	// RESET.117_1578,
+	cbz	x22, .L887	// RESET.117_1578,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x21	//, RESET.117_1578
+	mov	x0, x22	//, RESET.117_1578
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, x0	//, tmp2518
-	mov	x1, x21	//, RESET.117_1578
-	mov	x0, x27	//, tmp2362
+	mov	x2, x0	//, tmp2515
+	mov	x1, x22	//, RESET.117_1578
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-.L415:
-	ldr	x21, [sp, 176]	// tmp2357, %sfp
+.L416:
+	ldr	x22, [sp, 168]	// tmp2327, %sfp
 	mov	x2, 1	//,
-	mov	x0, x27	//, tmp2362
-	mov	x1, x21	//, tmp2357
+	mov	x0, x28	//, tmp2355
+	mov	x1, x22	//, tmp2327
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC88	// tmp1869,
+	adrp	x1, .LC89	// tmp1872,
 	mov	x2, 18	//,
-	add	x1, x1, :lo12:.LC88	//, tmp1869,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC89	//, tmp1872,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	fmov	d0, d12	//, _1703
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 1	//,
-	mov	x1, x21	//, tmp2357
+	mov	x1, x22	//, tmp2327
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC89	// tmp1877,
+	adrp	x1, .LC90	// tmp1880,
 	mov	x2, 18	//,
-	add	x1, x1, :lo12:.LC89	//, tmp1877,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC90	//, tmp1880,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	fmov	d0, d13	//, _1723
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC90	// tmp1883,
+	adrp	x1, .LC91	// tmp1886,
 	mov	x2, 4	//,
-	add	x1, x1, :lo12:.LC90	//, tmp1883,
+	add	x1, x1, :lo12:.LC91	//, tmp1886,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	mov	x21, x0	// _1581, tmp2519
+	mov	x22, x0	// _1581, tmp2516
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	fmul	d0, d13, d14	//, _1723, tmp2438
-	mov	x0, x21	//, _1581
+	fmul	d0, d13, d14	//, _1723, tmp2435
+	mov	x0, x22	//, _1581
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC91	// tmp1887,
+	adrp	x1, .LC92	// tmp1890,
 	mov	x2, 6	//,
-	add	x1, x1, :lo12:.LC91	//, tmp1887,
+	add	x1, x1, :lo12:.LC92	//, tmp1890,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 .LEHE110:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	ldr	x0, [sp, 160]	//, %sfp
-	mov	x1, 80	//,
-	bl	_ZdlPvm		//
 	ldr	x0, [sp, 152]	//, %sfp
 	mov	x1, 80	//,
 	bl	_ZdlPvm		//
+	ldr	x0, [sp, 144]	//, %sfp
+	mov	x1, 80	//,
+	bl	_ZdlPvm		//
 // src/cpp/benchmark.cpp:300:         results[i] = benchmark_cnn(implementations[i].function, ctx, pmu, num_runs, num_warmup);
-	mov	w2, 1	// tmp1888,
+	mov	w2, 1	// tmp1891,
 	ldr	x5, [sp, 200]	// ivtmp.795, %sfp
 // src/cpp/benchmark.cpp:301:         std::cout << "\n\n";
-	adrp	x1, .LC45	// tmp1894,
-	mov	x0, x27	//, tmp2362
-	add	x1, x1, :lo12:.LC45	//, tmp1894,
+	adrp	x1, .LC46	// tmp1897,
+	mov	x0, x28	//, tmp2355
+	add	x1, x1, :lo12:.LC46	//, tmp1897,
 // src/cpp/benchmark.cpp:300:         results[i] = benchmark_cnn(implementations[i].function, ctx, pmu, num_runs, num_warmup);
-	strb	w2, [sp, 272]	// tmp1888, MEM <unsigned char> [(struct bench_result_t *)&D.89623 + 16B]
-	ldr	x4, [sp, 272]	// D.89623, D.89623
-	str	x4, [x5, 16]	// D.89623, MEM[(struct value_type *)_1567]
-	stp	d12, d13, [sp, 256]	// _1703, _1723,
-	ldp	x2, x3, [sp, 256]	// D.89623, D.89623
-	stp	x2, x3, [x5]	// D.89623, MEM[(struct value_type *)_1567]
+	strb	w2, [sp, 256]	// tmp1891, MEM <unsigned char> [(struct bench_result_t *)&D.111033 + 16B]
+	ldr	x4, [sp, 256]	// D.111033, D.111033
+	str	x4, [x5, 16]	// D.111033, MEM[(struct value_type *)_5133]
+	stp	d12, d13, [sp, 240]	// _1703, _1723,
+	ldp	x2, x3, [sp, 240]	// D.111033, D.111033
+	stp	x2, x3, [x5]	// D.111033, MEM[(struct value_type *)_5133]
 .LEHB111:
 // src/cpp/benchmark.cpp:301:         std::cout << "\n\n";
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.L390:
+.L391:
 // src/cpp/benchmark.cpp:294:     for (int i = 0; i < num_impls; ++i) {
-	ldr	x1, [sp, 184]	// ivtmp.794, %sfp
-	ldr	x0, [sp, 200]	// ivtmp.795, %sfp
-	add	x1, x1, 16	// ivtmp.794, ivtmp.794,
-	str	x1, [sp, 184]	// ivtmp.794, %sfp
-	add	x0, x0, 24	// ivtmp.795, ivtmp.795,
-	ldr	x1, [sp, 224]	// _1565, %sfp
-	str	x0, [sp, 200]	// ivtmp.795, %sfp
-	cmp	x1, x0	// _1565, ivtmp.795
-	bne	.L419		//,
+	ldr	x0, [sp, 176]	// ivtmp.794, %sfp
+	ldr	x1, [sp, 200]	// ivtmp.795, %sfp
+	add	x0, x0, 16	// ivtmp.794, ivtmp.794,
+	add	x1, x1, 24	// ivtmp.795, ivtmp.795,
+	str	x0, [sp, 176]	// ivtmp.794, %sfp
+	str	x1, [sp, 200]	// ivtmp.795, %sfp
+	cmp	x24, x0	// tmp2344, ivtmp.794
+	bne	.L420		//,
 // src/cpp/include/timing.h:153:     close(ctx->fd);
-	ldr	w0, [sp, 240]	//, %sfp
+	ldr	w0, [sp, 224]	//, %sfp
 	bl	close		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1150: 	return *(this->_M_impl._M_start + __n);
-	ldr	x1, [sp, 1032]	// _829, MEM[(const struct vector *)&final_logits].D.36192._M_impl.D.35493._M_start
+	ldr	x1, [sp, 1016]	// _829, MEM[(const struct vector *)&final_logits].D.57594._M_impl.D.56895._M_start
 // src/cpp/include/utils.h:57:     int   best_class = 0;
-	mov	w21, 0	// best_class,
+	mov	w22, 0	// best_class,
 // src/cpp/include/utils.h:59:     for (int i = 1; i < logits.width; ++i) {
-	ldr	w2, [sp, 1068]	//, final_logits.width
+	ldr	w2, [sp, 1052]	//, final_logits.width
 // src/cpp/include/utils.h:58:     float max_score  = logits.data[0];
 	ldr	s31, [x1]	//, MEM[(const value_type &)_829]
 // src/cpp/include/utils.h:59:     for (int i = 1; i < logits.width; ++i) {
 	cmp	w2, 1	// _1348,
-	ble	.L420		//,
+	ble	.L421		//,
 	mov	x0, 1	// ivtmp.739,
 	.p2align 5,,15
-.L423:
+.L424:
 // src/cpp/include/utils.h:60:         if (logits.data[i] > max_score) {
-	ldr	s30, [x1, x0, lsl 2]	//, MEM[(const value_type &)_829 + ivtmp.739_5246 * 4]
+	ldr	s30, [x1, x0, lsl 2]	//, MEM[(const value_type &)_829 + ivtmp.739_5317 * 4]
 // src/cpp/include/utils.h:61:             max_score  = logits.data[i];
 	fcmpe	s30, s31	//,
-	csel	w21, w21, w0, ls	// best_class, best_class, ivtmp.739,
+	csel	w22, w22, w0, ls	// best_class, best_class, ivtmp.739,
 // src/cpp/include/utils.h:59:     for (int i = 1; i < logits.width; ++i) {
 	add	x0, x0, 1	// ivtmp.739, ivtmp.739,
 // src/cpp/include/utils.h:61:             max_score  = logits.data[i];
 	fcsel	s31, s30, s31, gt	//,,,
 // src/cpp/include/utils.h:59:     for (int i = 1; i < logits.width; ++i) {
 	cmp	w2, w0	// _1348, ivtmp.739
-	bgt	.L423		//,
-.L420:
+	bgt	.L424		//,
+.L421:
 // src/cpp/benchmark.cpp:307:     std::cout << Color::BOLD_GREEN << "The network has successfully predicted the digit: "
-	adrp	x1, _ZN5Color10BOLD_GREENE	// tmp1904,
-	mov	x0, x27	//, tmp2362
+	adrp	x1, _ZN5Color10BOLD_GREENE	// tmp1907,
+	mov	x0, x28	//, tmp2355
 	ldr	x1, [x1, #:lo12:_ZN5Color10BOLD_GREENE]	//, BOLD_GREEN
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC92	// tmp1908,
+	adrp	x1, .LC93	// tmp1911,
 	mov	x2, 50	//,
-	add	x1, x1, :lo12:.LC92	//, tmp1908,
+	add	x1, x1, :lo12:.LC93	//, tmp1911,
 // src/cpp/benchmark.cpp:307:     std::cout << Color::BOLD_GREEN << "The network has successfully predicted the digit: "
-	mov	x20, x0	// _446, tmp2522
+	mov	x21, x0	// _446, tmp2519
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:308:               << predicted_digit << Color::RESET << "\n\n";
-	mov	w1, w21	//, best_class
-	mov	x0, x20	//, _446
+	mov	w1, w22	//, best_class
+	mov	x0, x21	//, _446
 	bl	_ZNSolsEi		//
 // src/cpp/benchmark.cpp:308:               << predicted_digit << Color::RESET << "\n\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2870,
+	adrp	x1, _ZN5Color5RESETE	// tmp2868,
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:308:               << predicted_digit << Color::RESET << "\n\n";
-	adrp	x26, .LC45	// tmp2380,
-	add	x1, x26, :lo12:.LC45	// tmp2368, tmp2380,
-	str	x1, [sp, 144]	// tmp2368, %sfp
+	adrp	x1, .LC46	// tmp2343,
+	add	x1, x1, :lo12:.LC46	// tmp2338, tmp2343,
+	str	x1, [sp, 136]	// tmp2338, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:310:     if (verbose) {
-	ldr	x0, [sp, 216]	// tmp2872, %sfp
+	ldr	x0, [sp, 208]	// tmp2870, %sfp
 // src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	adrp	x24, _ZN5Color11BOLD_YELLOWE	// tmp2353,
+	adrp	x25, _ZN5Color11BOLD_YELLOWE	// tmp2378,
 // src/cpp/benchmark.cpp:310:     if (verbose) {
-	tbnz	x0, 0, .L847	// tmp2872,,
-.L424:
-// src/cpp/benchmark.cpp:320:     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
-	ldr	x1, [x24, #:lo12:_ZN5Color11BOLD_YELLOWE]	//, BOLD_YELLOW
-	mov	x0, x27	//, tmp2362
+	tbz	x0, 0, .L425	// tmp2870,,
+// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
+	ldr	x1, [x25, #:lo12:_ZN5Color11BOLD_YELLOWE]	//, BOLD_YELLOW
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC96	// tmp1948,
-	mov	x2, 33	//,
-	add	x1, x1, :lo12:.LC96	//, tmp1948,
+	adrp	x1, .LC94	// tmp1922,
+	mov	x2, 40	//,
+	add	x1, x1, :lo12:.LC94	//, tmp1922,
+// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
+	mov	x21, x0	// _453, tmp2520
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
+// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
+	adrp	x1, _ZN5Color5RESETE	// tmp2871,
+	mov	x0, x21	//, _453
+	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
+	ldr	x1, [sp, 168]	//, %sfp
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+	adrp	x23, .LC95	// tmp2370,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	adrp	x24, .LC96	// tmp2418,
+// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
+	mov	x21, 0	// ivtmp.731,
+	add	x23, x23, :lo12:.LC95	// tmp2359, tmp2370,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	add	x24, x24, :lo12:.LC96	// tmp2419, tmp2418,
+	.p2align 5,,15
+.L426:
+	mov	x2, 6	//,
+	mov	x1, x23	//, tmp2359
+	mov	x0, x28	//, tmp2355
+	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
+// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+	mov	w1, w21	//, ivtmp.731
+	mov	x0, x28	//, tmp2355
+	bl	_ZNSolsEi		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	mov	x2, 2	//,
+	mov	x1, x24	//, tmp2419
+// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+	mov	x22, x0	// _459, tmp2521
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
+// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
+	ldr	x1, [sp, 1016]	// final_logits.D.57594._M_impl.D.56895._M_start, final_logits.D.57594._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:236: 	return _M_insert(static_cast<double>(__f));
+	mov	x0, x22	//, _459
+	ldr	s0, [x1, w21, uxtw 2]	// *_846, *_846
+	fcvt	d0, s0	//, *_846
+	bl	_ZNSo9_M_insertIdEERSoT_		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	ldr	x1, [sp, 168]	//, %sfp
+	mov	x2, 1	//,
+	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
+// src/cpp/benchmark.cpp:312:         for (int i = 0; i < num_classes; ++i)
+	add	x21, x21, 1	// ivtmp.731, ivtmp.731,
+	cmp	x21, 10	// ivtmp.731,
+	bne	.L426		//,
+// src/cpp/benchmark.cpp:314:         std::cout << "\n";
+	ldr	x1, [sp, 168]	//, %sfp
+	mov	x0, x28	//, tmp2355
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+.L425:
 // src/cpp/benchmark.cpp:320:     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
-	mov	x20, x0	// _463, tmp2525
+	ldr	x1, [x25, #:lo12:_ZN5Color11BOLD_YELLOWE]	//, BOLD_YELLOW
+	mov	x0, x28	//, tmp2355
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
+	adrp	x1, .LC97	// tmp1951,
+	mov	x2, 33	//,
+	add	x1, x1, :lo12:.LC97	//, tmp1951,
+// src/cpp/benchmark.cpp:320:     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
+	mov	x21, x0	// _463, tmp2522
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:320:     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2874,
-	mov	x0, x20	//, _463
+	adrp	x1, _ZN5Color5RESETE	// tmp2872,
+	mov	x0, x21	//, _463
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:320:     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
-	ldr	x1, [sp, 144]	//, %sfp
+	ldr	x1, [sp, 136]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:321:     printf("%-35s | %-12s | %-20s | %-14s\n",
-	adrp	x4, .LC97	// tmp1954,
-	adrp	x3, .LC98	// tmp1956,
-	adrp	x2, .LC99	// tmp1958,
-	adrp	x1, .LC100	// tmp1960,
-	adrp	x0, .LC101	// tmp1962,
-	add	x4, x4, :lo12:.LC97	//, tmp1954,
-	add	x3, x3, :lo12:.LC98	//, tmp1956,
-	add	x2, x2, :lo12:.LC99	//, tmp1958,
-	add	x1, x1, :lo12:.LC100	//, tmp1960,
-	add	x0, x0, :lo12:.LC101	//, tmp1962,
+	adrp	x4, .LC98	// tmp1957,
+	adrp	x3, .LC99	// tmp1959,
+	adrp	x2, .LC100	// tmp1961,
+	adrp	x1, .LC101	// tmp1963,
+	adrp	x0, .LC102	// tmp1965,
+	add	x4, x4, :lo12:.LC98	//, tmp1957,
+	add	x3, x3, :lo12:.LC99	//, tmp1959,
+	add	x2, x2, :lo12:.LC100	//, tmp1961,
+	add	x1, x1, :lo12:.LC101	//, tmp1963,
+	add	x0, x0, :lo12:.LC102	//, tmp1965,
 	bl	printf		//
 // src/cpp/benchmark.cpp:323:     printf("---------------------------------------------------------------------------------------\n");
-	adrp	x0, .LC102	// tmp1964,
-	add	x0, x0, :lo12:.LC102	//, tmp1964,
+	adrp	x0, .LC103	// tmp1967,
+	add	x0, x0, :lo12:.LC103	//, tmp1967,
 	bl	puts		//
 .LEHE111:
 // src/cpp/benchmark.cpp:328:     double best_cycles = 0.0;
 	movi	d14, #0	// best_cycles
 // src/cpp/benchmark.cpp:323:     printf("---------------------------------------------------------------------------------------\n");
-	ldr	x22, [sp, 248]	// ivtmp.727, %sfp
+	ldr	x23, [sp, 232]	// ivtmp.727, %sfp
 // src/cpp/benchmark.cpp:326:     int best_idx = -1;
-	mov	w24, -1	// best_idx,
+	mov	w25, -1	// best_idx,
 // src/cpp/benchmark.cpp:333:         if (std::strcmp(implementations[i].name, "Baseline Nested-Loop") == 0) {
-	adrp	x0, .LC0	// tmp2418,
-	add	x0, x0, :lo12:.LC0	// tmp2419, tmp2418,
+	adrp	x27, .LC0	// tmp2415,
+	add	x0, x27, :lo12:.LC0	// tmp2416, tmp2415,
 // src/cpp/benchmark.cpp:330:     for (int i = 0; i < num_impls; ++i) {
-	mov	w21, 0	// i,
+	mov	w22, 0	// i,
 // src/cpp/benchmark.cpp:325:     int baseline_idx = -1;
-	mov	w25, w24	// baseline_idx, best_idx
+	mov	w26, w25	// baseline_idx, best_idx
 // src/cpp/benchmark.cpp:323:     printf("---------------------------------------------------------------------------------------\n");
-	add	x23, sp, 1072	// tmp2876,,
+	add	x24, sp, 1056	// tmp2874,,
 // src/cpp/benchmark.cpp:333:         if (std::strcmp(implementations[i].name, "Baseline Nested-Loop") == 0) {
-	str	x0, [sp, 136]	// tmp2419, %sfp
+	str	x0, [sp, 128]	// tmp2416, %sfp
 // src/cpp/benchmark.cpp:327:     double baseline_cycles = 0.0;
 	fmov	d15, d14	// baseline_cycles, best_cycles
 	.p2align 5,,15
-.L434:
+.L436:
 // src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x20, [x23]	// _114, MEM[(const char * *)_5082]
+	ldr	x21, [x24]	// _114, MEM[(const char * *)_5245]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x20, .L884	// _114,
+	cbz	x21, .L888	// _114,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x20	//, _114
+	mov	x0, x21	//, _114
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-	str	x0, [sp, 352]	// _1750, MEM[(long unsigned int *)_2140]
+	str	x0, [sp, 336]	// _1750, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x26, x0	// _1750, tmp2526
+	mov	x27, x0	// _1750, tmp2523
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
 	cmp	x0, 15	// _1750,
-	bhi	.L885		//,
+	bhi	.L889		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
 	cmp	x0, 1	// _1750,
-	beq	.L886		//,
+	beq	.L890		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	cbnz	x0, .L887	// _1750,
-.L430:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x2, [sp, 352]	// __dnew.121_1758, MEM[(long unsigned int *)_2140]
-// src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	mov	x0, x19	//, tmp2354
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldr	x3, [sp, 1304]	// MEM[(struct basic_string *)_1195]._M_dataplus._M_p, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x1, [sp, 168]	//, %sfp
+	cbnz	x0, .L891	// _1750,
+.L432:
+	mov	x2, x20	// pretmp_5557, tmp2347
+.L431:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x2, [sp, 1312]	// __dnew.121_1758, MEM[(struct basic_string *)_1195]._M_string_length
+	str	x27, [sp, 1312]	// _1750, MEM[(struct basic_string *)_1195]._M_string_length
+// src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	mov	x0, x19	//, tmp2346
+	ldr	x1, [sp, 160]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x3, x2]	//, MEM[(char_type &)_1760]
+	strb	wzr, [x2, x27]	//, MEM[(char_type &)_1760]
 .LEHB112:
 // src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
 	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
@@ -6104,100 +6178,97 @@ main:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x3, [sp, 1304]	// _1761, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	and	w26, w0, 255	// _513, tmp2528
+	and	w27, w0, 255	// _513, tmp2525
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x3, x28	// _1761, tmp2355
-	beq	.L431		//,
+	cmp	x3, x20	// _1761, tmp2347
+	beq	.L433		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x3	//, _1761
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
-.L431:
+.L433:
 // src/cpp/benchmark.cpp:331:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	tbz	x26, 0, .L432	// _513,,
+	tbz	x27, 0, .L434	// _513,,
 // src/cpp/benchmark.cpp:332:         if (!results[i].has_data) continue;
-	ldrb	w0, [x22, 16]	// MEM[(bool *)_5251 + 16B], MEM[(bool *)_5251 + 16B]
-	tbz	x0, 0, .L432	// MEM[(bool *)_5251 + 16B],,
+	ldrb	w0, [x23, 16]	// MEM[(bool *)_5243 + 16B], MEM[(bool *)_5243 + 16B]
+	tbz	x0, 0, .L434	// MEM[(bool *)_5243 + 16B],,
 // src/cpp/benchmark.cpp:333:         if (std::strcmp(implementations[i].name, "Baseline Nested-Loop") == 0) {
-	ldr	x1, [sp, 136]	//, %sfp
-	mov	x0, x20	//, _114
+	ldr	x1, [sp, 128]	//, %sfp
+	mov	x0, x21	//, _114
 	bl	strcmp		//
 // src/cpp/benchmark.cpp:335:             baseline_cycles = results[i].cycles_median;
-	ldr	d31, [x22]	// pretmp_5653, MEM[(double *)_5251]
+	ldr	d31, [x23]	// pretmp_5665, MEM[(double *)_5243]
 // src/cpp/benchmark.cpp:334:             baseline_idx = i;
-	cmp	w0, 0	// tmp2529,
-	csel	w25, w21, w25, eq	// baseline_idx, i, baseline_idx,
-	fcsel	d15, d31, d15, eq	// baseline_cycles, pretmp_5653, baseline_cycles,
+	cmp	w0, 0	// tmp2526,
+	csel	w26, w22, w26, eq	// baseline_idx, i, baseline_idx,
+	fcsel	d15, d31, d15, eq	// baseline_cycles, pretmp_5665, baseline_cycles,
 // src/cpp/benchmark.cpp:337:         if (best_idx < 0 || results[i].cycles_median < best_cycles) {
-	tbnz	w24, #31, .L582	// best_idx,
+	tbnz	w25, #31, .L586	// best_idx,
 // src/cpp/benchmark.cpp:337:         if (best_idx < 0 || results[i].cycles_median < best_cycles) {
-	fcmpe	d14, d31	// best_cycles, pretmp_5653
-	bls	.L432		//,
-.L582:
+	fcmpe	d14, d31	// best_cycles, pretmp_5665
+	bls	.L434		//,
+.L586:
 // src/cpp/benchmark.cpp:339:             best_cycles = results[i].cycles_median;
-	fmov	d14, d31	// best_cycles, pretmp_5653
+	fmov	d14, d31	// best_cycles, pretmp_5665
 // src/cpp/benchmark.cpp:338:             best_idx = i;
-	mov	w24, w21	// best_idx, i
-.L432:
+	mov	w25, w22	// best_idx, i
+.L434:
 // src/cpp/benchmark.cpp:330:     for (int i = 0; i < num_impls; ++i) {
-	add	w21, w21, 1	// i, i,
+	add	w22, w22, 1	// i, i,
 // src/cpp/benchmark.cpp:330:     for (int i = 0; i < num_impls; ++i) {
-	add	x23, x23, 16	// ivtmp.726, ivtmp.726,
-	add	x22, x22, 24	// ivtmp.727, ivtmp.727,
-	cmp	w21, 6	// i,
-	bne	.L434		//,
-	cmn	w25, #1	// baseline_idx,
-	beq	.L888		//,
-// src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	adrp	x23, .LC103	// tmp2413,
-// src/cpp/benchmark.cpp:348:             snprintf(speedup_text, sizeof(speedup_text), "%.2fx",
-	adrp	x25, .LC106	// tmp2415,
+	add	x24, x24, 16	// ivtmp.726, ivtmp.726,
+	add	x23, x23, 24	// ivtmp.727, ivtmp.727,
+	cmp	w22, 7	// i,
+	bne	.L436		//,
 // src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
-	mov	w21, 0	// i,
+	mov	w22, 0	// i,
+	cmn	w26, #1	// baseline_idx,
+	beq	.L892		//,
 // src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	add	x23, x23, :lo12:.LC103	// tmp2414, tmp2413,
+	adrp	x24, .LC104	// tmp2410,
 // src/cpp/benchmark.cpp:348:             snprintf(speedup_text, sizeof(speedup_text), "%.2fx",
-	add	x25, x25, :lo12:.LC106	// tmp2416, tmp2415,
+	adrp	x26, .LC107	// tmp2412,
+// src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
+	add	x24, x24, :lo12:.LC104	// tmp2411, tmp2410,
+// src/cpp/benchmark.cpp:348:             snprintf(speedup_text, sizeof(speedup_text), "%.2fx",
+	add	x26, x26, :lo12:.LC107	// tmp2413, tmp2412,
 	.p2align 5,,15
-.L435:
+.L437:
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x0, [sp, 208]	// ivtmp.718, %sfp
+	ldr	x0, [sp, 192]	// ivtmp.718, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x20, [x0]	// _119, MEM[(const char * *)_5098]
+	ldr	x21, [x0]	// _119, MEM[(const char * *)_1534]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x20, .L436	// _119,
+	cbz	x21, .L438	// _119,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x0, x20	//, _119
+	mov	x0, x21	//, _119
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-	str	x0, [sp, 352]	// _1768, MEM[(long unsigned int *)_2140]
+	str	x0, [sp, 336]	// _1768, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x22, x0	// _1768, tmp2533
+	mov	x23, x0	// _1768, tmp2530
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
 	cmp	x0, 15	// _1768,
-	bhi	.L889		//,
+	bhi	.L893		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
 	cmp	x0, 1	// _1768,
-	beq	.L890		//,
+	beq	.L894		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	cbnz	x0, .L891	// _1768,
-.L456:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x2, [sp, 352]	// __dnew.121_1776, MEM[(long unsigned int *)_2140]
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	mov	x0, x19	//, tmp2354
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldr	x3, [sp, 1304]	// MEM[(struct basic_string *)_1195]._M_dataplus._M_p, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x1, [sp, 168]	//, %sfp
+	cbnz	x0, .L895	// _1768,
+.L460:
+	mov	x2, x20	// prephitmp_5562, tmp2347
+.L459:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x2, [sp, 1312]	// __dnew.121_1776, MEM[(struct basic_string *)_1195]._M_string_length
+	str	x23, [sp, 1312]	// _1768, MEM[(struct basic_string *)_1195]._M_string_length
+// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	mov	x0, x19	//, tmp2346
+	ldr	x1, [sp, 160]	//, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x3, x2]	//, MEM[(char_type &)_1778]
+	strb	wzr, [x2, x23]	//, MEM[(char_type &)_1778]
 .LEHB113:
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
 	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
@@ -6205,282 +6276,289 @@ main:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
 	ldr	x2, [sp, 1304]	// _1779, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	and	w22, w0, 255	// _484, tmp2535
+	and	w23, w0, 255	// _484, tmp2532
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x2, x28	// _1779, tmp2355
-	beq	.L457		//,
+	cmp	x2, x20	// _1779, tmp2347
+	beq	.L461		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	mov	x0, x2	//, _1779
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
 	bl	_ZdlPvm		//
-.L457:
+.L461:
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	tbz	x22, 0, .L465	// _484,,
+	tbz	x23, 0, .L469	// _484,,
 // src/cpp/benchmark.cpp:347:         if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
-	ldr	x1, [sp, 192]	// ivtmp.719, %sfp
+	ldr	x1, [sp, 184]	// ivtmp.719, %sfp
 // src/cpp/benchmark.cpp:346:         char speedup_text[32] = "";
-	add	x2, sp, 1152	// tmp2902,,
+	add	x2, sp, 1136	// tmp2902,,
 // src/cpp/benchmark.cpp:347:         if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
-	ldrb	w0, [x1, 16]	// MEM[(bool *)_5024 + 16B], MEM[(bool *)_5024 + 16B]
+	ldrb	w0, [x1, 16]	// MEM[(bool *)_5092 + 16B], MEM[(bool *)_5092 + 16B]
 // src/cpp/benchmark.cpp:346:         char speedup_text[32] = "";
-	stp	xzr, xzr, [x2, 152]	// MEM[(char[32] *)_1195]
 	stp	xzr, xzr, [x2, 168]	// MEM[(char[32] *)_1195]
+	stp	xzr, xzr, [x2, 184]	// MEM[(char[32] *)_1195]
 // src/cpp/benchmark.cpp:347:         if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
-	tbz	x0, 0, .L459	// MEM[(bool *)_5024 + 16B],,
+	tbz	x0, 0, .L463	// MEM[(bool *)_5092 + 16B],,
 // src/cpp/benchmark.cpp:347:         if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
-	ldr	d0, [x1]	// _122, MEM[(double *)_5024]
+	ldr	d0, [x1]	// _122, MEM[(double *)_5092]
 // src/cpp/benchmark.cpp:347:         if (baseline_idx >= 0 && results[i].has_data && results[i].cycles_median > 0.0) {
 	fcmpe	d0, #0.0	// _122
-	bgt	.L460		//,
-.L462:
+	bgt	.L464		//,
+.L466:
 // src/cpp/benchmark.cpp:354:             snprintf(cyc, sizeof(cyc), "%.2f", results[i].cycles_median);
-	ldr	x26, [sp, 192]	// ivtmp.719, %sfp
-	adrp	x2, .LC104	// tmp2071,
-	add	x22, sp, 320	// tmp2366,,
-	add	x2, x2, :lo12:.LC104	//, tmp2071,
+	ldr	x27, [sp, 184]	// ivtmp.719, %sfp
+	adrp	x2, .LC105	// tmp2068,
+	add	x23, sp, 304	// tmp2364,,
+	add	x2, x2, :lo12:.LC105	//, tmp2068,
 	mov	x1, 24	//,
-	mov	x0, x22	//, tmp2366
-	ldr	d0, [x26]	//, MEM[(double *)_5024]
+	mov	x0, x23	//, tmp2364
+	ldr	d0, [x27]	//, MEM[(double *)_5092]
 	bl	snprintf		//
 // src/cpp/benchmark.cpp:355:             snprintf(sec, sizeof(sec), "%.6f", results[i].seconds_median);
-	adrp	x2, .LC105	// tmp2074,
-	ldr	d0, [x26, 8]	//, MEM[(double *)_5024 + 8B]
-	add	x0, sp, 352	// tmp2908,,
-	add	x2, x2, :lo12:.LC105	//, tmp2074,
+	adrp	x2, .LC106	// tmp2071,
+	ldr	d0, [x27, 8]	//, MEM[(double *)_5092 + 8B]
+	add	x0, sp, 336	// tmp2908,,
+	add	x2, x2, :lo12:.LC106	//, tmp2071,
 	mov	x1, 24	//,
 	bl	snprintf		//
-.L461:
+.L465:
 // src/cpp/benchmark.cpp:362:         if (is_best) std::cout << Color::GREEN;
-	cmp	w24, w21	// best_idx, i
-	beq	.L463		//,
+	cmp	w25, w22	// best_idx, i
+	beq	.L467		//,
 // src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	mov	x3, x22	//, tmp2366
-	mov	x1, x20	//, _119
-	add	x4, sp, 352	// tmp2910,,
-	mov	x2, x19	//, tmp2354
-	mov	x0, x23	//, tmp2414
+	mov	x3, x23	//, tmp2364
+	mov	x1, x21	//, _119
+	add	x4, sp, 336	// tmp2910,,
+	mov	x2, x19	//, tmp2346
+	mov	x0, x24	//, tmp2411
 .LEHB114:
 	bl	printf		//
-.L464:
+.L468:
 // src/cpp/benchmark.cpp:366:         std::cout << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
-	mov	x0, x27	//, tmp2362
+	ldr	x1, [sp, 168]	//, %sfp
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.L465:
+.L469:
 // src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
-	ldr	x0, [sp, 208]	// ivtmp.718, %sfp
+	ldr	x0, [sp, 192]	// ivtmp.718, %sfp
 // src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
-	add	w21, w21, 1	// i, i,
+	add	w22, w22, 1	// i, i,
 // src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
 	add	x0, x0, 16	// ivtmp.718, ivtmp.718,
-	str	x0, [sp, 208]	// ivtmp.718, %sfp
-	ldr	x0, [sp, 192]	// ivtmp.719, %sfp
+	str	x0, [sp, 192]	// ivtmp.718, %sfp
+	ldr	x0, [sp, 184]	// ivtmp.719, %sfp
 	add	x0, x0, 24	// ivtmp.719, ivtmp.719,
-	str	x0, [sp, 192]	// ivtmp.719, %sfp
-	cmp	w21, 6	// i,
-	bne	.L435		//,
-.L451:
+	str	x0, [sp, 184]	// ivtmp.719, %sfp
+	cmp	w22, 7	// i,
+	bne	.L437		//,
+.L454:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC107	// tmp2109,
+	adrp	x1, .LC108	// tmp2106,
 	mov	x2, 17	//,
-	add	x1, x1, :lo12:.LC107	//, tmp2109,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC108	//, tmp2106,
+	mov	x0, x28	//, tmp2355
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:369:     std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
-	adrp	x1, .LANCHOR1	// tmp2113,
+	adrp	x1, .LANCHOR1	// tmp2110,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 // src/cpp/benchmark.cpp:369:     std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
 	ldr	d0, [x1, #:lo12:.LANCHOR1]	//, benchmark_global_sink
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // src/cpp/benchmark.cpp:369:     std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
-	ldr	x1, [sp, 144]	//, %sfp
+	ldr	x1, [sp, 136]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:373:     if (best_idx >= 0) {
-	tbz	w24, #31, .L466	// best_idx,
-.L468:
+	tbz	w25, #31, .L470	// best_idx,
+.L472:
 // src/cpp/benchmark.cpp:384:     return 0;
 	mov	w19, 0	// <retval>,
 .L382:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	ldr	x0, [sp, 248]	//, %sfp
-	mov	x1, 144	//,
+	ldr	x0, [sp, 232]	//, %sfp
+	mov	x1, 168	//,
 	bl	_ZdlPvm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:738:       }
 	b	.L371		//
-.L460:
+.L891:
+	mov	x0, x20	// _1309, tmp2347
+.L429:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+	mov	x2, x27	//, _1750
+	mov	x1, x21	//, _114
+	bl	memcpy		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
+	ldr	x27, [sp, 336]	// _1750, MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
+	ldr	x2, [sp, 1304]	// pretmp_5557, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+	b	.L431		//
+.L464:
 // src/cpp/benchmark.cpp:348:             snprintf(speedup_text, sizeof(speedup_text), "%.2fx",
 	fdiv	d0, d15, d0	//, baseline_cycles, _122
-	mov	x2, x25	//, tmp2416
+	mov	x2, x26	//, tmp2413
 	mov	x1, 32	//,
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	snprintf		//
 // src/cpp/benchmark.cpp:353:         if (results[i].has_data) {
-	ldr	x0, [sp, 192]	// ivtmp.719, %sfp
-	ldrb	w0, [x0, 16]	// MEM[(bool *)_5024 + 16B], MEM[(bool *)_5024 + 16B]
-	tbnz	x0, 0, .L462	// MEM[(bool *)_5024 + 16B],,
-.L459:
+	ldr	x0, [sp, 184]	// ivtmp.719, %sfp
+	ldrb	w0, [x0, 16]	// MEM[(bool *)_5092 + 16B], MEM[(bool *)_5092 + 16B]
+	tbnz	x0, 0, .L466	// MEM[(bool *)_5092 + 16B],,
+.L463:
 // src/cpp/benchmark.cpp:357:             snprintf(cyc, sizeof(cyc), "-");
-	mov	w0, 45	// tmp2083,
-	add	x22, sp, 320	// tmp2366,,
-	strh	w0, [sp, 320]	// tmp2083, MEM <char[1:2]> [(void *)_807]
+	mov	w0, 45	// tmp2080,
+	add	x23, sp, 304	// tmp2364,,
+	strh	w0, [sp, 304]	// tmp2080, MEM <char[1:2]> [(void *)_807]
 // src/cpp/benchmark.cpp:358:             snprintf(sec, sizeof(sec), "-");
-	strh	w0, [sp, 352]	// tmp2083, MEM <char[1:2]> [(void *)_2140]
-	b	.L461		//
+	strh	w0, [sp, 336]	// tmp2080, MEM <char[1:2]> [(void *)_2140]
+	b	.L465		//
 	.p2align 2,,3
-.L577:
+.L581:
 // src/cpp/include/utils.h:129:     double s = 0.0;
 	movi	d30, #0	// s
-	b	.L404		//
+	b	.L405		//
 	.p2align 2,,3
-.L573:
+.L577:
 	movi	d30, #0	// s
-	b	.L395		//
-.L871:
+	b	.L396		//
+.L875:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x25]	// _1493, MEM[(const char_type &)_95]
+	ldrb	w0, [x26]	// _1493, MEM[(const char_type &)_95]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
 	strb	w0, [sp, 1320]	// _1493, MEM[(char_type &)_1195 + 16]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
 	b	.L377		//
 	.p2align 2,,3
-.L870:
+.L874:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
 	mov	x2, 0	//,
-	add	x1, sp, 352	// tmp2809,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 336	// tmp2810,,
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	ldr	x1, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	x1, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 1304]	// _1490, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
 	b	.L374		//
 	.p2align 2,,3
 .L578:
 // src/cpp/include/utils.h:129:     double s = 0.0;
 	movi	d30, #0	// s
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	mov	x5, 0	// niters_vector_mult_vf.581,
-	b	.L405		//
+	mov	x2, 0	// niters_vector_mult_vf.604,
+	b	.L397		//
 	.p2align 2,,3
-.L574:
+.L582:
 // src/cpp/include/utils.h:129:     double s = 0.0;
 	movi	d30, #0	// s
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
-	mov	x2, 0	// niters_vector_mult_vf.604,
-	b	.L396		//
-.L877:
+	mov	x5, 0	// niters_vector_mult_vf.581,
+	b	.L406		//
+.L890:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x21]	// _1511, MEM[(const char_type &)_101]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	w0, [sp, 1320]	// _1511, MEM[(char_type &)_1195 + 16]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
-	b	.L388		//
-.L886:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x20]	// _1757, MEM[(const char_type &)_114]
+	ldrb	w0, [x21]	// _1757, MEM[(const char_type &)_114]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
 	strb	w0, [sp, 1320]	// _1757, MEM[(char_type &)_1195 + 16]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
-	b	.L430		//
-.L876:
+	b	.L432		//
+.L881:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	ldrb	w0, [x22]	// _1511, MEM[(const char_type &)_101]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	strb	w0, [sp, 1320]	// _1511, MEM[(char_type &)_1195 + 16]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
+	b	.L389		//
+	.p2align 2,,3
+.L880:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
 	mov	x2, 0	//,
-	add	x1, sp, 352	//,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 336	//,,
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	ldr	x1, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	x1, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 1304]	// _1508, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
-.L386:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x22	//, _1504
-	mov	x1, x21	//, _101
-	bl	memcpy		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	b	.L388		//
-.L885:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
-	mov	x2, 0	//,
-	add	x1, sp, 352	// tmp2877,,
-	mov	x0, x19	//, tmp2354
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	ldr	x1, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
-	str	x0, [sp, 1304]	// _1309, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
-.L428:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x26	//, _1750
-	mov	x1, x20	//, _114
-	bl	memcpy		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	b	.L430		//
-.L569:
-// src/cpp/include/utils.h:129:     double s = 0.0;
-	movi	d19, #0	//
-	b	.L350		//
-.L890:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x20]	// _1775, MEM[(const char_type &)_119]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	w0, [sp, 1320]	// _1775, MEM[(char_type &)_1195 + 16]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
-	b	.L456		//
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
+	b	.L386		//
+	.p2align 2,,3
 .L889:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
 	mov	x2, 0	//,
-	add	x1, sp, 352	// tmp2895,,
-	mov	x0, x19	//, tmp2354
+	add	x1, sp, 336	// tmp2875,,
+	mov	x0, x19	//, tmp2346
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
+	ldr	x1, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
+	str	x0, [sp, 1304]	// _1309, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
+	b	.L429		//
+.L894:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	ldrb	w0, [x21]	// _1775, MEM[(const char_type &)_119]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	strb	w0, [sp, 1320]	// _1775, MEM[(char_type &)_1195 + 16]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:351:       }
+	b	.L460		//
+.L893:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
+	mov	x2, 0	//,
+	add	x1, sp, 336	// tmp2895,,
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
 .LEHE114:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	ldr	x1, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+	ldr	x1, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
 	str	x0, [sp, 1304]	// _1423, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
-.L454:
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
+.L457:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x22	//, _1768
-	mov	x1, x20	//, _119
+	mov	x2, x23	//, _1768
+	mov	x1, x21	//, _119
 	bl	memcpy		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
+	ldr	x23, [sp, 336]	// _1768, MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
+	ldr	x2, [sp, 1304]	// prephitmp_5562, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	b	.L456		//
-.L868:
+	b	.L459		//
+.L573:
+// src/cpp/include/utils.h:129:     double s = 0.0;
+	movi	d19, #0	//
+	b	.L350		//
+.L872:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC65	// tmp1508,
+	adrp	x1, .LC66	// tmp1506,
 	mov	x2, 9	//,
-	add	x1, x1, :lo12:.LC65	//, tmp1508,
-	mov	x0, x27	//, tmp2362
+	add	x1, x1, :lo12:.LC66	//, tmp1506,
+	mov	x0, x28	//, tmp2355
 .LEHB115:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	fmov	d0, d15	//, total
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // src/cpp/benchmark.cpp:263:         std::cout << "  total: " << total << " cycles\n\n";
-	adrp	x1, .LC66	// tmp1514,
-	add	x1, x1, :lo12:.LC66	//, tmp1514,
+	adrp	x1, .LC67	// tmp1512,
+	add	x1, x1, :lo12:.LC67	//, tmp1512,
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/include/timing.h:153:     close(ctx->fd);
-	ldr	w0, [sp, 240]	//, %sfp
+	ldr	w0, [sp, 224]	//, %sfp
 	bl	close		//
 .LEHE115:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	ldr	x0, [sp, 136]	// medians$_M_impl$D79399$_M_end_of_storage, %sfp
-	sub	x1, x0, x25	//, medians$_M_impl$D79399$_M_end_of_storage, medians$D80064$_M_impl$D79399$_M_start
-	mov	x0, x25	//, medians$D80064$_M_impl$D79399$_M_start
+	ldr	x0, [sp, 128]	// medians$_M_impl$D100808$_M_end_of_storage, %sfp
+	sub	x1, x0, x25	//, medians$_M_impl$D100808$_M_end_of_storage, medians$D101473$_M_impl$D100808$_M_start
+	mov	x0, x25	//, medians$D101473$_M_impl$D100808$_M_start
 	bl	_ZdlPvm		//
 	.p2align 5,,15
 .L370:
@@ -6496,174 +6574,174 @@ main:
 	sub	x1, x1, x0	//, MEM[(double * *)_608 + 24B], _817
 	bl	_ZdlPvm		//
 // src/cpp/benchmark.cpp:267:     }
-	cmp	x20, x19	// _608, tmp2354
+	cmp	x20, x19	// _608, tmp2346
 	bne	.L370		//,
 .L319:
 // src/cpp/benchmark.cpp:189:         return 0;
 	mov	w19, 0	// <retval>,
 .L371:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 1032]	// _923, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 1016]	// _923, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L469	// _923,
+	cbz	x0, .L473	// _923,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 1048]	// MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 1032]	// MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage, _923
-	bl	_ZdlPvm		//
-.L469:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 992]	// _919, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L470	// _919,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 1008]	// MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage, _919
-	bl	_ZdlPvm		//
-.L470:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 952]	// _915, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L471	// _915,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 968]	// MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage, _915
-	bl	_ZdlPvm		//
-.L471:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 912]	// _911, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L472	// _911,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 928]	// MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage, _911
-	bl	_ZdlPvm		//
-.L472:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 872]	// _907, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L473	// _907,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 888]	// MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage, _907
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage, _923
 	bl	_ZdlPvm		//
 .L473:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 832]	// _903, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 976]	// _919, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L474	// _903,
+	cbz	x0, .L474	// _919,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 848]	// MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 992]	// MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage, _903
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage, _919
 	bl	_ZdlPvm		//
 .L474:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 792]	// _899, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 936]	// _915, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L475	// _899,
+	cbz	x0, .L475	// _915,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 808]	// MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 952]	// MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage, _899
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage, _915
 	bl	_ZdlPvm		//
 .L475:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 752]	// _895, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 896]	// _911, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L476	// _895,
+	cbz	x0, .L476	// _911,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 768]	// MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 912]	// MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage, _895
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage, _911
 	bl	_ZdlPvm		//
 .L476:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 712]	// _891, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 856]	// _907, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L477	// _891,
+	cbz	x0, .L477	// _907,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 728]	// MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 872]	// MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage, _891
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage, _907
 	bl	_ZdlPvm		//
 .L477:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 672]	// _887, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 816]	// _903, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L478	// _887,
+	cbz	x0, .L478	// _903,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 688]	// MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 832]	// MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage, _887
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage, _903
 	bl	_ZdlPvm		//
 .L478:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 624]	// _883, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 776]	// _899, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L479	// _883,
+	cbz	x0, .L479	// _899,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 640]	// MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 792]	// MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage, _883
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage, _899
 	bl	_ZdlPvm		//
 .L479:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 576]	// _879, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 736]	// _895, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L480	// _879,
+	cbz	x0, .L480	// _895,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 592]	// MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 752]	// MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage, _879
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage, _895
 	bl	_ZdlPvm		//
 .L480:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 528]	// _875, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 696]	// _891, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L481	// _875,
+	cbz	x0, .L481	// _891,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 544]	// MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 712]	// MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage, _875
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage, _891
 	bl	_ZdlPvm		//
 .L481:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 480]	// _871, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 656]	// _887, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L482	// _871,
+	cbz	x0, .L482	// _887,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 496]	// MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 672]	// MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage, _871
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage, _887
 	bl	_ZdlPvm		//
 .L482:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 432]	// _867, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 608]	// _883, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L483	// _867,
+	cbz	x0, .L483	// _883,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 448]	// MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 624]	// MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage, _867
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage, _883
 	bl	_ZdlPvm		//
 .L483:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	add	x0, sp, 288	// tmp2917,,
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-.L489:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 384]	// _927, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 560]	// _879, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L484	// _879,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 576]	// MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage, _879
+	bl	_ZdlPvm		//
+.L484:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 512]	// _875, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L485	// _875,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 528]	// MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage, _875
+	bl	_ZdlPvm		//
+.L485:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 464]	// _871, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L486	// _871,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 480]	// MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage, _871
+	bl	_ZdlPvm		//
+.L486:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 416]	// _867, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L487	// _867,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 432]	// MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage, _867
+	bl	_ZdlPvm		//
+.L487:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	add	x0, sp, 272	// tmp2917,,
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+.L493:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 368]	// _927, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
 	cbz	x0, .L296	// _927,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 400]	// MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage
+	ldr	x1, [sp, 384]	// MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage, _927
+	sub	x1, x1, x0	//, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage, _927
 	bl	_ZdlPvm		//
 .L296:
 // src/cpp/benchmark.cpp:385: }
@@ -6700,246 +6778,267 @@ main:
 .L367:
 	.cfi_restore_state
 // src/cpp/benchmark.cpp:267:     }
-	cmp	x20, x19	// _608, tmp2354
+	cmp	x20, x19	// _608, tmp2346
 	bne	.L370		//,
 // src/cpp/benchmark.cpp:208:         };
 	b	.L319		//
-.L570:
+.L574:
 // src/cpp/include/utils.h:129:     double s = 0.0;
 	movi	d19, #0	//
 // src/cpp/include/utils.h:130:     for (float v : t.data) s += (double)v;
 	mov	x4, 0	// niters_vector_mult_vf.558,
 	b	.L351		//
-.L864:
+.L884:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
+	ldr	x0, [x22]	// _1523->_vptr.basic_ostream, _1523->_vptr.basic_ostream
+	ldr	x0, [x0, -24]	// MEM[(long int *)_1608 + -24B], MEM[(long int *)_1608 + -24B]
+	add	x0, x22, x0	// _1611, _1523, MEM[(long int *)_1608 + -24B]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1611].D.81517._M_streambuf_state
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1611].D.81517._M_streambuf_state,
+.LEHB116:
+	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
+	b	.L395		//
+.L883:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x0, -24]	// MEM[(long int *)_1600 + -24B], MEM[(long int *)_1600 + -24B]
+	add	x0, x28, x0	// _1603, tmp2355, MEM[(long int *)_1600 + -24B]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1603].D.81517._M_streambuf_state
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1603].D.81517._M_streambuf_state,
+	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
+.LEHE116:
+	b	.L393		//
+.L887:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x0, -24]	// MEM[(long int *)_1735 + -24B], MEM[(long int *)_1735 + -24B]
+	add	x0, x28, x0	// _1738, tmp2355, MEM[(long int *)_1735 + -24B]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1738].D.81517._M_streambuf_state
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1738].D.81517._M_streambuf_state,
+.LEHB117:
+	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
+	b	.L416		//
+.L886:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
+	ldr	x0, [x28]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
+	ldr	x0, [x0, -24]	// MEM[(long int *)_1727 + -24B], MEM[(long int *)_1727 + -24B]
+	add	x0, x28, x0	// _1730, tmp2355, MEM[(long int *)_1727 + -24B]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
+	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1730].D.81517._M_streambuf_state
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
+	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1730].D.81517._M_streambuf_state,
+	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
+.LEHE117:
+	b	.L414		//
+.L868:
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
-	adrp	x0, stderr	// tmp1017,
-	ldr	x23, [x0, #:lo12:stderr]	// stderr.68_1335, stderr
+	adrp	x0, stderr	// tmp1014,
+	ldr	x22, [x0, #:lo12:stderr]	// stderr.68_1335, stderr
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
 	bl	__errno_location		//
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
 	ldr	w0, [x0]	//, *_1336
 	bl	strerror		//
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
-	adrp	x1, .LC27	// tmp1019,
+	adrp	x1, .LC28	// tmp1016,
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
-	mov	x2, x0	// tmp2453,
+	mov	x2, x0	// tmp2450,
 // src/cpp/include/timing.h:132:         fprintf(stderr, "perf_event_open failed: %s\n", strerror(errno));
-	add	x1, x1, :lo12:.LC27	//, tmp1019,
-	mov	x0, x23	//, stderr.68_1335
-.LEHB116:
+	add	x1, x1, :lo12:.LC28	//, tmp1016,
+	mov	x0, x22	//, stderr.68_1335
+.LEHB118:
 	bl	fprintf		//
 // src/cpp/benchmark.cpp:103:         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
-	adrp	x1, _ZN5Color3REDE	// tmp1021,
-	adrp	x0, _ZSt4cerr	// tmp1023,
+	adrp	x1, _ZN5Color3REDE	// tmp1018,
+	adrp	x0, _ZSt4cerr	// tmp1020,
 	ldr	x1, [x1, #:lo12:_ZN5Color3REDE]	//, RED
-	add	x0, x0, :lo12:_ZSt4cerr	//, tmp1023,
+	add	x0, x0, :lo12:_ZSt4cerr	//, tmp1020,
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 50	//,
 // src/cpp/benchmark.cpp:103:         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
-	mov	x23, x0	// _233, tmp2454
+	mov	x22, x0	// _233, tmp2451
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC28	// tmp1025,
-	add	x1, x1, :lo12:.LC28	//, tmp1025,
+	adrp	x1, .LC29	// tmp1022,
+	add	x1, x1, :lo12:.LC29	//, tmp1022,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:103:         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
-	adrp	x1, _ZN5Color5RESETE	// tmp2691,
-	mov	x0, x23	//, _233
+	adrp	x1, _ZN5Color5RESETE	// tmp2685,
+	mov	x0, x22	//, _233
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.LEHE116:
-	b	.L317		//
-.L880:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x21]	// _1523->_vptr.basic_ostream, _1523->_vptr.basic_ostream
-	ldr	x0, [x0, -24]	// MEM[(long int *)_1608 + -24B], MEM[(long int *)_1608 + -24B]
-	add	x0, x21, x0	// _1611, _1523, MEM[(long int *)_1608 + -24B]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1611].D.60108._M_streambuf_state
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1611].D.60108._M_streambuf_state,
-.LEHB117:
-	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
-	b	.L394		//
-.L879:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
-	ldr	x0, [x0, -24]	// MEM[(long int *)_1600 + -24B], MEM[(long int *)_1600 + -24B]
-	add	x0, x27, x0	// _1603, tmp2362, MEM[(long int *)_1600 + -24B]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1603].D.60108._M_streambuf_state
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1603].D.60108._M_streambuf_state,
-	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
-.LEHE117:
-	b	.L392		//
-.L883:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
-	ldr	x0, [x0, -24]	// MEM[(long int *)_1735 + -24B], MEM[(long int *)_1735 + -24B]
-	add	x0, x27, x0	// _1738, tmp2362, MEM[(long int *)_1735 + -24B]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1738].D.60108._M_streambuf_state
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1738].D.60108._M_streambuf_state,
-.LEHB118:
-	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
-	b	.L415		//
-.L882:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:671: 	__out.setstate(ios_base::badbit);
-	ldr	x0, [x27]	// cout._vptr.basic_ostream, cout._vptr.basic_ostream
-	ldr	x0, [x0, -24]	// MEM[(long int *)_1727 + -24B], MEM[(long int *)_1727 + -24B]
-	add	x0, x27, x0	// _1730, tmp2362, MEM[(long int *)_1727 + -24B]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/ios_base.h:187:   { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
-	ldr	w1, [x0, 32]	//, MEM[(const struct basic_ios *)_1730].D.60108._M_streambuf_state
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_ios.h:162:       { this->clear(this->rdstate() | __state); }
-	orr	w1, w1, 1	//, MEM[(const struct basic_ios *)_1730].D.60108._M_streambuf_state,
-	bl	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate		//
 .LEHE118:
-	b	.L413		//
-.L865:
-// src/cpp/benchmark.cpp:177:         std::string banner = std::string("  VERIFYING IMPLEMENTATION: ") + latest.name + "  ";
-	adrp	x1, .LC43	// tmp1214,
-	add	x0, sp, 352	// tmp2762,,
-	add	x1, x1, :lo12:.LC43	//, tmp1214,
+	b	.L317		//
+.L467:
+// src/cpp/benchmark.cpp:362:         if (is_best) std::cout << Color::GREEN;
+	adrp	x0, _ZN5Color5GREENE	// tmp2911,
+	ldr	x1, [x0, #:lo12:_ZN5Color5GREENE]	//, GREEN
+	mov	x0, x28	//, tmp2355
 .LEHB119:
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0		//
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+// src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
+	add	x4, sp, 336	// tmp2912,,
+	mov	x3, x23	//, tmp2364
+	mov	x2, x19	//, tmp2346
+	mov	x1, x21	//, _119
+	mov	x0, x24	//, tmp2411
+	bl	printf		//
+// src/cpp/benchmark.cpp:365:         if (is_best) std::cout << Color::RESET;
+	adrp	x0, _ZN5Color5RESETE	// tmp2913,
+	ldr	x1, [x0, #:lo12:_ZN5Color5RESETE]	//, RESET
+	mov	x0, x28	//, tmp2355
+	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 .LEHE119:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
-	adrp	x20, .LC5	// tmp2348,
-	add	x0, sp, 352	// tmp2763,,
-	add	x20, x20, :lo12:.LC5	// tmp2341, tmp2348,
-	mov	x1, x20	//, tmp2341
+	b	.L468		//
+.L869:
+// src/cpp/benchmark.cpp:177:         std::string banner = std::string("  VERIFYING IMPLEMENTATION: ") + latest.name + "  ";
+	adrp	x1, .LC44	// tmp1212,
+	add	x0, sp, 336	// tmp2761,,
+	add	x1, x1, :lo12:.LC44	//, tmp1212,
 .LEHB120:
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc		//
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0		//
 .LEHE120:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
-	mov	x1, x0	//, tmp2458
-	mov	x0, x19	//, tmp2354
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
-	adrp	x1, .LC44	// tmp1221,
-	mov	x0, x19	//, tmp2354
-	add	x1, x1, :lo12:.LC44	//, tmp1221,
+	adrp	x21, .LC6	// tmp2373,
+	add	x0, sp, 336	// tmp2762,,
+	add	x21, x21, :lo12:.LC6	// tmp2365, tmp2373,
+	mov	x1, x21	//, tmp2365
 .LEHB121:
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc		//
 .LEHE121:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
-	add	x22, sp, 320	// tmp2366,,
-	mov	x1, x0	//, tmp2459
-	mov	x0, x22	//, tmp2366
+	mov	x1, x0	//, tmp2455
+	mov	x0, x19	//, tmp2346
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
+	adrp	x1, .LC45	// tmp1219,
+	mov	x0, x19	//, tmp2346
+	add	x1, x1, :lo12:.LC45	//, tmp1219,
+.LEHB122:
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc		//
+.LEHE122:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:3735:     { return std::move(__lhs.append(__rhs)); }
+	add	x23, sp, 304	// tmp2364,,
+	mov	x1, x0	//, tmp2456
+	mov	x0, x23	//, tmp2364
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	add	x0, sp, 352	// tmp2764,,
+	add	x0, sp, 336	// tmp2763,,
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	add	x3, sp, 368	// tmp1227,,
+	add	x3, sp, 352	// tmp1225,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:671:       { _M_construct(__n, __c); }
-	ldr	x1, [sp, 328]	//, MEM[(struct basic_string *)_807]._M_string_length
-	add	x0, sp, 352	// tmp2765,,
+	ldr	x1, [sp, 312]	//, MEM[(struct basic_string *)_807]._M_string_length
+	add	x0, sp, 336	// tmp2764,,
 	mov	w2, 61	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x3, [sp, 352]	// tmp1227, MEM[(struct _Alloc_hider *)_2140]._M_p
-.LEHB122:
+	str	x3, [sp, 336]	// tmp1225, MEM[(struct _Alloc_hider *)_2140]._M_p
+.LEHB123:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:671:       { _M_construct(__n, __c); }
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc		//
-.LEHE122:
+.LEHE123:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	ldr	x24, [sp, 176]	// tmp2357, %sfp
+	ldr	x24, [sp, 168]	// tmp2327, %sfp
 	mov	x2, 1	//,
-	mov	x0, x27	//, tmp2362
-	mov	x1, x24	//, tmp2357
-.LEHB123:
+	mov	x0, x28	//, tmp2355
+	mov	x1, x24	//, tmp2327
+.LEHB124:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:180:                   << border << Color::RESET << "\n\n";
-	adrp	x1, _ZN5Color11BOLD_YELLOWE	// tmp1234,
-	mov	x0, x27	//, tmp2362
+	adrp	x1, _ZN5Color11BOLD_YELLOWE	// tmp1232,
+	mov	x0, x28	//, tmp2355
 	ldr	x1, [x1, #:lo12:_ZN5Color11BOLD_YELLOWE]	//, BOLD_YELLOW
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	ldp	x1, x2, [sp, 352]	//,,
+	ldp	x1, x2, [sp, 336]	//,,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 1	//,
-	mov	x1, x24	//, tmp2357
+	mov	x1, x24	//, tmp2327
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	mov	x23, x0	// _754, tmp2460
+	mov	x22, x0	// _754, tmp2457
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	ldp	x1, x2, [sp, 320]	//,,
-	mov	x0, x23	//, _754
+	ldp	x1, x2, [sp, 304]	//,,
+	mov	x0, x22	//, _754
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	mov	x2, 1	//,
-	mov	x1, x24	//, tmp2357
+	mov	x1, x24	//, tmp2327
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	mov	x23, x0	// _770, tmp2461
+	mov	x22, x0	// _770, tmp2458
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
-	ldp	x1, x2, [sp, 352]	//,,
-	mov	x0, x23	//, _770
+	ldp	x1, x2, [sp, 336]	//,,
+	mov	x0, x22	//, _770
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:180:                   << border << Color::RESET << "\n\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2766,
+	adrp	x1, _ZN5Color5RESETE	// tmp2765,
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:180:                   << border << Color::RESET << "\n\n";
-	adrp	x1, .LC45	// tmp1244,
-	add	x1, x1, :lo12:.LC45	//, tmp1244,
+	adrp	x1, .LC46	// tmp1242,
+	add	x1, x1, :lo12:.LC46	//, tmp1242,
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:182:         latest.function(ctx);
 	add	x0, sp, 1168	//,,
-	bl	_Z23cnn_specialized_blockedR10CNNContext		//
+	bl	_Z21specialized_maxpool2dR10CNNContext		//
 // src/cpp/benchmark.cpp:183:         const std::string out_path = "../python/weights_cpp/cpp_logits.bin";
-	adrp	x1, .LC46	// tmp1247,
-	mov	x0, x19	//, tmp2354
-	add	x1, x1, :lo12:.LC46	//, tmp1247,
+	adrp	x1, .LC47	// tmp1245,
+	mov	x0, x19	//, tmp2346
+	add	x1, x1, :lo12:.LC47	//, tmp1245,
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.constprop.0		//
-.LEHE123:
+.LEHE124:
 // src/cpp/benchmark.cpp:184:         save_binary(out_path, final_logits.data);
-	mov	x1, x21	//, tmp2347
-	mov	x0, x19	//, tmp2354
-.LEHB124:
+	mov	x1, x20	//, tmp2339
+	mov	x0, x19	//, tmp2346
+.LEHB125:
 	bl	_Z11save_binaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIfSaIfEE		//
 // src/cpp/benchmark.cpp:185:         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
-	adrp	x1, _ZN5Color10BOLD_GREENE	// tmp1252,
-	mov	x0, x27	//, tmp2362
+	adrp	x1, _ZN5Color10BOLD_GREENE	// tmp1250,
+	mov	x0, x28	//, tmp2355
 	ldr	x1, [x1, #:lo12:_ZN5Color10BOLD_GREENE]	//, BOLD_GREEN
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC47	// tmp1256,
+	adrp	x1, .LC48	// tmp1254,
 	mov	x2, 17	//,
-	add	x1, x1, :lo12:.LC47	//, tmp1256,
+	add	x1, x1, :lo12:.LC48	//, tmp1254,
 // src/cpp/benchmark.cpp:185:         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
-	mov	x21, x0	// _720, tmp2462
+	mov	x20, x0	// _720, tmp2459
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	ldr	w1, [sp, 408]	//, input_batch.batches
-	mov	x0, x21	//, _720
+	ldr	w1, [sp, 392]	//, input_batch.batches
+	mov	x0, x20	//, _720
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC48	// tmp1258,
+	adrp	x1, .LC49	// tmp1256,
 	mov	x2, 25	//,
-	add	x1, x1, :lo12:.LC48	//, tmp1258,
+	add	x1, x1, :lo12:.LC49	//, tmp1256,
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	mov	x21, x0	// _722, tmp2463
+	mov	x20, x0	// _722, tmp2460
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	mov	x1, x20	//, tmp2341
-	mov	x0, x21	//, _722
+	mov	x1, x21	//, tmp2365
+	mov	x0, x20	//, _722
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC49	// tmp1262,
+	adrp	x1, .LC50	// tmp1260,
 	mov	x2, 5	//,
-	add	x1, x1, :lo12:.LC49	//, tmp1262,
+	add	x1, x1, :lo12:.LC50	//, tmp1260,
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	mov	x20, x0	// _724, tmp2464
+	mov	x20, x0	// _724, tmp2461
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:4082:       return __ostream_insert(__os, __str.data(), __str.size());
@@ -6948,734 +7047,638 @@ main:
 	ldr	x2, [sp, 1312]	//, MEM[(struct basic_string *)_1195]._M_string_length
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2767,
+	adrp	x1, _ZN5Color5RESETE	// tmp2766,
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:187:                   << Color::RESET << "\n";
-	mov	x1, x24	//, tmp2357
+	mov	x1, x24	//, tmp2327
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/include/timing.h:153:     close(ctx->fd);
-	ldr	w0, [sp, 240]	//, %sfp
+	ldr	w0, [sp, 224]	//, %sfp
 	bl	close		//
-.LEHE124:
+.LEHE125:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	add	x0, sp, 352	// tmp2768,,
+	add	x0, sp, 336	// tmp2767,,
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	mov	x0, x22	//, tmp2366
+	mov	x0, x23	//, tmp2364
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 	b	.L319		//
-.L847:
-// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	ldr	x1, [x24, #:lo12:_ZN5Color11BOLD_YELLOWE]	//, BOLD_YELLOW
-	mov	x0, x27	//, tmp2362
-.LEHB125:
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC93	// tmp1919,
-	mov	x2, 40	//,
-	add	x1, x1, :lo12:.LC93	//, tmp1919,
-// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	mov	x20, x0	// _453, tmp2523
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2873,
-	mov	x0, x20	//, _453
-	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-	adrp	x22, .LC94	// tmp2350,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x23, .LC95	// tmp2421,
-// src/cpp/benchmark.cpp:311:         std::cout << Color::BOLD_YELLOW << "Raw Logits (Computational Verification):" << Color::RESET << "\n";
-	mov	x20, 0	// ivtmp.731,
-	add	x22, x22, :lo12:.LC94	// tmp2344, tmp2350,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	add	x23, x23, :lo12:.LC95	// tmp2422, tmp2421,
-	.p2align 5,,15
-.L425:
-	mov	x2, 6	//,
-	mov	x1, x22	//, tmp2344
-	mov	x0, x27	//, tmp2362
-	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
-	mov	w1, w20	//, ivtmp.731
-	mov	x0, x27	//, tmp2362
-	bl	_ZNSolsEi		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	mov	x2, 2	//,
-	mov	x1, x23	//, tmp2422
-// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
-	mov	x21, x0	// _459, tmp2524
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-// src/cpp/benchmark.cpp:313:             std::cout << "Class " << i << ": " << final_logits.data[i] << "\n";
-	ldr	x1, [sp, 1032]	// final_logits.D.36192._M_impl.D.35493._M_start, final_logits.D.36192._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:236: 	return _M_insert(static_cast<double>(__f));
-	mov	x0, x21	//, _459
-	ldr	s0, [x1, w20, uxtw 2]	// *_846, *_846
-	fcvt	d0, s0	//, *_846
-	bl	_ZNSo9_M_insertIdEERSoT_		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	ldr	x1, [sp, 176]	//, %sfp
-	mov	x2, 1	//,
-	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-// src/cpp/benchmark.cpp:312:         for (int i = 0; i < num_classes; ++i)
-	add	x20, x20, 1	// ivtmp.731, ivtmp.731,
-	cmp	x20, 10	// ivtmp.731,
-	bne	.L425		//,
-// src/cpp/benchmark.cpp:314:         std::cout << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
-	mov	x0, x27	//, tmp2362
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-	b	.L424		//
-.L466:
+.L895:
+	mov	x0, x20	// _1423, tmp2347
+	b	.L457		//
+.L470:
 // src/cpp/benchmark.cpp:374:         std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
-	adrp	x1, .LC108	// tmp2119,
+	adrp	x1, .LC109	// tmp2116,
 	mov	w2, 16	//,
-	add	x1, x1, :lo12:.LC108	//, tmp2119,
-	mov	x0, x19	//, tmp2354
+	add	x1, x1, :lo12:.LC109	//, tmp2116,
+	mov	x0, x19	//, tmp2346
+.LEHB126:
 	bl	_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode		//
-.LEHE125:
+.LEHE126:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/fstream:276:       { return _M_file.is_open(); }
 	add	x0, sp, 1424	//,,
 	bl	_ZNKSt12__basic_fileIcE7is_openEv		//
 // src/cpp/benchmark.cpp:375:         if (timing_file.is_open()) {
-	tbz	x0, 0, .L467	// tmp2536,,
+	tbz	x0, 0, .L471	// tmp2533,,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC109	// tmp2126,
+	adrp	x1, .LC110	// tmp2123,
 	mov	x2, 2	//,
-	add	x1, x1, :lo12:.LC109	//, tmp2126,
-	mov	x0, x19	//, tmp2354
-.LEHB126:
+	add	x1, x1, :lo12:.LC110	//, tmp2123,
+	mov	x0, x19	//, tmp2346
+.LEHB127:
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC110	// tmp2129,
+	adrp	x1, .LC111	// tmp2126,
 	mov	x2, 21	//,
-	add	x1, x1, :lo12:.LC110	//, tmp2129,
-	mov	x0, x19	//, tmp2354
+	add	x1, x1, :lo12:.LC111	//, tmp2126,
+	mov	x0, x19	//, tmp2346
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:377:                         << "  \"implementation\": \"" << implementations[best_idx].name << "\",\n"
-	sbfiz	x1, x24, 4, 32	// tmp2132, best_idx,,
+	sbfiz	x1, x25, 4, 32	// tmp2129, best_idx,,
 // src/cpp/benchmark.cpp:378:                         << "  \"median_time_sec\": " << results[best_idx].seconds_median << ",\n"
-	add	x2, sp, 1072	// tmp2914,,
+	add	x2, sp, 1056	// tmp2914,,
 	ldr	x1, [x2, x1]	//, implementations[best_idx_159].name
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC111	// tmp2136,
+	adrp	x1, .LC112	// tmp2133,
 	mov	x2, 3	//,
-	add	x1, x1, :lo12:.LC111	//, tmp2136,
+	add	x1, x1, :lo12:.LC112	//, tmp2133,
 // src/cpp/benchmark.cpp:378:                         << "  \"median_time_sec\": " << results[best_idx].seconds_median << ",\n"
-	mov	x20, x0	// _473, tmp2537
+	mov	x20, x0	// _473, tmp2534
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC112	// tmp2138,
+	adrp	x1, .LC113	// tmp2135,
 	mov	x2, 21	//,
-	add	x1, x1, :lo12:.LC112	//, tmp2138,
+	add	x1, x1, :lo12:.LC113	//, tmp2135,
 	mov	x0, x20	//, _473
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1131: 	return *(this->_M_impl._M_start + __n);
-	ldr	x21, [sp, 248]	// _1475, %sfp
+	ldr	x21, [sp, 232]	// _1475, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1131: 	return *(this->_M_impl._M_start + __n);
-	mov	w1, 24	// tmp2141,
+	mov	w1, 24	// tmp2138,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	mov	x0, x20	//, _473
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1131: 	return *(this->_M_impl._M_start + __n);
-	umull	x24, w24, w1	// _860, best_idx, tmp2141
+	umull	x25, w25, w1	// _860, best_idx, tmp2138
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:1131: 	return *(this->_M_impl._M_start + __n);
-	add	x1, x21, x24	// _861, _1475, _860
+	add	x1, x21, x25	// _861, _1475, _860
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
 	ldr	d0, [x1, 8]	//, _861->seconds_median
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC113	// tmp2143,
+	adrp	x1, .LC114	// tmp2140,
 	mov	x2, 2	//,
-	add	x1, x1, :lo12:.LC113	//, tmp2143,
+	add	x1, x1, :lo12:.LC114	//, tmp2140,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	mov	x20, x0	// _858, tmp2538
+	mov	x20, x0	// _858, tmp2535
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
-	adrp	x1, .LC114	// tmp2145,
+	adrp	x1, .LC115	// tmp2142,
 	mov	x2, 19	//,
-	add	x1, x1, :lo12:.LC114	//, tmp2145,
+	add	x1, x1, :lo12:.LC115	//, tmp2142,
 	mov	x0, x20	//, _858
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	ldr	d0, [x21, x24]	//, _861->cycles_median
+	ldr	d0, [x21, x25]	//, _861->cycles_median
 	mov	x0, x20	//, _858
 	bl	_ZNSo9_M_insertIdEERSoT_		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	mov	x2, 1	//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:229:       { return _M_insert(__f); }
-	mov	x20, x0	// _862, tmp2539
+	mov	x20, x0	// _862, tmp2536
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:380:                         << "}\n";
-	adrp	x1, .LC115	// tmp2149,
+	adrp	x1, .LC116	// tmp2146,
 	mov	x0, x20	//, _862
-	add	x1, x1, :lo12:.LC115	//, tmp2149,
+	add	x1, x1, :lo12:.LC116	//, tmp2146,
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.LEHE126:
-.L467:
+.LEHE127:
+.L471:
 // src/cpp/benchmark.cpp:382:     }
-	mov	x0, x19	//, tmp2354
+	mov	x0, x19	//, tmp2346
 	bl	_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev		//
-	b	.L468		//
-.L874:
+	b	.L472		//
+.L878:
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2814,
+	adrp	x0, _ZN5Color9BOLD_CYANE	// tmp2815,
 	ldr	x1, [x0, #:lo12:_ZN5Color9BOLD_CYANE]	//, BOLD_CYAN
-	mov	x0, x27	//, tmp2362
-.LEHB127:
+	mov	x0, x28	//, tmp2355
+.LEHB128:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC69	// tmp1586,
+	adrp	x1, .LC70	// tmp1590,
 	mov	x2, 18	//,
-	add	x1, x1, :lo12:.LC69	//, tmp1586,
+	add	x1, x1, :lo12:.LC70	//, tmp1590,
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	mov	x21, x0	// _427, tmp2497
+	mov	x22, x0	// _427, tmp2494
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	ldr	x1, [sp, 168]	//, %sfp
-	mov	x0, x21	//, _427
+	ldr	x1, [sp, 160]	//, %sfp
+	mov	x0, x22	//, _427
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC70	// tmp1588,
+	adrp	x1, .LC71	// tmp1592,
 	mov	x2, 2	//,
-	add	x1, x1, :lo12:.LC70	//, tmp1588,
+	add	x1, x1, :lo12:.LC71	//, tmp1592,
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	mov	x21, x0	// _429, tmp2498
+	mov	x22, x0	// _429, tmp2495
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	mov	w1, w22	//, num_selected
-	mov	x0, x21	//, _429
+	mov	w1, w23	//, num_selected
+	mov	x0, x22	//, _429
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC71	// tmp1590,
+	adrp	x1, .LC72	// tmp1594,
 	mov	x2, 4	//,
-	add	x1, x1, :lo12:.LC71	//, tmp1590,
+	add	x1, x1, :lo12:.LC72	//, tmp1594,
 // src/cpp/benchmark.cpp:284:                   << " (" << num_selected << " of " << num_impls << " implementations)"
-	mov	x21, x0	// _431, tmp2499
+	mov	x22, x0	// _431, tmp2496
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:285:                   << Color::RESET << "\n\n";
-	mov	x0, x21	//, _431
-	mov	w1, 6	//,
+	mov	x0, x22	//, _431
+	mov	w1, 7	//,
 	bl	_ZNSolsEi		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x1, .LC72	// tmp1592,
+	adrp	x1, .LC73	// tmp1596,
 	mov	x2, 17	//,
-	add	x1, x1, :lo12:.LC72	//, tmp1592,
+	add	x1, x1, :lo12:.LC73	//, tmp1596,
 // src/cpp/benchmark.cpp:285:                   << Color::RESET << "\n\n";
-	mov	x21, x0	// _433, tmp2500
+	mov	x22, x0	// _433, tmp2497
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:285:                   << Color::RESET << "\n\n";
-	adrp	x1, _ZN5Color5RESETE	// tmp2815,
-	mov	x0, x21	//, _433
+	adrp	x1, _ZN5Color5RESETE	// tmp2816,
+	mov	x0, x22	//, _433
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:285:                   << Color::RESET << "\n\n";
-	adrp	x1, .LC45	// tmp1596,
-	add	x1, x1, :lo12:.LC45	//, tmp1596,
+	adrp	x1, .LC46	// tmp1600,
+	add	x1, x1, :lo12:.LC46	//, tmp1600,
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
+.LEHE128:
 	b	.L383		//
-.L887:
-	mov	x0, x28	// _1309, tmp2355
-	b	.L428		//
-.L878:
-	mov	x0, x28	// _1508, tmp2355
-	b	.L386		//
-.L463:
-// src/cpp/benchmark.cpp:362:         if (is_best) std::cout << Color::GREEN;
-	adrp	x0, _ZN5Color5GREENE	// tmp2911,
-	ldr	x1, [x0, #:lo12:_ZN5Color5GREENE]	//, GREEN
-	mov	x0, x27	//, tmp2362
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-// src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	adrp	x0, .LC103	// tmp2099,
-	mov	x3, x22	//, tmp2366
-	mov	x1, x20	//, _119
-	add	x0, x0, :lo12:.LC103	//, tmp2099,
-	add	x4, sp, 352	// tmp2912,,
-	mov	x2, x19	//, tmp2354
-	bl	printf		//
-// src/cpp/benchmark.cpp:365:         if (is_best) std::cout << Color::RESET;
-	adrp	x0, _ZN5Color5RESETE	// tmp2913,
-	ldr	x1, [x0, #:lo12:_ZN5Color5RESETE]	//, RESET
-	mov	x0, x27	//, tmp2362
-	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.LEHE127:
-	b	.L464		//
-.L891:
-	mov	x0, x28	// _1423, tmp2355
-	b	.L454		//
-.L888:
+.L892:
 // src/cpp/benchmark.cpp:354:             snprintf(cyc, sizeof(cyc), "%.2f", results[i].cycles_median);
-	adrp	x23, .LC104	// tmp2408,
+	adrp	x24, .LC105	// tmp2405,
 // src/cpp/benchmark.cpp:355:             snprintf(sec, sizeof(sec), "%.6f", results[i].seconds_median);
-	adrp	x25, .LC105	// tmp2410,
-// src/cpp/benchmark.cpp:330:     for (int i = 0; i < num_impls; ++i) {
-	mov	x20, 0	// ivtmp.705,
+	adrp	x26, .LC106	// tmp2407,
 // src/cpp/benchmark.cpp:354:             snprintf(cyc, sizeof(cyc), "%.2f", results[i].cycles_median);
-	add	x23, x23, :lo12:.LC104	// tmp2409, tmp2408,
+	add	x24, x24, :lo12:.LC105	// tmp2406, tmp2405,
 // src/cpp/benchmark.cpp:355:             snprintf(sec, sizeof(sec), "%.6f", results[i].seconds_median);
-	add	x25, x25, :lo12:.LC105	// tmp2411, tmp2410,
-.L450:
+	add	x26, x26, :lo12:.LC106	// tmp2408, tmp2407,
+	.p2align 5,,15
+.L453:
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ubfiz	x0, x20, 4, 32	// _1877, ivtmp.705,,
-	add	x1, sp, 1072	// tmp2878,,
+	ldr	x0, [sp, 192]	// ivtmp.718, %sfp
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:194: 	: allocator_type(__a), _M_p(__dat) { }
-	str	x28, [sp, 1304]	// tmp2355, MEM[(struct _Alloc_hider *)_1195]._M_p
+	str	x20, [sp, 1304]	// tmp2347, MEM[(struct _Alloc_hider *)_1195]._M_p
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x21, [x1, x0]	// _5433, MEM[(const char * *)&implementations + _1877 * 1]
+	ldr	x21, [x0]	// _5433, MEM[(const char * *)_1901]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:650: 	if (__s == 0)
-	cbz	x21, .L436	// _5433,
+	cbz	x21, .L438	// _5433,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
 	mov	x0, x21	//, _5433
 	bl	strlen		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:225: 	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-	str	x0, [sp, 352]	// _5429, MEM[(long unsigned int *)_2140]
+	str	x0, [sp, 336]	// prephitmp_5414, MEM[(long unsigned int *)_2140]
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:391: 	return __builtin_strlen(__s);
-	mov	x22, x0	// _5429, tmp2530
+	mov	x23, x0	// prephitmp_5414, tmp2527
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:227: 	if (__dnew > size_type(_S_local_capacity))
-	cmp	x0, 15	// _5429,
-	bhi	.L892		//,
+	cmp	x0, 15	// prephitmp_5414,
+	bhi	.L896		//,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:432: 	if (__n == 1)
-	cmp	x0, 1	// _5429,
-	beq	.L440		//,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	cbnz	x0, .L893	// _5429,
-.L439:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
-	ldr	x2, [sp, 352]	// __dnew.121_5416, MEM[(long unsigned int *)_2140]
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	mov	x0, x19	//, tmp2354
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldr	x3, [sp, 1304]	// MEM[(struct basic_string *)_1195]._M_dataplus._M_p, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	ldr	x1, [sp, 168]	//, %sfp
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
-	str	x2, [sp, 1312]	// __dnew.121_5416, MEM[(struct basic_string *)_1195]._M_string_length
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	wzr, [x3, x2]	//, MEM[(char_type &)_5413]
-.LEHB128:
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
-.LEHE128:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
-	ldr	x2, [sp, 1304]	// _5408, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	and	w22, w0, 255	// _5409, tmp2532
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
-	cmp	x2, x28	// _5408, tmp2355
+	cmp	x0, 1	// prephitmp_5414,
 	beq	.L442		//,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
-	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	mov	x0, x2	//, _5408
-	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity,
-	bl	_ZdlPvm		//
-.L442:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
+	cbnz	x0, .L897	// prephitmp_5414,
+.L443:
+	mov	x0, x20	// prephitmp_5413, tmp2347
+.L441:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:223:       { _M_string_length = __length; }
+	str	x23, [sp, 1312]	// prephitmp_5414, MEM[(struct basic_string *)_1195]._M_string_length
 // src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
-	tbz	x22, 0, .L443	// _5409,,
+	ldr	x1, [sp, 160]	//, %sfp
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	strb	wzr, [x0, x23]	//, MEM[(char_type &)_5411]
+// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	mov	x0, x19	//, tmp2346
+.LEHB129:
+	bl	_ZL29implementation_matches_filterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc		//
+.LEHE129:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
+	ldr	x2, [sp, 1304]	// _5406, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	and	w23, w0, 255	// _5407, tmp2529
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:269: 	if (_M_data() == _M_local_data())
+	cmp	x2, x20	// _5406, tmp2347
+	beq	.L445		//,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:294:       { _Alloc_traits::deallocate(_M_get_allocator(), _M_data(), __size + 1); }
+	ldr	x1, [sp, 1320]	// MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	mov	x0, x2	//, _5406
+	add	x1, x1, 1	//, MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity,
+	bl	_ZdlPvm		//
+.L445:
+// src/cpp/benchmark.cpp:344:         if (!implementation_matches_filter(implementations[i].name, bench_filter)) continue;
+	tbz	x23, 0, .L446	// _5407,,
 // src/cpp/benchmark.cpp:353:         if (results[i].has_data) {
-	ldr	x0, [sp, 192]	// ivtmp.719, %sfp
+	ldr	x0, [sp, 184]	// ivtmp.719, %sfp
 // src/cpp/benchmark.cpp:346:         char speedup_text[32] = "";
-	add	x1, sp, 1152	// tmp2882,,
+	add	x1, sp, 1136	// tmp2880,,
 // src/cpp/benchmark.cpp:353:         if (results[i].has_data) {
 	ldrb	w0, [x0, 16]	// MEM[(bool *)_2011 + 16B], MEM[(bool *)_2011 + 16B]
 // src/cpp/benchmark.cpp:346:         char speedup_text[32] = "";
-	stp	xzr, xzr, [x1, 152]	// MEM[(char[32] *)_1195]
 	stp	xzr, xzr, [x1, 168]	// MEM[(char[32] *)_1195]
+	stp	xzr, xzr, [x1, 184]	// MEM[(char[32] *)_1195]
 // src/cpp/benchmark.cpp:353:         if (results[i].has_data) {
-	tbz	x0, 0, .L894	// MEM[(bool *)_2011 + 16B],,
+	tbz	x0, 0, .L898	// MEM[(bool *)_2011 + 16B],,
 // src/cpp/benchmark.cpp:354:             snprintf(cyc, sizeof(cyc), "%.2f", results[i].cycles_median);
-	add	x22, sp, 320	// tmp2366,,
-	mov	x2, x23	//, tmp2409
-	ldr	x26, [sp, 192]	// ivtmp.719, %sfp
+	add	x23, sp, 304	// tmp2364,,
+	mov	x2, x24	//, tmp2406
+	ldr	x27, [sp, 184]	// ivtmp.719, %sfp
 	mov	x1, 24	//,
-	mov	x0, x22	//, tmp2366
-	ldr	d0, [x26]	//, MEM[(double *)_2011]
+	mov	x0, x23	//, tmp2364
+	ldr	d0, [x27]	//, MEM[(double *)_2011]
 	bl	snprintf		//
 // src/cpp/benchmark.cpp:355:             snprintf(sec, sizeof(sec), "%.6f", results[i].seconds_median);
-	ldr	d0, [x26, 8]	//, MEM[(double *)_2011 + 8B]
-	mov	x2, x25	//, tmp2411
+	ldr	d0, [x27, 8]	//, MEM[(double *)_2011 + 8B]
+	mov	x2, x26	//, tmp2408
 	mov	x1, 24	//,
-	add	x0, sp, 352	// tmp2891,,
+	add	x0, sp, 336	// tmp2889,,
 	bl	snprintf		//
-.L449:
+.L452:
 // src/cpp/benchmark.cpp:362:         if (is_best) std::cout << Color::GREEN;
-	cmp	w24, w20	// best_idx, ivtmp.705
-	beq	.L895		//,
+	cmp	w25, w22	// best_idx, i
+	beq	.L899		//,
 // src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	adrp	x0, .LC103	// tmp2036,
-	mov	x3, x22	//, tmp2366
+	adrp	x0, .LC104	// tmp2034,
+	mov	x3, x23	//, tmp2364
 	mov	x1, x21	//, _5433
-	add	x0, x0, :lo12:.LC103	//, tmp2036,
-	add	x4, sp, 352	// tmp2888,,
-	mov	x2, x19	//, tmp2354
-.LEHB129:
+	add	x0, x0, :lo12:.LC104	//, tmp2034,
+	add	x4, sp, 336	// tmp2886,,
+	mov	x2, x19	//, tmp2346
+.LEHB130:
 	bl	printf		//
-.L448:
+.L451:
 // src/cpp/benchmark.cpp:366:         std::cout << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
-	mov	x0, x27	//, tmp2362
+	ldr	x1, [sp, 168]	//, %sfp
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.L443:
+.L446:
 // src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
-	ldr	x0, [sp, 192]	// ivtmp.719, %sfp
-	add	x20, x20, 1	// ivtmp.705, ivtmp.705,
+	ldr	x0, [sp, 192]	// ivtmp.718, %sfp
+// src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
+	add	w22, w22, 1	// i, i,
+// src/cpp/benchmark.cpp:343:     for (int i = 0; i < num_impls; ++i) {
+	add	x0, x0, 16	// ivtmp.718, ivtmp.718,
+	str	x0, [sp, 192]	// ivtmp.718, %sfp
+	ldr	x0, [sp, 184]	// ivtmp.719, %sfp
 	add	x0, x0, 24	// ivtmp.719, ivtmp.719,
-	str	x0, [sp, 192]	// ivtmp.719, %sfp
-	cmp	x20, 6	// ivtmp.705,
-	bne	.L450		//,
-	b	.L451		//
-.L440:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	ldrb	w0, [x21]	// _5424, MEM[(const char_type &)_5433]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
-	strb	w0, [sp, 1320]	// _5424, MEM[(char_type &)_1195 + 16]
-	b	.L439		//
-.L894:
-// src/cpp/benchmark.cpp:357:             snprintf(cyc, sizeof(cyc), "-");
-	mov	w0, 45	// tmp2038,
-	add	x22, sp, 320	// tmp2366,,
-	strh	w0, [sp, 320]	// tmp2038, MEM <char[1:2]> [(void *)_807]
-// src/cpp/benchmark.cpp:358:             snprintf(sec, sizeof(sec), "-");
-	strh	w0, [sp, 352]	// tmp2038, MEM <char[1:2]> [(void *)_2140]
-	b	.L449		//
-.L892:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
-	mov	x2, 0	//,
-	add	x1, sp, 352	// tmp2879,,
-	mov	x0, x19	//, tmp2354
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	ldr	x1, [sp, 352]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
-	str	x0, [sp, 1304]	// _5421, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
-	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.42750._M_allocated_capacity
-.L441:
+	str	x0, [sp, 184]	// ivtmp.719, %sfp
+	cmp	w22, 7	// i,
+	bne	.L453		//,
+	b	.L454		//
+.L897:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
+	mov	x0, x20	// _5419, tmp2347
+.L444:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:427: 	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-	mov	x2, x22	//, _5429
+	mov	x2, x23	//, prephitmp_5414
 	mov	x1, x21	//, _5433
 	bl	memcpy		//
-	b	.L439		//
-.L895:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:251: 	_M_set_length(__dnew);
+	ldr	x23, [sp, 336]	// prephitmp_5414, MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:228:       { return _M_dataplus._M_p; }
+	ldr	x0, [sp, 1304]	// prephitmp_5413, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+	b	.L441		//
+.L442:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	ldrb	w0, [x21]	// _5422, MEM[(const char_type &)_5433]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:350: 	__c1 = __c2;
+	strb	w0, [sp, 1320]	// _5422, MEM[(char_type &)_1195 + 16]
+	b	.L443		//
+.L898:
+// src/cpp/benchmark.cpp:357:             snprintf(cyc, sizeof(cyc), "-");
+	mov	w0, 45	// tmp2036,
+	add	x23, sp, 304	// tmp2364,,
+	strh	w0, [sp, 304]	// tmp2036, MEM <char[1:2]> [(void *)_807]
+// src/cpp/benchmark.cpp:358:             snprintf(sec, sizeof(sec), "-");
+	strh	w0, [sp, 336]	// tmp2036, MEM <char[1:2]> [(void *)_2140]
+	b	.L452		//
+.L896:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.tcc:229: 	    _M_data(_M_create(__dnew, size_type(0)));
+	mov	x2, 0	//,
+	add	x1, sp, 336	// tmp2877,,
+	mov	x0, x19	//, tmp2346
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
+	ldr	x1, [sp, 336]	// MEM[(long unsigned int *)_2140], MEM[(long unsigned int *)_2140]
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:218:       { _M_dataplus._M_p = __p; }
+	str	x0, [sp, 1304]	// _5419, MEM[(struct basic_string *)_1195]._M_dataplus._M_p
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:255:       { _M_allocated_capacity = __capacity; }
+	str	x1, [sp, 1320]	// MEM[(long unsigned int *)_2140], MEM[(struct basic_string *)_1195].D.64159._M_allocated_capacity
+	b	.L444		//
+.L899:
 // src/cpp/benchmark.cpp:362:         if (is_best) std::cout << Color::GREEN;
-	adrp	x0, _ZN5Color5GREENE	// tmp2885,
+	adrp	x0, _ZN5Color5GREENE	// tmp2883,
 	ldr	x1, [x0, #:lo12:_ZN5Color5GREENE]	//, GREEN
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:363:         printf("%-35s | %-12s | %-20s | %-14s",
-	adrp	x0, .LC103	// tmp2027,
-	mov	x3, x22	//, tmp2366
+	adrp	x0, .LC104	// tmp2025,
+	mov	x3, x23	//, tmp2364
 	mov	x1, x21	//, _5433
-	add	x0, x0, :lo12:.LC103	//, tmp2027,
-	add	x4, sp, 352	// tmp2886,,
-	mov	x2, x19	//, tmp2354
+	add	x0, x0, :lo12:.LC104	//, tmp2025,
+	add	x4, sp, 336	// tmp2884,,
+	mov	x2, x19	//, tmp2346
 	bl	printf		//
 // src/cpp/benchmark.cpp:365:         if (is_best) std::cout << Color::RESET;
-	adrp	x0, _ZN5Color5RESETE	// tmp2887,
+	adrp	x0, _ZN5Color5RESETE	// tmp2885,
 	ldr	x1, [x0, #:lo12:_ZN5Color5RESETE]	//, RESET
-	mov	x0, x27	//, tmp2362
+	mov	x0, x28	//, tmp2355
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-	b	.L448		//
-.L873:
+	b	.L451		//
+.L877:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/ostream:673: 	__ostream_insert(__out, __s,
-	adrp	x19, _ZSt4cerr	// tmp2358,
-	adrp	x1, .LC68	// tmp1573,
-	add	x19, x19, :lo12:_ZSt4cerr	// tmp2356, tmp2358,
-	add	x1, x1, :lo12:.LC68	//, tmp1573,
-	mov	x0, x19	//, tmp2356
+	adrp	x19, _ZSt4cerr	// tmp2324,
+	adrp	x1, .LC69	// tmp1577,
+	add	x19, x19, :lo12:_ZSt4cerr	// tmp2376, tmp2324,
+	add	x1, x1, :lo12:.LC69	//, tmp1577,
+	mov	x0, x19	//, tmp2376
 	mov	x2, 52	//,
 	bl	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l		//
 // src/cpp/benchmark.cpp:278:                   << (bench_filter ? bench_filter : "") << "\n";
-	ldr	x0, [sp, 168]	// bench_filter, %sfp
-	cbz	x0, .L896	// bench_filter,
+	ldr	x0, [sp, 160]	// bench_filter, %sfp
+	cbz	x0, .L900	// bench_filter,
 .L381:
 // src/cpp/benchmark.cpp:278:                   << (bench_filter ? bench_filter : "") << "\n";
-	ldr	x1, [sp, 168]	//, %sfp
-	mov	x0, x19	//, tmp2356
+	ldr	x1, [sp, 160]	//, %sfp
+	mov	x0, x19	//, tmp2376
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:278:                   << (bench_filter ? bench_filter : "") << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/include/timing.h:153:     close(ctx->fd);
-	ldr	w0, [sp, 240]	//, %sfp
+	ldr	w0, [sp, 224]	//, %sfp
 	bl	close		//
-.LEHE129:
+.LEHE130:
 // src/cpp/benchmark.cpp:280:         return 1;
 	mov	w19, 1	// <retval>,
 	b	.L382		//
-.L893:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/char_traits.h:421: 	if (__n == 0)
-	mov	x0, x28	// _5421, tmp2355
-	b	.L441		//
-.L896:
+.L900:
 // src/cpp/benchmark.cpp:278:                   << (bench_filter ? bench_filter : "") << "\n";
-	adrp	x0, .LC22	// tmp943,
-	add	x0, x0, :lo12:.LC22	// bench_filter, tmp943,
-	str	x0, [sp, 168]	// bench_filter, %sfp
+	adrp	x0, .LC23	// tmp936,
+	add	x0, x0, :lo12:.LC23	// bench_filter, tmp936,
+	str	x0, [sp, 160]	// bench_filter, %sfp
 	b	.L381		//
-.L615:
+.L625:
+.L857:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2558,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2246, tmp2558
+	mov	x1, x0	// tmp2564,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2275, tmp2564
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-.L507:
-	add	x0, sp, 352	// tmp2920,,
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-.L508:
-	mov	x0, x22	//, tmp2366
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-.L505:
+	b	.L419		//
+.L597:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 1032]	// _947, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_start
+	mov	x19, x0	// tmp2311, tmp2580
+.L549:
+	ldr	x0, [sp, 512]	// _995, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 1048]	// MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _949, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.35493._M_end_of_storage, _947
+	ldr	x1, [sp, 528]	// MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _997, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.56895._M_end_of_storage, _995
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L526	// _947,
+	cbz	x0, .L496	// _995,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L526:
+.L496:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 992]	// _951, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 464]	// _999, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 1008]	// MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _953, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.35493._M_end_of_storage, _951
+	ldr	x1, [sp, 480]	// MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _1001, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.56895._M_end_of_storage, _999
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L528	// _951,
+	cbz	x0, .L552	// _999,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L528:
+.L552:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 952]	// _955, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 416]	// _1003, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 968]	// MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _957, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.35493._M_end_of_storage, _955
+	ldr	x1, [sp, 432]	// MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _1005, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.56895._M_end_of_storage, _1003
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L530	// _955,
+	cbnz	x0, .L901	// _1003,
+.L554:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	add	x0, sp, 272	// tmp2923,,
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+.L492:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 368]	// _1007, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 384]	// MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _1009, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.56895._M_end_of_storage, _1007
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L555	// _1007,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	bl	_ZdlPvm		//
+.L555:
+	mov	x0, x19	//, tmp2187
+.LEHB131:
+	bl	_Unwind_Resume		//
+.LEHE131:
+.L630:
+// src/cpp/benchmark.cpp:382:     }
+	mov	x1, x0	// tmp2566,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2281, tmp2566
+	bl	_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev		//
+.L419:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	ldr	x0, [sp, 232]	//, %sfp
+	mov	x1, 168	//,
+	bl	_ZdlPvm		//
+.L509:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [sp, 1016]	// _947, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 1032]	// MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _949, MEM[(struct _Vector_base *)&final_logits]._M_impl.D.56895._M_end_of_storage, _947
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L530	// _947,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
 .L530:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 912]	// _959, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 976]	// _951, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 928]	// MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _961, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.35493._M_end_of_storage, _959
+	ldr	x1, [sp, 992]	// MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _953, MEM[(struct _Vector_base *)&avgpool_out]._M_impl.D.56895._M_end_of_storage, _951
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L532	// _959,
+	cbz	x0, .L532	// _951,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
 .L532:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 872]	// _963, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 936]	// _955, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 888]	// MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _965, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.35493._M_end_of_storage, _963
+	ldr	x1, [sp, 952]	// MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _957, MEM[(struct _Vector_base *)&conv3_out]._M_impl.D.56895._M_end_of_storage, _955
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L534	// _963,
+	cbz	x0, .L534	// _955,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
 .L534:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 832]	// _967, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 896]	// _959, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 848]	// MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _969, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.35493._M_end_of_storage, _967
+	ldr	x1, [sp, 912]	// MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _961, MEM[(struct _Vector_base *)&pool2_out]._M_impl.D.56895._M_end_of_storage, _959
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L536	// _967,
+	cbz	x0, .L536	// _959,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
 .L536:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 792]	// _971, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 856]	// _963, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 808]	// MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _973, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.35493._M_end_of_storage, _971
+	ldr	x1, [sp, 872]	// MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _965, MEM[(struct _Vector_base *)&conv2_out]._M_impl.D.56895._M_end_of_storage, _963
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L501	// _971,
+	cbz	x0, .L538	// _963,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L501:
+.L538:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 752]	// _975, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 816]	// _967, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 768]	// MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _977, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.35493._M_end_of_storage, _975
+	ldr	x1, [sp, 832]	// MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _969, MEM[(struct _Vector_base *)&pool1_out]._M_impl.D.56895._M_end_of_storage, _967
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L539	// _975,
+	cbz	x0, .L540	// _967,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L539:
+.L540:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 712]	// _979, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 776]	// _971, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 728]	// MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _981, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.35493._M_end_of_storage, _979
+	ldr	x1, [sp, 792]	// MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _973, MEM[(struct _Vector_base *)&conv1_out]._M_impl.D.56895._M_end_of_storage, _971
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L498	// _979,
+	cbz	x0, .L505	// _971,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L498:
+.L505:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 672]	// _983, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 736]	// _975, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 688]	// MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _985, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.35493._M_end_of_storage, _983
+	ldr	x1, [sp, 752]	// MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _977, MEM[(struct _Vector_base *)&fc_bias]._M_impl.D.56895._M_end_of_storage, _975
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L542	// _983,
+	cbz	x0, .L543	// _975,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L542:
+.L543:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 624]	// _987, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 696]	// _979, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 640]	// MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _989, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.35493._M_end_of_storage, _987
+	ldr	x1, [sp, 712]	// MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _981, MEM[(struct _Vector_base *)&fc_weight]._M_impl.D.56895._M_end_of_storage, _979
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L495	// _987,
+	cbz	x0, .L502	// _979,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L495:
+.L502:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 576]	// _991, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 656]	// _983, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 592]	// MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _993, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.35493._M_end_of_storage, _991
+	ldr	x1, [sp, 672]	// MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _985, MEM[(struct _Vector_base *)&conv3_bias]._M_impl.D.56895._M_end_of_storage, _983
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L545	// _991,
+	cbz	x0, .L546	// _983,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L545:
+.L546:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 528]	// _995, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 608]	// _987, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 544]	// MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _997, MEM[(struct _Vector_base *)&conv2_weight]._M_impl.D.35493._M_end_of_storage, _995
+	ldr	x1, [sp, 624]	// MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _989, MEM[(struct _Vector_base *)&conv3_weight]._M_impl.D.56895._M_end_of_storage, _987
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L492	// _995,
+	cbz	x0, .L499	// _987,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L492:
+.L499:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 480]	// _999, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_start
+	ldr	x0, [sp, 560]	// _991, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_start
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 496]	// MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _1001, MEM[(struct _Vector_base *)&conv1_bias]._M_impl.D.35493._M_end_of_storage, _999
+	ldr	x1, [sp, 576]	// MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage
+	sub	x1, x1, x0	// _993, MEM[(struct _Vector_base *)&conv2_bias]._M_impl.D.56895._M_end_of_storage, _991
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L548	// _999,
+	cbz	x0, .L549	// _991,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	bl	_ZdlPvm		//
-.L548:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 432]	// _1003, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 448]	// MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _1005, MEM[(struct _Vector_base *)&conv1_weight]._M_impl.D.35493._M_end_of_storage, _1003
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbnz	x0, .L897	// _1003,
-.L550:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	add	x0, sp, 288	// tmp2923,,
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-.L488:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [sp, 384]	// _1007, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 400]	// MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage
-	sub	x1, x1, x0	// _1009, MEM[(struct _Vector_base *)&input_batch]._M_impl.D.35493._M_end_of_storage, _1007
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L551	// _1007,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	bl	_ZdlPvm		//
-.L551:
-	mov	x0, x19	//, tmp2190
-.LEHB130:
-	bl	_Unwind_Resume		//
-.LEHE130:
-.L599:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2221, tmp2580
-	b	.L498		//
-.L626:
-// src/cpp/benchmark.cpp:382:     }
-	mov	x1, x0	// tmp2569,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2284, tmp2569
-	bl	_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev		//
-.L418:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	ldr	x0, [sp, 248]	//, %sfp
-	mov	x1, 144	//,
-	bl	_ZdlPvm		//
-	b	.L505		//
-.L897:
 	bl	_ZdlPvm		//
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/alloc_traits.h:513:       { __a.deallocate(__p, __n); }
-	b	.L550		//
-.L605:
+	b	.L549		//
+.L901:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	bl	_ZdlPvm		//
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/alloc_traits.h:513:       { __a.deallocate(__p, __n); }
+	b	.L554		//
+.L592:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x19, x0	// tmp2318, tmp2583
+	b	.L554		//
+.L590:
+.L862:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2302, tmp2577
-	b	.L536		//
+	mov	x19, x0	// tmp2187, tmp2584
+	b	.L492		//
 .L588:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x19, x0	// tmp2321, tmp2586
-	b	.L550		//
-.L586:
-.L858:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2190, tmp2587
-	b	.L488		//
-.L584:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x2, x0	// tmp2540,
-	mov	x0, x19	//, tmp2354
-	mov	x20, x1	// tmp2189, tmp2541
-	mov	x19, x2	// tmp2187, tmp2540
+	mov	x2, x0	// tmp2537,
+	mov	x0, x19	//, tmp2346
+	mov	x20, x1	// tmp2186, tmp2538
+	mov	x19, x2	// tmp2184, tmp2537
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	mov	x0, x19	// tmp2186, tmp2187
-	mov	x1, x20	// tmp2188, tmp2189
-.L486:
+	mov	x0, x19	// tmp2183, tmp2184
+	mov	x1, x20	// tmp2185, tmp2186
+.L490:
 // src/cpp/benchmark.cpp:113:     } catch (const std::exception& e) {
-	cmp	x1, 1	// tmp2188,
-	bne	.L858		//,
+	cmp	x1, 1	// tmp2185,
+	bne	.L862		//,
 // src/cpp/benchmark.cpp:113:     } catch (const std::exception& e) {
 	bl	__cxa_begin_catch		//
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
-	adrp	x1, _ZN5Color3REDE	// tmp2193,
-	adrp	x2, _ZSt4cerr	// tmp2195,
+	adrp	x1, _ZN5Color3REDE	// tmp2190,
+	adrp	x2, _ZSt4cerr	// tmp2192,
 // src/cpp/benchmark.cpp:113:     } catch (const std::exception& e) {
-	mov	x19, x0	// _776, tmp2544
+	mov	x19, x0	// _776, tmp2541
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
 	ldr	x1, [x1, #:lo12:_ZN5Color3REDE]	//, RED
-	add	x0, x2, :lo12:_ZSt4cerr	//, tmp2195,
-.LEHB131:
+	add	x0, x2, :lo12:_ZSt4cerr	//, tmp2192,
+.LEHB132:
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
 	ldr	x2, [x19]	// MEM[(const struct exception *)_776]._vptr.exception, MEM[(const struct exception *)_776]._vptr.exception
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
-	mov	x1, x0	// tmp2545,
+	mov	x1, x0	// tmp2542,
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
 	mov	x0, x19	//, _776
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
-	mov	x19, x1	// _778, tmp2545
+	mov	x19, x1	// _778, tmp2542
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
 	ldr	x1, [x2, 16]	// MEM[(int (*) () *)_13 + 16B], MEM[(int (*) () *)_13 + 16B]
 	blr	x1		// MEM[(int (*) () *)_13 + 16B]
-	mov	x1, x0	//, tmp2546
+	mov	x1, x0	//, tmp2543
 	mov	x0, x19	//, _778
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
@@ -7683,228 +7686,139 @@ main:
 	ldr	x1, [x1, #:lo12:_ZN5Color5RESETE]	//, RESET
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
 // src/cpp/benchmark.cpp:114:         std::cerr << Color::RED << e.what() << Color::RESET << "\n";
-	ldr	x1, [sp, 176]	//, %sfp
+	ldr	x1, [sp, 168]	//, %sfp
 	bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc		//
-.LEHE131:
+.LEHE132:
 // src/cpp/benchmark.cpp:115:         return 1;
 	mov	w19, 1	// <retval>,
 // src/cpp/benchmark.cpp:116:     }
 	bl	__cxa_end_catch		//
-	b	.L489		//
-.L585:
-	b	.L486		//
-.L594:
-.L856:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2551,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2218, tmp2551
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L495		//
-.L595:
+	b	.L493		//
+.L613:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2213, tmp2582
-	b	.L495		//
-.L596:
-	b	.L856		//
-.L593:
-	mov	x19, x0	// tmp2314, tmp2583
-	b	.L545		//
-.L601:
-	mov	x19, x0	// tmp2306, tmp2579
-	b	.L539		//
-.L600:
-.L855:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2553,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2226, tmp2553
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L498		//
-.L598:
-	b	.L855		//
+	mov	x19, x0	// tmp2287, tmp2570
+	b	.L532		//
+.L612:
+	mov	x19, x0	// tmp2290, tmp2571
+	b	.L534		//
+.L610:
+	mov	x19, x0	// tmp2296, tmp2573
+	b	.L538		//
+.L609:
+	mov	x19, x0	// tmp2299, tmp2574
+	b	.L540		//
 .L611:
-	mov	x19, x0	// tmp2237, tmp2557
-.L504:
-	add	x0, sp, 352	// tmp2919,,
+	mov	x19, x0	// tmp2293, tmp2572
+	b	.L536		//
+.L608:
+.L858:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x1, x0	// tmp2552,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2231, tmp2552
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
 	b	.L505		//
-.L612:
-	mov	x1, x0	// tmp2556,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2238, tmp2556
+.L600:
+.L860:
+	mov	x1, x0	// tmp2548,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2215, tmp2548
 	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L504		//
-.L613:
-	mov	x19, x0	// tmp2250, tmp2560
-	b	.L508		//
-.L614:
-	mov	x19, x0	// tmp2245, tmp2559
-	b	.L507		//
-.L869:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp1556,
-	add	x0, x0, :lo12:.LC10	//, tmp1556,
-.LEHB132:
-	bl	_ZSt19__throw_logic_errorPKc		//
-.L609:
+	b	.L499		//
+.L589:
+	b	.L490		//
+.L616:
+	mov	x1, x0	// tmp2553,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2235, tmp2553
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+.L508:
+	add	x0, sp, 336	// tmp2919,,
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L509		//
+.L617:
+	mov	x19, x0	// tmp2247, tmp2557
+.L512:
+	mov	x0, x23	//, tmp2364
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L509		//
+.L618:
+	mov	x19, x0	// tmp2242, tmp2556
+.L511:
+	add	x0, sp, 336	// tmp2920,,
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L512		//
+.L627:
+	b	.L857		//
+.L599:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2290, tmp2573
-	b	.L528		//
-.L604:
-.L854:
+	mov	x19, x0	// tmp2210, tmp2579
+	b	.L499		//
+.L615:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2555,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2234, tmp2555
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L501		//
-.L602:
-	b	.L854		//
+	mov	x19, x0	// tmp2234, tmp2554
+	b	.L508		//
+.L598:
+	b	.L860		//
+.L607:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	mov	x19, x0	// tmp2226, tmp2575
+	b	.L505		//
+.L614:
+	mov	x19, x0	// tmp2284, tmp2569
+	b	.L530		//
+.L606:
+	b	.L858		//
+.L591:
+// src/cpp/benchmark.cpp:116:     }
+	mov	x19, x0	// tmp2199, tmp2544
+	bl	__cxa_end_catch		//
+	b	.L492		//
 .L603:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2229, tmp2578
-	b	.L501		//
-.L590:
-.L857:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2549,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2210, tmp2549
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L492		//
-.L610:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2287, tmp2572
-	b	.L526		//
-.L592:
-	b	.L857		//
-.L587:
-// src/cpp/benchmark.cpp:116:     }
-	mov	x19, x0	// tmp2202, tmp2547
-	bl	__cxa_end_catch		//
-	b	.L488		//
-.L597:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2310, tmp2581
-	b	.L542		//
-.L608:
-	mov	x19, x0	// tmp2293, tmp2574
-	b	.L530		//
-.L607:
-	mov	x19, x0	// tmp2296, tmp2575
-	b	.L532		//
-.L606:
-	mov	x19, x0	// tmp2299, tmp2576
-	b	.L534		//
-.L635:
-// src/cpp/benchmark.cpp:208:         };
-	mov	x1, 4	// _142,
-	mov	x20, x0	// tmp2260, tmp2471
-.L323:
-	mov	x21, 9	// tmp2255,
-	sub	w21, w21, w1	// _40, tmp2255, _142
-	add	x21, x19, x21, lsl 5	// _143, tmp2354, _40,
-.L512:
-// src/cpp/benchmark.cpp:208:         };
-	cmp	x21, x19	// _143, tmp2354
-	bne	.L898		//,
-	mov	x19, x20	// tmp2242, tmp2260
-	b	.L505		//
-.L636:
-// src/cpp/benchmark.cpp:208:         };
-	mov	x1, 3	// _142,
-	mov	x20, x0	// tmp2260, tmp2472
-	b	.L323		//
-.L637:
-	mov	x1, 2	// _142,
-	mov	x20, x0	// tmp2260, tmp2473
-	b	.L323		//
-.L436:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp2050,
-	add	x0, x0, :lo12:.LC10	//, tmp2050,
-	bl	_ZSt19__throw_logic_errorPKc		//
-.L589:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2318, tmp2585
-	b	.L548		//
-.L616:
-	mov	x19, x0	// tmp2242, tmp2571
-	b	.L505		//
-.L631:
-// src/cpp/benchmark.cpp:208:         };
-	mov	x1, 8	// _142,
-	mov	x20, x0	// tmp2260, tmp2467
-	b	.L323		//
-.L632:
-	mov	x1, 7	// _142,
-	mov	x20, x0	// tmp2260, tmp2468
-	b	.L323		//
-.L633:
-	mov	x1, 6	// _142,
-	mov	x20, x0	// tmp2260, tmp2469
-	b	.L323		//
-.L634:
-	mov	x1, 5	// _142,
-	mov	x20, x0	// tmp2260, tmp2470
-	b	.L323		//
-.L884:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp1968,
-	add	x0, x0, :lo12:.LC10	//, tmp1968,
-	bl	_ZSt19__throw_logic_errorPKc		//
-.LEHE132:
-.L630:
-// src/cpp/benchmark.cpp:208:         };
-	mov	x1, 9	// _142,
-	mov	x20, x0	// tmp2260, tmp2561
-	b	.L323		//
-.L898:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	ldr	x0, [x21, -24]	// _931, MEM[(double * *)_697 + 8B]
-// src/cpp/benchmark.cpp:208:         };
-	sub	x21, x21, #32	// _143, _143,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [x21, 24]	// MEM[(double * *)_697 + 24B], MEM[(double * *)_697 + 24B]
-	sub	x1, x1, x0	// _933, MEM[(double * *)_697 + 24B], _931
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L512	// _931,
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	bl	_ZdlPvm		//
-// src/cpp/benchmark.cpp:196:         struct LayerStat { const char *name; std::vector<double> cycles; };
-	b	.L512		//
-.L621:
-.L853:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x1, x0	// tmp2567,
-	mov	x0, x19	//, tmp2354
-	mov	x19, x1	// tmp2278, tmp2567
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L418		//
+	mov	x19, x0	// tmp2218, tmp2577
+	b	.L502		//
+.L601:
+	mov	x19, x0	// tmp2307, tmp2578
+	b	.L546		//
+.L602:
 .L859:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp956,
-	add	x0, x0, :lo12:.LC10	//, tmp956,
-.LEHB133:
-	bl	_ZSt19__throw_logic_errorPKc		//
-.LEHE133:
-.L625:
-	b	.L853		//
-.L638:
-// src/cpp/benchmark.cpp:208:         };
-	mov	x1, 1	// _142,
-	mov	x20, x0	// tmp2260, tmp2474
-	b	.L323		//
-.L617:
-	mov	x1, 0	// _142,
-	mov	x20, x0	// tmp2260, tmp2475
-	b	.L323		//
-.L618:
-	add	x20, sp, 1624	// _694,,
-// src/cpp/benchmark.cpp:208:         };
-	mov	x21, x0	// tmp2267, tmp2564
-.L519:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x1, x0	// tmp2550,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2223, tmp2550
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L502		//
+.L596:
+.L861:
+	mov	x1, x0	// tmp2546,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2207, tmp2546
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L496		//
+.L594:
+	b	.L861		//
+.L595:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	mov	x19, x0	// tmp2202, tmp2581
+	b	.L496		//
+.L593:
+	mov	x19, x0	// tmp2315, tmp2582
+	b	.L552		//
+.L624:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x21, x0	// tmp2559,
+	add	x0, sp, 336	// tmp2921,,
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+.L518:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x0, [sp, 128]	// medians$_M_impl$D100808$_M_end_of_storage, %sfp
+	sub	x1, x0, x25	// _937, medians$_M_impl$D100808$_M_end_of_storage, medians$D101473$_M_impl$D100808$_M_start
+.L556:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	mov	x0, x25	//, medians$D101473$_M_impl$D100808$_M_start
+	bl	_ZdlPvm		//
+.L523:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
 	ldr	x0, [x20, -24]	// _939, MEM[(double * *)_694 + 8B]
 // src/cpp/benchmark.cpp:208:         };
@@ -7913,473 +7827,572 @@ main:
 	ldr	x1, [x20, 24]	// MEM[(double * *)_694 + 24B], MEM[(double * *)_694 + 24B]
 	sub	x1, x1, x0	// _941, MEM[(double * *)_694 + 24B], _939
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x0, .L518	// _939,
+	cbz	x0, .L522	// _939,
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
 	bl	_ZdlPvm		//
-.L518:
+.L522:
 // src/cpp/benchmark.cpp:267:     }
-	cmp	x20, x19	// _694, tmp2354
-	bne	.L519		//,
-	mov	x19, x21	// tmp2242, tmp2267
-	b	.L505		//
-.L629:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	ldr	x1, [sp, 136]	// medians$_M_impl$D79399$_M_end_of_storage, %sfp
-	mov	x21, x0	// tmp2263, tmp2563
-	add	x20, sp, 1624	// _694,,
-	sub	x1, x1, x25	// _937, medians$_M_impl$D79399$_M_end_of_storage, medians$D80064$_M_impl$D79399$_M_start
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
-	cbz	x25, .L519	// medians$D80064$_M_impl$D79399$_M_start,
-.L552:
+	cmp	x20, x19	// _694, tmp2346
+	bne	.L523		//,
+	mov	x19, x21	// tmp2239, tmp2264
+	b	.L509		//
+.L626:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	mov	x0, x25	//, medians$D80064$_M_impl$D79399$_M_start
-	bl	_ZdlPvm		//
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/alloc_traits.h:513:       { __a.deallocate(__p, __n); }
-	b	.L519		//
-.L619:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
-	mov	x21, x0	// tmp2263, tmp2588
-.L514:
-	ldr	x0, [sp, 136]	// medians$_M_impl$D79399$_M_end_of_storage, %sfp
-	sub	x1, x0, x25	// _937, medians$_M_impl$D79399$_M_end_of_storage, medians$D80064$_M_impl$D79399$_M_start
-	b	.L552		//
-.L620:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
-	mov	x21, x0	// tmp2562,
-	add	x0, sp, 352	// tmp2921,,
-	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
-	b	.L514		//
-.L622:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	mov	x19, x0	// tmp1901, tmp2570
-	b	.L418		//
-.L875:
+	mov	x19, x0	// tmp1904, tmp2567
+	b	.L419		//
+.L879:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
-	adrp	x0, .LC10	// tmp1612,
-	add	x0, x0, :lo12:.LC10	//, tmp1612,
-.LEHB134:
+	adrp	x0, .LC11	// tmp1616,
+	add	x0, x0, :lo12:.LC11	//, tmp1616,
+.LEHB133:
 	bl	_ZSt19__throw_logic_errorPKc		//
-.LEHE134:
-.L627:
-// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
-	mov	x19, x0	// tmp1897, tmp2521
-	b	.L417		//
+.L873:
+	adrp	x0, .LC11	// tmp1560,
+	add	x0, x0, :lo12:.LC11	//, tmp1560,
+	bl	_ZSt19__throw_logic_errorPKc		//
 .L628:
-	mov	x19, x0	// tmp2520,
-	ldr	x0, [sp, 160]	//, %sfp
-	mov	x1, 80	//,
-	bl	_ZdlPvm		//
-.L417:
+	b	.L857		//
+.L438:
+	adrp	x0, .LC11	// tmp2048,
+	add	x0, x0, :lo12:.LC11	//, tmp2048,
+	bl	_ZSt19__throw_logic_errorPKc		//
+.LEHE133:
+.L619:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:809:       { _M_dispose(); }
+	mov	x1, x0	// tmp2555,
+	mov	x0, x19	//, tmp2346
+	mov	x19, x1	// tmp2243, tmp2555
+	bl	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv		//
+	b	.L511		//
+.L642:
+// src/cpp/benchmark.cpp:208:         };
+	mov	x1, 1	// _142,
+	mov	x20, x0	// tmp2257, tmp2471
+.L323:
+	mov	x21, 9	// tmp2252,
+	sub	w21, w21, w1	// _40, tmp2252, _142
+	add	x21, x19, x21, lsl 5	// _143, tmp2346, _40,
+.L516:
+// src/cpp/benchmark.cpp:208:         };
+	cmp	x21, x19	// _143, tmp2346
+	bne	.L902		//,
+	mov	x19, x20	// tmp2239, tmp2257
+	b	.L509		//
+.L621:
+// src/cpp/benchmark.cpp:208:         };
+	mov	x1, 0	// _142,
+	mov	x20, x0	// tmp2257, tmp2472
+	b	.L323		//
+.L633:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [sp, 128]	// medians$_M_impl$D100808$_M_end_of_storage, %sfp
+	mov	x21, x0	// tmp2260, tmp2560
+	add	x20, sp, 1624	// _694,,
+	sub	x1, x1, x25	// _937, medians$_M_impl$D100808$_M_end_of_storage, medians$D101473$_M_impl$D100808$_M_start
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x25, .L523	// medians$D101473$_M_impl$D100808$_M_start,
+	b	.L556		//
+.L623:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	mov	x21, x0	// tmp2260, tmp2585
+	b	.L518		//
+.L622:
+	add	x20, sp, 1624	// _694,,
+// src/cpp/benchmark.cpp:208:         };
+	mov	x21, x0	// tmp2264, tmp2561
+	b	.L523		//
+.L631:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	mov	x19, x0	// tmp1900, tmp2518
+	b	.L418		//
+.L639:
+// src/cpp/benchmark.cpp:208:         };
+	mov	x1, 4	// _142,
+	mov	x20, x0	// tmp2257, tmp2468
+	b	.L323		//
+.L635:
+	mov	x1, 8	// _142,
+	mov	x20, x0	// tmp2257, tmp2464
+	b	.L323		//
+.L636:
+	mov	x1, 7	// _142,
+	mov	x20, x0	// tmp2257, tmp2465
+	b	.L323		//
+.L637:
+	mov	x1, 6	// _142,
+	mov	x20, x0	// tmp2257, tmp2466
+	b	.L323		//
+.L638:
+	mov	x1, 5	// _142,
+	mov	x20, x0	// tmp2257, tmp2467
+	b	.L323		//
+.L632:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	mov	x19, x0	// tmp2517,
 	ldr	x0, [sp, 152]	//, %sfp
 	mov	x1, 80	//,
 	bl	_ZdlPvm		//
-	b	.L418		//
-.L624:
-	b	.L853		//
-.L623:
-	b	.L853		//
-.L591:
+.L418:
+	ldr	x0, [sp, 144]	//, %sfp
+	mov	x1, 80	//,
+	bl	_ZdlPvm		//
+	b	.L419		//
+.L634:
+// src/cpp/benchmark.cpp:208:         };
+	mov	x1, 9	// _142,
+	mov	x20, x0	// tmp2257, tmp2558
+	b	.L323		//
+.L863:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
+	adrp	x0, .LC11	// tmp953,
+	add	x0, x0, :lo12:.LC11	//, tmp953,
+.LEHB134:
+	bl	_ZSt19__throw_logic_errorPKc		//
+.LEHE134:
+.L604:
+	b	.L859		//
+.L620:
 // /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
-	mov	x19, x0	// tmp2205, tmp2584
-	b	.L492		//
+	mov	x19, x0	// tmp2239, tmp2568
+	b	.L509		//
+.L641:
+// src/cpp/benchmark.cpp:208:         };
+	mov	x1, 2	// _142,
+	mov	x20, x0	// tmp2257, tmp2470
+	b	.L323		//
+.L640:
+	mov	x1, 3	// _142,
+	mov	x20, x0	// tmp2257, tmp2469
+	b	.L323		//
+.L605:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	mov	x19, x0	// tmp2303, tmp2576
+	b	.L543		//
+.L629:
+	b	.L857		//
+.L888:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/basic_string.h:651: 	  std::__throw_logic_error(__N("basic_string: "
+	adrp	x0, .LC11	// tmp1971,
+	add	x0, x0, :lo12:.LC11	//, tmp1971,
+.LEHB135:
+	bl	_ZSt19__throw_logic_errorPKc		//
+.LEHE135:
+.L902:
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:368: 	_M_deallocate(_M_impl._M_start,
+	ldr	x0, [x21, -24]	// _931, MEM[(double * *)_697 + 8B]
+// src/cpp/benchmark.cpp:208:         };
+	sub	x21, x21, #32	// _143, _143,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:369: 		      _M_impl._M_end_of_storage - _M_impl._M_start);
+	ldr	x1, [x21, 24]	// MEM[(double * *)_697 + 24B], MEM[(double * *)_697 + 24B]
+	sub	x1, x1, x0	// _933, MEM[(double * *)_697 + 24B], _931
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/stl_vector.h:388: 	if (__p)
+	cbz	x0, .L516	// _931,
+// /user-environment/linux-neoverse_v2/gcc-14.2.0-ovez6ffqfi4256sigothvjlis6onlz4h/lib/gcc/aarch64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/bits/new_allocator.h:172: 	_GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+	bl	_ZdlPvm		//
+// src/cpp/benchmark.cpp:196:         struct LayerStat { const char *name; std::vector<double> cycles; };
+	b	.L516		//
 	.cfi_endproc
-.LFE3459:
+.LFE7375:
 	.section	.gcc_except_table
 	.align	2
-.LLSDA3459:
+.LLSDA7375:
 	.byte	0xff
 	.byte	0x9b
-	.uleb128 .LLSDATT3459-.LLSDATTD3459
-.LLSDATTD3459:
+	.uleb128 .LLSDATT7375-.LLSDATTD7375
+.LLSDATTD7375:
 	.byte	0x1
-	.uleb128 .LLSDACSE3459-.LLSDACSB3459
-.LLSDACSB3459:
-	.uleb128 .LEHB51-.LFB3459
+	.uleb128 .LLSDACSE7375-.LLSDACSB7375
+.LLSDACSB7375:
+	.uleb128 .LEHB51-.LFB7375
 	.uleb128 .LEHE51-.LEHB51
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB52-.LFB3459
+	.uleb128 .LEHB52-.LFB7375
 	.uleb128 .LEHE52-.LEHB52
-	.uleb128 .L585-.LFB3459
+	.uleb128 .L589-.LFB7375
 	.uleb128 0x3
-	.uleb128 .LEHB53-.LFB3459
+	.uleb128 .LEHB53-.LFB7375
 	.uleb128 .LEHE53-.LEHB53
-	.uleb128 .L584-.LFB3459
+	.uleb128 .L588-.LFB7375
 	.uleb128 0x3
-	.uleb128 .LEHB54-.LFB3459
+	.uleb128 .LEHB54-.LFB7375
 	.uleb128 .LEHE54-.LEHB54
-	.uleb128 .L585-.LFB3459
+	.uleb128 .L589-.LFB7375
 	.uleb128 0x3
-	.uleb128 .LEHB55-.LFB3459
+	.uleb128 .LEHB55-.LFB7375
 	.uleb128 .LEHE55-.LEHB55
-	.uleb128 .L586-.LFB3459
+	.uleb128 .L590-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB56-.LFB3459
+	.uleb128 .LEHB56-.LFB7375
 	.uleb128 .LEHE56-.LEHB56
-	.uleb128 .L588-.LFB3459
+	.uleb128 .L592-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB57-.LFB3459
+	.uleb128 .LEHB57-.LFB7375
 	.uleb128 .LEHE57-.LEHB57
-	.uleb128 .L589-.LFB3459
+	.uleb128 .L593-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB58-.LFB3459
+	.uleb128 .LEHB58-.LFB7375
 	.uleb128 .LEHE58-.LEHB58
-	.uleb128 .L591-.LFB3459
+	.uleb128 .L595-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB59-.LFB3459
+	.uleb128 .LEHB59-.LFB7375
 	.uleb128 .LEHE59-.LEHB59
-	.uleb128 .L590-.LFB3459
+	.uleb128 .L594-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB60-.LFB3459
+	.uleb128 .LEHB60-.LFB7375
 	.uleb128 .LEHE60-.LEHB60
-	.uleb128 .L591-.LFB3459
+	.uleb128 .L595-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB61-.LFB3459
+	.uleb128 .LEHB61-.LFB7375
 	.uleb128 .LEHE61-.LEHB61
-	.uleb128 .L592-.LFB3459
+	.uleb128 .L596-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB62-.LFB3459
+	.uleb128 .LEHB62-.LFB7375
 	.uleb128 .LEHE62-.LEHB62
-	.uleb128 .L591-.LFB3459
+	.uleb128 .L595-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB63-.LFB3459
+	.uleb128 .LEHB63-.LFB7375
 	.uleb128 .LEHE63-.LEHB63
-	.uleb128 .L593-.LFB3459
+	.uleb128 .L597-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB64-.LFB3459
+	.uleb128 .LEHB64-.LFB7375
 	.uleb128 .LEHE64-.LEHB64
-	.uleb128 .L595-.LFB3459
+	.uleb128 .L599-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB65-.LFB3459
+	.uleb128 .LEHB65-.LFB7375
 	.uleb128 .LEHE65-.LEHB65
-	.uleb128 .L594-.LFB3459
+	.uleb128 .L598-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB66-.LFB3459
+	.uleb128 .LEHB66-.LFB7375
 	.uleb128 .LEHE66-.LEHB66
-	.uleb128 .L595-.LFB3459
+	.uleb128 .L599-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB67-.LFB3459
+	.uleb128 .LEHB67-.LFB7375
 	.uleb128 .LEHE67-.LEHB67
-	.uleb128 .L596-.LFB3459
+	.uleb128 .L600-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB68-.LFB3459
+	.uleb128 .LEHB68-.LFB7375
 	.uleb128 .LEHE68-.LEHB68
-	.uleb128 .L595-.LFB3459
+	.uleb128 .L599-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB69-.LFB3459
+	.uleb128 .LEHB69-.LFB7375
 	.uleb128 .LEHE69-.LEHB69
-	.uleb128 .L597-.LFB3459
+	.uleb128 .L601-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB70-.LFB3459
+	.uleb128 .LEHB70-.LFB7375
 	.uleb128 .LEHE70-.LEHB70
-	.uleb128 .L599-.LFB3459
+	.uleb128 .L603-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB71-.LFB3459
+	.uleb128 .LEHB71-.LFB7375
 	.uleb128 .LEHE71-.LEHB71
-	.uleb128 .L598-.LFB3459
+	.uleb128 .L602-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB72-.LFB3459
+	.uleb128 .LEHB72-.LFB7375
 	.uleb128 .LEHE72-.LEHB72
-	.uleb128 .L599-.LFB3459
+	.uleb128 .L603-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB73-.LFB3459
+	.uleb128 .LEHB73-.LFB7375
 	.uleb128 .LEHE73-.LEHB73
-	.uleb128 .L600-.LFB3459
+	.uleb128 .L604-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB74-.LFB3459
+	.uleb128 .LEHB74-.LFB7375
 	.uleb128 .LEHE74-.LEHB74
-	.uleb128 .L599-.LFB3459
+	.uleb128 .L603-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB75-.LFB3459
+	.uleb128 .LEHB75-.LFB7375
 	.uleb128 .LEHE75-.LEHB75
-	.uleb128 .L601-.LFB3459
+	.uleb128 .L605-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB76-.LFB3459
+	.uleb128 .LEHB76-.LFB7375
 	.uleb128 .LEHE76-.LEHB76
-	.uleb128 .L603-.LFB3459
+	.uleb128 .L607-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB77-.LFB3459
+	.uleb128 .LEHB77-.LFB7375
 	.uleb128 .LEHE77-.LEHB77
-	.uleb128 .L602-.LFB3459
+	.uleb128 .L606-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB78-.LFB3459
+	.uleb128 .LEHB78-.LFB7375
 	.uleb128 .LEHE78-.LEHB78
-	.uleb128 .L603-.LFB3459
+	.uleb128 .L607-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB79-.LFB3459
+	.uleb128 .LEHB79-.LFB7375
 	.uleb128 .LEHE79-.LEHB79
-	.uleb128 .L604-.LFB3459
+	.uleb128 .L608-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB80-.LFB3459
+	.uleb128 .LEHB80-.LFB7375
 	.uleb128 .LEHE80-.LEHB80
-	.uleb128 .L603-.LFB3459
+	.uleb128 .L607-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB81-.LFB3459
+	.uleb128 .LEHB81-.LFB7375
 	.uleb128 .LEHE81-.LEHB81
-	.uleb128 .L605-.LFB3459
+	.uleb128 .L609-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB82-.LFB3459
+	.uleb128 .LEHB82-.LFB7375
 	.uleb128 .LEHE82-.LEHB82
-	.uleb128 .L606-.LFB3459
+	.uleb128 .L610-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB83-.LFB3459
+	.uleb128 .LEHB83-.LFB7375
 	.uleb128 .LEHE83-.LEHB83
-	.uleb128 .L607-.LFB3459
+	.uleb128 .L611-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB84-.LFB3459
+	.uleb128 .LEHB84-.LFB7375
 	.uleb128 .LEHE84-.LEHB84
-	.uleb128 .L608-.LFB3459
+	.uleb128 .L612-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB85-.LFB3459
+	.uleb128 .LEHB85-.LFB7375
 	.uleb128 .LEHE85-.LEHB85
-	.uleb128 .L609-.LFB3459
+	.uleb128 .L613-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB86-.LFB3459
+	.uleb128 .LEHB86-.LFB7375
 	.uleb128 .LEHE86-.LEHB86
-	.uleb128 .L610-.LFB3459
+	.uleb128 .L614-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB87-.LFB3459
+	.uleb128 .LEHB87-.LFB7375
 	.uleb128 .LEHE87-.LEHB87
-	.uleb128 .L616-.LFB3459
+	.uleb128 .L620-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB88-.LFB3459
+	.uleb128 .LEHB88-.LFB7375
 	.uleb128 .LEHE88-.LEHB88
-	.uleb128 .L630-.LFB3459
+	.uleb128 .L634-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB89-.LFB3459
+	.uleb128 .LEHB89-.LFB7375
 	.uleb128 .LEHE89-.LEHB89
-	.uleb128 .L631-.LFB3459
+	.uleb128 .L635-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB90-.LFB3459
+	.uleb128 .LEHB90-.LFB7375
 	.uleb128 .LEHE90-.LEHB90
-	.uleb128 .L632-.LFB3459
+	.uleb128 .L636-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB91-.LFB3459
+	.uleb128 .LEHB91-.LFB7375
 	.uleb128 .LEHE91-.LEHB91
-	.uleb128 .L633-.LFB3459
+	.uleb128 .L637-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB92-.LFB3459
+	.uleb128 .LEHB92-.LFB7375
 	.uleb128 .LEHE92-.LEHB92
-	.uleb128 .L634-.LFB3459
+	.uleb128 .L638-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB93-.LFB3459
+	.uleb128 .LEHB93-.LFB7375
 	.uleb128 .LEHE93-.LEHB93
-	.uleb128 .L635-.LFB3459
+	.uleb128 .L639-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB94-.LFB3459
+	.uleb128 .LEHB94-.LFB7375
 	.uleb128 .LEHE94-.LEHB94
-	.uleb128 .L636-.LFB3459
+	.uleb128 .L640-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB95-.LFB3459
+	.uleb128 .LEHB95-.LFB7375
 	.uleb128 .LEHE95-.LEHB95
-	.uleb128 .L637-.LFB3459
+	.uleb128 .L641-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB96-.LFB3459
+	.uleb128 .LEHB96-.LFB7375
 	.uleb128 .LEHE96-.LEHB96
-	.uleb128 .L638-.LFB3459
+	.uleb128 .L642-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB97-.LFB3459
+	.uleb128 .LEHB97-.LFB7375
 	.uleb128 .LEHE97-.LEHB97
-	.uleb128 .L617-.LFB3459
+	.uleb128 .L621-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB98-.LFB3459
+	.uleb128 .LEHB98-.LFB7375
 	.uleb128 .LEHE98-.LEHB98
-	.uleb128 .L618-.LFB3459
+	.uleb128 .L622-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB99-.LFB3459
+	.uleb128 .LEHB99-.LFB7375
 	.uleb128 .LEHE99-.LEHB99
-	.uleb128 .L629-.LFB3459
+	.uleb128 .L633-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB100-.LFB3459
+	.uleb128 .LEHB100-.LFB7375
 	.uleb128 .LEHE100-.LEHB100
-	.uleb128 .L619-.LFB3459
+	.uleb128 .L623-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB101-.LFB3459
+	.uleb128 .LEHB101-.LFB7375
 	.uleb128 .LEHE101-.LEHB101
-	.uleb128 .L620-.LFB3459
+	.uleb128 .L624-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB102-.LFB3459
+	.uleb128 .LEHB102-.LFB7375
 	.uleb128 .LEHE102-.LEHB102
-	.uleb128 .L619-.LFB3459
+	.uleb128 .L623-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB103-.LFB3459
+	.uleb128 .LEHB103-.LFB7375
 	.uleb128 .LEHE103-.LEHB103
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB104-.LFB3459
+	.uleb128 .LEHB104-.LFB7375
 	.uleb128 .LEHE104-.LEHB104
-	.uleb128 .L616-.LFB3459
+	.uleb128 .L620-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB105-.LFB3459
+	.uleb128 .LEHB105-.LFB7375
 	.uleb128 .LEHE105-.LEHB105
-	.uleb128 .L621-.LFB3459
+	.uleb128 .L625-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB106-.LFB3459
+	.uleb128 .LEHB106-.LFB7375
 	.uleb128 .LEHE106-.LEHB106
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB107-.LFB3459
+	.uleb128 .LEHB107-.LFB7375
 	.uleb128 .LEHE107-.LEHB107
-	.uleb128 .L623-.LFB3459
+	.uleb128 .L627-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB108-.LFB3459
+	.uleb128 .LEHB108-.LFB7375
 	.uleb128 .LEHE108-.LEHB108
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB109-.LFB3459
+	.uleb128 .LEHB109-.LFB7375
 	.uleb128 .LEHE109-.LEHB109
-	.uleb128 .L627-.LFB3459
+	.uleb128 .L631-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB110-.LFB3459
+	.uleb128 .LEHB110-.LFB7375
 	.uleb128 .LEHE110-.LEHB110
-	.uleb128 .L628-.LFB3459
+	.uleb128 .L632-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB111-.LFB3459
+	.uleb128 .LEHB111-.LFB7375
 	.uleb128 .LEHE111-.LEHB111
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB112-.LFB3459
+	.uleb128 .LEHB112-.LFB7375
 	.uleb128 .LEHE112-.LEHB112
-	.uleb128 .L624-.LFB3459
+	.uleb128 .L628-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB113-.LFB3459
+	.uleb128 .LEHB113-.LFB7375
 	.uleb128 .LEHE113-.LEHB113
-	.uleb128 .L625-.LFB3459
+	.uleb128 .L629-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB114-.LFB3459
+	.uleb128 .LEHB114-.LFB7375
 	.uleb128 .LEHE114-.LEHB114
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB115-.LFB3459
+	.uleb128 .LEHB115-.LFB7375
 	.uleb128 .LEHE115-.LEHB115
-	.uleb128 .L619-.LFB3459
+	.uleb128 .L623-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB116-.LFB3459
+	.uleb128 .LEHB116-.LFB7375
 	.uleb128 .LEHE116-.LEHB116
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB117-.LFB3459
+	.uleb128 .LEHB117-.LFB7375
 	.uleb128 .LEHE117-.LEHB117
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L632-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB118-.LFB3459
+	.uleb128 .LEHB118-.LFB7375
 	.uleb128 .LEHE118-.LEHB118
-	.uleb128 .L628-.LFB3459
 	.uleb128 0
-	.uleb128 .LEHB119-.LFB3459
+	.uleb128 0
+	.uleb128 .LEHB119-.LFB7375
 	.uleb128 .LEHE119-.LEHB119
-	.uleb128 .L616-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB120-.LFB3459
+	.uleb128 .LEHB120-.LFB7375
 	.uleb128 .LEHE120-.LEHB120
-	.uleb128 .L611-.LFB3459
+	.uleb128 .L620-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB121-.LFB3459
+	.uleb128 .LEHB121-.LFB7375
 	.uleb128 .LEHE121-.LEHB121
-	.uleb128 .L612-.LFB3459
+	.uleb128 .L615-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB122-.LFB3459
+	.uleb128 .LEHB122-.LFB7375
 	.uleb128 .LEHE122-.LEHB122
-	.uleb128 .L613-.LFB3459
+	.uleb128 .L616-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB123-.LFB3459
+	.uleb128 .LEHB123-.LFB7375
 	.uleb128 .LEHE123-.LEHB123
-	.uleb128 .L614-.LFB3459
+	.uleb128 .L617-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB124-.LFB3459
+	.uleb128 .LEHB124-.LFB7375
 	.uleb128 .LEHE124-.LEHB124
-	.uleb128 .L615-.LFB3459
+	.uleb128 .L618-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB125-.LFB3459
+	.uleb128 .LEHB125-.LFB7375
 	.uleb128 .LEHE125-.LEHB125
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L619-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB126-.LFB3459
+	.uleb128 .LEHB126-.LFB7375
 	.uleb128 .LEHE126-.LEHB126
-	.uleb128 .L626-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB127-.LFB3459
+	.uleb128 .LEHB127-.LFB7375
 	.uleb128 .LEHE127-.LEHB127
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L630-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB128-.LFB3459
+	.uleb128 .LEHB128-.LFB7375
 	.uleb128 .LEHE128-.LEHB128
-	.uleb128 .L625-.LFB3459
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB129-.LFB3459
+	.uleb128 .LEHB129-.LFB7375
 	.uleb128 .LEHE129-.LEHB129
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L629-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB130-.LFB3459
+	.uleb128 .LEHB130-.LFB7375
 	.uleb128 .LEHE130-.LEHB130
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB131-.LFB3459
+	.uleb128 .LEHB131-.LFB7375
 	.uleb128 .LEHE131-.LEHB131
-	.uleb128 .L587-.LFB3459
 	.uleb128 0
-	.uleb128 .LEHB132-.LFB3459
+	.uleb128 0
+	.uleb128 .LEHB132-.LFB7375
 	.uleb128 .LEHE132-.LEHB132
-	.uleb128 .L622-.LFB3459
+	.uleb128 .L591-.LFB7375
 	.uleb128 0
-	.uleb128 .LEHB133-.LFB3459
+	.uleb128 .LEHB133-.LFB7375
 	.uleb128 .LEHE133-.LEHB133
+	.uleb128 .L626-.LFB7375
 	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB134-.LFB3459
+	.uleb128 .LEHB134-.LFB7375
 	.uleb128 .LEHE134-.LEHB134
-	.uleb128 .L622-.LFB3459
 	.uleb128 0
-.LLSDACSE3459:
+	.uleb128 0
+	.uleb128 .LEHB135-.LFB7375
+	.uleb128 .LEHE135-.LEHB135
+	.uleb128 .L626-.LFB7375
+	.uleb128 0
+.LLSDACSE7375:
 	.byte	0
 	.byte	0
 	.byte	0x1
 	.byte	0x7d
 	.align	2
 	.4byte	DW.ref._ZTISt9exception-.
-.LLSDATT3459:
+.LLSDATT7375:
 	.section	.text.startup
 	.size	main, .-main
 	.section	.rodata.str1.8
 	.align	3
-.LC117:
+.LC118:
 	.string	"\033[0m"
 	.align	3
-.LC118:
+.LC119:
 	.string	"\033[1m"
 	.align	3
-.LC119:
+.LC120:
 	.string	"\033[2m"
 	.align	3
-.LC120:
+.LC121:
 	.string	"\033[31m"
 	.align	3
-.LC121:
+.LC122:
 	.string	"\033[32m"
 	.align	3
-.LC122:
+.LC123:
 	.string	"\033[33m"
 	.align	3
-.LC123:
+.LC124:
 	.string	"\033[36m"
 	.align	3
-.LC124:
+.LC125:
 	.string	"\033[1;32m"
 	.align	3
-.LC125:
+.LC126:
 	.string	"\033[1;36m"
 	.align	3
-.LC126:
+.LC127:
 	.string	"\033[1;33m"
 	.align	3
-.LC127:
+.LC128:
 	.string	"\033[2;32m"
 	.section	.text.startup
 	.align	2
 	.p2align 5,,15
 	.type	_GLOBAL__sub_I_main, %function
 _GLOBAL__sub_I_main:
-.LFB4459:
+.LFB8375:
 	.cfi_startproc
 // src/cpp/include/utils.h:20:     inline const bool _tty       = (isatty(STDOUT_FILENO) != 0);
 	adrp	x1, _ZGVN5Color4_ttyE	// tmp171,
@@ -8391,12 +8404,12 @@ _GLOBAL__sub_I_main:
 	mov	x29, sp	//,
 // src/cpp/include/utils.h:20:     inline const bool _tty       = (isatty(STDOUT_FILENO) != 0);
 	ldr	x0, [x1, #:lo12:_ZGVN5Color4_ttyE]	// _ZGVN5Color4_ttyE, _ZGVN5Color4_ttyE
-	tbz	x0, 0, .L935	// _ZGVN5Color4_ttyE,,
-.L900:
+	tbz	x0, 0, .L939	// _ZGVN5Color4_ttyE,,
+.L904:
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
 	adrp	x1, _ZGVN5Color5RESETE	// tmp182,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color5RESETE]	// _ZGVN5Color5RESETE, _ZGVN5Color5RESETE
-	tbnz	x0, 0, .L901	// _ZGVN5Color5RESETE,,
+	tbnz	x0, 0, .L905	// _ZGVN5Color5RESETE,,
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp189,
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
@@ -8406,10 +8419,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
 	mov	x5, 1	// tmp187,
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
-	adrp	x2, .LC117	// tmp148,
-	adrp	x0, .LC22	// tmp149,
-	add	x2, x2, :lo12:.LC117	// tmp324, tmp148,
-	add	x0, x0, :lo12:.LC22	// tmp325, tmp149,
+	adrp	x2, .LC118	// tmp148,
+	adrp	x0, .LC23	// tmp149,
+	add	x2, x2, :lo12:.LC118	// tmp324, tmp148,
+	add	x0, x0, :lo12:.LC23	// tmp325, tmp149,
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color5RESETE]	// tmp187, _ZGVN5Color5RESETE
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
@@ -8417,11 +8430,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.135_10, tmp325, tmp324,
 // src/cpp/include/utils.h:21:     inline const char* const RESET       = _tty ? "\033[0m"    : "";
 	str	x0, [x3, #:lo12:_ZN5Color5RESETE]	// iftmp.135_10, RESET
-.L901:
+.L905:
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
 	adrp	x1, _ZGVN5Color4BOLDE	// tmp195,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color4BOLDE]	// _ZGVN5Color4BOLDE, _ZGVN5Color4BOLDE
-	tbnz	x0, 0, .L903	// _ZGVN5Color4BOLDE,,
+	tbnz	x0, 0, .L907	// _ZGVN5Color4BOLDE,,
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp202,
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
@@ -8431,10 +8444,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
 	mov	x5, 1	// tmp200,
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
-	adrp	x2, .LC118	// tmp150,
-	adrp	x0, .LC22	// tmp151,
-	add	x2, x2, :lo12:.LC118	// tmp326, tmp150,
-	add	x0, x0, :lo12:.LC22	// tmp327, tmp151,
+	adrp	x2, .LC119	// tmp150,
+	adrp	x0, .LC23	// tmp151,
+	add	x2, x2, :lo12:.LC119	// tmp326, tmp150,
+	add	x0, x0, :lo12:.LC23	// tmp327, tmp151,
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color4BOLDE]	// tmp200, _ZGVN5Color4BOLDE
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
@@ -8442,11 +8455,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.138_14, tmp327, tmp326,
 // src/cpp/include/utils.h:22:     inline const char* const BOLD        = _tty ? "\033[1m"    : "";
 	str	x0, [x3, #:lo12:_ZN5Color4BOLDE]	// iftmp.138_14, BOLD
-.L903:
+.L907:
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
 	adrp	x1, _ZGVN5Color3DIME	// tmp208,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color3DIME]	// _ZGVN5Color3DIME, _ZGVN5Color3DIME
-	tbnz	x0, 0, .L905	// _ZGVN5Color3DIME,,
+	tbnz	x0, 0, .L909	// _ZGVN5Color3DIME,,
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp215,
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
@@ -8456,10 +8469,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
 	mov	x5, 1	// tmp213,
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
-	adrp	x2, .LC119	// tmp152,
-	adrp	x0, .LC22	// tmp153,
-	add	x2, x2, :lo12:.LC119	// tmp328, tmp152,
-	add	x0, x0, :lo12:.LC22	// tmp329, tmp153,
+	adrp	x2, .LC120	// tmp152,
+	adrp	x0, .LC23	// tmp153,
+	add	x2, x2, :lo12:.LC120	// tmp328, tmp152,
+	add	x0, x0, :lo12:.LC23	// tmp329, tmp153,
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color3DIME]	// tmp213, _ZGVN5Color3DIME
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
@@ -8467,11 +8480,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.141_18, tmp329, tmp328,
 // src/cpp/include/utils.h:23:     inline const char* const DIM         = _tty ? "\033[2m"    : "";
 	str	x0, [x3, #:lo12:_ZN5Color3DIME]	// iftmp.141_18, DIM
-.L905:
+.L909:
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
 	adrp	x1, _ZGVN5Color3REDE	// tmp221,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color3REDE]	// _ZGVN5Color3REDE, _ZGVN5Color3REDE
-	tbnz	x0, 0, .L907	// _ZGVN5Color3REDE,,
+	tbnz	x0, 0, .L911	// _ZGVN5Color3REDE,,
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp228,
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
@@ -8481,10 +8494,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
 	mov	x5, 1	// tmp226,
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
-	adrp	x2, .LC120	// tmp154,
-	adrp	x0, .LC22	// tmp155,
-	add	x2, x2, :lo12:.LC120	// tmp330, tmp154,
-	add	x0, x0, :lo12:.LC22	// tmp331, tmp155,
+	adrp	x2, .LC121	// tmp154,
+	adrp	x0, .LC23	// tmp155,
+	add	x2, x2, :lo12:.LC121	// tmp330, tmp154,
+	add	x0, x0, :lo12:.LC23	// tmp331, tmp155,
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color3REDE]	// tmp226, _ZGVN5Color3REDE
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
@@ -8492,11 +8505,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.144_22, tmp331, tmp330,
 // src/cpp/include/utils.h:24:     inline const char* const RED         = _tty ? "\033[31m"   : "";
 	str	x0, [x3, #:lo12:_ZN5Color3REDE]	// iftmp.144_22, RED
-.L907:
+.L911:
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
 	adrp	x1, _ZGVN5Color5GREENE	// tmp234,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color5GREENE]	// _ZGVN5Color5GREENE, _ZGVN5Color5GREENE
-	tbnz	x0, 0, .L909	// _ZGVN5Color5GREENE,,
+	tbnz	x0, 0, .L913	// _ZGVN5Color5GREENE,,
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp241,
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
@@ -8506,10 +8519,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
 	mov	x5, 1	// tmp239,
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
-	adrp	x2, .LC121	// tmp156,
-	adrp	x0, .LC22	// tmp157,
-	add	x2, x2, :lo12:.LC121	// tmp332, tmp156,
-	add	x0, x0, :lo12:.LC22	// tmp333, tmp157,
+	adrp	x2, .LC122	// tmp156,
+	adrp	x0, .LC23	// tmp157,
+	add	x2, x2, :lo12:.LC122	// tmp332, tmp156,
+	add	x0, x0, :lo12:.LC23	// tmp333, tmp157,
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color5GREENE]	// tmp239, _ZGVN5Color5GREENE
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
@@ -8517,11 +8530,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.147_26, tmp333, tmp332,
 // src/cpp/include/utils.h:25:     inline const char* const GREEN       = _tty ? "\033[32m"   : "";
 	str	x0, [x3, #:lo12:_ZN5Color5GREENE]	// iftmp.147_26, GREEN
-.L909:
+.L913:
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
 	adrp	x1, _ZGVN5Color6YELLOWE	// tmp247,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color6YELLOWE]	// _ZGVN5Color6YELLOWE, _ZGVN5Color6YELLOWE
-	tbnz	x0, 0, .L911	// _ZGVN5Color6YELLOWE,,
+	tbnz	x0, 0, .L915	// _ZGVN5Color6YELLOWE,,
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp254,
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
@@ -8531,10 +8544,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
 	mov	x5, 1	// tmp252,
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
-	adrp	x2, .LC122	// tmp158,
-	adrp	x0, .LC22	// tmp159,
-	add	x2, x2, :lo12:.LC122	// tmp334, tmp158,
-	add	x0, x0, :lo12:.LC22	// tmp335, tmp159,
+	adrp	x2, .LC123	// tmp158,
+	adrp	x0, .LC23	// tmp159,
+	add	x2, x2, :lo12:.LC123	// tmp334, tmp158,
+	add	x0, x0, :lo12:.LC23	// tmp335, tmp159,
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color6YELLOWE]	// tmp252, _ZGVN5Color6YELLOWE
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
@@ -8542,11 +8555,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.150_30, tmp335, tmp334,
 // src/cpp/include/utils.h:26:     inline const char* const YELLOW      = _tty ? "\033[33m"   : "";
 	str	x0, [x3, #:lo12:_ZN5Color6YELLOWE]	// iftmp.150_30, YELLOW
-.L911:
+.L915:
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
 	adrp	x1, _ZGVN5Color4CYANE	// tmp260,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color4CYANE]	// _ZGVN5Color4CYANE, _ZGVN5Color4CYANE
-	tbnz	x0, 0, .L913	// _ZGVN5Color4CYANE,,
+	tbnz	x0, 0, .L917	// _ZGVN5Color4CYANE,,
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp267,
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
@@ -8556,10 +8569,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
 	mov	x5, 1	// tmp265,
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
-	adrp	x2, .LC123	// tmp160,
-	adrp	x0, .LC22	// tmp161,
-	add	x2, x2, :lo12:.LC123	// tmp336, tmp160,
-	add	x0, x0, :lo12:.LC22	// tmp337, tmp161,
+	adrp	x2, .LC124	// tmp160,
+	adrp	x0, .LC23	// tmp161,
+	add	x2, x2, :lo12:.LC124	// tmp336, tmp160,
+	add	x0, x0, :lo12:.LC23	// tmp337, tmp161,
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color4CYANE]	// tmp265, _ZGVN5Color4CYANE
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
@@ -8567,11 +8580,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.153_34, tmp337, tmp336,
 // src/cpp/include/utils.h:27:     inline const char* const CYAN        = _tty ? "\033[36m"   : "";
 	str	x0, [x3, #:lo12:_ZN5Color4CYANE]	// iftmp.153_34, CYAN
-.L913:
+.L917:
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
 	adrp	x1, _ZGVN5Color10BOLD_GREENE	// tmp273,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color10BOLD_GREENE]	// _ZGVN5Color10BOLD_GREENE, _ZGVN5Color10BOLD_GREENE
-	tbnz	x0, 0, .L915	// _ZGVN5Color10BOLD_GREENE,,
+	tbnz	x0, 0, .L919	// _ZGVN5Color10BOLD_GREENE,,
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp280,
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
@@ -8581,10 +8594,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
 	mov	x5, 1	// tmp278,
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
-	adrp	x2, .LC124	// tmp162,
-	adrp	x0, .LC22	// tmp163,
-	add	x2, x2, :lo12:.LC124	// tmp338, tmp162,
-	add	x0, x0, :lo12:.LC22	// tmp339, tmp163,
+	adrp	x2, .LC125	// tmp162,
+	adrp	x0, .LC23	// tmp163,
+	add	x2, x2, :lo12:.LC125	// tmp338, tmp162,
+	add	x0, x0, :lo12:.LC23	// tmp339, tmp163,
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color10BOLD_GREENE]	// tmp278, _ZGVN5Color10BOLD_GREENE
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
@@ -8592,11 +8605,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.156_38, tmp339, tmp338,
 // src/cpp/include/utils.h:28:     inline const char* const BOLD_GREEN  = _tty ? "\033[1;32m" : "";
 	str	x0, [x3, #:lo12:_ZN5Color10BOLD_GREENE]	// iftmp.156_38, BOLD_GREEN
-.L915:
+.L919:
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
 	adrp	x1, _ZGVN5Color9BOLD_CYANE	// tmp286,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color9BOLD_CYANE]	// _ZGVN5Color9BOLD_CYANE, _ZGVN5Color9BOLD_CYANE
-	tbnz	x0, 0, .L917	// _ZGVN5Color9BOLD_CYANE,,
+	tbnz	x0, 0, .L921	// _ZGVN5Color9BOLD_CYANE,,
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp293,
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
@@ -8606,10 +8619,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
 	mov	x5, 1	// tmp291,
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
-	adrp	x2, .LC125	// tmp164,
-	adrp	x0, .LC22	// tmp165,
-	add	x2, x2, :lo12:.LC125	// tmp340, tmp164,
-	add	x0, x0, :lo12:.LC22	// tmp341, tmp165,
+	adrp	x2, .LC126	// tmp164,
+	adrp	x0, .LC23	// tmp165,
+	add	x2, x2, :lo12:.LC126	// tmp340, tmp164,
+	add	x0, x0, :lo12:.LC23	// tmp341, tmp165,
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color9BOLD_CYANE]	// tmp291, _ZGVN5Color9BOLD_CYANE
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
@@ -8617,11 +8630,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.159_42, tmp341, tmp340,
 // src/cpp/include/utils.h:29:     inline const char* const BOLD_CYAN   = _tty ? "\033[1;36m" : "";
 	str	x0, [x3, #:lo12:_ZN5Color9BOLD_CYANE]	// iftmp.159_42, BOLD_CYAN
-.L917:
+.L921:
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
 	adrp	x1, _ZGVN5Color11BOLD_YELLOWE	// tmp299,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color11BOLD_YELLOWE]	// _ZGVN5Color11BOLD_YELLOWE, _ZGVN5Color11BOLD_YELLOWE
-	tbnz	x0, 0, .L919	// _ZGVN5Color11BOLD_YELLOWE,,
+	tbnz	x0, 0, .L923	// _ZGVN5Color11BOLD_YELLOWE,,
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp306,
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
@@ -8631,10 +8644,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
 	mov	x5, 1	// tmp304,
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
-	adrp	x2, .LC126	// tmp166,
-	adrp	x0, .LC22	// tmp167,
-	add	x2, x2, :lo12:.LC126	// tmp342, tmp166,
-	add	x0, x0, :lo12:.LC22	// tmp343, tmp167,
+	adrp	x2, .LC127	// tmp166,
+	adrp	x0, .LC23	// tmp167,
+	add	x2, x2, :lo12:.LC127	// tmp342, tmp166,
+	add	x0, x0, :lo12:.LC23	// tmp343, tmp167,
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color11BOLD_YELLOWE]	// tmp304, _ZGVN5Color11BOLD_YELLOWE
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
@@ -8642,11 +8655,11 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.162_46, tmp343, tmp342,
 // src/cpp/include/utils.h:30:     inline const char* const BOLD_YELLOW = _tty ? "\033[1;33m" : "";
 	str	x0, [x3, #:lo12:_ZN5Color11BOLD_YELLOWE]	// iftmp.162_46, BOLD_YELLOW
-.L919:
+.L923:
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
 	adrp	x1, _ZGVN5Color9DIM_GREENE	// tmp312,
 	ldr	x0, [x1, #:lo12:_ZGVN5Color9DIM_GREENE]	// _ZGVN5Color9DIM_GREENE, _ZGVN5Color9DIM_GREENE
-	tbnz	x0, 0, .L899	// _ZGVN5Color9DIM_GREENE,,
+	tbnz	x0, 0, .L903	// _ZGVN5Color9DIM_GREENE,,
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
 	adrp	x0, _ZN5Color4_ttyE	// tmp319,
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
@@ -8656,10 +8669,10 @@ _GLOBAL__sub_I_main:
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
 	mov	x5, 1	// tmp317,
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
-	adrp	x2, .LC127	// tmp168,
-	adrp	x0, .LC22	// tmp169,
-	add	x2, x2, :lo12:.LC127	// tmp344, tmp168,
-	add	x0, x0, :lo12:.LC22	// tmp345, tmp169,
+	adrp	x2, .LC128	// tmp168,
+	adrp	x0, .LC23	// tmp169,
+	add	x2, x2, :lo12:.LC128	// tmp344, tmp168,
+	add	x0, x0, :lo12:.LC23	// tmp345, tmp169,
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
 	str	x5, [x1, #:lo12:_ZGVN5Color9DIM_GREENE]	// tmp317, _ZGVN5Color9DIM_GREENE
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
@@ -8667,7 +8680,7 @@ _GLOBAL__sub_I_main:
 	csel	x0, x0, x2, eq	// iftmp.165_50, tmp345, tmp344,
 // src/cpp/include/utils.h:31:     inline const char* const DIM_GREEN   = _tty ? "\033[2;32m" : "";
 	str	x0, [x3, #:lo12:_ZN5Color9DIM_GREENE]	// iftmp.165_50, DIM_GREEN
-.L899:
+.L903:
 // src/cpp/benchmark.cpp:385: }
 	ldp	x29, x30, [sp], 16	//,,,
 	.cfi_remember_state
@@ -8675,7 +8688,7 @@ _GLOBAL__sub_I_main:
 	.cfi_restore 29
 	.cfi_def_cfa_offset 0
 	ret	
-.L935:
+.L939:
 	.cfi_restore_state
 // src/cpp/include/utils.h:20:     inline const bool _tty       = (isatty(STDOUT_FILENO) != 0);
 	mov	x2, 1	// tmp176,
@@ -8691,9 +8704,9 @@ _GLOBAL__sub_I_main:
 	cmp	w0, 0	// tmp346,
 	cset	w0, ne	// tmp179,
 	strb	w0, [x1, #:lo12:_ZN5Color4_ttyE]	// tmp179, _tty
-	b	.L900		//
+	b	.L904		//
 	.cfi_endproc
-.LFE4459:
+.LFE8375:
 	.size	_GLOBAL__sub_I_main, .-_GLOBAL__sub_I_main
 	.section	.init_array,"aw"
 	.align	3
@@ -8711,6 +8724,9 @@ _GLOBAL__sub_I_main:
 	.align	3
 .LC4:
 	.string	"Specialized Implementation"
+	.align	3
+.LC5:
+	.string	"NEON Blocked Implementation"
 	.weak	_ZGVN5Color9DIM_GREENE
 	.section	.bss._ZGVN5Color9DIM_GREENE,"awG",@nobits,_ZGVN5Color9DIM_GREENE,comdat
 	.align	3
@@ -8880,13 +8896,13 @@ _ZN5Color4_ttyE:
 	.zero	1
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align	3
-.LC116:
+.LC117:
 	.word	-400107883
 	.word	1041313291
 	.section	.rodata
 	.align	3
 	.set	.LANCHOR0,. + 0
-.LC42:
+.LC43:
 // name:
 	.xword	.LC0
 // function:
@@ -8911,7 +8927,11 @@ _ZN5Color4_ttyE:
 	.xword	.LC5
 // function:
 	.xword	_Z23cnn_specialized_blockedR10CNNContext
-.LC7:
+// name:
+	.xword	.LC6
+// function:
+	.xword	_Z21specialized_maxpool2dR10CNNContext
+.LC8:
 // cycles_median:
 	.word	0
 	.word	2146959360
