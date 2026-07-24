@@ -25,6 +25,19 @@ struct Tensor {
 void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                     int stride, int padding);
 
+// A restructured 2D convolution forward pass is declared.
+void conv2d_forward_restructured(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                    int stride, int padding);
+
+// A hoisted 2D convolution forward pass is declared with restrict pointers for optimization.
+void conv2d_forward_hoist_restrict(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                    int stride, int padding);
+
+// Loops are reordered for better cache performance in this 2D convolution forward pass.
+void conv2d_forward_reorder(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                    int stride, int padding);
+
+
 // A ReLU activation forward pass is declared.
 void relu_forward(Tensor& tensor);
 

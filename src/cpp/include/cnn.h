@@ -44,6 +44,20 @@ typedef void (*cnn_func)(CNNContext&);
 */
 void cnn_baseline( CNNContext& ctx );
 
+/*
+* Attempted loop restucturing of the forward pass of a CNN.
+*/
+void cnn_restructured( CNNContext& ctx );
+
+/*
+* Hoisted loop implementation of the forward pass of a CNN.
+*/
+void cnn_hoist_restrict( CNNContext& ctx );
+
+/*
+* Reordered loop implementation of the forward pass of a CNN.
+*/
+void cnn_reorder( CNNContext& ctx );
 
 /*
  * Add new optimized forward-pass implementations here as they're written, e.g.:
@@ -61,6 +75,9 @@ void cnn_baseline( CNNContext& ctx );
  * is (function, display_name), matching the AHE_IMPLEMENTATIONS pattern.
  */
 #define CNN_IMPLEMENTATIONS(APPLY) \
-    APPLY(cnn_baseline, "Baseline Nested-Loop")
+    APPLY(cnn_baseline, "Baseline Nested-Loop") \
+    APPLY(cnn_restructured, "Restructured Nested-Loop") \
+    APPLY(cnn_hoist_restrict, "Hoisted Vars + restrict") \
+    APPLY(cnn_reorder, "Reordered Nested-Loop")
 
 #endif

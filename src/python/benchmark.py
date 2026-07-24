@@ -46,20 +46,22 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
       printed. C++ numbers come from cpp_timing.json (written by cnn_forward);
       Python does not currently sample hardware cycle counters.
     '''
-    cpp_time_sec, cpp_cycles = None, None
+    cpp_time_sec, cpp_cycles, cpp_impl_name = None, None, None
     if os.path.isfile(cpp_timing_path):
         with open(cpp_timing_path) as f:
             cpp = json.load(f)
         cpp_time_sec = cpp['median_time_sec']
         cpp_cycles = cpp['median_cycles']
+        cpp_impl_name = cpp.get('implementation')
 
     cpp_time_str = f"{cpp_time_sec:.6f} s" if cpp_time_sec is not None else "N/A"
     py_time_str = f"{python_time_sec:.6f} s"
     cpp_cycles_str = f"{cpp_cycles:.0f}" if cpp_cycles else "N/A"
     py_cycles_str = "N/A"
 
-    print(f"\n=== C++ vs Python/PyTorch ({num_runs} runs) ===")
-    print(f"{'':16}{'C++':>16}{'Python':>16}")
+    cpp_label = f"C++ ({cpp_impl_name})" if cpp_impl_name else "C++"
+    print(f"\n=== {cpp_label} [fastest] vs Python/PyTorch ({num_runs} runs) ===")
+    print(f"{'':16}{cpp_label:>16}{'Python':>16}")
     print(f"{'Time (median)':16}{cpp_time_str:>16}{py_time_str:>16}")
     print(f"{'Cycles (median)':16}{cpp_cycles_str:>16}{py_cycles_str:>16}")
 
@@ -68,9 +70,11 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
               "weights_cpp/cpp_timing.json.)")
     elif cpp_time_sec > 0 and python_time_sec > 0:
         if python_time_sec < cpp_time_sec:
-            print(f"\nPython is {cpp_time_sec / python_time_sec:.2f}x faster (median wall time).")
+            print(f"\nPython is {cpp_time_sec / python_time_sec:.2f}x faster than the fastest "
+                  f"C++ implementation (median wall time).")
         else:
-            print(f"\nC++ is {python_time_sec / cpp_time_sec:.2f}x faster (median wall time).")
+            print(f"\nThe fastest C++ implementation is {python_time_sec / cpp_time_sec:.2f}x "
+                  f"faster than Python (median wall time).")
 
     print("Python cycle counts: not available (no hardware cycle counter is sampled from Python).")
 

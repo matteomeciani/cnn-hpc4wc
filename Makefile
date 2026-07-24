@@ -20,8 +20,10 @@ C_BOLD_YELLOW := \033[1;33m
 # Compiler & flags
 # -----------------------------------------------------------------------------
 CXX      := g++
-CXXFLAGS := -std=c++17 -O3 -march=native -Wall -Wextra -Wpedantic
+CXXFLAGS := -std=c++17 -O3 -march=native -mcpu=native -ffast-math -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG
 PYTHON   := python3
+
+UENV_VIEW := pytorch/v2.9.1:v2
 
 # Training device: make train DEVICE=cpu  (default: cuda)
 DEVICE ?= cuda
@@ -38,6 +40,14 @@ endif
 # ASCII art image:  make PRINT_ASCII=1 build
 ifdef PRINT_ASCII
   CXXFLAGS += -DPRINT_ASCII
+endif
+
+# Emit Assembly:  make ASM=1 build
+# Generates annotated .s assembly files in build/ and vectorization reports.
+# Routed through the cluster's uenv view so the compiler matches submit_run.sh.
+ifdef ASM
+  CXXFLAGS += -S -fverbose-asm -fopt-info-vec-optimized
+  CXX := uenv run --view=default $(UENV_VIEW) -- g++
 endif
 
 CXXFLAGS += -DNUM_RUNS=$(NUM_RUNS) -DNUM_WARMUP_RUNS=$(NUM_WARMUP_RUNS)
@@ -64,7 +74,7 @@ TARGET   := $(BUILD_DIR)/cnn_forward
 # -----------------------------------------------------------------------------
 .PHONY: help all build run verify train \
         run-local verify-local train-local all-local \
-        logs clean _check_slurm
+        asm logs clean _check_slurm
 
 .DEFAULT_GOAL := help
 
@@ -81,6 +91,7 @@ help:
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'logs'            'Tail the latest Slurm log file'
 	@printf '\n$(C_BOLD)Local (login node):$(C_RESET)\n'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'build'           'Compile the C++ forward-pass binary'
+	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'asm'             'Generate C++ assembly files (.s) in build/'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'run-local'       'Execute the C++ forward pass directly'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'verify-local'    'Run the Python/PyTorch verifier directly'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'train-local'     'Run PyTorch training directly (DEVICE=cuda|cpu)'
@@ -88,6 +99,7 @@ help:
 	@printf '\n'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'clean'           'Remove build artefacts, logs, and checkpoints'
 	@printf '\n$(C_BOLD)Overrides:$(C_RESET)\n'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'ASM=1'          'Generate annotated assembly output (.s) in build/'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEBUG=1'        'Build with -O0 -g -fsanitize=address,undefined'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'PRINT_ASCII=1'  'Enable ASCII art image print in C++ binary'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEVICE=cpu'     'Use CPU for training (default: cuda)'
@@ -100,14 +112,24 @@ help:
 # -----------------------------------------------------------------------------
 $(TARGET): $(CPP_SRCS) $(CPP_HDRS)
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -I$(SRC_CPP) -o $@ $(CPP_SRCS)
+ifdef ASM
+	@printf '$(C_BOLD_YELLOW)Generating Assembly files (.s) in $(BUILD_DIR)/...$(C_RESET)\n'
+	$(CXX) $(CXXFLAGS) -I$(SRC_CPP) -S $(SRC_CPP)/cnn_internals.cpp -o $(BUILD_DIR)/cnn_internals.s
+	$(CXX) $(CXXFLAGS) -I$(SRC_CPP) -S $(SRC_CPP)/cnn.cpp -o $(BUILD_DIR)/cnn.s
+	$(CXX) $(CXXFLAGS) -I$(SRC_CPP) -S $(SRC_CPP)/benchmark.cpp -o $(BUILD_DIR)/benchmark.s
+	@printf '$(C_BOLD_GREEN)Assembly files generated in $(BUILD_DIR)/$(C_RESET)\n'
+endif
+	$(CXX) $(filter-out -S, $(CXXFLAGS)) -I$(SRC_CPP) -o $@ $(CPP_SRCS)
 	@printf '$(C_BOLD_GREEN)Build successful:$(C_RESET) $@\n'
 
 build: $(TARGET)
 
+# Dedicated shortcut target to generate assembly only
+asm:
+	@$(MAKE) ASM=1 build
+
 # -----------------------------------------------------------------------------
 # Local targets (login-node / quick dev testing)
-# The binary uses paths relative to src/cpp/; verify.py relative to src/python/.
 # -----------------------------------------------------------------------------
 run-local: $(TARGET)
 	@printf '$(C_BOLD_CYAN)--- C++ Forward Pass (local) ---$(C_RESET)\n'
@@ -127,11 +149,11 @@ train-local:
 all-local: build run-local verify-local
 
 # -----------------------------------------------------------------------------
-# Slurm — primary targets; fail fast outside a cluster
+# Slurm
 # -----------------------------------------------------------------------------
 _check_slurm:
 	@command -v sbatch >/dev/null 2>&1 || \
-		{ printf '$(C_RED)Error:$(C_RESET) sbatch not found — this target requires a Slurm cluster.\n'; exit 1; }
+        { printf '$(C_RED)Error:$(C_RESET) sbatch not found — this target requires a Slurm cluster.\n'; exit 1; }
 
 run: _check_slurm
 	@mkdir -p $(LOGS_DIR)
@@ -149,16 +171,17 @@ all: run verify train
 
 logs:
 	@if [ -z "$$(ls -A $(LOGS_DIR)/ 2>/dev/null)" ]; then \
-		printf '$(C_YELLOW)No log files yet in $(LOGS_DIR)/$(C_RESET)\n'; \
-	else \
-		tail -f $(LOGS_DIR)/$$(ls -t $(LOGS_DIR)/ | head -1); \
-	fi
+        printf '$(C_YELLOW)No log files yet in $(LOGS_DIR)/$(C_RESET)\n'; \
+    else \
+        tail -f $(LOGS_DIR)/$$(ls -t $(LOGS_DIR)/ | head -1); \
+    fi
 
 # -----------------------------------------------------------------------------
-# Clean  (preserves build/.gitkeep)
+# Clean
 # -----------------------------------------------------------------------------
 clean:
 	rm -f $(TARGET)
+	rm -f $(BUILD_DIR)/*.s
 	rm -f $(LOGS_DIR)/*
 	rm -f $(SRC_PY)/model-fold-*.pth
 	@printf '$(C_GREEN)Clean complete.$(C_RESET)\n'
