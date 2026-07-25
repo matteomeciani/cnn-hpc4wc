@@ -1,0 +1,135 @@
+Job ID:  1017095
+Node:    nid005252
+Start:   Sat Jul 25 02:05:44 CEST 2026
+=== C++ Compiler Version ===
+g++ (Spack GCC) 14.2.0
+make[1]: Entering directory '/users/course_00420/cnn-hpc4wc'
+g++ -std=c++17 -O3 -march=native -mcpu=native -ffast-math -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG -DNUM_RUNS=10 -DNUM_WARMUP_RUNS=2 -DBATCH_SIZE=100 -Isrc/cpp -o build/cnn_forward src/cpp/benchmark.cpp src/cpp/cnn_internals.cpp src/cpp/cnn.cpp
+[1;32mBuild successful:[0m build/cnn_forward
+make[1]: Leaving directory '/users/course_00420/cnn-hpc4wc'
+Batch size: 100
+Memory allocation is starting...
+MNIST dataset successfully loaded.
+
+Loading real weights...
+Successfully loaded: ../python/weights_cpp/model_0_weight.bin
+Successfully loaded: ../python/weights_cpp/model_0_bias.bin
+Successfully loaded: ../python/weights_cpp/model_3_weight.bin
+Successfully loaded: ../python/weights_cpp/model_3_bias.bin
+Successfully loaded: ../python/weights_cpp/model_6_weight.bin
+Successfully loaded: ../python/weights_cpp/model_6_bias.bin
+Successfully loaded: ../python/weights_cpp/model_10_weight.bin
+Successfully loaded: ../python/weights_cpp/model_10_bias.bin
+Runs: 10 measured, 2 warmup
+
+==================================================
+ -> Benchmarking Baseline Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 1.47096e+09
+  Median time   : 0.450059 s (450.059 ms)
+
+
+
+==================================================
+ -> Benchmarking Restructured Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 7.81037e+08
+  Median time   : 0.238937 s (238.937 ms)
+
+
+
+==================================================
+ -> Benchmarking Hoisted Vars + restrict (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 6.83671e+08
+  Median time   : 0.209152 s (209.152 ms)
+
+
+
+==================================================
+ -> Benchmarking Reordered Nested-Loop (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 5.29318e+08
+  Median time   : 0.161925 s (161.925 ms)
+
+
+
+==================================================
+ -> Benchmarking Specialized Implementation (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 3.32941e+08
+  Median time   : 0.101853 s (101.853 ms)
+
+
+
+==================================================
+ -> Benchmarking NEON Blocked Implementation (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 1.00582e+08
+  Median time   : 0.0307785 s (30.7785 ms)
+
+
+
+==================================================
+ -> Benchmarking Specialized MaxPool2D (WARM CACHE)
+==================================================
+--- Performance Benchmarking (10 Runs) ---
+Running 2 warmup runs...
+Warmup complete. Starting 10 benchmark runs...
+=== Results ===
+  Median cycles : 1.04357e+08
+  Median time   : 0.0319233 s (31.9233 ms)
+
+
+
+The network has successfully predicted the digit: 7
+
+=== Final Performance Summary ===
+
+Implementation                      | vs Base      | Cycles               | Seconds       
+---------------------------------------------------------------------------------------
+Baseline Nested-Loop                | 1.00x        | 1470960614.50        | 0.450059      
+Restructured Nested-Loop            | 1.88x        | 781037343.50         | 0.238937      
+Hoisted Vars + restrict             | 2.15x        | 683670865.00         | 0.209152      
+Reordered Nested-Loop               | 2.78x        | 529318345.50         | 0.161925      
+Specialized Implementation          | 4.42x        | 332940576.50         | 0.101853      
+NEON Blocked Implementation         | 14.62x       | 100581861.50         | 0.030778      
+Specialized MaxPool2D               | 14.10x       | 104357108.50         | 0.031923      
+
+Benchmark sink: -219391
+
+Batch size: 100
+The network has successfully predicted the digit: 7
+
+=== C++ (NEON Blocked Implementation) [fastest] vs Python/PyTorch (10 runs) ===
+                C++ (NEON Blocked Implementation)          Python
+Time (median)         0.030779 s      0.018460 s
+Cycles (median)        100582000             N/A
+
+Python is 1.67x faster than the fastest C++ implementation (median wall time).
+Python cycle counts: not available (no hardware cycle counter is sampled from Python).
+End:     Sat Jul 25 02:06:10 CEST 2026

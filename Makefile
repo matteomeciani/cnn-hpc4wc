@@ -25,7 +25,7 @@ PYTHON   := python3
 
 UENV_VIEW := pytorch/v2.9.1:v2
 
-# Training device: make train DEVICE=cpu  (default: cuda)
+# Training device: make train DEVICE=cpsu  (default: cuda)
 DEVICE ?= cuda
 
 # Benchmark run counts:  make run-local NUM_RUNS=20 NUM_WARMUP_RUNS=5
@@ -111,10 +111,20 @@ help:
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'BATCH_SIZE=N'   'Images per forward pass for run/run-local (default: 1)'
 	@printf '\n'
 
+
+FLAGS_SENTINEL := $(BUILD_DIR)/.cxxflags
+
+.PHONY: FORCE
+FORCE:
+
+$(FLAGS_SENTINEL): FORCE
+	@mkdir -p $(BUILD_DIR)
+	@echo '$(CXXFLAGS)' | cmp -s - $@ || echo '$(CXXFLAGS)' > $@
+
 # -----------------------------------------------------------------------------
 # Build
 # -----------------------------------------------------------------------------
-$(TARGET): $(CPP_SRCS) $(CPP_HDRS)
+$(TARGET): $(CPP_SRCS) $(CPP_HDRS) $(FLAGS_SENTINEL)
 	@mkdir -p $(BUILD_DIR)
 ifdef ASM
 	@printf '$(C_BOLD_YELLOW)Generating Assembly files (.s) in $(BUILD_DIR)/...$(C_RESET)\n'
@@ -185,6 +195,7 @@ logs:
 # -----------------------------------------------------------------------------
 clean:
 	rm -f $(TARGET)
+	rm -f $(FLAGS_SENTINEL)
 	rm -f $(BUILD_DIR)/*.s
 	rm -f $(LOGS_DIR)/*
 	rm -f $(SRC_PY)/model-fold-*.pth
