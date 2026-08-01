@@ -7,6 +7,13 @@ import time
 import numpy as np
 import torch
 
+"""
+# uncomment for profiling
+from torch.profiler import profile, ProfilerActivity
+
+print(torch.__config__.show())
+"""
+
 from model import CNN
 
 
@@ -174,6 +181,16 @@ def main():
         for _ in range(args.num_warmup_runs):
             logits = model(image_tensor)
 
+    """
+    # Uncomment for python prfiling info
+    with torch.no_grad(), profile(activities=[ProfilerActivity.CPU]) as prof:
+        for _ in range(5):
+            model(image_tensor)
+
+    print(prof.key_averages().table(sort_by="self_cpu_time_total", row_limit=15))
+    """
+
+    with torch.no_grad():
         run_times = []
         for _ in range(args.num_runs):
             start = time.perf_counter()
