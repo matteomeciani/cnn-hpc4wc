@@ -45,4 +45,10 @@ void maxpool2d_forward(const Tensor& input, Tensor& output, int pool_size, int s
 // Adaptive Average Pooling (to 1x1) is declared.
 void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output);
 
+// A 2D convolution forward pass using Toeplitz / im2col matrix multiplication.
+void conv2d_forward_toeplitz(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                             int stride, int padding);
+
+
+
 #endif // CNN_INTERNALS_H

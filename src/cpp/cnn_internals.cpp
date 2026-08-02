@@ -269,3 +269,80 @@ void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output) {
         }
     }
 }
+
+
+
+
+void conv2d_forward_toeplitz(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+                             int stride, int padding) {
+    int out_channels = weight.batches;   // C_out
+    int in_channels  = weight.channels;  // C_in
+    int kernel_h     = weight.height;    // K_h
+    int kernel_w     = weight.width;     // K_w
+
+    int out_h = output.height;
+    int out_w = output.width;
+
+    int K = in_channels * kernel_h * kernel_w; // Matrix inner dimension
+    int N = out_h * out_w;                     // Spatial positions per image
+    int M = out_channels;                      // Output channels
+
+    // Pre-allocating buffer for Toeplitz/im2col matrix
+    std::vector<float> im2col_buf(K * N);
+
+    for (int b = 0; b < input.batches; ++b) {
+        // 1. Constructing the Toeplitz / im2col matrix for batch 'b'
+        for (int ic = 0; ic < in_channels; ++ic) {
+            for (int kh = 0; kh < kernel_h; ++kh) {
+                for (int kw = 0; kw < kernel_w; ++kw) {
+                    int row = (ic * kernel_h + kh) * kernel_w + kw;
+                    for (int oh = 0; oh < out_h; ++oh) {
+                        int ih = oh * stride - padding + kh;
+                        for (int ow = 0; ow < out_w; ++ow) {
+                            int iw = ow * stride - padding + kw;
+                            int col = oh * out_w + ow;
+
+                            float val = 0.0f;
+                            if (ih >= 0 && ih < input.height && iw >= 0 && iw < input.width) {
+                                int in_idx = b * (input.channels * input.height * input.width) +
+                                             ic * (input.height * input.width) +
+                                             ih * input.width + iw;
+                                val = input.data[in_idx];
+                            }
+                            im2col_buf[row * N + col] = val;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 2. Performing GEMM: Y = W * X + Bias
+        int batch_offset = b * (out_channels * N);
+
+        for (int oc = 0; oc < M; ++oc) {
+            int out_channel_offset = batch_offset + oc * N;
+            float b_val = bias.data[oc];
+
+            // Initializing output row with bias vector
+            for (int col = 0; col < N; ++col) {
+                output.data[out_channel_offset + col] = b_val;
+            }
+
+            // Multiplying row of W with im2col matrix X
+            const float* w_row = &weight.data[oc * K];
+            for (int k = 0; k < K; ++k) {
+                float w_val = w_row[k];
+                const float* col_row = &im2col_buf[k * N];
+                float* out_row = &output.data[out_channel_offset];
+
+                #pragma omp simd
+                for (int col = 0; col < N; ++col) {
+                    out_row[col] += w_val * col_row[col];
+                }
+            }
+        }
+    }
+}
+
+
+

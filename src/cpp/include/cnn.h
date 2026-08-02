@@ -89,6 +89,14 @@ void cnn_baseline_autovec( CNNContext& ctx );
 */
 void cnn_baseline_blocked( CNNContext& ctx );
 
+
+
+/*
+ * Forward pass using Toeplitz / im2col matrix multiplication.
+ */
+void cnn_toeplitz( CNNContext& ctx );
+
+
 /*
  * Register implementations here to include them in benchmarking. Each entry
  * is (function, display_name), matching the AHE_IMPLEMENTATIONS pattern.
@@ -96,5 +104,7 @@ void cnn_baseline_blocked( CNNContext& ctx );
 #define CNN_IMPLEMENTATIONS(APPLY) \
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
-    APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization")
+    APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization") \
+    APPLY(cnn_toeplitz, "Toeplitz Matrix Multiplication")
+    
 #endif
