@@ -273,7 +273,7 @@ void adaptive_avgpool2d_forward(const Tensor& input, Tensor& output) {
 
 
 
-void conv2d_forward_toeplitz(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
+void conv2d_forward_im2col(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                              int stride, int padding) {
     int out_channels = weight.batches;   // C_out
     int in_channels  = weight.channels;  // C_in
@@ -287,11 +287,11 @@ void conv2d_forward_toeplitz(const Tensor& input, const Tensor& weight, const Te
     int N = out_h * out_w;                     // Spatial positions per image
     int M = out_channels;                      // Output channels
 
-    // Pre-allocating buffer for Toeplitz/im2col matrix
+    // Pre-allocating buffer for the im2col matrix
     std::vector<float> im2col_buf(K * N);
 
     for (int b = 0; b < input.batches; ++b) {
-        // 1. Constructing the Toeplitz / im2col matrix for batch 'b'
+        // 1. Constructing the im2col matrix for batch 'b'
         for (int ic = 0; ic < in_channels; ++ic) {
             for (int kh = 0; kh < kernel_h; ++kh) {
                 for (int kw = 0; kw < kernel_w; ++kw) {

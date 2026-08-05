@@ -92,9 +92,9 @@ void cnn_baseline_blocked( CNNContext& ctx );
 
 
 /*
- * Forward pass using Toeplitz / im2col matrix multiplication.
+ * Forward pass using im2col / im2col matrix multiplication.
  */
-void cnn_toeplitz( CNNContext& ctx );
+void cnn_im2col( CNNContext& ctx );
 
 
 /*
@@ -105,6 +105,6 @@ void cnn_toeplitz( CNNContext& ctx );
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
     APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization") \
-    APPLY(cnn_toeplitz, "Toeplitz Matrix Multiplication")
+    APPLY(cnn_im2col, "im2col Matrix Multiplication")
     
 #endif
