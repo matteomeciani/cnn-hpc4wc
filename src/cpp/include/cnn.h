@@ -105,6 +105,6 @@ void cnn_im2col( CNNContext& ctx );
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
     APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization") \
-    APPLY(cnn_im2col, "im2col Matrix Multiplication")
+    APPLY(cnn_im2col, "Baseline w. im2col matrix multiplication")
     
 #endif
