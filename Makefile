@@ -29,8 +29,8 @@ UENV_VIEW := pytorch/v2.9.1:v2
 DEVICE ?= cuda
 
 # Benchmark run counts:  make run-local NUM_RUNS=20 NUM_WARMUP_RUNS=5
-NUM_RUNS        ?= 10
-NUM_WARMUP_RUNS ?= 2
+NUM_RUNS        ?= 30
+NUM_WARMUP_RUNS ?= 10
 
 # Benchmark batch size:  make run-local BATCH_SIZE=64
 BATCH_SIZE      ?= 1
