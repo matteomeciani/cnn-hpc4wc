@@ -74,43 +74,6 @@ void cnn_specialized_blocked( CNNContext& ctx );
 */
 void specialized_maxpool2d( CNNContext& ctx );
 
-/*
- * Add new optimized forward-pass implementations here as they're written, e.g.:
- *
- *   void cnn_im2col_gemm( CNNContext& ctx );
- *   void cnn_simd_avx2( CNNContext& ctx );
- *
- * and register each one below so it's picked up automatically by the
- * benchmark harness (and, if you build one, by a correctness-verification
- * pass against cnn_baseline).
- */
-
-/*
- * cnn_baseline_autovec
- * the gcc flag -fopt-info-vec-missed flagged the innermost accumulation
- * (pixel_value += input * weight) as unvectorizable for two reasons:
- *
- * 1. "control flow in loop" — the bounds check on (ih, iw) sits inside the
- *    innermost loop. 
- *    a) Since padding == 0, the valid (oh, ow, kh, kw) range
- *    can be derived so (ih, iw) are always in-bounds
- *    b) The valid (oh, ow, kh, kw) range is being hardcoded in the architecture 
- *       (via stride and dimensions) -> RELIES ON MANUAL SIZING
- * 
- *   -> we can drop check entirely instead of just disabling it
- *     -> use conv2d_forward_noboundcheck
- * 
- *    TODO!!
- *     remove boundary checks also for other files, not only conv2d_forward
- *
- * 2. "reduction: unsafe fp math" — pixel_value += is a float reduction, and
- *    float addition isn't associative, so GCC won't reorder/vectorize it
- *    without permission. Applied via a function-local
- *    __attribute__((optimize("associative-math", ...))) so cnn_baseline
- *    stays flag-free as the reference implementation.
- */
-void cnn_baseline_autovec( CNNContext& ctx );
-
 
 /*
  * Reorder loop such that output channel (oc), which is constant in the 
@@ -134,7 +97,6 @@ void cnn_im2col( CNNContext& ctx );
 #define CNN_IMPLEMENTATIONS(APPLY) \
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
-    APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization") \
     APPLY(cnn_im2col, "Baseline w. im2col matrix multiplication") \
     APPLY(cnn_restructured, "Restructured Nested-Loop") \
     APPLY(cnn_hoist_restrict, "Hoisted Vars + restrict") \
