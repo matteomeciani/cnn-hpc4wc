@@ -196,7 +196,5 @@ logs:
 clean:
 	rm -f $(TARGET)
 	rm -f $(FLAGS_SENTINEL)
-	rm -f $(BUILD_DIR)/*.s
-	rm -f $(LOGS_DIR)/*
 	rm -f $(SRC_PY)/model-fold-*.pth
 	@printf '$(C_GREEN)Clean complete.$(C_RESET)\n'
