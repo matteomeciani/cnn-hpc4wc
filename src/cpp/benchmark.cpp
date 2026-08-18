@@ -12,6 +12,9 @@
 #ifndef NUM_WARMUP_RUNS
 #define NUM_WARMUP_RUNS 2
 #endif
+#ifndef BATCH_SIZE
+#define BATCH_SIZE 1
+#endif
 
 // Prevents the compiler from dead-code-eliminating the forward pass.
 static volatile double benchmark_global_sink = 0.0;
@@ -101,16 +104,19 @@ static std::string slugify(const std::string& name) {
 
 int main(int argc, char** argv) {
     bool verify_mode = false;
+    bool profile_mode = false;
     bool verbose = false;
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if (arg == "verify")
             verify_mode = true;
+        else if (arg == "profile")
+            profile_mode = true;
         else if (arg == "-v" || arg == "--verbose" || arg == "verbose")
             verbose = true;
     }
 
-    int batch_size  = verify_mode ? 10000 : 1;
+    int batch_size  = verify_mode ? 10000 : BATCH_SIZE;
     int num_classes = 10;
 
     int num_runs = NUM_RUNS;
@@ -121,6 +127,7 @@ int main(int argc, char** argv) {
         std::cerr << Color::RED << "PMU init failed — cycle counts will be invalid.\n" << Color::RESET;
     }
 
+    std::cout << Color::BOLD_CYAN << "Batch size: " << batch_size << Color::RESET << "\n";
     std::cout << Color::CYAN << "Memory allocation is starting..." << Color::RESET << "\n";
 
     // 1. INPUT
@@ -178,51 +185,6 @@ int main(int argc, char** argv) {
         fc_weight,    fc_bias,    final_logits
     };
 
-    // ------------------------------------------------------------------
-    // Verification mode: run every implementation registered in
-    // CNN_IMPLEMENTATIONS once over the full MNIST test set, dump each
-    // one's logits to its own cpp_logits_<slug>.bin, and record a
-    // manifest (name -> file) so verify.py can discover and check them
-    // all against PyTorch without a hardcoded implementation list.
-    // ------------------------------------------------------------------
-    if (verify_mode) {
-        #define CNN_VERIFY_ENTRY(function, name) {name, function},
-        const benchmark_impl_t verify_impls[] = {
-            CNN_IMPLEMENTATIONS(CNN_VERIFY_ENTRY)
-        };
-        
-        #undef CNN_VERIFY_ENTRY
-        int num_verify_impls = sizeof(verify_impls) / sizeof(verify_impls[0]);
-
-        const std::string out_dir = "../python/weights_cpp/";
-        std::ofstream manifest(out_dir + "cpp_verify_manifest.json");
-
-        manifest << "[\n";
-        for (int i = 0; i < num_verify_impls; ++i) {
-            std::cout << Color::CYAN << "-> Running " << verify_impls[i].name
-                    << " for verification..." << Color::RESET << "\n";
-
-            verify_impls[i].function(ctx);
-
-            std::string filename = "cpp_logits_" + slugify(verify_impls[i].name) + ".bin";
-            save_binary(out_dir + filename, final_logits.data);
-
-            manifest << "  {\"name\": \"" << verify_impls[i].name << "\", "
-                    << "\"file\": \"" << filename << "\"}"
-                    << (i + 1 < num_verify_impls ? ",\n" : "\n");
-
-            std::cout << Color::GREEN << "   Wrote " << filename << Color::RESET << "\n";
-        }
-        manifest << "]\n";
-
-        std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
-                << " images across " << num_verify_impls << " implementation(s)."
-                << Color::RESET << "\n";
-
-        pmu_cycles_close(&pmu);
-        return 0;
-    }
-
 
     // ------------------------------------------------------------------
     // Registered implementations (see CNN_IMPLEMENTATIONS in cnn.h)
@@ -234,6 +196,101 @@ int main(int argc, char** argv) {
     #undef CNN_BENCH_ENTRY
 
     int num_impls = sizeof(implementations) / sizeof(implementations[0]);
+
+    if (verify_mode) {
+        const benchmark_impl_t &latest = implementations[num_impls - 1];
+        std::string banner = std::string("  VERIFYING IMPLEMENTATION: ") + latest.name + "  ";
+        std::string border(banner.size(), '=');
+        std::cout << "\n" << Color::BOLD_YELLOW << border << "\n" << banner << "\n"
+                  << border << Color::RESET << "\n\n";
+
+        latest.function(ctx);
+        const std::string out_path = "../python/weights_cpp/cpp_logits.bin";
+        save_binary(out_path, final_logits.data);
+        std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
+                  << " images (implementation: " << latest.name << ") to " << out_path
+                  << Color::RESET << "\n";
+        pmu_cycles_close(&pmu);
+        return 0;
+    }
+
+    if (profile_mode) {
+        std::cout << Color::BOLD_CYAN << "\n--- Per-Layer Profiling (" << num_runs << " Runs) ---"
+                  << Color::RESET << "\n";
+
+        struct LayerStat { const char *name; std::vector<double> cycles; };
+        LayerStat layers[] = {
+            {"conv1",   std::vector<double>(num_runs)},
+            {"relu1",   std::vector<double>(num_runs)},
+            {"pool1",   std::vector<double>(num_runs)},
+            {"conv2",   std::vector<double>(num_runs)},
+            {"relu2",   std::vector<double>(num_runs)},
+            {"pool2",   std::vector<double>(num_runs)},
+            {"conv3",   std::vector<double>(num_runs)},
+            {"relu3",   std::vector<double>(num_runs)},
+            {"avgpool", std::vector<double>(num_runs)},
+            {"fc",      std::vector<double>(num_runs)},
+        };
+        constexpr int num_layers = sizeof(layers) / sizeof(layers[0]);
+
+        for (int w = 0; w < num_warmup; ++w) cnn_baseline(ctx);
+
+        for (int i = 0; i < num_runs; ++i) {
+            uint64_t c;
+            int li = 0;
+
+            pmu_cycles_start(&pmu); conv2d_forward(ctx.input_batch, ctx.conv1_weight, ctx.conv1_bias, ctx.conv1_out, 1, 0);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); relu_forward(ctx.conv1_out);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); maxpool2d_forward(ctx.conv1_out, ctx.pool1_out, 2, 2);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); conv2d_forward(ctx.pool1_out, ctx.conv2_weight, ctx.conv2_bias, ctx.conv2_out, 1, 0);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); relu_forward(ctx.conv2_out);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); maxpool2d_forward(ctx.conv2_out, ctx.pool2_out, 2, 2);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); conv2d_forward(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out, 1, 0);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); relu_forward(ctx.conv3_out);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            pmu_cycles_start(&pmu); linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
+            c = pmu_cycles_stop(&pmu); layers[li++].cycles[i] = (double)c;
+
+            benchmark_global_sink += checksum_tensor(ctx.final_logits);
+        }
+
+        std::vector<double> medians(num_layers);
+        double total = 0.0;
+        for (int k = 0; k < num_layers; ++k) {
+            medians[k] = compute_median(layers[k].cycles.data(), num_runs);
+            total += medians[k];
+        }
+
+        std::cout << Color::GREEN << "=== Per-Layer Breakdown (median cycles) ===" << Color::RESET << "\n";
+        for (int k = 0; k < num_layers; ++k) {
+            std::cout << "  " << Color::BOLD << layers[k].name << Color::RESET
+                      << std::string(9 - strlen(layers[k].name), ' ')
+                      << medians[k] << " cycles  (" << (100.0 * medians[k] / total) << "%)\n";
+        }
+        std::cout << "  total: " << total << " cycles\n\n";
+
+        pmu_cycles_close(&pmu);
+        return 0;
+    }
+
     std::vector<bench_result_t> results((size_t)num_impls);
 
     const char *bench_filter = std::getenv("CNN_BENCH_FILTER");
@@ -334,13 +391,14 @@ int main(int argc, char** argv) {
 
     /*
     // Persisted for benchmark.py's C++ vs Python comparison table (uses the
-    // baseline implementation's numbers, matching the original single-impl file).
-    if (baseline_idx >= 0) {
+    // fastest implementation's numbers).
+    if (best_idx >= 0) {
         std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
         if (timing_file.is_open()) {
             timing_file << "{\n"
-                        << "  \"median_time_sec\": " << results[baseline_idx].seconds_median << ",\n"
-                        << "  \"median_cycles\": " << results[baseline_idx].cycles_median << "\n"
+                        << "  \"implementation\": \"" << implementations[best_idx].name << "\",\n"
+                        << "  \"median_time_sec\": " << results[best_idx].seconds_median << ",\n"
+                        << "  \"median_cycles\": " << results[best_idx].cycles_median << "\n"
                         << "}\n";
         }
     }

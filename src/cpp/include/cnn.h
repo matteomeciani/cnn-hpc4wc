@@ -45,6 +45,36 @@ typedef void (*cnn_func)(CNNContext&);
 void cnn_baseline( CNNContext& ctx );
 
 /*
+* Attempted loop restucturing of the forward pass of a CNN.
+*/
+void cnn_restructured( CNNContext& ctx );
+
+/*
+* Hoisted loop implementation of the forward pass of a CNN.
+*/
+void cnn_hoist_restrict( CNNContext& ctx );
+
+/*
+* Reordered loop implementation of the forward pass of a CNN.
+*/
+void cnn_reorder( CNNContext& ctx );
+
+/*
+* Specialized implementation of the forward pass of a CNN.
+*/
+void cnn_specialized( CNNContext& ctx );
+
+/*
+* Specialized blocked implementation of the forward pass of a CNN.
+*/
+void cnn_specialized_blocked( CNNContext& ctx );
+
+/*
+* Specialized maxpool2d implementation of the forward pass of a CNN.
+*/
+void specialized_maxpool2d( CNNContext& ctx );
+
+/*
  * Add new optimized forward-pass implementations here as they're written, e.g.:
  *
  *   void cnn_im2col_gemm( CNNContext& ctx );
@@ -105,6 +135,12 @@ void cnn_im2col( CNNContext& ctx );
     APPLY(cnn_baseline, "Baseline Nested-Loop") \
     APPLY(cnn_baseline_blocked, "Baseline w. blocking") \
     APPLY(cnn_baseline_autovec, "Baseline w. full auto-vectorization") \
-    APPLY(cnn_im2col, "Baseline w. im2col matrix multiplication")
-    
+    APPLY(cnn_im2col, "Baseline w. im2col matrix multiplication") \
+    APPLY(cnn_restructured, "Restructured Nested-Loop") \
+    APPLY(cnn_hoist_restrict, "Hoisted Vars + restrict") \
+    APPLY(cnn_reorder, "Reordered Nested-Loop") \
+    APPLY(cnn_specialized, "Specialized Implementation") \
+    APPLY(cnn_specialized_blocked, "NEON Blocked Implementation") \
+    APPLY(specialized_maxpool2d, "Specialized MaxPool2D")
+
 #endif

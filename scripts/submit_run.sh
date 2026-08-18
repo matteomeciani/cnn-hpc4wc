@@ -18,11 +18,23 @@ echo "Start:   $(date)"
 
 NUM_RUNS="${NUM_RUNS:-10}"
 NUM_WARMUP_RUNS="${NUM_WARMUP_RUNS:-2}"
+BATCH_SIZE="${BATCH_SIZE:-1}"
 VENV="$HOME/venvs/venv"
 
-make build NUM_RUNS="$NUM_RUNS" NUM_WARMUP_RUNS="$NUM_WARMUP_RUNS"
-cd src/cpp && ../../build/cnn_forward && cd $SLURM_SUBMIT_DIR
 
-uenv run pytorch/v2.9.1:v2 --view=default -- bash -c "source $VENV/bin/activate && cd src/python && python3 benchmark.py --num-runs $NUM_RUNS --num-warmup-runs $NUM_WARMUP_RUNS"
+uenv run --view=default pytorch/v2.9.1:v2 -- bash -c "
+  echo '=== C++ Compiler Version ==='
+  g++ --version | head -n1
+
+  make build NUM_RUNS=$NUM_RUNS NUM_WARMUP_RUNS=$NUM_WARMUP_RUNS BATCH_SIZE=$BATCH_SIZE
+  cd src/cpp && ../../build/cnn_forward
+"
+
+
+uenv run --view=default pytorch/v2.9.1:v2 -- bash -c "
+  source $VENV/bin/activate
+  cd src/python
+  python3 benchmark.py --num-runs $NUM_RUNS --num-warmup-runs $NUM_WARMUP_RUNS --batch-size $BATCH_SIZE
+"
 
 echo "End:     $(date)"

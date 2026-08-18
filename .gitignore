@@ -1,16 +1,9 @@
 # Build artefacts
 build/*
-!build/.gitkeep
-core_*
+!build/*.s
 
-# Logs
-logs/*
-
-# Model weights
-**/*.pth
-
-# Binary files
-**/*.bin
+# Object files
+*.o
 
 # Object files
 *.o
@@ -26,3 +19,4 @@ __pycache__/
 src/python/weights_cpp/cpp_timing.json
 # Generated manifest of cpp CNN implementations for verification
 src/python/weights_cpp/cpp_verify_manifest.json
+

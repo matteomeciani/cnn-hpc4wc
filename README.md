@@ -170,3 +170,28 @@ Run the program `cnn_forward` with the terminal command:
 `srun -A hpc4wc-course2026-ethz --partition=normal --time=00:05:00 --ntasks=1 ./cnn_forward`
 
 For bigger jobs (later) use `sbatch` together with an `.sh` script instead of `srun`.
+
+# Commands useful for profiling
+
+```bash
+cd src/cpp && ../../build/cnn_forward profile
+```
+
+```bash
+make build NUM_RUNS=2000 NUM_WARMUP_RUNS=100
+cd src/cpp
+perf record -e cycles:u -g -o /tmp/perf.data -- ../../build/cnn_forward
+perf report -i /tmp/perf.data
+```
+
+```bash
+perf annotate -i /tmp/perf.data --stdio conv2d_forward
+```
+
+```bash
+perf stat -e cycles:u,instructions:u,cache-references:u,cache-misses:u,branch-misses:u,stalled-cycles-backend:u -- ../../build/cnn_forward
+```
+
+```bash
+make -B ASM=1 build
+```

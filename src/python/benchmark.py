@@ -54,20 +54,22 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
       printed. C++ numbers come from cpp_timing.json (written by cnn_forward);
       Python does not currently sample hardware cycle counters.
     '''
-    cpp_time_sec, cpp_cycles = None, None
+    cpp_time_sec, cpp_cycles, cpp_impl_name = None, None, None
     if os.path.isfile(cpp_timing_path):
         with open(cpp_timing_path) as f:
             cpp = json.load(f)
         cpp_time_sec = cpp['median_time_sec']
         cpp_cycles = cpp['median_cycles']
+        cpp_impl_name = cpp.get('implementation')
 
     cpp_time_str = f"{cpp_time_sec:.6f} s" if cpp_time_sec is not None else "N/A"
     py_time_str = f"{python_time_sec:.6f} s"
     cpp_cycles_str = f"{cpp_cycles:.0f}" if cpp_cycles else "N/A"
     py_cycles_str = "N/A"
 
-    print(f"\n=== C++ vs Python/PyTorch ({num_runs} runs) ===")
-    print(f"{'':16}{'C++':>16}{'Python':>16}")
+    cpp_label = f"C++ ({cpp_impl_name})" if cpp_impl_name else "C++"
+    print(f"\n=== {cpp_label} [fastest] vs Python/PyTorch ({num_runs} runs) ===")
+    print(f"{'':16}{cpp_label:>16}{'Python':>16}")
     print(f"{'Time (median)':16}{cpp_time_str:>16}{py_time_str:>16}")
     print(f"{'Cycles (median)':16}{cpp_cycles_str:>16}{py_cycles_str:>16}")
 
@@ -76,9 +78,11 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
               "weights_cpp/cpp_timing.json.)")
     elif cpp_time_sec > 0 and python_time_sec > 0:
         if python_time_sec < cpp_time_sec:
-            print(f"\nPython is {cpp_time_sec / python_time_sec:.2f}x faster (median wall time).")
+            print(f"\nPython is {cpp_time_sec / python_time_sec:.2f}x faster than the fastest "
+                  f"C++ implementation (median wall time).")
         else:
-            print(f"\nC++ is {python_time_sec / cpp_time_sec:.2f}x faster (median wall time).")
+            print(f"\nThe fastest C++ implementation is {python_time_sec / cpp_time_sec:.2f}x "
+                  f"faster than Python (median wall time).")
 
     print("Python cycle counts: not available (no hardware cycle counter is sampled from Python).")
 """
@@ -139,6 +143,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--num-runs', type=int, default=10)
     parser.add_argument('--num-warmup-runs', type=int, default=2)
+    parser.add_argument('--batch-size', type=int, default=1)
     parser.add_argument('-v', '--verbose', action='store_true',
                          help='Print the ASCII input image and per-class logits.')
     args = parser.parse_args()
@@ -165,13 +170,15 @@ def main():
         model.model[10].weight.copy_(load_bin(w_path + 'model_10_weight.bin', (10, 128)))
         model.model[10].bias.copy_(load_bin(w_path + 'model_10_bias.bin', (10,)))
 
-    # 2. A single MNIST test image is loaded, matching the C++ timing
-    #    benchmark's single-image forward pass.
+    # 2. `--batch-size` MNIST test images are loaded, matching the C++
+    #    timing benchmark's batch size.
     mnist_path = '../../data/MNIST/raw/t10k-images-idx3-ubyte'
     with open(mnist_path, 'rb') as f:
-        _, _, rows, cols = struct.unpack(">IIII", f.read(16))
-        image_data = np.frombuffer(f.read(rows * cols), dtype=np.uint8)
-    image_tensor = torch.tensor(image_data, dtype=torch.float32).view(1, 1, rows, cols) / 255.0
+        _, num_available, rows, cols = struct.unpack(">IIII", f.read(16))
+        batch_size = min(args.batch_size, num_available)
+        image_data = np.frombuffer(f.read(batch_size * rows * cols), dtype=np.uint8)
+    image_tensor = torch.tensor(image_data, dtype=torch.float32).view(batch_size, 1, rows, cols) / 255.0
+    print(f"Batch size: {batch_size}")
 
     if args.verbose:
         print_ascii_image(image_tensor)
@@ -204,6 +211,8 @@ def main():
             print(f"Class {i}: {logit}")
         print()
 
+    predicted_digit = int(logits[0].argmax().item())
+    print(f"The network has successfully predicted the digit: {predicted_digit}")
 
     median_time = float(np.median(run_times))
     print_comparison(median_time, args.num_runs, w_path + 'cpp_timing.json')
