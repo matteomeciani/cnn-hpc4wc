@@ -110,10 +110,13 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
 
     py_time_str = f"{python_time_sec:.6f} s"
 
+    # Cycles are deliberately omitted here: they're already reported per
+    # implementation in the C++ binary's "Final Performance Summary" table,
+    # and Python has no cycle counts to compare them against anyway.
     print(f"\n=== C++ (all implementations) vs Python/PyTorch ({num_runs} runs) ===")
-    print(f"{'Implementation':<38} | {'Time':<14} | {'Cycles':<14} | {'Relative':<12}")
-    print("-" * 85)
-    print(f"{'Python/PyTorch':<38} | {py_time_str:<14} | {'N/A':<14} | {'-':<12}")
+    print(f"{'Implementation':<42} | {'Time':<14} | {'Relative':<12}")
+    print("-" * 74)
+    print(f"{'Python/PyTorch':<42} | {py_time_str:<14} | {'-':<12}")
 
     if not entries:
         print("\n(C++ timing not found — run ../../build/cnn_forward first to populate "
@@ -123,9 +126,7 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
     for entry in entries:
         name = entry['name']
         cpp_time = entry['median_time_sec']
-        cpp_cycles = entry['median_cycles']
         cpp_time_str = f"{cpp_time:.6f} s"
-        cpp_cycles_str = f"{cpp_cycles:.0f}"
 
         if cpp_time > 0 and python_time_sec > 0:
             if python_time_sec < cpp_time:
@@ -135,9 +136,7 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
         else:
             relative = "N/A"
 
-        print(f"{name:<38} | {cpp_time_str:<14} | {cpp_cycles_str:<14} | {relative:<12}")
-
-    print("\nPython cycle counts: not available (no hardware cycle counter is sampled from Python).")
+        print(f"{name:<42} | {cpp_time_str:<14} | {relative:<12}")
 
 def main():
     parser = argparse.ArgumentParser()

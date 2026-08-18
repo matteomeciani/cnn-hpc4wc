@@ -339,9 +339,9 @@ int main(int argc, char** argv) {
     // Final Summary Table
     // ------------------------------------------------------------------
     std::cout << Color::BOLD_YELLOW << "=== Final Performance Summary ===" << Color::RESET << "\n\n";
-    printf("%-35s | %-12s | %-20s | %-14s\n",
+    printf("%-42s | %-12s | %-20s | %-14s\n",
            "Implementation", "vs Base", "Cycles", "Seconds");
-    printf("---------------------------------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------------------------------\n");
 
     int baseline_idx = -1;
     int best_idx = -1;
@@ -381,7 +381,7 @@ int main(int argc, char** argv) {
 
         bool is_best = (i == best_idx);
         if (is_best) std::cout << Color::GREEN;
-        printf("%-35s | %-12s | %-20s | %-14s",
+        printf("%-42s | %-12s | %-20s | %-14s",
                implementations[i].name, speedup_text, cyc, sec);
         if (is_best) std::cout << Color::RESET;
         std::cout << "\n";
