@@ -20,7 +20,7 @@ C_BOLD_YELLOW := \033[1;33m
 # Compiler & flags
 # -----------------------------------------------------------------------------
 CXX      := g++
-CXXFLAGS := -std=c++17 -O3 -march=native -mcpu=native -ffast-math -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG
+CXXFLAGS := -std=c++17 -O3 -march=native -mcpu=native -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG
 PYTHON   := python3
 
 UENV_VIEW := pytorch/v2.9.1:v2
