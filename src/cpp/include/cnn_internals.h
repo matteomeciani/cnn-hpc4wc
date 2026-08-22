@@ -32,10 +32,6 @@ void conv2d_forward(const Tensor& input, const Tensor& weight, const Tensor& bia
 void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                     int stride, int padding);
 
-// A 2D convolution forward pass with no boundary checks is declared.
-void conv2d_forward_noboundcheck(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
-                    int stride, int padding);
-
 // A restructured 2D convolution forward pass is declared.
 void conv2d_forward_restructured(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output,
                     int stride, int padding);

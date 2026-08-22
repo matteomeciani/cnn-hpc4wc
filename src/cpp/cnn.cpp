@@ -27,6 +27,10 @@ void cnn_baseline_blocked( CNNContext& ctx ) {
     maxpool2d_forward(ctx.conv2_out, ctx.pool2_out, 2, 2);
 
     conv2d_forward_blocked(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out, 1, 0);
+    relu_forward(ctx.conv3_out);
+    adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
+
+    linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 }
 
 void cnn_restructured( CNNContext& ctx ) {
@@ -72,6 +76,10 @@ void cnn_im2col( CNNContext& ctx ) {
     maxpool2d_forward(ctx.conv2_out, ctx.pool2_out, 2, 2);
 
     conv2d_forward_im2col(ctx.pool2_out, ctx.conv3_weight, ctx.conv3_bias, ctx.conv3_out, 1, 0);
+    relu_forward(ctx.conv3_out);
+    adaptive_avgpool2d_forward(ctx.conv3_out, ctx.avgpool_out);
+
+    linear_forward(ctx.avgpool_out, ctx.fc_weight, ctx.fc_bias, ctx.final_logits);
 }
 
 void cnn_reorder( CNNContext& ctx ) {

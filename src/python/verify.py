@@ -1,8 +1,12 @@
 import json
 import struct
+import sys
+
 import numpy as np
 import torch
 from model import CNN
+
+ATOL = 1e-4
 
 def load_bin(filepath, shape):
     '''
@@ -52,7 +56,7 @@ with open(w_path + 'cpp_verify_manifest.json') as f:
     implementations = json.load(f)
 
 print(f"Comparing {len(implementations)} C++ implementation(s) against PyTorch "
-      f"over {num} images.\n")
+      f"over {num} images (atol={ATOL:g}).\n")
 
 all_passed = True
 summary = []
@@ -64,7 +68,7 @@ for impl in implementations:
     max_abs_diff = np.max(np.abs(torch_logits - cpp_logits))
     cpp_pred = cpp_logits.argmax(axis=1)
     pred_mismatches = int(np.sum(torch_pred != cpp_pred))
-    passed = bool(np.allclose(torch_logits, cpp_logits, atol=1e-3) and pred_mismatches == 0)
+    passed = bool(np.allclose(torch_logits, cpp_logits, atol=ATOL) and pred_mismatches == 0)
     all_passed &= passed
     summary.append((name, max_abs_diff, pred_mismatches, passed))
 
@@ -77,5 +81,14 @@ print(f"{'Implementation':<42} | {'Status':<6} | {'Max |diff|':<12} | Mismatches
 print("-" * 80)
 for name, diff, mism, passed in summary:
     print(f"{name:<42} | {'PASS' if passed else 'FAIL':<6} | {diff:<12.3e} | {mism}/{num}")
+
+# Non-zero exit on failure, so `make verify` and the Slurm job actually fail
+# instead of reporting success.
+if not all_passed:
+    failed = [name for name, _, _, passed in summary if not passed]
+    print(f"\n{len(failed)} implementation(s) FAILED: {', '.join(failed)}")
+    sys.exit(1)
+
+print(f"\nAll {len(summary)} implementation(s) match PyTorch within atol={ATOL:g}.")
 
 

@@ -52,19 +52,6 @@ inline void load_binary_weights(const std::string& filepath, std::vector<float>&
         throw std::runtime_error("Read error: " + filepath);
 }
 
-// The predicted class is determined.
-inline int get_prediction(const Tensor& logits) {
-    int   best_class = 0;
-    float max_score  = logits.data[0];
-    for (int i = 1; i < logits.width; ++i) {
-        if (logits.data[i] > max_score) {
-            max_score  = logits.data[i];
-            best_class = i;
-        }
-    }
-    return best_class;
-}
-
 // An integer is converted from Big-Endian to Little-Endian.
 inline int reverse_int(int i) {
     unsigned char c1 = i & 255;
@@ -125,7 +112,7 @@ inline void print_ascii_image(const Tensor& images_tensor, int batch_index) {
 }
 
 // A tensor's checksum is computed by summing all its elements.
-static double checksum_tensor(const Tensor &t) {
+inline double checksum_tensor(const Tensor &t) {
     double s = 0.0;
     for (float v : t.data) s += (double)v;
     return s;
@@ -134,11 +121,11 @@ static double checksum_tensor(const Tensor &t) {
 // ---------------------------------------------------------------
 // Implementations registering and benchmarking utility functions.
 // ---------------------------------------------------------------
-static bool contains_substr(const std::string &haystack, const std::string &needle) {
+inline bool contains_substr(const std::string &haystack, const std::string &needle) {
     return needle.empty() ? false : haystack.find(needle) != std::string::npos;
 }
 
-static bool implementation_matches_filter(const std::string &name, const char *filter) {
+inline bool implementation_matches_filter(const std::string &name, const char *filter) {
     if (!filter || !*filter) return true;
     bool exact = std::getenv("CNN_BENCH_FILTER_EXACT") != nullptr;
 

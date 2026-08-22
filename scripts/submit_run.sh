@@ -16,8 +16,9 @@ echo "Job ID:  $SLURM_JOB_ID"
 echo "Node:    $SLURMD_NODENAME"
 echo "Start:   $(date)"
 
-NUM_RUNS="${NUM_RUNS:-10}"
-NUM_WARMUP_RUNS="${NUM_WARMUP_RUNS:-2}"
+# Defaults must match the Makefile's, for direct `sbatch scripts/submit_run.sh`.
+NUM_RUNS="${NUM_RUNS:-30}"
+NUM_WARMUP_RUNS="${NUM_WARMUP_RUNS:-10}"
 BATCH_SIZE="${BATCH_SIZE:-1}"
 VENV="$HOME/venvs/venv"
 

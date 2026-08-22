@@ -25,7 +25,7 @@ PYTHON   := python3
 
 UENV_VIEW := pytorch/v2.9.1:v2
 
-# Training device: make train DEVICE=cpsu  (default: cuda)
+# Training device: make train DEVICE=cpu  (default: cuda)
 DEVICE ?= cuda
 
 # Benchmark run counts:  make run-local NUM_RUNS=20 NUM_WARMUP_RUNS=5
@@ -100,14 +100,14 @@ help:
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'train-local'     'Run PyTorch training directly (DEVICE=cuda|cpu)'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'all-local'       'build → run-local → verify-local'
 	@printf '\n'
-	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'clean'           'Remove build artefacts, logs, and checkpoints'
+	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'clean'           'Remove build artefacts and checkpoints (keeps logs/)'
 	@printf '\n$(C_BOLD)Overrides:$(C_RESET)\n'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'ASM=1'          'Generate annotated assembly output (.s) in build/'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEBUG=1'        'Build with -O0 -g -fsanitize=address,undefined'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'PRINT_ASCII=1'  'Enable ASCII art image print in C++ binary'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'DEVICE=cpu'     'Use CPU for training (default: cuda)'
-	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_RUNS=N'     'Timed benchmark runs for run/run-local (default: 10)'
-	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_WARMUP_RUNS=N' 'Warmup runs for run/run-local (default: 2)'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_RUNS=N'     'Timed benchmark runs for run/run-local (default: 30)'
+	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'NUM_WARMUP_RUNS=N' 'Warmup runs for run/run-local (default: 10)'
 	@printf '  $(C_YELLOW)%-22s$(C_RESET) %s\n' 'BATCH_SIZE=N'   'Images per forward pass for run/run-local (default: 1)'
 	@printf '\n'
 
@@ -196,7 +196,5 @@ logs:
 clean:
 	rm -f $(TARGET)
 	rm -f $(FLAGS_SENTINEL)
-	rm -f $(BUILD_DIR)/*.s
-	rm -f $(LOGS_DIR)/*
 	rm -f $(SRC_PY)/model-fold-*.pth
-	@printf '$(C_GREEN)Clean complete.$(C_RESET)\n'
+	@printf '$(C_GREEN)Clean complete.$(C_RESET) (logs/ and build/*.s left untouched)\n'

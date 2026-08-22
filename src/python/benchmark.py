@@ -6,13 +6,7 @@ import time
 
 import numpy as np
 import torch
-
-"""
-# uncomment for profiling
 from torch.profiler import profile, ProfilerActivity
-
-print(torch.__config__.show())
-"""
 
 from model import CNN
 
@@ -46,46 +40,6 @@ def print_ascii_image(image_tensor):
         print("".join(line))
     print()
 
-
-"""
-def print_comparison(python_time_sec, num_runs, cpp_timing_path):
-    '''
-      A side-by-side comparison of the C++ and Python median time/cycles is
-      printed. C++ numbers come from cpp_timing.json (written by cnn_forward);
-      Python does not currently sample hardware cycle counters.
-    '''
-    cpp_time_sec, cpp_cycles, cpp_impl_name = None, None, None
-    if os.path.isfile(cpp_timing_path):
-        with open(cpp_timing_path) as f:
-            cpp = json.load(f)
-        cpp_time_sec = cpp['median_time_sec']
-        cpp_cycles = cpp['median_cycles']
-        cpp_impl_name = cpp.get('implementation')
-
-    cpp_time_str = f"{cpp_time_sec:.6f} s" if cpp_time_sec is not None else "N/A"
-    py_time_str = f"{python_time_sec:.6f} s"
-    cpp_cycles_str = f"{cpp_cycles:.0f}" if cpp_cycles else "N/A"
-    py_cycles_str = "N/A"
-
-    cpp_label = f"C++ ({cpp_impl_name})" if cpp_impl_name else "C++"
-    print(f"\n=== {cpp_label} [fastest] vs Python/PyTorch ({num_runs} runs) ===")
-    print(f"{'':16}{cpp_label:>16}{'Python':>16}")
-    print(f"{'Time (median)':16}{cpp_time_str:>16}{py_time_str:>16}")
-    print(f"{'Cycles (median)':16}{cpp_cycles_str:>16}{py_cycles_str:>16}")
-
-    if cpp_time_sec is None:
-        print("\n(C++ timing not found — run ../../build/cnn_forward first to populate "
-              "weights_cpp/cpp_timing.json.)")
-    elif cpp_time_sec > 0 and python_time_sec > 0:
-        if python_time_sec < cpp_time_sec:
-            print(f"\nPython is {cpp_time_sec / python_time_sec:.2f}x faster than the fastest "
-                  f"C++ implementation (median wall time).")
-        else:
-            print(f"\nThe fastest C++ implementation is {python_time_sec / cpp_time_sec:.2f}x "
-                  f"faster than Python (median wall time).")
-
-    print("Python cycle counts: not available (no hardware cycle counter is sampled from Python).")
-"""
 
 def print_comparison(python_time_sec, num_runs, cpp_timing_path):
     '''
@@ -145,6 +99,9 @@ def main():
     parser.add_argument('--batch-size', type=int, default=1)
     parser.add_argument('-v', '--verbose', action='store_true',
                          help='Print the ASCII input image and per-class logits.')
+    parser.add_argument('--profile', action='store_true',
+                         help='Print the PyTorch build config and a torch.profiler '
+                              'per-operator CPU breakdown instead of timing.')
     args = parser.parse_args()
 
     # Single-threaded to match the C++ baseline's single-core loop.
@@ -187,14 +144,13 @@ def main():
         for _ in range(args.num_warmup_runs):
             logits = model(image_tensor)
 
-    """
-    # Uncomment for python prfiling info
-    with torch.no_grad(), profile(activities=[ProfilerActivity.CPU]) as prof:
-        for _ in range(5):
-            model(image_tensor)
-
-    print(prof.key_averages().table(sort_by="self_cpu_time_total", row_limit=15))
-    """
+    if args.profile:
+        print(torch.__config__.show())
+        with torch.no_grad(), profile(activities=[ProfilerActivity.CPU]) as prof:
+            for _ in range(5):
+                model(image_tensor)
+        print(prof.key_averages().table(sort_by="self_cpu_time_total", row_limit=15))
+        return
 
     with torch.no_grad():
         run_times = []

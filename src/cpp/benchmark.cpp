@@ -2,9 +2,8 @@
 #include "include/cnn.h"
 #include "include/utils.h"
 
-#include <cmath>
 #include <cstring>
-#include <cctype> 
+#include <cctype>
 
 #ifndef NUM_RUNS
 #define NUM_RUNS 10
@@ -16,7 +15,6 @@
 #define BATCH_SIZE 1
 #endif
 
-// Prevents the compiler from dead-code-eliminating the forward pass.
 static volatile double benchmark_global_sink = 0.0;
 
 typedef struct {
@@ -36,7 +34,7 @@ typedef struct {
 // ----------------------------------------------------------------------------
 static bench_result_t benchmark_cnn(cnn_func f, CNNContext &ctx,
                                     pmu_ctx_t &pmu, int num_runs, int num_warmup) {
-    bench_result_t result = {NAN, NAN, false};
+    bench_result_t result = {0.0, 0.0, false};
 
     std::cout << Color::GREEN << "--- Performance Benchmarking (" << num_runs << " Runs) ---"
                << Color::RESET << "\n";
@@ -83,7 +81,7 @@ static bench_result_t benchmark_cnn(cnn_func f, CNNContext &ctx,
 }
 
 
-// Turns "Baseline w. full auto-vectorization" into "baseline_w_full_auto_vectorization" for verification mode (so verify.py reads correctly)
+// Fix function naming for verification mode
 static std::string slugify(const std::string& name) {
     std::string out;
     bool last_underscore = false;
@@ -198,18 +196,42 @@ int main(int argc, char** argv) {
     int num_impls = sizeof(implementations) / sizeof(implementations[0]);
 
     if (verify_mode) {
-        const benchmark_impl_t &latest = implementations[num_impls - 1];
-        std::string banner = std::string("  VERIFYING IMPLEMENTATION: ") + latest.name + "  ";
+        std::string banner = "  VERIFYING ALL REGISTERED IMPLEMENTATIONS  ";
         std::string border(banner.size(), '=');
         std::cout << "\n" << Color::BOLD_YELLOW << border << "\n" << banner << "\n"
                   << border << Color::RESET << "\n\n";
 
-        latest.function(ctx);
-        const std::string out_path = "../python/weights_cpp/cpp_logits.bin";
-        save_binary(out_path, final_logits.data);
+        const std::string out_dir = "../python/weights_cpp/";
+        std::ofstream manifest(out_dir + "cpp_verify_manifest.json");
+        if (!manifest.is_open()) {
+            std::cerr << Color::RED << "Could not open " << out_dir
+                      << "cpp_verify_manifest.json for writing.\n" << Color::RESET;
+            pmu_cycles_close(&pmu);
+            return 1;
+        }
+
+        manifest << "[\n";
+        for (int i = 0; i < num_impls; ++i) {
+            std::cout << Color::CYAN << "-> Running " << implementations[i].name
+                      << " for verification..." << Color::RESET << "\n";
+
+            implementations[i].function(ctx);
+
+            std::string filename = "cpp_logits_" + slugify(implementations[i].name) + ".bin";
+            save_binary(out_dir + filename, final_logits.data);
+
+            manifest << "  {\"name\": \"" << implementations[i].name << "\", "
+                     << "\"file\": \"" << filename << "\"}"
+                     << (i + 1 < num_impls ? ",\n" : "\n");
+
+            std::cout << Color::GREEN << "   Wrote " << filename << Color::RESET << "\n";
+        }
+        manifest << "]\n";
+
         std::cout << Color::BOLD_GREEN << "Wrote logits for " << input_batch.batches
-                  << " images (implementation: " << latest.name << ") to " << out_path
+                  << " images across " << num_impls << " implementation(s)."
                   << Color::RESET << "\n";
+
         pmu_cycles_close(&pmu);
         return 0;
     }
@@ -388,24 +410,6 @@ int main(int argc, char** argv) {
     }
 
     std::cout << "\nBenchmark sink: " << benchmark_global_sink << "\n\n";
-
-    /*
-    // Persisted for benchmark.py's C++ vs Python comparison table (uses the
-    // fastest implementation's numbers).
-    if (best_idx >= 0) {
-        std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
-        if (timing_file.is_open()) {
-            timing_file << "{\n"
-                        << "  \"implementation\": \"" << implementations[best_idx].name << "\",\n"
-                        << "  \"median_time_sec\": " << results[best_idx].seconds_median << ",\n"
-                        << "  \"median_cycles\": " << results[best_idx].cycles_median << "\n"
-                        << "}\n";
-        }
-    }
-
-    return 0;
-    */
-    
 
     // Persisted for benchmark.py's C++ vs Python comparison table.
     // Writes every benchmarked implementation (not just the baseline) as a

@@ -9,7 +9,6 @@ from torch.utils.data import DataLoader, ConcatDataset, SubsetRandomSampler
 from torchvision import transforms
 
 from sklearn.model_selection import KFold
-import matplotlib.pyplot as plt
 
 from model import CNN, reset_weights
 
@@ -26,6 +25,9 @@ dataset_test_part = MNIST(
 K_FOLDS = 5
 NUM_EPOCHS = 5
 BATCH_SIZE = 10
+
+# Fixed
+SEED = 0
 
 # Set number of threads for CPU to 1
 torch.set_num_threads(1)
@@ -75,7 +77,7 @@ def k_fold_cross_validation(k_folds, num_epochs, loss_function, batch_size, devi
     best_accuracy = -1
     best_network = None
     dataset = ConcatDataset([dataset_train_part, dataset_test_part])
-    kfold = KFold(n_splits=k_folds, shuffle=True)
+    kfold = KFold(n_splits=k_folds, shuffle=True, random_state=SEED)
 
     for fold, (train_ids, test_ids) in enumerate(kfold.split(dataset)):
         print(f'FOLD {fold}')
@@ -156,6 +158,10 @@ def main():
     parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
     parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
     args = parser.parse_args()
+
+    torch.manual_seed(SEED)
+    np.random.seed(SEED)
+
     device = torch.device(args.device)
     loss_function = nn.CrossEntropyLoss()
 

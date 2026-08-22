@@ -1,6 +1,8 @@
 #include "include/cnn_internals.h"
-#include "include/utils.h" // for colors and iostream
 
+#include <limits>
+
+static constexpr float MAXPOOL_NEG_INF = std::numeric_limits<float>::lowest();
 
 // -----------------------------------------------
 // Baseline nested loops implementation internals
@@ -55,8 +57,6 @@ void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Ten
     int kernel_h     = weight.height;
     int kernel_w     = weight.width;
 
-    std::fill(output.data.begin(), output.data.end(), 0.0f);
-
     for (int b = 0; b < input.batches; ++b) {
         for (int oh = 0; oh < output.height; ++oh) {
             for (int oc0 = 0; oc0 < out_channels; oc0 += OC_TILE) {
@@ -65,7 +65,6 @@ void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Ten
                 for (int ow0 = 0; ow0 < output.width; ow0 += OW_TILE) {
                     int ow_lim = std::min(OW_TILE, output.width - ow0);
 
-                    // accumulator tile, lives in registers/L1
                     float acc[OC_TILE][OW_TILE];
                     for (int t_oc = 0; t_oc < oc_lim; ++t_oc)
                         for (int t_ow = 0; t_ow < ow_lim; ++t_ow)
@@ -85,8 +84,7 @@ void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Ten
                                     int in_idx = b * (input.channels * input.height * input.width) +
                                                  ic * (input.height * input.width) +
                                                  ih * input.width + iw;
-                                    float in_val = input.data[in_idx]; // reused across t_oc
-
+                                    float in_val = input.data[in_idx]; 
                                     for (int t_oc = 0; t_oc < oc_lim; ++t_oc) {
                                         int oc = oc0 + t_oc;
                                         int w_idx = oc * (weight.channels * weight.height * weight.width) +
@@ -99,7 +97,6 @@ void conv2d_forward_blocked(const Tensor& input, const Tensor& weight, const Ten
                         }
                     }
 
-                    // write tile back
                     for (int t_oc = 0; t_oc < oc_lim; ++t_oc) {
                         int oc = oc0 + t_oc;
                         for (int t_ow = 0; t_ow < ow_lim; ++t_ow) {
@@ -533,15 +530,15 @@ void conv2d_forward_specialized_blocked(const Tensor& input, const Tensor& weigh
 
     #define IC_(x) std::integral_constant<int, x>{}
     switch (NV) {
-        case 1: run(IC_(4), IC_(1)); break;   // OW<=4   conv3 (OW=3)
-        case 2: run(IC_(4), IC_(2)); break;   // OW<=8
-        case 3: run(IC_(4), IC_(3)); break;   // OW<=12  conv2 (OW=11) 12+1+4=17
-        case 4: run(IC_(3), IC_(4)); break;   // OW<=16
+        case 1: run(IC_(4), IC_(1)); break;   
+        case 2: run(IC_(4), IC_(2)); break;   
+        case 3: run(IC_(4), IC_(3)); break;  
+        case 4: run(IC_(3), IC_(4)); break; 
         case 5: run(IC_(2), IC_(5)); break;
         case 6: run(IC_(2), IC_(6)); break;
-        case 7: run(IC_(2), IC_(7)); break;   // OW<=28  conv1 (OW=26)
+        case 7: run(IC_(2), IC_(7)); break; 
         default:
-            switch (NV) { }
+            conv2d_forward_specialized(input, weight, bias, output);
             break;
     }
     #undef IC_
@@ -574,7 +571,7 @@ void maxpool2d_forward(const Tensor& input, Tensor& output, int pool_size, int s
         for (int c = 0; c < input.channels; ++c) {
             for (int oh = 0; oh < output.height; ++oh) {
                 for (int ow = 0; ow < output.width; ++ow) {
-                    float max_val = -1e9f;
+                    float max_val = MAXPOOL_NEG_INF;
                     for (int ph = 0; ph < pool_size; ++ph) {
                         for (int pw = 0; pw < pool_size; ++pw) {
                             int ih = oh * stride + ph;
@@ -627,7 +624,7 @@ void maxpool2d_forward_specialized(const Tensor& input, Tensor& output) {
             int out_c_size = c * out_size;
 
             for (int oh = 0; oh < output_h; ++oh) {
-                for (int ow = 0; ow < output_w; ++ow) acc[ow] = -1e9f;
+                for (int ow = 0; ow < output_w; ++ow) acc[ow] = MAXPOOL_NEG_INF;
 
                 for (int ph = 0; ph < 2; ++ph) {
                     int ih = oh * 2 + ph;
@@ -735,14 +732,4 @@ void conv2d_forward_im2col(const Tensor& input, const Tensor& weight, const Tens
         }
     }
 }
-
-
-/* Optimizations to try:
-*   - Loop reordering / change data structure for better cache locality
-*   - Restrict pointers to help compiler optimizations
-*   - Tiling / blocking to improve cache reuse
-*   - Loop unrolling + multiple accumulators to reduce loop overhead
-*   - SIMD vectorization (AVX2, AVX512, etc.)
-*   - Parallelism (OpenMP, MPI, etc.)
-*/
 

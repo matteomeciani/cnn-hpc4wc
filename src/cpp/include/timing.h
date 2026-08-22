@@ -87,12 +87,7 @@ static inline double get_elapsed_os_sec(const timer_context_t* ctx) {
     return (double)(ctx->os_stop_nsec - ctx->os_start_nsec) / 1e9;
 }
 
-static inline double get_elapsed_os_nsec(const timer_context_t* ctx) {
-    return (double)(ctx->os_stop_nsec - ctx->os_start_nsec);
-}
-
-
-static int _cmp_double(const void *a, const void *b) {
+static inline int _cmp_double(const void *a, const void *b) {
     double da = *(const double *)a, db = *(const double *)b;
     return (da > db) - (da < db);
 }
@@ -112,7 +107,7 @@ static inline double compute_median(double *arr, int n) {
  * ============================================================================
 */
 #ifdef __linux__
-static long _perf_event_open(struct perf_event_attr *hw_event, pid_t pid,
+static inline long _perf_event_open(struct perf_event_attr *hw_event, pid_t pid,
                               int cpu, int group_fd, unsigned long flags) {
     return syscall(SYS_perf_event_open, hw_event, pid, cpu, group_fd, flags);
 }
@@ -154,7 +149,7 @@ static inline void pmu_cycles_close(pmu_ctx_t *ctx) {
 }
 
 #else
-/* macOS Fallback Stubs (PMU registers require kernel extensions/Instruments on macOS) */
+// macOS fallback
 static inline int pmu_cycles_init(pmu_ctx_t *ctx) {
     (void)ctx;
     return -1; 

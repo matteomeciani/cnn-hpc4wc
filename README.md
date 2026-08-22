@@ -87,9 +87,11 @@ You are now back to your normal shell.
 
 ```bash
 make help              # see all available targets
-make submit-pytorch    # submit GPU job to Slurm
+make train             # submit GPU training job to Slurm
+make run               # submit the C++ benchmark + PyTorch comparison
+make verify            # submit the C++ run + Python verifier
 make logs              # tail the latest log file
-make clean             # remove logs and saved model checkpoints
+make clean             # remove build artefacts and saved model checkpoints
 ```
 
 The sbatch scripts handle activating the uenv and venv automatically for each job.
