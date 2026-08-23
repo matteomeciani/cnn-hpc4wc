@@ -414,7 +414,10 @@ int main(int argc, char** argv) {
     // Persisted for benchmark.py's C++ vs Python comparison table.
     // Writes every benchmarked implementation (not just the baseline) as a
     // JSON array, so benchmark.py can compare Python against all of them.
-    std::ofstream timing_file("../python/weights_cpp/cpp_timing.json");
+    // Filename is batch-size-specific so that concurrently-running jobs for
+    // different batch sizes don't race on the same output file.
+    std::ofstream timing_file("../python/weights_cpp/cpp_timing_batch" +
+                               std::to_string(batch_size) + ".json");
     if (timing_file.is_open()) {
         timing_file << "[\n";
         bool first = true;

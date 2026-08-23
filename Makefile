@@ -20,7 +20,7 @@ C_BOLD_YELLOW := \033[1;33m
 # Compiler & flags
 # -----------------------------------------------------------------------------
 CXX      := g++
-CXXFLAGS := -std=c++17 -O3 -march=native -mcpu=native -ftree-vectorize -Wall -Wextra -Wpedantic -DNDEBUG
+CXXFLAGS := -std=c++17 -O3 -march=native -mcpu=native -ftree-vectorize -fopenmp-simd -Wall -Wextra -Wpedantic -DNDEBUG
 PYTHON   := python3
 
 UENV_VIEW := pytorch/v2.9.1:v2
@@ -37,7 +37,7 @@ BATCH_SIZE      ?= 1
 
 # Debug build:     make DEBUG=1 build
 ifdef DEBUG
-  CXXFLAGS := -std=c++17 -O0 -g -fsanitize=address,undefined -Wall -Wextra
+  CXXFLAGS := -std=c++17 -O0 -g -fsanitize=address,undefined -fopenmp-simd -Wall -Wextra
 endif
 
 # ASCII art image:  make PRINT_ASCII=1 build

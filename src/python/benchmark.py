@@ -44,10 +44,10 @@ def print_ascii_image(image_tensor):
 def print_comparison(python_time_sec, num_runs, cpp_timing_path):
     '''
       A side-by-side comparison of every C++ implementation's median time/cycles
-      against Python is printed. C++ numbers come from cpp_timing.json (a JSON
-      array written by cnn_forward, one entry per implementation in
-      CNN_IMPLEMENTATIONS); Python does not currently sample hardware cycle
-      counters.
+      against Python is printed. C++ numbers come from cpp_timing_batch<N>.json
+      (a JSON array written by cnn_forward, one entry per implementation in
+      CNN_IMPLEMENTATIONS, named after the batch size it was run with);
+      Python does not currently sample hardware cycle counters.
     '''
     entries = []
     if os.path.isfile(cpp_timing_path):
@@ -73,8 +73,8 @@ def print_comparison(python_time_sec, num_runs, cpp_timing_path):
     print(f"{'Python/PyTorch':<42} | {py_time_str:<14} | {'-':<12}")
 
     if not entries:
-        print("\n(C++ timing not found — run ../../build/cnn_forward first to populate "
-              "weights_cpp/cpp_timing.json.)")
+        print(f"\n(C++ timing not found — run ../../build/cnn_forward first to populate "
+              f"{cpp_timing_path}.)")
         return
 
     for entry in entries:
@@ -170,7 +170,7 @@ def main():
     print(f"The network has successfully predicted the digit: {predicted_digit}")
 
     median_time = float(np.median(run_times))
-    print_comparison(median_time, args.num_runs, w_path + 'cpp_timing.json')
+    print_comparison(median_time, args.num_runs, w_path + f'cpp_timing_batch{batch_size}.json')
 
 
 if __name__ == '__main__':
