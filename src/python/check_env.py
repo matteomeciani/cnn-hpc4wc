@@ -4,7 +4,7 @@ check_env.py
 Run this on Santis, inside the same uenv + venv as used for train.py / benchmark.py,
 to assess exact software-stack.
 
-Use with submit_check_env.sh
+Use with submit_check_env.sh via  make check-env 
 """
 
 import sys
