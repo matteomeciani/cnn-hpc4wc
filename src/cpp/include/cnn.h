@@ -19,24 +19,13 @@ struct CNNContext {
 typedef void (*cnn_func)(CNNContext&);
 
 /*
-* CNN forward pass function.
-* This function performs a forward pass through a convolutional neural network (CNN) 
-* using the provided context. It takes a CNNContext structure as input, which contains 
-* references to the input batch, weights, biases, and intermediate tensors for each 
-* layer of the CNN. The function executes the following sequence of operations:
-* 1. Convolutional Layer 1: Applies a 2D convolution operation using the provided 
-*    weights and biases, followed by a ReLU activation function and max pooling.
-* 2. Convolutional Layer 2: Similar to the first layer, it applies a 2D convolution,
-*    ReLU activation, and max pooling.
-* 3. Convolutional Layer 3: Performs a 2D convolution, ReLU activation, and adaptive 
-*    average pooling.
-* 4. Fully Connected Layer: Applies a linear transformation using the provided weights
-*    and biases to produce the final logits.
-*
-*
-* @param ctx A reference to a CNNContext structure containing the input batch, weights,
-*
-*/
+ * Every cnn_* implementation below follows the same fixed architecture, just
+ * with a different conv2d/maxpool2d kernel plugged in:
+ *   1. Conv1 -> ReLU -> MaxPool
+ *   2. Conv2 -> ReLU -> MaxPool
+ *   3. Conv3 -> ReLU -> AdaptiveAvgPool
+ *   4. Linear -> final logits
+ */
 
 /*
 * Simple nested loops implementation of the forward pass of a CNN.

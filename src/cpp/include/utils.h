@@ -1,5 +1,5 @@
-#ifndef utils_H
-#define utils_H
+#ifndef UTILS_H
+#define UTILS_H
 
 #include "cnn_internals.h"
 
@@ -146,4 +146,4 @@ inline bool implementation_matches_filter(const std::string &name, const char *f
     return false;
 }
 
-#endif // utils_H
+#endif // UTILS_H

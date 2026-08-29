@@ -153,7 +153,7 @@ def print_results(results):
 # Main function
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--device', type=str, default='cpu', choices=['cpu', 'cuda'])
+    parser.add_argument('--device', type=str, default='cuda', choices=['cpu', 'cuda'])
     parser.add_argument('--k_folds', type=int, default=K_FOLDS)
     parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
     parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
