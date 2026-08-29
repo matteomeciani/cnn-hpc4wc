@@ -1,13 +1,13 @@
-Job ID:  823867
-Node:    nid005101
-Start:   Sun Aug 23 18:03:19 CEST 2026
+Job ID:  834635
+Node:    nid005229
+Start:   Sat Aug 29 18:04:55 CEST 2026
 === C++ Compiler Version ===
 g++ (Spack GCC) 14.2.0
 make[1]: Entering directory '/users/course_00420/cnn-hpc4wc'
-g++ -std=c++17 -O3 -march=native -mcpu=native -ftree-vectorize -fopenmp-simd -Wall -Wextra -Wpedantic -DNDEBUG -DNUM_RUNS=30 -DNUM_WARMUP_RUNS=10 -DBATCH_SIZE=100 -Isrc/cpp -o build/cnn_forward src/cpp/benchmark.cpp src/cpp/cnn_internals.cpp src/cpp/cnn.cpp
+g++ -std=c++17 -O3 -march=native -mcpu=native -ftree-vectorize -fopenmp-simd -Wall -Wextra -Wpedantic -DNDEBUG -DNUM_RUNS=30 -DNUM_WARMUP_RUNS=10 -DBATCH_SIZE=1 -Isrc/cpp -o build/cnn_forward src/cpp/benchmark.cpp src/cpp/cnn_internals.cpp src/cpp/cnn.cpp
 [1;32mBuild successful:[0m build/cnn_forward
 make[1]: Leaving directory '/users/course_00420/cnn-hpc4wc'
-Batch size: 100
+Batch size: 1
 Memory allocation is starting...
 MNIST dataset successfully loaded.
 
@@ -29,8 +29,8 @@ Runs: 30 measured, 10 warmup
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 1.47111e+09
-  Median time   : 0.456917 s (456.917 ms)
+  Median cycles : 1.45692e+07
+  Median time   : 0.00449035 s (4.49035 ms)
 
 
 
@@ -41,8 +41,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 6.02837e+08
-  Median time   : 0.183829 s (183.829 ms)
+  Median cycles : 5.96472e+06
+  Median time   : 0.00182589 s (1.82589 ms)
 
 
 
@@ -53,8 +53,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 1.89505e+08
-  Median time   : 0.0579225 s (57.9225 ms)
+  Median cycles : 1.84966e+06
+  Median time   : 0.000565472 s (0.565472 ms)
 
 
 
@@ -65,8 +65,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 7.1479e+08
-  Median time   : 0.218438 s (218.438 ms)
+  Median cycles : 7.10068e+06
+  Median time   : 0.00217637 s (2.17637 ms)
 
 
 
@@ -77,8 +77,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 7.12513e+08
-  Median time   : 0.217679 s (217.679 ms)
+  Median cycles : 7.08594e+06
+  Median time   : 0.0021721 s (2.1721 ms)
 
 
 
@@ -89,8 +89,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 5.3422e+08
-  Median time   : 0.16337 s (163.37 ms)
+  Median cycles : 5.30481e+06
+  Median time   : 0.00163118 s (1.63118 ms)
 
 
 
@@ -101,8 +101,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 3.35026e+08
-  Median time   : 0.102438 s (102.438 ms)
+  Median cycles : 3.31695e+06
+  Median time   : 0.00101427 s (1.01427 ms)
 
 
 
@@ -113,8 +113,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 1.04485e+08
-  Median time   : 0.0319509 s (31.9509 ms)
+  Median cycles : 1.08206e+06
+  Median time   : 0.0003308 s (0.3308 ms)
 
 
 
@@ -125,8 +125,8 @@ Warmup complete. Starting 30 benchmark runs...
 Running 10 warmup runs...
 Warmup complete. Starting 30 benchmark runs...
 === Results ===
-  Median cycles : 1.07401e+08
-  Median time   : 0.0328422 s (32.8422 ms)
+  Median cycles : 1.07443e+06
+  Median time   : 0.000328608 s (0.328608 ms)
 
 
 
@@ -134,32 +134,32 @@ Warmup complete. Starting 30 benchmark runs...
 
 Implementation                             | vs Base      | Cycles               | Seconds       
 -------------------------------------------------------------------------------------------------
-Baseline Nested-Loop                       | 1.00x        | 1471112797.50        | 0.456917      
-Baseline w. blocking                       | 2.44x        | 602836888.00         | 0.183829      
-Baseline w. im2col matrix multiplication   | 7.76x        | 189504799.00         | 0.057923      
-Restructured Nested-Loop                   | 2.06x        | 714790227.50         | 0.218438      
-Hoisted Vars + restrict                    | 2.06x        | 712513238.50         | 0.217679      
-Reordered Nested-Loop                      | 2.75x        | 534220229.00         | 0.163370      
-Specialized Implementation                 | 4.39x        | 335026012.50         | 0.102438      
-NEON Blocked Implementation                | 14.08x       | 104485315.00         | 0.031951      
-Specialized MaxPool2D                      | 13.70x       | 107400809.00         | 0.032842      
+Baseline Nested-Loop                       | 1.00x        | 14569208.00          | 0.004490      
+Baseline w. blocking                       | 2.44x        | 5964722.50           | 0.001826      
+Baseline w. im2col matrix multiplication   | 7.88x        | 1849665.00           | 0.000565      
+Restructured Nested-Loop                   | 2.05x        | 7100685.00           | 0.002176      
+Hoisted Vars + restrict                    | 2.06x        | 7085935.00           | 0.002172      
+Reordered Nested-Loop                      | 2.75x        | 5304813.50           | 0.001631      
+Specialized Implementation                 | 4.39x        | 3316945.50           | 0.001014      
+NEON Blocked Implementation                | 13.46x       | 1082055.50           | 0.000331      
+Specialized MaxPool2D                      | 13.56x       | 1074428.50           | 0.000329      
 
-Benchmark sink: -940248
+Benchmark sink: -11799.7
 
-Batch size: 100
+Batch size: 1
 The network has successfully predicted the digit: 7
 
 === C++ (all implementations) vs Python/PyTorch (30 runs) ===
 Implementation                             | Time           | Relative    
 --------------------------------------------------------------------------
-Python/PyTorch                             | 0.018662 s     | -           
-Baseline Nested-Loop                       | 0.456917 s     | Py 24.48x   
-Baseline w. blocking                       | 0.183829 s     | Py 9.85x    
-Baseline w. im2col matrix multiplication   | 0.057923 s     | Py 3.10x    
-Restructured Nested-Loop                   | 0.218438 s     | Py 11.70x   
-Hoisted Vars + restrict                    | 0.217679 s     | Py 11.66x   
-Reordered Nested-Loop                      | 0.163370 s     | Py 8.75x    
-Specialized Implementation                 | 0.102438 s     | Py 5.49x    
-NEON Blocked Implementation                | 0.031951 s     | Py 1.71x    
-Specialized MaxPool2D                      | 0.032842 s     | Py 1.76x    
-End:     Sun Aug 23 18:04:30 CEST 2026
+Python/PyTorch                             | 0.000322 s     | -           
+Baseline Nested-Loop                       | 0.004490 s     | Py 13.93x   
+Baseline w. blocking                       | 0.001826 s     | Py 5.66x    
+Baseline w. im2col matrix multiplication   | 0.000565 s     | Py 1.75x    
+Restructured Nested-Loop                   | 0.002176 s     | Py 6.75x    
+Hoisted Vars + restrict                    | 0.002172 s     | Py 6.74x    
+Reordered Nested-Loop                      | 0.001631 s     | Py 5.06x    
+Specialized Implementation                 | 0.001014 s     | Py 3.15x    
+NEON Blocked Implementation                | 0.000331 s     | Py 1.03x    
+Specialized MaxPool2D                      | 0.000329 s     | Py 1.02x    
+End:     Sat Aug 29 18:05:06 CEST 2026
