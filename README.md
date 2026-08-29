@@ -11,25 +11,26 @@ benchmarked against each other on CSCS Santis.
 ## Repo structure
 
 ```
-src/cpp/            C++ forward-pass implementations
-  cnn.cpp             model definition mirroring model.py
-  cnn_internals.cpp   layer kernels (conv2d, maxpool2d, linear, ...): the optimization target
-  benchmark.cpp       entry point: runs forward pass, verify, or profile modes
-  include/            headers (cnn.h, cnn_internals.h, timing.h, utils.h)
+src/cpp/                       C++ forward-pass implementations
+  cnn.cpp                        model definition mirroring model.py
+  cnn_internals.cpp              layer kernels (conv2d, maxpool2d, linear, ...): the optimization target
+  benchmark.cpp                  entry point: runs forward pass, verify, or profile modes
+  include/                       headers (cnn.h, cnn_internals.h, timing.h, utils.h)
 
-src/python/          PyTorch reference implementation
-  model.py             network architecture
-  train.py             training script
-  verify.py            compares C++ output against PyTorch for numerical correctness
-  benchmark.py         PyTorch-side timing
-  weights_cpp/         exported weights, C++ logits, and timing/verification results
+src/python/                    PyTorch reference implementation
+  model.py                       network architecture
+  train.py                       training script
+  verify.py                      compares C++ output against PyTorch for numerical correctness
+  benchmark.py                   PyTorch-side timing
+  weights_cpp/                   exported weights, C++ logits, and timing/verification results
 
-data/MNIST/          MNIST dataset (raw idx files)
-scripts/             Slurm submission scripts (run, verify, train)
-build/               compiled binary and generated assembly (.s) files
-logs/                Slurm job logs
-Makefile             build/run/submit targets, see `make help`
-requirements.txt     Python dependencies
+data/MNIST/                    MNIST dataset (raw idx files)
+scripts/                         Slurm submission scripts (run, verify, train)
+build/                           compiled binary and generated assembly (.s) files
+logs/                            Slurm job logs
+Makefile                         build/run/submit targets, see `make help`
+requirements.txt                 Python dependencies
+hpc4wc_cnn_report.pdf            Project report
 ```
 
 ## Setup (CSCS Santis)
