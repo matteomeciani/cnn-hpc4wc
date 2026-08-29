@@ -75,7 +75,7 @@ TARGET   := $(BUILD_DIR)/cnn_forward
 # -----------------------------------------------------------------------------
 # Phony declarations
 # -----------------------------------------------------------------------------
-.PHONY: help all build run verify train \
+.PHONY: help all build run verify train check-env\
         run-local verify-local train-local all-local \
         asm logs clean _check_slurm
 
@@ -92,6 +92,7 @@ help:
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'train'           'Submit GPU training job to Slurm'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'all'             'Submit run + verify + train to Slurm'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'logs'            'Tail the latest Slurm log file'
+	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'check-env'       'Submit environment/version check to Slurm (for report)'
 	@printf '\n$(C_BOLD)Local (login node):$(C_RESET)\n'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'build'           'Compile the C++ forward-pass binary'
 	@printf '  $(C_CYAN)%-22s$(C_RESET) %s\n' 'asm'             'Generate C++ assembly files (.s) in build/'
@@ -182,6 +183,10 @@ train: _check_slurm
 	@sbatch $(SCRIPTS)/submit_pytorch.sh
 
 all: run verify train
+
+check-env: _check_slurm
+	@mkdir -p $(LOGS_DIR)
+	@sbatch $(SCRIPTS)/submit_check_env.sh
 
 logs:
 	@if [ -z "$$(ls -A $(LOGS_DIR)/ 2>/dev/null)" ]; then \
